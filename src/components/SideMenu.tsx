@@ -8,7 +8,7 @@ export default function SideMenu() {
     <IonMenu type="overlay" contentId="main">
       <IonContent>
         <IonList lines="none">
-          <IonListHeader>ShootNow</IonListHeader>
+          <IonListHeader>📷ShootNow</IonListHeader>
           <IonMenuToggle auto-hide="false">
             <IonItem routerLink="/main/home">
               <IonIcon slot="start" icon={homeSharp} />

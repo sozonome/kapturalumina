@@ -24,6 +24,8 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import MainTabs from './pages/MainTabs';
 import SideMenu from './components/SideMenu';
+import ComponentTestPage from './pages/ComponentTestPage';
+import CameraBasic from './pages/LearnModules/CameraBasic';
 
 const App: React.FC = () => (
   <IonApp>
@@ -32,6 +34,9 @@ const App: React.FC = () => (
         <SideMenu/>
         <IonRouterOutlet id="main">
           <Route path="/main" component={MainTabs} />
+          <Route path="/learn/camera-basic" component={CameraBasic} exact={true} />
+
+          <Route path="/test" component={ComponentTestPage}/>
           {/* <Route path="/home" component={Home} exact={true} /> */}
           <Route exact path="/" render={() => <Redirect to="/main" />} />
 
