@@ -27,10 +27,10 @@ export default function ComponentTestPage() {
             <IonCol>
               <IonProgressBar color="primary" value={prog}></IonProgressBar>
               <IonButtons>
-                <IonButton onClick={()=>setProg( prog == 0 ? prog : prog - 0.2 )}>
+                <IonButton onClick={()=>setProg( prog === 0 ? prog : prog - 0.2 )}>
                   <IonIcon icon={removeSharp}  />
                 </IonButton>
-                <IonButton onClick={()=> setProg( prog == 1 ? prog : prog+0.2)}>
+                <IonButton onClick={()=> setProg( prog === 1 ? prog : prog+0.2)}>
                   <IonIcon icon={addSharp}  />
                 </IonButton>
               </IonButtons>

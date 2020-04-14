@@ -26,20 +26,25 @@ import MainTabs from './pages/MainTabs';
 import SideMenu from './components/SideMenu';
 import ComponentTestPage from './pages/ComponentTestPage';
 import CameraBasic from './pages/LearnModules/CameraBasic';
+import AboutPage from './pages/AboutPage';
 
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
-      <IonSplitPane contentId="main">
-        <SideMenu/>
-        <IonRouterOutlet id="main">
-          <Route path="/main" component={MainTabs} />
-          <Route path="/learn/camera-basic" component={CameraBasic} exact={true} />
+      <IonSplitPane contentId='main'>
+        <SideMenu />
+        <IonRouterOutlet id='main'>
+          <Route path='/main' component={MainTabs} />
+          <Route
+            path='/learn/camera-basic'
+            component={CameraBasic}
+            exact={true}
+          />
 
-          <Route path="/test" component={ComponentTestPage}/>
+          <Route path='/about' component={AboutPage} />
+          <Route path='/test' component={ComponentTestPage} />
           {/* <Route path="/home" component={Home} exact={true} /> */}
-          <Route exact path="/" render={() => <Redirect to="/main" />} />
-
+          <Route exact path='/' render={() => <Redirect to='/main' />} />
         </IonRouterOutlet>
       </IonSplitPane>
     </IonReactRouter>

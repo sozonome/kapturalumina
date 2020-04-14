@@ -1,7 +1,9 @@
 import React from 'react'
-import { IonPage, IonToolbar, IonHeader, IonTitle, IonContent, IonButtons, IonBackButton } from '@ionic/react'
+import { IonPage, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, IonContent } from '@ionic/react'
 
-export default function AboutPage() {
+export default function SubModuleList(
+  moduleTitle: string,
+) {
   return (
     <IonPage>
       <IonHeader>
@@ -9,11 +11,13 @@ export default function AboutPage() {
           <IonButtons slot="start">
             <IonBackButton />
           </IonButtons>
-          <IonTitle>Tentang Aplikasi</IonTitle>
+          <IonTitle>{moduleTitle}</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
-
+        {
+          
+        }
       </IonContent>
     </IonPage>
   )
