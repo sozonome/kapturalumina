@@ -5,8 +5,8 @@ Basic Photography Learning Mobile Applications with Gamification
 Final Project of [Agustinus Nathaniel](https://agustinusnathaniel.com)
 
 ## Tech Stacks
-* Framework : ionic React
-* Backend : Firebase
+* Framework : Ionic React
+* Database + Auth : Firebase
 * Deployment : Zeit Now
 
 ## Getting Started
@@ -20,4 +20,10 @@ Final Project of [Agustinus Nathaniel](https://agustinusnathaniel.com)
 
 ## Previews
 
+## General Build Guide
+
+## Build to APK Guide
+
 ## Resources, References
+- [Ionic Docs](https://ionicframework.com/docs/react) 
+- [Ionic + React + Firebase Tutorial](https://www.youtube.com/playlist?list=PLYxzS__5yYQlhvyLXSKhv4oAvl06MInSE)

@@ -25,8 +25,9 @@ import './theme/variables.css';
 import MainTabs from './pages/MainTabs';
 import SideMenu from './components/SideMenu';
 import ComponentTestPage from './pages/ComponentTestPage';
-import CameraBasic from './pages/LearnModules/CameraBasic';
 import AboutPage from './pages/AboutPage';
+import SubModulePage from './pages/SubModulePage';
+import SubModuleListPage from './pages/SubModuleListPage';
 
 const App: React.FC = () => (
   <IonApp>
@@ -35,11 +36,8 @@ const App: React.FC = () => (
         <SideMenu />
         <IonRouterOutlet id='main'>
           <Route path='/main' component={MainTabs} />
-          <Route
-            path='/learn/camera-basic'
-            component={CameraBasic}
-            exact={true}
-          />
+          <Route exact path="/learn/:chapterId" component={SubModuleListPage} />
+          <Route exact path="/learn/:chapterId/:subModuleId" component={SubModulePage} />
 
           <Route path='/about' component={AboutPage} />
           <Route path='/test' component={ComponentTestPage} />

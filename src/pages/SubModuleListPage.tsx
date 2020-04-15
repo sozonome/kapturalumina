@@ -1,8 +1,8 @@
 import React from 'react'
-import { IonPage, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, IonContent } from '@ionic/react'
+import { IonPage, IonHeader, IonContent, IonToolbar, IonButtons, IonBackButton, IonTitle } from '@ionic/react'
 
-export default function SubModuleList(
-  moduleTitle: string,
+export default function SubModuleListPage(
+  chapterTitle: string,
 ) {
   return (
     <IonPage>
@@ -11,7 +11,7 @@ export default function SubModuleList(
           <IonButtons slot="start">
             <IonBackButton />
           </IonButtons>
-          <IonTitle>{moduleTitle}</IonTitle>
+          <IonTitle>{chapterTitle}</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>

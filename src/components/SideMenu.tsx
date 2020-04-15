@@ -61,7 +61,7 @@ export default function SideMenu() {
         </IonList>
         <IonList lines='none'>
           <IonListHeader>Hello</IonListHeader>
-          <IonMenuToggle>
+          <IonMenuToggle auto-hide="false">
             <IonItem routerLink='/about'>
               <IonIcon slot='start' icon={informationCircleSharp} />
               <IonLabel>Tentang ShootNow</IonLabel>

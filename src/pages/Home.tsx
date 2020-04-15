@@ -16,37 +16,37 @@ import {
   IonCardSubtitle,
   IonCardContent,
   IonText,
-} from '@ionic/react';
-import React from 'react';
-import './Home.css';
-import { book, camera } from 'ionicons/icons';
+} from "@ionic/react";
+import React from "react";
+import "./Home.css";
+import { book, camera } from "ionicons/icons";
 
 const Home: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonButtons slot='start'>
+          <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
           <IonTitle>Home</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
-        <IonHeader collapse='condense'>
+      <IonContent className="ion-padding">
+        <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size='large'>Home</IonTitle>
+            <IonTitle size="large">Home</IonTitle>
           </IonToolbar>
         </IonHeader>
         <IonGrid>
           <IonRow>
             <IonCol>
-              <IonTitle style={{ marginTop: '12px' }}>Halo, User!</IonTitle>
+              <IonTitle style={{ marginTop: "12px" }}>Halo, User!</IonTitle>
             </IonCol>
           </IonRow>
           <IonRow>
             <IonCol>
-              <IonCard routerLink='/learn/camera-basic'>
+              <IonCard>
                 <IonCardHeader>
                   <IonCardTitle>
                     <IonIcon icon={camera} /> Kamera
@@ -59,7 +59,7 @@ const Home: React.FC = () => {
                   <IonText></IonText>
                 </IonCardContent>
               </IonCard>
-              <IonCard routerLink='/learn/camera-basic'>
+              <IonCard>
                 <IonCardHeader>
                   <IonCardTitle>
                     <IonIcon icon={camera} /> Kamera

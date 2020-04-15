@@ -1,7 +1,8 @@
-export interface LearnModule{
+export interface Chapter{
   id: string,
   title: string,
   subtitle?: string,
+  caption?: string,
   thumbnail?: string,
   subModules: SubModule[],
   quiz?: Quiz
@@ -13,11 +14,14 @@ export interface SubModule {
   thumbnail?:string,
   subtitle?: string,
   slides: Slide[],
-  quiz: Quiz
+  quiz: Quiz,
+  subModules?: SubModule[]
 }
 
 export interface Slide {
+  id: string,
   title?: string,
+  titleType?: "big" | "regular",
   text?: string,
   img?: string
 }
