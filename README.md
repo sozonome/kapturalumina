@@ -27,3 +27,4 @@ Final Project of [Agustinus Nathaniel](https://agustinusnathaniel.com)
 ## Resources, References
 - [Ionic Docs](https://ionicframework.com/docs/react) 
 - [Ionic + React + Firebase Tutorial](https://www.youtube.com/playlist?list=PLYxzS__5yYQlhvyLXSKhv4oAvl06MInSE)
+- [Environment Variables](https://www.youtube.com/watch?v=17UVejOw3zA)

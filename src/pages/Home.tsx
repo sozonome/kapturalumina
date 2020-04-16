@@ -19,7 +19,7 @@ import {
 } from "@ionic/react";
 import React from "react";
 import "./Home.css";
-import { book, camera } from "ionicons/icons";
+import { camera } from "ionicons/icons";
 
 const Home: React.FC = () => {
   return (
