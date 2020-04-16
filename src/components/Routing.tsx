@@ -13,9 +13,8 @@ import RegisterPage from "../pages/RegisterPage";
 export default function Routing() {
   return (
     <IonRouterOutlet id="main">
+      <Route component={MainTabs} />
       <Route path="/main" component={MainTabs} />
-      <Route exact path="/login" component={LoginPage} />
-      <Route exact path="/register" component={RegisterPage} />
       <Route exact path="/learn/:chapterId" component={ChapterPage} />
       <Route
         exact

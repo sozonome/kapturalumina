@@ -22,8 +22,14 @@ import {
   informationCircleSharp,
   openSharp,
 } from "ionicons/icons";
+import { logoutUser } from "../firebaseConfig";
+import { Redirect } from "react-router";
 
-export default function SideMenu() {
+export default function SideMenu(props: any) {
+  function logout() {
+    logoutUser().then(props.history.push("/"));
+  }
+
   return (
     <IonMenu type="overlay" contentId="main">
       <IonContent>
@@ -50,13 +56,7 @@ export default function SideMenu() {
         </IonList>
         <IonList lines="none">
           <IonListHeader>Akun</IonListHeader>
-          <IonMenuToggle auto-hide="false">
-            <IonItem routerLink="/login">
-              <IonIcon slot="start" icon={logInSharp} />
-              <IonLabel>Masuk</IonLabel>
-            </IonItem>
-          </IonMenuToggle>
-          <IonItem>
+          <IonItem onClick={logout}>
             <IonIcon slot="start" icon={logOutSharp} />
             <IonLabel>Keluar</IonLabel>
           </IonItem>

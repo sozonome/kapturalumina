@@ -13,12 +13,15 @@ import {
   IonCol,
   IonButton,
   IonText,
+  IonLoading,
 } from "@ionic/react";
 import { Link } from "react-router-dom";
 import { presentToast } from "../components/Toast";
 import { registerUser } from "../firebaseConfig";
 
 export default function RegisterPage() {
+  const [wait, setWait] = useState<boolean>(false);
+
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -28,17 +31,19 @@ export default function RegisterPage() {
 
   async function register() {
     // Validations
+    setWait(true);
     if (password !== cpassword) {
       return presentToast("Kata Sandi tidak sesuai.");
     }
     if (password === "" || email === "") {
       return presentToast("Mohon lengkapi data Anda.", 3000, "warning");
     }
-    
+    setWait(false);
+
     // Post and Get response from Firebase
     const res = await registerUser(email, password);
-    if(res){
-      presentToast('Pendaftaran berhasil!')
+    if (res) {
+      presentToast("Pendaftaran berhasil!");
     }
   }
 
@@ -49,6 +54,7 @@ export default function RegisterPage() {
           <IonTitle>Masuk</IonTitle>
         </IonToolbar>
       </IonHeader>
+      { <IonLoading message="Pendaftaran sedang di proses..." isOpen={wait} duration={0} /> }
       <IonContent className="ion-padding">
         <IonList>
           {/* <IonItem className="ion-padding-bottom">

@@ -10,6 +10,7 @@ import {
   MEASUREMENT_ID,
 } from "./environment/environment";
 import { presentToast } from "./components/Toast";
+import { resolve } from "dns";
 
 const config = {
   apiKey: API_KEY,
@@ -32,18 +33,20 @@ export async function loginUser(userEmail: string, userPassword: string) {
       .signInWithEmailAndPassword(userEmail, userPassword);
     return true;
   } catch (error) {
-    if(error.code === "auth/user-not-found"){
-      presentToast("Anda belum terdaftar.", 4000, "warning");
-    } else if(error.code === "auth/wrong-password"){
-      presentToast("Email atau Kata Sandi Anda salah.", 3000, "warning");
-    } else {
-      presentToast(error.message, 4000, "warning");
-    }
+    presentToast("Email atau Kata Sandi yang kamu masukkan salah. Silakan coba lagi.", 4000, "warning");
     return false;
   }
 
   // If present, use can access app
   // If not, error
+}
+
+export async function logoutUser(){
+  try{
+    await firebase.auth().signOut();
+  }catch(error){
+    console.log(error);
+  }
 }
 
 export async function registerUser(userEmail: string, userPassword: string) {
@@ -56,4 +59,20 @@ export async function registerUser(userEmail: string, userPassword: string) {
     presentToast(error.message, 4000, "warning");
     return false;
   }
+}
+
+export function getCurrentUser(){
+  return new Promise((resolve, reject)=> {
+    const unsubscribe = firebase.auth().onAuthStateChanged(
+      function(user){
+        if(user) {
+          resolve(user)
+          console.log(user.email, user.displayName);
+        } else{
+          resolve(null)
+        }
+        unsubscribe()
+      }
+    )
+  })
 }

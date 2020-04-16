@@ -14,23 +14,33 @@ import {
   IonRow,
   IonCol,
   IonText,
+  IonLoading,
 } from "@ionic/react";
 import { loginUser } from "../firebaseConfig";
 import { presentToast } from "../components/Toast";
+import { Redirect, useHistory } from "react-router";
 
-export default function LoginPage() {
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
+export default function LoginPage(props: any) {
+  const [wait, setWait] = useState<boolean>(false);
+
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
   async function login() {
+    setWait(true);
     const res = await loginUser(email, password);
-    if(res){
-      presentToast('Berhasil Masuk!')
+    if (res) {
+      presentToast("Berhasil Masuk!");
+    } else {
+      setEmail("");
+      setPassword("");
     }
+    setWait(false);
   }
 
   return (
     <IonPage>
+      {<IonLoading message="Mohon Tunggu..." duration={0} isOpen={wait} />}
       <IonContent>
         <IonHeader>
           <IonToolbar style={{ height: "20vh" }} color="tertiary">
@@ -41,6 +51,7 @@ export default function LoginPage() {
           <IonList>
             <IonItem>
               <IonInput
+                value={email}
                 onIonChange={(e) => setEmail(e.detail.value!)}
                 type="email"
                 placeholder="E-Mail Anda"
@@ -48,6 +59,7 @@ export default function LoginPage() {
             </IonItem>
             <IonItem>
               <IonInput
+                value={password}
                 type="password"
                 placeholder="Kata Sandi Anda"
                 onIonChange={(e) => setPassword(e.detail.value!)}
@@ -69,8 +81,7 @@ export default function LoginPage() {
               </IonCol>
             </IonRow>
             <IonRow>
-              <IonCol size="3" />
-              <IonCol size="6">
+              <IonCol className="ion-text-center">
                 <IonButton fill="clear">Lupa Kata Sandi</IonButton>
               </IonCol>
             </IonRow>
