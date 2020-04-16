@@ -26,9 +26,6 @@ import { logoutUser } from "../firebaseConfig";
 import { Redirect } from "react-router";
 
 export default function SideMenu(props: any) {
-  function logout() {
-    logoutUser().then(props.history.push("/"));
-  }
 
   return (
     <IonMenu type="overlay" contentId="main">
@@ -56,7 +53,7 @@ export default function SideMenu(props: any) {
         </IonList>
         <IonList lines="none">
           <IonListHeader>Akun</IonListHeader>
-          <IonItem onClick={logout}>
+          <IonItem>
             <IonIcon slot="start" icon={logOutSharp} />
             <IonLabel>Keluar</IonLabel>
           </IonItem>

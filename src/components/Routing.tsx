@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { IonRouterOutlet } from "@ionic/react";
 import { Route, Redirect } from "react-router";
 // import { MainTabs, ChapterPage, SubModulePage, AboutPage } from "../routes";
@@ -14,6 +14,8 @@ export default function Routing() {
   return (
     <IonRouterOutlet id="main">
       <Route component={MainTabs} />
+      <Route path="/login" component={LoginPage} />
+      <Route path="/register" component={RegisterPage} />
       <Route path="/main" component={MainTabs} />
       <Route exact path="/learn/:chapterId" component={ChapterPage} />
       <Route

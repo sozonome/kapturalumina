@@ -22,7 +22,6 @@ import "@ionic/react/css/display.css";
 import "./theme/variables.css";
 
 // Components / Wrappers
-import AuthOnlyRouting from "./components/AuthOnlyRouting";
 import SideMenu from "./components/SideMenu";
 import Routing from "./components/Routing";
 
@@ -33,53 +32,37 @@ import { createStore } from "redux";
 import { getCurrentUser } from "./firebaseConfig";
 import { Redirect } from "react-router";
 import { BrowserRouter } from "react-router-dom";
+import AuthProvider from "./components/Auth";
 
 const store = createStore(reducer);
 
 const App: React.FC = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-  const [busy, setBusy] = useState<boolean>(true);
+  // const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  // const [busy, setBusy] = useState<boolean>(true);
 
-  useEffect(() => {
-    getCurrentUser().then((user) => {
-      if (user) {
-        setIsLoggedIn(true);
-      } 
-      setIsLoggedIn(false);
-      setBusy(false);
-    });
-  }, []);
-
-  const AppWrapper = () => {
-    if (!isLoggedIn) {
-      return <Redirect to="/login" />;
-    }
-    return (
-      <IonSplitPane contentId="main">
-        <SideMenu />
-        <Routing />
-      </IonSplitPane>
-    );
-  };
-
-  const AuthWrapper = () => {
-    if (isLoggedIn) {
-      return <Redirect to="/main" />;
-    }
-    return <AuthOnlyRouting />;
-  };
-  const MainWrapper = () => {
-    return (
-      <IonReactRouter>
-        <AuthWrapper />
-        <AppWrapper />
-      </IonReactRouter>
-    );
-  };
+  // useEffect(() => {
+  //   getCurrentUser().then((user) => {
+  //     if (user) {
+  //       setIsLoggedIn(true);
+  //     }
+  //     setIsLoggedIn(false);
+  //     setBusy(false);
+  //   });
+  // }, []);
 
   return (
     <Provider store={store}>
-      <IonApp>{busy ? <IonSpinner /> : <MainWrapper />}</IonApp>
+      <IonApp>
+        {/* {busy ? <IonSpinner /> : <MainWrapper />} */}
+        <AuthProvider>
+          <IonReactRouter>
+            <IonSplitPane contentId="main">
+              <SideMenu />
+              <Routing />
+            </IonSplitPane>
+          </IonReactRouter>
+        </AuthProvider>
+      </IonApp>
     </Provider>
   );
 };

@@ -23,7 +23,9 @@ const config = {
   measurementId: MEASUREMENT_ID,
 };
 
-firebase.initializeApp(config);
+const fbase = firebase.initializeApp(config);
+
+export default fbase;
 
 export async function loginUser(userEmail: string, userPassword: string) {
   // Auth with firebase

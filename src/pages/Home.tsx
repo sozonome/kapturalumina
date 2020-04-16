@@ -16,10 +16,13 @@ import {
   IonCardSubtitle,
   IonCardContent,
   IonText,
+  IonButton,
 } from "@ionic/react";
 import React from "react";
 import "./Home.css";
 import { camera } from "ionicons/icons";
+import { auth } from "firebase";
+import { logoutUser } from "../firebaseConfig";
 
 const Home: React.FC = () => {
   return (
@@ -70,6 +73,13 @@ const Home: React.FC = () => {
                   <IonText></IonText>
                 </IonCardContent>
               </IonCard>
+            </IonCol>
+          </IonRow>
+          <IonRow>
+            <IonCol>
+              <IonButton expand="block" onClick={()=> logoutUser()}>
+                Keluar
+              </IonButton>
             </IonCol>
           </IonRow>
         </IonGrid>
