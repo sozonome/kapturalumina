@@ -8,7 +8,6 @@ import {
   IonToolbar,
   IonList,
   IonItem,
-  IonButtons,
   IonButton,
   IonGrid,
   IonRow,
@@ -17,7 +16,7 @@ import {
   IonLoading,
 } from "@ionic/react";
 import { loginUser } from "../firebaseConfig";
-import { presentToast } from "../components/Toast";
+import { presentTopToast } from "../components/Toast";
 import { withRouter } from "react-router";
 
 function LoginPage(props: any) {
@@ -30,8 +29,8 @@ function LoginPage(props: any) {
     setWait(true);
     const res = await loginUser(email, password);
     if (res) {
-      presentToast("Berhasil Masuk!");
-      props.history.push('/');
+      presentTopToast("Berhasil Masuk!");
+      props.history.replace('/');
     } else {
       setEmail("");
       setPassword("");
@@ -76,6 +75,7 @@ function LoginPage(props: any) {
                   fill="solid"
                   color="success"
                   onClick={login}
+                  type="submit"
                 >
                   Masuk
                 </IonButton>

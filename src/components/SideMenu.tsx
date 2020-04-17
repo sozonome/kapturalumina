@@ -8,23 +8,18 @@ import {
   IonItem,
   IonLabel,
   IonIcon,
-  IonText,
-  IonTextarea,
 } from "@ionic/react";
 import "./SideMenu.css";
 import {
   homeSharp,
   listSharp,
   personSharp,
-  logInSharp,
   logOutSharp,
-  codeSharp,
   informationCircleSharp,
   openSharp,
 } from "ionicons/icons";
 import { logoutUser } from "../firebaseConfig";
-import { Redirect, withRouter } from "react-router";
-import RegisterPage from "../pages/RegisterPage";
+import { withRouter } from "react-router";
 import { presentToast } from "./Toast";
 
 function SideMenu(props: any) {
@@ -39,7 +34,7 @@ function SideMenu(props: any) {
     <IonMenu type="overlay" contentId="main">
       <IonContent>
         <IonList lines="none">
-          <IonListHeader>📷ShootNow</IonListHeader>
+          <IonListHeader><span role="img" aria-label="camera">📷</span>ShootNow</IonListHeader>
           <IonMenuToggle auto-hide="false">
             <IonItem routerLink="/main/home">
               <IonIcon slot="start" icon={homeSharp} />

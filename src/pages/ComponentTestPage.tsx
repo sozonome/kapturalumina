@@ -4,7 +4,6 @@ import { removeSharp, addSharp } from 'ionicons/icons';
 
 export default function ComponentTestPage() {
   const [prog, setProg] = useState(0.2);
-  console.log(prog)
 
   return (
     <IonPage>

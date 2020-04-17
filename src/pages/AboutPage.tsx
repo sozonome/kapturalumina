@@ -1,5 +1,5 @@
 import React from 'react'
-import { IonPage, IonToolbar, IonHeader, IonTitle, IonContent, IonButtons, IonBackButton, IonGrid, IonRow, IonCol, IonText } from '@ionic/react'
+import { IonPage, IonToolbar, IonHeader, IonTitle, IonContent, IonButtons, IonBackButton, IonText } from '@ionic/react'
 
 export default function AboutPage() {
   return (

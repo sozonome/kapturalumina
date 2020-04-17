@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { IonApp, IonSplitPane, IonSpinner } from "@ionic/react";
+import { IonApp, IonSplitPane } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 
 /* Core CSS required for Ionic components to work properly */
@@ -30,8 +30,6 @@ import { Provider } from "react-redux";
 import reducer from "./redux/reducer";
 import { createStore } from "redux";
 import { getCurrentUser } from "./firebaseConfig";
-import { Redirect } from "react-router";
-import { BrowserRouter } from "react-router-dom";
 
 const store = createStore(reducer);
 
@@ -39,24 +37,24 @@ const App: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [busy, setBusy] = useState<boolean>(true);
 
-  // useEffect(() => {
-  //   getCurrentUser().then((user) => {
-  //     if (user) {
-  //       setIsLoggedIn(true);
-  //     }
-  //     setIsLoggedIn(false);
-  //     setBusy(false);
-  //   });
-  // }, []);
+  useEffect(() => {
+    getCurrentUser().then((user) => {
+      if (user) {
+        setIsLoggedIn(true);
+      }else{
+        setIsLoggedIn(false);
+      }
+      setBusy(false);
+    });
+  }, []);
 
   return (
     <Provider store={store}>
       <IonApp>
-        {/* {busy ? <IonSpinner /> : <MainWrapper />} */}
         <IonReactRouter>
           <IonSplitPane contentId="main">
             <SideMenu />
-            <Routing />
+            <Routing isLoggedIn={isLoggedIn} />
           </IonSplitPane>
         </IonReactRouter>
       </IonApp>

@@ -41,10 +41,10 @@ function RegisterPage(props:any) {
     setWait(false);
 
     // Post and Get response from Firebase
-    const res = await registerUser(email, password);
+    const res = await registerUser(name, email, password);
     if (res) {
       presentToast("Pendaftaran berhasil!");
-      props.history.push('/login');
+      props.history.replace('/login');
     }
   }
 
@@ -58,13 +58,13 @@ function RegisterPage(props:any) {
       { <IonLoading message="Pendaftaran sedang di proses..." isOpen={wait} duration={0} /> }
       <IonContent className="ion-padding">
         <IonList>
-          {/* <IonItem className="ion-padding-bottom">
+          <IonItem className="ion-padding-bottom">
             <IonInput
               onIonChange={(e) => setName(e.detail.value!)}
               type="text"
               placeholder="Nama Anda"
             />
-          </IonItem> */}
+          </IonItem>
           <IonItem>
             <IonInput
               onIonChange={(e) => setEmail(e.detail.value!)}

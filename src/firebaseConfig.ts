@@ -1,4 +1,5 @@
-import * as firebase from "firebase";
+import * as firebase from "firebase/app";
+import "firebase/auth";
 import {
   API_KEY,
   AUTH_DOMAIN,
@@ -29,13 +30,16 @@ export default fbase;
 export async function loginUser(userEmail: string, userPassword: string) {
   // Auth with firebase
   try {
-    const res = await fbase
+    await fbase
       .auth()
       .signInWithEmailAndPassword(userEmail, userPassword);
-    console.log(res);
     return true;
   } catch (error) {
-    presentToast("Email atau Kata Sandi yang kamu masukkan salah. Silakan coba lagi.", 4000, "warning");
+    presentToast(
+      "Email atau Kata Sandi yang kamu masukkan salah. Silakan coba lagi.",
+      4000,
+      "warning"
+    );
     return false;
   }
 
@@ -43,19 +47,25 @@ export async function loginUser(userEmail: string, userPassword: string) {
   // If not, error
 }
 
-export async function logoutUser(){
-  try{
+export async function logoutUser() {
+  try {
     await fbase.auth().signOut();
-  }catch(error){
-    console.log(error);
+  } catch (error) {
   }
 }
 
-export async function registerUser(userEmail: string, userPassword: string) {
+export async function registerUser(
+  name: string,
+  userEmail: string,
+  userPassword: string
+) {
   try {
-    const res = await fbase
+    await fbase
       .auth()
       .createUserWithEmailAndPassword(userEmail, userPassword);
+    fbase.auth().currentUser?.updateProfile({
+      displayName: name,
+    });
     return true;
   } catch (error) {
     presentToast(error.message, 4000, "warning");
@@ -63,18 +73,24 @@ export async function registerUser(userEmail: string, userPassword: string) {
   }
 }
 
-export function getCurrentUser(){
-  return new Promise((resolve, reject)=> {
-    const unsubscribe = fbase.auth().onAuthStateChanged(
-      function(user){
-        if(user) {
-          resolve(user)
-          console.log(user.email, user.displayName);
-        } else{
-          resolve(null)
-        }
-        unsubscribe()
+export function getCurrentUser() {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = fbase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        resolve(user);
+      } else {
+        resolve(null);
       }
-    )
-  })
+      unsubscribe();
+    });
+  });
+}
+
+export function getCurrentUserProfileName() {
+  const user = fbase.auth().currentUser;
+  if (user) {
+    return user.displayName;
+  } else {
+    return "Belum Login"
+  }
 }

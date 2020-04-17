@@ -19,12 +19,14 @@ import {
   IonButton,
 } from "@ionic/react";
 import React from "react";
-import "./Home.css";
 import { camera } from "ionicons/icons";
-import { auth } from "firebase";
-import { logoutUser } from "../firebaseConfig";
+import {
+  logoutUser,
+  getCurrentUserProfileName,
+} from "../firebaseConfig";
+import { withRouter } from "react-router";
 
-const Home: React.FC = () => {
+const Home: React.FC = (props: any) => {
   return (
     <IonPage>
       <IonHeader>
@@ -44,7 +46,9 @@ const Home: React.FC = () => {
         <IonGrid>
           <IonRow>
             <IonCol>
-              <IonTitle style={{ marginTop: "12px" }}>Halo, User!</IonTitle>
+              <IonTitle style={{ marginTop: "12px" }}>
+                Halo, {getCurrentUserProfileName()}!
+              </IonTitle>
             </IonCol>
           </IonRow>
           <IonRow>
@@ -77,7 +81,10 @@ const Home: React.FC = () => {
           </IonRow>
           <IonRow>
             <IonCol>
-              <IonButton expand="block" onClick={()=> logoutUser()}>
+              <IonButton
+                expand="block"
+                onClick={() => logoutUser().then(props.history.push("/login"))}
+              >
                 Keluar
               </IonButton>
             </IonCol>
@@ -88,4 +95,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default withRouter(Home);
