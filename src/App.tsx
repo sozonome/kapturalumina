@@ -32,13 +32,12 @@ import { createStore } from "redux";
 import { getCurrentUser } from "./firebaseConfig";
 import { Redirect } from "react-router";
 import { BrowserRouter } from "react-router-dom";
-import AuthProvider from "./components/Auth";
 
 const store = createStore(reducer);
 
 const App: React.FC = () => {
-  // const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-  // const [busy, setBusy] = useState<boolean>(true);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const [busy, setBusy] = useState<boolean>(true);
 
   // useEffect(() => {
   //   getCurrentUser().then((user) => {
@@ -54,14 +53,12 @@ const App: React.FC = () => {
     <Provider store={store}>
       <IonApp>
         {/* {busy ? <IonSpinner /> : <MainWrapper />} */}
-        <AuthProvider>
-          <IonReactRouter>
-            <IonSplitPane contentId="main">
-              <SideMenu />
-              <Routing />
-            </IonSplitPane>
-          </IonReactRouter>
-        </AuthProvider>
+        <IonReactRouter>
+          <IonSplitPane contentId="main">
+            <SideMenu />
+            <Routing />
+          </IonSplitPane>
+        </IonReactRouter>
       </IonApp>
     </Provider>
   );

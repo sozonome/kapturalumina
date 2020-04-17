@@ -23,9 +23,17 @@ import {
   openSharp,
 } from "ionicons/icons";
 import { logoutUser } from "../firebaseConfig";
-import { Redirect } from "react-router";
+import { Redirect, withRouter } from "react-router";
+import RegisterPage from "../pages/RegisterPage";
+import { presentToast } from "./Toast";
 
-export default function SideMenu(props: any) {
+function SideMenu(props: any) {
+  function logout(){
+    logoutUser().then(
+      props.history.push('/login')
+    );
+    presentToast('Anda telah keluar.');
+  }
 
   return (
     <IonMenu type="overlay" contentId="main">
@@ -53,10 +61,12 @@ export default function SideMenu(props: any) {
         </IonList>
         <IonList lines="none">
           <IonListHeader>Akun</IonListHeader>
-          <IonItem>
-            <IonIcon slot="start" icon={logOutSharp} />
-            <IonLabel>Keluar</IonLabel>
-          </IonItem>
+          <IonMenuToggle auto-hide="false">
+            <IonItem onClick={logout}>
+              <IonIcon slot="start" icon={logOutSharp} />
+              <IonLabel>Keluar</IonLabel>
+            </IonItem>
+          </IonMenuToggle>
         </IonList>
         <IonList lines="none">
           <IonListHeader>Hello</IonListHeader>
@@ -87,3 +97,5 @@ export default function SideMenu(props: any) {
     </IonMenu>
   );
 }
+
+export default withRouter(SideMenu);

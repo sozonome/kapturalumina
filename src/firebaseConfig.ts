@@ -10,7 +10,6 @@ import {
   MEASUREMENT_ID,
 } from "./environment/environment";
 import { presentToast } from "./components/Toast";
-import { resolve } from "dns";
 
 const config = {
   apiKey: API_KEY,
@@ -30,9 +29,10 @@ export default fbase;
 export async function loginUser(userEmail: string, userPassword: string) {
   // Auth with firebase
   try {
-    const res = await firebase
+    const res = await fbase
       .auth()
       .signInWithEmailAndPassword(userEmail, userPassword);
+    console.log(res);
     return true;
   } catch (error) {
     presentToast("Email atau Kata Sandi yang kamu masukkan salah. Silakan coba lagi.", 4000, "warning");
@@ -45,7 +45,7 @@ export async function loginUser(userEmail: string, userPassword: string) {
 
 export async function logoutUser(){
   try{
-    await firebase.auth().signOut();
+    await fbase.auth().signOut();
   }catch(error){
     console.log(error);
   }
@@ -53,7 +53,7 @@ export async function logoutUser(){
 
 export async function registerUser(userEmail: string, userPassword: string) {
   try {
-    const res = await firebase
+    const res = await fbase
       .auth()
       .createUserWithEmailAndPassword(userEmail, userPassword);
     return true;
@@ -65,7 +65,7 @@ export async function registerUser(userEmail: string, userPassword: string) {
 
 export function getCurrentUser(){
   return new Promise((resolve, reject)=> {
-    const unsubscribe = firebase.auth().onAuthStateChanged(
+    const unsubscribe = fbase.auth().onAuthStateChanged(
       function(user){
         if(user) {
           resolve(user)

@@ -15,11 +15,11 @@ import {
   IonText,
   IonLoading,
 } from "@ionic/react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { presentToast } from "../components/Toast";
 import { registerUser } from "../firebaseConfig";
 
-export default function RegisterPage() {
+function RegisterPage(props:any) {
   const [wait, setWait] = useState<boolean>(false);
 
   const [name, setName] = useState<string>("");
@@ -44,6 +44,7 @@ export default function RegisterPage() {
     const res = await registerUser(email, password);
     if (res) {
       presentToast("Pendaftaran berhasil!");
+      props.history.push('/login');
     }
   }
 
@@ -121,3 +122,5 @@ export default function RegisterPage() {
     </IonPage>
   );
 }
+
+export default withRouter(RegisterPage);

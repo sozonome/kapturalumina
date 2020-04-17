@@ -18,9 +18,9 @@ import {
 } from "@ionic/react";
 import { loginUser } from "../firebaseConfig";
 import { presentToast } from "../components/Toast";
-import { Redirect, useHistory } from "react-router";
+import { withRouter } from "react-router";
 
-export default function LoginPage(props: any) {
+function LoginPage(props: any) {
   const [wait, setWait] = useState<boolean>(false);
 
   const [email, setEmail] = useState<string>("");
@@ -31,6 +31,7 @@ export default function LoginPage(props: any) {
     const res = await loginUser(email, password);
     if (res) {
       presentToast("Berhasil Masuk!");
+      props.history.push('/');
     } else {
       setEmail("");
       setPassword("");
@@ -109,3 +110,5 @@ export default function LoginPage(props: any) {
     </IonPage>
   );
 }
+
+export default withRouter(LoginPage);
