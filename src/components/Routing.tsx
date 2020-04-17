@@ -8,29 +8,16 @@ import SubModulePage from "../pages/SubModulePage";
 import AboutPage from "../pages/AboutPage";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
-
-// function PublicRoute(props: any) {
-//   if (props.isLoggedIn === false) {
-//     return <Route {...props} />;
-//   }
-//   return <Route exact path={props.path} render={() => <Redirect to="/main" />} />;
-// }
-
-// function PrivateRoute(props: any) {
-//   if (props.isLoggedIn === true) {
-//     return <Route {...props} />;
-//   }
-//   return <Route exact path={props.path} render={() => <Redirect to="/login" />} />;
-// }
+// import { PrivateRoute, PublicRoute } from "./RouteType";
 
 function Routing(props: any) {
   return (
     <IonRouterOutlet id="main">
       <Route component={MainTabs} />
       <Route path="/main" component={MainTabs} />
-      <Route component={LoginPage} />
-      <Route path="/login" component={LoginPage} />
-      <Route path="/register" component={RegisterPage} />
+      <Route restricted={true} component={LoginPage} />
+      <Route restricted={true} path="/login" component={LoginPage} />
+      <Route restricted={true} path="/register" component={RegisterPage} />
       <Route exact path="/learn/:chapterId" component={ChapterPage} />
       <Route
         exact
