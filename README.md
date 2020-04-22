@@ -28,3 +28,5 @@ Bachelor Thesis (Final Project) of [Agustinus Nathaniel](https://agustinusnathan
 - [Ionic Docs](https://ionicframework.com/docs/react) 
 - [Ionic + React + Firebase Tutorial](https://www.youtube.com/playlist?list=PLYxzS__5yYQlhvyLXSKhv4oAvl06MInSE)
 - [Environment Variables](https://www.youtube.com/watch?v=17UVejOw3zA)
+- [React Auth with Firebase and Hooks](https://www.youtube.com/watch?v=unr4s3jd9qA)
+- [Persistent Login](https://www.youtube.com/watch?v=2Oz-OLB8FQQ)
