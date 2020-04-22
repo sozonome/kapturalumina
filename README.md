@@ -7,7 +7,7 @@ Final Project of [Agustinus Nathaniel](https://agustinusnathaniel.com)
 ## Tech Stacks
 * Framework : Ionic React
 * Database + Auth : Firebase
-* Deployment : Zeit Now
+* Deployment : Vercel (Formerly Zeit)
 
 ## Getting Started
 * [Download](https://nodejs.org) node.js
