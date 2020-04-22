@@ -2,7 +2,7 @@
 
 Basic Photography Learning Mobile Applications with Gamification
 
-Final Project of [Agustinus Nathaniel](https://agustinusnathaniel.com)
+Bachelor Thesis (Final Project) of [Agustinus Nathaniel](https://agustinusnathaniel.com)
 
 ## Tech Stacks
 * Framework : Ionic React
