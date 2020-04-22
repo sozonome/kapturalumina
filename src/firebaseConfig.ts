@@ -42,7 +42,9 @@ export async function loginUser(userEmail: string, userPassword: string) {
 export async function logoutUser() {
   try {
     await fbase.auth().signOut();
+    return true;
   } catch (error) {
+    return false;
   }
 }
 
@@ -56,7 +58,7 @@ export async function registerUser(
       .auth()
       .createUserWithEmailAndPassword(userEmail, userPassword);
     fbase.auth().currentUser?.updateProfile({
-      displayName: name,
+      displayName: name
     });
     return true;
   } catch (error) {
@@ -71,11 +73,10 @@ export function getCurrentUser() {
       if (user) {
         resolve(user);
         return true;
-      } else {
-        resolve(null);
-        return false;
       }
+      resolve(null);
       unsubscribe();
+      return false;
     });
   });
 }

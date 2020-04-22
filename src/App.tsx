@@ -30,35 +30,25 @@ import { Provider } from "react-redux";
 import reducer from "./redux/reducer";
 import { createStore } from "redux";
 import { getCurrentUser } from "./firebaseConfig";
+import AuthProvider from "./components/AuthProvider";
 
 const store = createStore(reducer);
 
 const App: React.FC = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-  const [busy, setBusy] = useState<boolean>(true);
-
-  useEffect(() => {
-    getCurrentUser().then((user) => {
-      if (user) {
-        setIsLoggedIn(true);
-      }else{
-        setIsLoggedIn(false);
-      }
-      setBusy(false);
-    });
-  }, []);
 
   return (
-    <Provider store={store}>
+    // <Provider store={store}>
+    <AuthProvider>
       <IonApp>
         <IonReactRouter>
           <IonSplitPane contentId="main">
             <SideMenu />
-            <Routing isLoggedIn={isLoggedIn} />
+            <Routing />
           </IonSplitPane>
         </IonReactRouter>
       </IonApp>
-    </Provider>
+    </AuthProvider>
+    // </Provider>
   );
 };
 

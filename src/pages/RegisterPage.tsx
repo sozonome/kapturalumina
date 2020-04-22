@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   IonPage,
   IonHeader,
@@ -15,9 +15,10 @@ import {
   IonText,
   IonLoading,
 } from "@ionic/react";
-import { Link, withRouter } from "react-router-dom";
+import { Link, withRouter, Redirect } from "react-router-dom";
 import { presentToast } from "../components/Toast";
 import { registerUser } from "../firebaseConfig";
+import { AuthContext } from "../components/AuthProvider";
 
 function RegisterPage(props:any) {
   const [wait, setWait] = useState<boolean>(false);
@@ -46,6 +47,11 @@ function RegisterPage(props:any) {
       presentToast("Pendaftaran berhasil!");
       props.history.replace('/login');
     }
+  }
+
+  const {currentUser} = useContext(AuthContext);
+  if(currentUser){
+    return <Redirect to="/" />
   }
 
   return (

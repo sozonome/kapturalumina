@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   IonPage,
   IonContent,
@@ -17,7 +17,8 @@ import {
 } from "@ionic/react";
 import { loginUser } from "../firebaseConfig";
 import { presentTopToast } from "../components/Toast";
-import { withRouter } from "react-router";
+import { withRouter, Redirect } from "react-router";
+import { AuthContext } from "../components/AuthProvider";
 
 function LoginPage(props: any) {
   const [wait, setWait] = useState<boolean>(false);
@@ -36,6 +37,11 @@ function LoginPage(props: any) {
       setPassword("");
     }
     setWait(false);
+  }
+
+  const {currentUser} = useContext(AuthContext);
+  if(currentUser){
+    return <Redirect to="/" />
   }
 
   return (

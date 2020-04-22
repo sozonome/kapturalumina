@@ -27,6 +27,8 @@ import {
 import { withRouter } from "react-router";
 
 const Home: React.FC = (props: any) => {
+  
+
   return (
     <IonPage>
       <IonHeader>

@@ -1,7 +1,9 @@
 import React from 'react'
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonMenuButton } from '@ionic/react'
+import { withRouter } from 'react-router'
+import redirectToLogin from '../functions/redirectToLogin'
 
-export default function Leaderboards() {
+function Leaderboards() {
   return (
     <IonPage>
       <IonHeader>
@@ -17,3 +19,5 @@ export default function Leaderboards() {
     </IonPage>
   )
 }
+
+export default Leaderboards;
