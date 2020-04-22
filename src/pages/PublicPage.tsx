@@ -38,7 +38,7 @@ function PublicPage() {
       </IonHeader>
       <IonContent className="ion-padding">
         <IonGrid>
-          <IonRow>
+          <IonRow className="ion-justify-content-center">
             <IonCol sizeSm="6">
               <IonCard>
                 <IonCardHeader>
@@ -51,14 +51,14 @@ function PublicPage() {
                     color="secondary"
                     expand="block"
                   >
-                    Sign In
+                    Masuk
                   </IonButton>
                   <IonButton
                     routerLink="/register"
                     color="success"
                     expand="block"
                   >
-                    Sign Up
+                    Daftar
                   </IonButton>
                 </IonCardContent>
               </IonCard>

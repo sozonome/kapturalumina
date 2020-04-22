@@ -42,6 +42,7 @@ export async function loginUser(userEmail: string, userPassword: string) {
 export async function logoutUser() {
   try {
     await fbase.auth().signOut();
+    presentToast('Anda telah keluar', 2500, "warning");
     return true;
   } catch (error) {
     return false;

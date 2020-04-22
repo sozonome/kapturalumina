@@ -31,7 +31,7 @@ function LoginPage(props: any) {
     const res = await loginUser(email, password);
     if (res) {
       presentTopToast("Berhasil Masuk!");
-      props.history.replace('/');
+      props.history.replace("/");
     } else {
       setEmail("");
       setPassword("");
@@ -39,9 +39,9 @@ function LoginPage(props: any) {
     setWait(false);
   }
 
-  const {currentUser} = useContext(AuthContext);
-  if(currentUser){
-    return <Redirect to="/" />
+  const { currentUser } = useContext(AuthContext);
+  if (currentUser) {
+    return <Redirect to="/" />;
   }
 
   return (
@@ -54,27 +54,31 @@ function LoginPage(props: any) {
           </IonToolbar>
         </IonHeader>
         <div className="ion-padding">
-          <IonList>
-            <IonItem>
-              <IonInput
-                value={email}
-                onIonChange={(e) => setEmail(e.detail.value!)}
-                type="email"
-                placeholder="E-Mail Anda"
-              />
-            </IonItem>
-            <IonItem>
-              <IonInput
-                value={password}
-                type="password"
-                placeholder="Kata Sandi Anda"
-                onIonChange={(e) => setPassword(e.detail.value!)}
-              />
-            </IonItem>
-          </IonList>
           <IonGrid>
-            <IonRow>
-              <IonCol>
+          <IonRow className="ion-justify-content-center">
+            <IonCol sizeSm="6">
+              <IonList>
+                <IonItem>
+                  <IonInput
+                    value={email}
+                    onIonChange={(e) => setEmail(e.detail.value!)}
+                    type="email"
+                    placeholder="E-Mail Anda"
+                  />
+                </IonItem>
+                <IonItem>
+                  <IonInput
+                    value={password}
+                    type="password"
+                    placeholder="Kata Sandi Anda"
+                    onIonChange={(e) => setPassword(e.detail.value!)}
+                  />
+                </IonItem>
+              </IonList>
+            </IonCol>
+          </IonRow>
+            <IonRow className="ion-justify-content-center">
+              <IonCol sizeSm="6">
                 <IonButton
                   expand="block"
                   shape="round"
@@ -87,18 +91,18 @@ function LoginPage(props: any) {
                 </IonButton>
               </IonCol>
             </IonRow>
-            <IonRow>
-              <IonCol className="ion-text-center">
+            <IonRow className="ion-justify-content-center">
+              <IonCol sizeSm="6" className="ion-text-center">
                 <IonButton fill="clear">Lupa Kata Sandi</IonButton>
               </IonCol>
             </IonRow>
-            <IonRow>
-              <IonCol size="12" className="ion-text-center">
+            <IonRow className="ion-justify-content-center">
+              <IonCol sizeSm="6" className="ion-text-center">
                 <IonText>Belum punya akun?</IonText>
               </IonCol>
             </IonRow>
-            <IonRow>
-              <IonCol>
+            <IonRow className="ion-justify-content-center">
+              <IonCol sizeSm="6">
                 <IonButton
                   expand="block"
                   shape="round"

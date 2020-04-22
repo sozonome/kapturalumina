@@ -23,6 +23,7 @@ import {
 import { logoutUser } from "../firebaseConfig";
 import { withRouter } from "react-router";
 import { AuthContext } from "./AuthProvider";
+import { presentToast } from "./Toast";
 
 function SideMenu(props: any) {
   const { currentUser } = useContext(AuthContext);
@@ -72,7 +73,11 @@ function SideMenu(props: any) {
           {currentUser ? (
             <IonMenuToggle auto-hide="false">
               <IonItem
-                onClick={() => logoutUser().then(props.history.push("/login"))}
+                onClick={() =>
+                  logoutUser().then(() => {
+                    props.history.push("/login");
+                  })
+                }
               >
                 <IonIcon slot="start" icon={logOutSharp} />
                 <IonLabel>Keluar</IonLabel>
