@@ -63,6 +63,7 @@ export async function registerUser(
     });
     return true;
   } catch (error) {
+    // TODO : try to handle error message in localized language
     presentToast(error.message, 4000, "warning");
     return false;
   }

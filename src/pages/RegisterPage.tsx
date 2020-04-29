@@ -20,13 +20,14 @@ import { presentToast } from "../components/Toast";
 import { registerUser } from "../firebaseConfig";
 import { AuthContext } from "../components/AuthProvider";
 
-function RegisterPage(props:any) {
+function RegisterPage(props: any) {
   const [wait, setWait] = useState<boolean>(false);
 
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [cpassword, setCPassword] = useState<string>("");
+  const [showPassConfAlert, setShowPassConfAlert] = useState<boolean>(false);
 
   const confirmationAlert = "Kata Sandi tidak sesuai.";
 
@@ -34,9 +35,13 @@ function RegisterPage(props:any) {
     // Validations
     setWait(true);
     if (password !== cpassword) {
-      return presentToast("Kata Sandi tidak sesuai.");
+      setWait(false);
+      return setShowPassConfAlert(true);
+    } else {
+      setShowPassConfAlert(false);
     }
-    if (password === "" || email === "") {
+    if (password === "" || email === "" || name === "") {
+      setWait(false);
       return presentToast("Mohon lengkapi data Anda.", 3000, "warning");
     }
     setWait(false);
@@ -45,13 +50,13 @@ function RegisterPage(props:any) {
     const res = await registerUser(name, email, password);
     if (res) {
       presentToast("Pendaftaran berhasil!");
-      props.history.replace('/login');
+      props.history.replace("/login");
     }
   }
 
-  const {currentUser} = useContext(AuthContext);
-  if(currentUser){
-    return <Redirect to="/" />
+  const { currentUser } = useContext(AuthContext);
+  if (currentUser) {
+    return <Redirect to="/" />;
   }
 
   return (
@@ -61,7 +66,13 @@ function RegisterPage(props:any) {
           <IonTitle>Masuk</IonTitle>
         </IonToolbar>
       </IonHeader>
-      { <IonLoading message="Pendaftaran sedang di proses..." isOpen={wait} duration={0} /> }
+      {
+        <IonLoading
+          message="Pendaftaran sedang di proses..."
+          isOpen={wait}
+          duration={0}
+        />
+      }
       <IonContent className="ion-padding">
         <IonList>
           <IonItem className="ion-padding-bottom">
@@ -93,13 +104,7 @@ function RegisterPage(props:any) {
             />
           </IonItem>
           <IonText className="ion-padding-start" color="danger">
-            {password !== ""
-              ? cpassword !== ""
-                ? cpassword === password
-                  ? null
-                  : confirmationAlert
-                : null
-              : null}
+            {showPassConfAlert ? confirmationAlert : null}
           </IonText>
         </IonList>
         <IonGrid>
