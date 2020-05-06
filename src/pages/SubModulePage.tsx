@@ -16,10 +16,16 @@ import {
   IonCardSubtitle,
   IonCardContent,
   IonImg,
+  useIonViewWillLeave,
+  useIonViewDidEnter,
+  useIonViewDidLeave,
+  useIonViewWillEnter,
+  IonAlert,
 } from "@ionic/react";
 import { LearnContext } from "../components/LearnProvider";
 import { Slide, Chapter, SubModule } from "../models/learnModules";
 import { camera } from "ionicons/icons";
+import { Prompt } from "react-router";
 
 export default function SubModulePage(props: any) {
   const { chapters }: { chapters: Chapter[] } = useContext(LearnContext);
@@ -41,12 +47,38 @@ export default function SubModulePage(props: any) {
     setBusy(false);
   }, [chapters]);
 
+  useIonViewWillLeave(() => {
+    // await new Promise((resolve, reject) => {
+    //   const alert = document.createElement("ion-alert");
+    //   alert.header = "Confirm!";
+    //   alert.message = "Message <strong>text</strong>!!!";
+      
+    //   alert.buttons = [
+    //     {
+    //       text: "Cancel",
+    //       role: "cancel",
+    //       cssClass: "secondary",
+    //       handler: reject,
+    //     },
+    //     {
+    //       text: "Okay",
+    //       handler: resolve,
+    //     },
+    //   ];
+
+    //   document.body.appendChild(alert);
+    //   return alert.present();
+    // });
+    console.log('ion view will leave')
+  });
+
   return (
     <IonPage>
       {busy ? (
         <IonSpinner />
       ) : subModule ? (
         <>
+          <Prompt message="Apakah anda yakin?" />
           <IonHeader>
             <IonToolbar>
               <IonButtons slot="start">
@@ -60,12 +92,12 @@ export default function SubModulePage(props: any) {
               return (
                 <IonCard key={index}>
                   <IonCardHeader>
-                    <IonCardTitle>{slide.title ? slide.title : null}</IonCardTitle>
+                    <IonCardTitle>
+                      {slide.title ? slide.title : null}
+                    </IonCardTitle>
                   </IonCardHeader>
                   <IonCardContent>
-                    {slide.text ? (
-                      <IonText>{slide.text}</IonText>
-                    ) : null}
+                    {slide.text ? <IonText>{slide.text}</IonText> : null}
                   </IonCardContent>
                 </IonCard>
               );
