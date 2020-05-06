@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonButtons, IonMenuButton, IonContent } from '@ionic/react'
 
 export default function Profile() {

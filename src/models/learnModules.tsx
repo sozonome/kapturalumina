@@ -2,7 +2,6 @@ export interface Chapter{
   id: string,
   title: string,
   subtitle?: string,
-  caption?: string,
   thumbnail?: string,
   subModules: SubModule[],
   quiz?: Quiz
@@ -11,16 +10,17 @@ export interface Chapter{
 export interface SubModule {
   id: string,
   title: string,
-  thumbnail?:string,
   subtitle?: string,
-  slides: Slide[],
+  thumbnail?:string,
   quiz: Quiz,
   subModules?: SubModule[]
+  slides: Slide[],
 }
 
 export interface Slide {
   id: string,
   title?: string,
+  subTitle?:string,
   titleType?: "big" | "regular",
   text?: string,
   img?: string

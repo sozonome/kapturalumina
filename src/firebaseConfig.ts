@@ -1,8 +1,9 @@
 import * as firebase from "firebase/app";
 import "firebase/auth";
+import "firebase/database";
 import { presentToast } from "./components/Toast";
 
-require('dotenv').config()
+require("dotenv").config();
 
 const config = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -22,9 +23,7 @@ export default fbase;
 export async function loginUser(userEmail: string, userPassword: string) {
   // Auth with firebase
   try {
-    await fbase
-      .auth()
-      .signInWithEmailAndPassword(userEmail, userPassword);
+    await fbase.auth().signInWithEmailAndPassword(userEmail, userPassword);
     return true;
   } catch (error) {
     presentToast(
@@ -42,7 +41,7 @@ export async function loginUser(userEmail: string, userPassword: string) {
 export async function logoutUser() {
   try {
     await fbase.auth().signOut();
-    presentToast('Anda telah keluar', 2500, "warning");
+    presentToast("Anda telah keluar", 2500, "warning");
     return true;
   } catch (error) {
     return false;
@@ -55,11 +54,9 @@ export async function registerUser(
   userPassword: string
 ) {
   try {
-    await fbase
-      .auth()
-      .createUserWithEmailAndPassword(userEmail, userPassword);
+    await fbase.auth().createUserWithEmailAndPassword(userEmail, userPassword);
     fbase.auth().currentUser?.updateProfile({
-      displayName: name
+      displayName: name,
     });
     return true;
   } catch (error) {
@@ -88,6 +85,6 @@ export function getCurrentUserProfileName() {
   if (user) {
     return user.displayName;
   } else {
-    return "Belum Login"
+    return "Belum Login";
   }
 }

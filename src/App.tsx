@@ -29,24 +29,25 @@ import Routing from "./components/Routing";
 import { Provider } from "react-redux";
 import reducer from "./redux/reducer";
 import { createStore } from "redux";
-import { getCurrentUser } from "./firebaseConfig";
 import AuthProvider from "./components/AuthProvider";
+import LearnProvider from "./components/LearnProvider";
 
 const store = createStore(reducer);
 
 const App: React.FC = () => {
-
   return (
     // <Provider store={store}>
     <AuthProvider>
-      <IonApp>
-        <IonReactRouter>
-          <IonSplitPane contentId="main">
-            <SideMenu />
-            <Routing />
-          </IonSplitPane>
-        </IonReactRouter>
-      </IonApp>
+      <LearnProvider>
+        <IonApp>
+          <IonReactRouter>
+            <IonSplitPane contentId="main">
+              <SideMenu />
+              <Routing />
+            </IonSplitPane>
+          </IonReactRouter>
+        </IonApp>
+      </LearnProvider>
     </AuthProvider>
     // </Provider>
   );

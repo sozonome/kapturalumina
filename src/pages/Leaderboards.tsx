@@ -15,6 +15,11 @@ function Leaderboards() {
         </IonToolbar>
       </IonHeader>
       <IonContent>
+        <IonHeader collapse="condense">
+          <IonToolbar>
+            <IonTitle size="large">Papan Peringkat</IonTitle>
+          </IonToolbar>
+        </IonHeader>
       </IonContent>
     </IonPage>
   )
