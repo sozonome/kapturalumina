@@ -23,7 +23,7 @@ export default function AboutPage() {
       </IonHeader>
       <IonContent className="ion-padding">
         <IonText>
-          <h1>ShootNow</h1>
+          <h1>KapturaLumina</h1>
           <p>
             Aplikasi ini dibuat untuk membantu mempelajari fotografi dasar,
             khususnya bagi para fotografer pemula.

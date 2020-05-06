@@ -36,7 +36,7 @@ function SideMenu(props: any) {
             <span role="img" aria-label="camera">
               📷
             </span>
-            ShootNow
+            KapturaLumina
           </IonListHeader>
           {currentUser ? (
             <>
@@ -105,7 +105,7 @@ function SideMenu(props: any) {
           <IonMenuToggle auto-hide="false">
             <IonItem routerLink="/about">
               <IonIcon slot="start" icon={informationCircleSharp} />
-              <IonLabel>Tentang ShootNow</IonLabel>
+              <IonLabel>Tentang KapturaLumina</IonLabel>
             </IonItem>
           </IonMenuToggle>
           <IonItem>

@@ -33,7 +33,7 @@ function PublicPage() {
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
-          <IonTitle>ShootNow</IonTitle>
+          <IonTitle>KapturaLumina</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">

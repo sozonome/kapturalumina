@@ -1,4 +1,4 @@
-# ShootNow
+# KapturaLumina
 
 Basic Photography Learning Mobile Applications with Gamification
 
