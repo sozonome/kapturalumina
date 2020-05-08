@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { IonSpinner } from "@ionic/react";
 import fbase from "../firebaseConfig";
 import { Chapter } from "../models/learnModules";
+import Loader from "./Loader";
 
 export const LearnContext = React.createContext({
   chapters: [] as Chapter[]
@@ -28,7 +28,7 @@ export default function LearnProvider({children}:any) {
   return (
     <>
       {busy ? (
-        <IonSpinner />
+        <Loader />
       ) : (
         <LearnContext.Provider
           value={{

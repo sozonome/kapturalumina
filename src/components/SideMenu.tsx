@@ -23,7 +23,6 @@ import {
 import { logoutUser } from "../firebaseConfig";
 import { withRouter } from "react-router";
 import { AuthContext } from "./AuthProvider";
-import { presentToast } from "./Toast";
 
 function SideMenu(props: any) {
   const { currentUser } = useContext(AuthContext);

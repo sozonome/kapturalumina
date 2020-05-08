@@ -18,7 +18,6 @@ export default function Profile() {
             <IonTitle size="large">Profil</IonTitle>
           </IonToolbar>
         </IonHeader>
-        User Profile Here
       </IonContent>
     </IonPage>
   )

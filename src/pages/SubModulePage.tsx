@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import {
   IonPage,
   IonHeader,
@@ -12,26 +12,26 @@ import {
   IonCard,
   IonCardHeader,
   IonCardTitle,
-  IonIcon,
-  IonCardSubtitle,
   IonCardContent,
-  IonImg,
-  useIonViewWillLeave,
-  useIonViewDidEnter,
-  useIonViewDidLeave,
-  useIonViewWillEnter,
-  IonAlert,
+  IonSlides,
+  IonSlide,
+  IonProgressBar,
+  IonButton,
+  IonIcon,
 } from "@ionic/react";
 import { LearnContext } from "../components/LearnProvider";
-import { Slide, Chapter, SubModule } from "../models/learnModules";
-import { camera } from "ionicons/icons";
-import { Prompt } from "react-router";
+import { Chapter, SubModule } from "../models/learnModules";
+import Swiper, { SelectableElement } from "swiper";
+import { chevronBack, chevronForward } from "ionicons/icons";
+// import { Prompt } from "react-router";
 
 export default function SubModulePage(props: any) {
   const { chapters }: { chapters: Chapter[] } = useContext(LearnContext);
 
   const [subModule, setSubModule] = useState<SubModule>();
   const [busy, setBusy] = useState<boolean>(true);
+
+  const [progressIndex, setProgressIndex] = useState<number>(0);
 
   useEffect(() => {
     const chapter = chapters.find(
@@ -45,40 +45,17 @@ export default function SubModulePage(props: any) {
       );
     }
     setBusy(false);
-  }, [chapters]);
+  }, [chapters, props.match.params.chapterId, props.match.params.subModuleId]);
 
-  useIonViewWillLeave(() => {
-    // await new Promise((resolve, reject) => {
-    //   const alert = document.createElement("ion-alert");
-    //   alert.header = "Confirm!";
-    //   alert.message = "Message <strong>text</strong>!!!";
-      
-    //   alert.buttons = [
-    //     {
-    //       text: "Cancel",
-    //       role: "cancel",
-    //       cssClass: "secondary",
-    //       handler: reject,
-    //     },
-    //     {
-    //       text: "Okay",
-    //       handler: resolve,
-    //     },
-    //   ];
-
-    //   document.body.appendChild(alert);
-    //   return alert.present();
-    // });
-    console.log('ion view will leave')
-  });
-
+  const slider = useRef(Swiper as any);
+  
   return (
     <IonPage>
       {busy ? (
         <IonSpinner />
       ) : subModule ? (
         <>
-          <Prompt message="Apakah anda yakin?" />
+          {/* <Prompt message="Apakah anda yakin?" /> */}
           <IonHeader>
             <IonToolbar>
               <IonButtons slot="start">
@@ -88,20 +65,48 @@ export default function SubModulePage(props: any) {
             </IonToolbar>
           </IonHeader>
           <IonContent>
-            {subModule.slides.map((slide, index) => {
-              return (
-                <IonCard key={index}>
-                  <IonCardHeader>
-                    <IonCardTitle>
-                      {slide.title ? slide.title : null}
-                    </IonCardTitle>
-                  </IonCardHeader>
-                  <IonCardContent>
-                    {slide.text ? <IonText>{slide.text}</IonText> : null}
-                  </IonCardContent>
-                </IonCard>
-              );
-            })}
+            <IonProgressBar
+              color="primary"
+              value={(progressIndex + 1) / (subModule.slides.length + 1)}
+            />
+            <IonSlides
+              onIonSlideWillChange={(event:any) => {
+                setProgressIndex(event.target.swiper.realIndex);
+              }}
+              ref={slider}
+              style={{
+                width: "100%",
+                height: "90%",
+                margin: "0 auto",
+              }}
+            >
+              {subModule.slides.map((slide, index) => {
+                return (
+                  <IonSlide key={index}>
+                    <IonCard>
+                      <IonCardHeader>
+                        <IonCardTitle>
+                          {slide.title ? slide.title : null}
+                        </IonCardTitle>
+                      </IonCardHeader>
+                      <IonCardContent>
+                        {slide.text ? <IonText>{slide.text}</IonText> : null}
+                      </IonCardContent>
+                    </IonCard>
+                  </IonSlide>
+                );
+              })}
+            </IonSlides>
+            <IonButtons>
+              <IonButton onClick={() => slider.current.slidePrev()}>
+                {/* <IonIcon name={chevronBack}/> */}
+                Prev
+              </IonButton>
+              <IonButton onClick={() => slider.current.slideNext()}>
+                {/* <IonIcon name={chevronForward} /> */}
+                Next
+              </IonButton>
+            </IonButtons>
           </IonContent>
         </>
       ) : (

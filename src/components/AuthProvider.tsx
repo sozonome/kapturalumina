@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { IonSpinner } from "@ionic/react";
 import fbase from "../firebaseConfig";
+import Loader from "./Loader";
 
 export const AuthContext = React.createContext({
-  currentUser: null
+  currentUser: null,
 });
 
-export default function AuthProvider({children}:any) {
+export default function AuthProvider({ children }: any) {
   const [currentUserState, setCurrentUserState] = useState<any>(null);
   const [busy, setBusy] = useState(true);
 
@@ -19,12 +19,12 @@ export default function AuthProvider({children}:any) {
 
   return (
     <>
-      {busy ? (
-        <IonSpinner />
+      {busy === true ? (
+        <Loader />
       ) : (
         <AuthContext.Provider
           value={{
-            currentUser: currentUserState
+            currentUser: currentUserState,
           }}
         >
           {children}

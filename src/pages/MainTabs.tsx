@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { IonTabs, IonRouterOutlet, IonTabBar, IonTabButton, IonIcon, IonLabel } from '@ionic/react'
 import { Route, Redirect } from 'react-router'
 import Home from './Home'

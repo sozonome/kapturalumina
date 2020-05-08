@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { AuthContext } from "./AuthProvider";
 import { Route, Redirect } from "react-router";
-import { presentToast } from "./Toast";
 
 export default function PrivateRoute({
   component: RouteComponent,

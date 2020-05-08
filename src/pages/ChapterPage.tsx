@@ -20,7 +20,6 @@ import {
 import { LearnContext } from "../components/LearnProvider";
 import { Chapter } from "../models/learnModules";
 import { camera } from "ionicons/icons";
-import { presentTopToast } from "../components/Toast";
 
 export default function ChapterPage(props: any) {
   const { chapters } = useContext(LearnContext);
@@ -31,7 +30,7 @@ export default function ChapterPage(props: any) {
   useEffect(() => {
     setChapter(chapters.find((chapter) => chapter.id === props.match.params.chapterId));
     setBusy(false);
-  }, [chapters]);
+  }, [chapters, props.match.params.chapterId]);
 
   return (
     <IonPage>
