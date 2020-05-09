@@ -18,11 +18,16 @@ import {
   IonProgressBar,
   IonButton,
   IonIcon,
+  IonGrid,
+  IonRow,
+  IonCol,
+  IonCardSubtitle,
+  IonAlert,
 } from "@ionic/react";
 import { LearnContext } from "../components/LearnProvider";
 import { Chapter, SubModule } from "../models/learnModules";
-import Swiper, { SelectableElement } from "swiper";
-import { chevronBack, chevronForward } from "ionicons/icons";
+import Swiper from "swiper";
+import { chevronBack, chevronForward, camera } from "ionicons/icons";
 // import { Prompt } from "react-router";
 
 export default function SubModulePage(props: any) {
@@ -32,6 +37,8 @@ export default function SubModulePage(props: any) {
   const [busy, setBusy] = useState<boolean>(true);
 
   const [progressIndex, setProgressIndex] = useState<number>(0);
+
+  const [alertQuiz, setAlertQuiz] = useState<boolean>(false);
 
   useEffect(() => {
     const chapter = chapters.find(
@@ -48,7 +55,7 @@ export default function SubModulePage(props: any) {
   }, [chapters, props.match.params.chapterId, props.match.params.subModuleId]);
 
   const slider = useRef(Swiper as any);
-  
+
   return (
     <IonPage>
       {busy ? (
@@ -61,7 +68,9 @@ export default function SubModulePage(props: any) {
               <IonButtons slot="start">
                 <IonBackButton />
               </IonButtons>
-              <IonTitle>{subModule.title}</IonTitle>
+              <IonTitle>
+                {subModule.title} <IonIcon name={chevronBack} />
+              </IonTitle>
             </IonToolbar>
           </IonHeader>
           <IonContent>
@@ -70,7 +79,7 @@ export default function SubModulePage(props: any) {
               value={(progressIndex + 1) / (subModule.slides.length + 1)}
             />
             <IonSlides
-              onIonSlideWillChange={(event:any) => {
+              onIonSlideWillChange={(event: any) => {
                 setProgressIndex(event.target.swiper.realIndex);
               }}
               ref={slider}
@@ -97,16 +106,56 @@ export default function SubModulePage(props: any) {
                 );
               })}
             </IonSlides>
-            <IonButtons>
-              <IonButton onClick={() => slider.current.slidePrev()}>
-                {/* <IonIcon name={chevronBack}/> */}
-                Prev
-              </IonButton>
-              <IonButton onClick={() => slider.current.slideNext()}>
-                {/* <IonIcon name={chevronForward} /> */}
-                Next
-              </IonButton>
-            </IonButtons>
+            <IonGrid>
+              <IonRow>
+                <IonCol size="6">
+                  <IonButton
+                    expand="block"
+                    fill="outline"
+                    onClick={() => slider.current.slidePrev()}
+                  >
+                    <IonIcon slot="start" name={chevronBack} />
+                    Prev
+                  </IonButton>
+                </IonCol>
+                <IonCol size="6">
+                  {progressIndex === subModule.slides.length - 1 ? (
+                    <IonButton
+                      expand="block"
+                      // routerLink={`/quiz/${props.match.params.chapterId}/${props.match.params.subModuleId}`}
+                      onClick={()=>setAlertQuiz(true)}
+                    >
+                      Next
+                      <IonIcon slot="end" name={chevronForward} />
+                    </IonButton>
+                  ) : (
+                    <IonButton
+                      expand="block"
+                      onClick={() => slider.current.slideNext()}
+                    >
+                      Next
+                      <IonIcon slot="end" name={chevronForward} />
+                    </IonButton>
+                  )}
+                </IonCol>
+              </IonRow>
+            </IonGrid>
+            <IonAlert
+              isOpen={alertQuiz}
+              onDidDismiss={()=>setAlertQuiz(false)}
+              header="Uji Pemahamanmu"
+              message="Untuk menyimpan kemajuan belajarmu, kerjakan Quiz terlebih dahulu"
+              buttons={[
+                {
+                  text: 'Kembali',
+                  role: 'cancel'
+                },
+                {
+                  text: 'Kerjakan Quiz',
+                  handler: () => props.history.push(`/quiz/${props.match.params.chapterId}/${props.match.params.subModuleId}`)
+                }
+              ]}
+            />
           </IonContent>
         </>
       ) : (

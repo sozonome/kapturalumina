@@ -11,6 +11,7 @@ import PublicHome from "../pages/PublicPage";
 import ChapterPage from "../pages/ChapterPage";
 import { AuthContext } from "./AuthProvider";
 import PrivateRoute from "./PrivateRoute";
+import QuizPage from "../pages/QuizPage";
 // import { PrivateRoute, PublicRoute } from "./RouteType";
 
 function Routing(props: any, isLoggedIn: boolean) {
@@ -29,7 +30,11 @@ function Routing(props: any, isLoggedIn: boolean) {
         path="/learn/:chapterId/:subModuleId"
         component={SubModulePage}
       />
-
+      <Route 
+        exact
+        path="/quiz/:chapterId/:subModuleId"
+        component={QuizPage}
+      />
       <Route path="/about" component={AboutPage} />
       <Route path="/test" component={ComponentTestPage} />
       <Route path="/home" component={PublicHome} />
