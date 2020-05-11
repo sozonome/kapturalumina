@@ -1,5 +1,18 @@
 import React, { useState, useContext, useEffect } from "react";
-import { IonPage, IonHeader, IonContent, IonToolbar, IonButtons, IonTitle, IonGrid, IonRow, IonCol, IonButton } from "@ionic/react";
+import {
+  IonPage,
+  IonHeader,
+  IonContent,
+  IonToolbar,
+  IonButtons,
+  IonTitle,
+  IonGrid,
+  IonRow,
+  IonCol,
+  IonButton,
+  IonSpinner,
+  IonAlert,
+} from "@ionic/react";
 import { Chapter, Quiz } from "../models/learnModules";
 import { LearnContext } from "../components/LearnProvider";
 
@@ -9,6 +22,9 @@ export default function QuizPage(props: any) {
 
   const [busy, setBusy] = useState<boolean>(true);
   const [quiz, setQuiz] = useState<Quiz>();
+  const [index, setIndex] = useState<number>(0);
+
+  const [alertSubmitQuiz, setAlertSubmitQuiz] = useState<boolean>(false);
 
   useEffect(() => {
     const chapter = chapters.find(
@@ -27,41 +43,79 @@ export default function QuizPage(props: any) {
 
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>
-            Quiz
-          </IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent>
-        <IonGrid>
-          <IonRow>
-            <IonCol class="ion-text-center">
-              Skor : {score}
-            </IonCol>
-          </IonRow>
-          <IonRow>
-            <IonCol class="ion-text-center">
-              <h3>Question</h3>
-            </IonCol>
-          </IonRow>
-          <IonRow>
-            <IonCol size="12">
-              <IonButton expand="block">1</IonButton>
-            </IonCol>
-            <IonCol size="12">
-              <IonButton expand="block">2</IonButton>
-            </IonCol>
-            <IonCol size="12">
-              <IonButton expand="block">3</IonButton>
-            </IonCol>
-            <IonCol size="12">
-              <IonButton expand="block">4</IonButton>
-            </IonCol>
-          </IonRow>
-        </IonGrid>
-      </IonContent>
+      {busy ? (
+        <IonSpinner />
+      ) : quiz ? (
+        <>
+          <IonHeader>
+            <IonToolbar>
+              <IonTitle>Quiz</IonTitle>
+            </IonToolbar>
+          </IonHeader>
+          <IonContent>
+            <IonGrid>
+              <IonRow>
+                <IonCol class="ion-text-center">Skor : {score}</IonCol>
+              </IonRow>
+              <IonRow>
+                <IonCol class="ion-text-center">
+                  <h3>{quiz.contents[index].question}</h3>
+                </IonCol>
+              </IonRow>
+              <IonRow>
+                {quiz.contents[index].answers.map((answer, index) => {
+                  return (
+                    <IonCol key={index} size="12">
+                      <IonButton
+                        class="quizAnswerButton"
+                        shape="round"
+                        expand="block"
+                        onClick={() => {
+                          if (answer.correct) {
+                            setScore(score + 1);
+                          }
+                          if (index < quiz.contents.length - 1) {
+                            setIndex(index + 1);
+                            console.log(index);
+                          }
+                          if (index === quiz.contents.length - 1) {
+                            // setAlertSubmitQuiz(true);
+                            props.history.replace(
+                              `/learn/${props.match.params.chapterId}`
+                            );
+                          }
+                        }}
+                      >
+                        {answer.content}
+                      </IonButton>
+                    </IonCol>
+                  );
+                })}
+              </IonRow>
+            </IonGrid>
+            {/* <IonAlert
+              isOpen={alertSubmitQuiz}
+              onDidDismiss={() => setAlertSubmitQuiz(false)}
+              header="Quiz Selesai"
+              message="Hebat! Yuk lanjutkan materi berikutnya."
+              buttons={[
+                {
+                  text: "Lanjut",
+                  handler: () =>
+                    props.history.replace(
+                      `/learn/${props.match.params.chapterId}`
+                    ),
+                },
+              ]}
+            /> */}
+          </IonContent>
+        </>
+      ) : (
+        <>
+          <IonHeader></IonHeader>
+          <IonContent>Maaf, coba </IonContent>
+        </>
+      )}
     </IonPage>
   );
 }

@@ -1,14 +1,27 @@
-import React from 'react'
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonButtons, IonMenuButton, IonContent } from '@ionic/react'
+import React, { useState, useEffect } from "react";
+import {
+  IonPage,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonButtons,
+  IonMenuButton,
+  IonContent,
+} from "@ionic/react";
+import { UserData } from "../models/users";
 
 export default function Profile() {
+  const [user, setUser] = useState<UserData>();
+
+  useEffect(() => {}, []);
+
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
           <IonTitle>Profil</IonTitle>
           <IonButtons slot="start">
-            <IonMenuButton/>
+            <IonMenuButton />
           </IonButtons>
         </IonToolbar>
       </IonHeader>
@@ -20,5 +33,5 @@ export default function Profile() {
         </IonHeader>
       </IonContent>
     </IonPage>
-  )
+  );
 }

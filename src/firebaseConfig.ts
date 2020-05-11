@@ -1,6 +1,5 @@
 import * as firebase from "firebase/app";
-import "firebase/auth";
-import "firebase/database";
+import "firebase"
 import { presentToast } from "./components/Toast";
 
 require("dotenv").config();
@@ -57,7 +56,7 @@ export async function registerUser(
     await fbase.auth().createUserWithEmailAndPassword(userEmail, userPassword);
     fbase.auth().currentUser?.updateProfile({
       displayName: name,
-    });
+    })
     return true;
   } catch (error) {
     // TODO : try to handle error message in localized language

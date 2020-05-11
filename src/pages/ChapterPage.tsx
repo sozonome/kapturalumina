@@ -55,7 +55,7 @@ export default function ChapterPage(props: any) {
                 >
                   <IonCardHeader>
                     <IonCardTitle>
-                      <IonIcon icon={camera} /> {subModule.title}
+                      {subModule.title}
                     </IonCardTitle>
                     <IonCardSubtitle>{subModule.subtitle}</IonCardSubtitle>
                   </IonCardHeader>

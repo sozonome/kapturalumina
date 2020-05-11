@@ -1,16 +1,15 @@
-export interface User {
+export interface UserData {
   id: string,
   name: string,
   email: string,
-  password: string,
   level: number,
-  achievements?: Achievement[],
-  friends?: string[] 
+  achievements?: string[],
+  friends?: string[],
+  progress: Progress[]
 }
 
-export interface Achievement {
-  id: string,
-  title: string,
-  subTitle: string,
-  img: string
+export interface Progress {
+  chapterId: string,
+  subModuleId: string,
+  score: number
 }

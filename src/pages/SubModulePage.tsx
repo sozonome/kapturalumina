@@ -23,6 +23,7 @@ import {
   IonCol,
   IonCardSubtitle,
   IonAlert,
+  IonImg,
 } from "@ionic/react";
 import { LearnContext } from "../components/LearnProvider";
 import { Chapter, SubModule } from "../models/learnModules";
@@ -93,12 +94,14 @@ export default function SubModulePage(props: any) {
                 return (
                   <IonSlide key={index}>
                     <IonCard>
-                      <IonCardHeader>
-                        <IonCardTitle>
-                          {slide.title ? slide.title : null}
-                        </IonCardTitle>
-                      </IonCardHeader>
+                      {slide.title ? (
+                        <IonCardHeader>
+                          <IonCardTitle>{slide.title}
+                          </IonCardTitle>
+                        </IonCardHeader>
+                      ) : null}
                       <IonCardContent>
+                        {slide.img ? <IonImg src={slide.img} /> : null}
                         {slide.text ? <IonText>{slide.text}</IonText> : null}
                       </IonCardContent>
                     </IonCard>
@@ -123,7 +126,7 @@ export default function SubModulePage(props: any) {
                     <IonButton
                       expand="block"
                       // routerLink={`/quiz/${props.match.params.chapterId}/${props.match.params.subModuleId}`}
-                      onClick={()=>setAlertQuiz(true)}
+                      onClick={() => setAlertQuiz(true)}
                     >
                       Next
                       <IonIcon slot="end" name={chevronForward} />
@@ -142,18 +145,21 @@ export default function SubModulePage(props: any) {
             </IonGrid>
             <IonAlert
               isOpen={alertQuiz}
-              onDidDismiss={()=>setAlertQuiz(false)}
+              onDidDismiss={() => setAlertQuiz(false)}
               header="Uji Pemahamanmu"
               message="Untuk menyimpan kemajuan belajarmu, kerjakan Quiz terlebih dahulu"
               buttons={[
                 {
-                  text: 'Kembali',
-                  role: 'cancel'
+                  text: "Kembali",
+                  role: "cancel",
                 },
                 {
-                  text: 'Kerjakan Quiz',
-                  handler: () => props.history.push(`/quiz/${props.match.params.chapterId}/${props.match.params.subModuleId}`)
-                }
+                  text: "Kerjakan Quiz",
+                  handler: () =>
+                    props.history.push(
+                      `/quiz/${props.match.params.chapterId}/${props.match.params.subModuleId}`
+                    ),
+                },
               ]}
             />
           </IonContent>
@@ -161,7 +167,7 @@ export default function SubModulePage(props: any) {
       ) : (
         <>
           <IonHeader></IonHeader>
-          <IonContent>Sorry, please refresh the page</IonContent>
+          <IonContent>Maaf, coba </IonContent>
         </>
       )}
     </IonPage>

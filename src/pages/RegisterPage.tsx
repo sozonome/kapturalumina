@@ -17,7 +17,7 @@ import {
 } from "@ionic/react";
 import { Link, withRouter, Redirect } from "react-router-dom";
 import { presentToast } from "../components/Toast";
-import { registerUser } from "../firebaseConfig";
+import { registerUser, logoutUser } from "../firebaseConfig";
 import { AuthContext } from "../components/AuthProvider";
 
 function RegisterPage(props: any) {
@@ -37,20 +37,18 @@ function RegisterPage(props: any) {
     if (password !== cpassword) {
       setWait(false);
       return setShowPassConfAlert(true);
-    } else {
-      setShowPassConfAlert(false);
-    }
-    if (password === "" || email === "" || name === "") {
+    } else if (password === "" || email === "" || name === "") {
       setWait(false);
       return presentToast("Mohon lengkapi data Anda.", 3000, "warning");
-    }
-    setWait(false);
-
-    // Post and Get response from Firebase
-    const res = await registerUser(name, email, password);
-    if (res) {
-      presentToast("Pendaftaran berhasil!");
-      props.history.replace("/login");
+    } else {
+      // setWait(false);
+      setShowPassConfAlert(false); 
+      // Post and Get response from Firebase
+      const res = await registerUser(name, email, password)
+      setWait(false);
+      if (res) {
+        presentToast("Pendaftaran berhasil!");
+      }
     }
   }
 
@@ -124,7 +122,7 @@ function RegisterPage(props: any) {
           <IonRow>
             <IonCol className="ion-text-center">
               <IonText>
-                Sudah punya akun? <Link to="/login">Login</Link>{" "}
+                Sudah punya akun? <Link to="/login">Login</Link>
               </IonText>
             </IonCol>
           </IonRow>

@@ -32,6 +32,9 @@ import Routing from "./components/Routing";
 import AuthProvider from "./components/AuthProvider";
 import LearnProvider from "./components/LearnProvider";
 
+// Global CSS
+import "./styles/global.css";
+
 // const store = createStore(reducer);
 
 const App: React.FC = () => {

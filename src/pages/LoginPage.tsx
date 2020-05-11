@@ -31,6 +31,8 @@ function LoginPage(props: any) {
     const res = await loginUser(email, password);
     if (res) {
       presentTopToast("Berhasil Masuk!");
+      setEmail("")
+      setPassword("")
       props.history.replace("/");
     } else {
       setEmail("");

@@ -28,7 +28,7 @@ export interface Slide {
 
 export interface Quiz {
   id: string,
-  questions: Question[],
+  contents: Question[],
 }
 
 export interface Question {
@@ -38,7 +38,7 @@ export interface Question {
 }
 
 export interface Answer {
-  answer: string,
+  content: string,
   correct: boolean
 }
 

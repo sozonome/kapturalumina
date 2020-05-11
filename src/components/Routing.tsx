@@ -24,13 +24,13 @@ function Routing(props: any, isLoggedIn: boolean) {
       <Route path="/login" component={LoginPage} />
       <Route path="/register" component={RegisterPage} />
 
-      <Route exact path="/learn/:chapterId" component={ChapterPage} />
-      <Route
+      <PrivateRoute exact path="/learn/:chapterId" component={ChapterPage} />
+      <PrivateRoute
         exact
         path="/learn/:chapterId/:subModuleId"
         component={SubModulePage}
       />
-      <Route 
+      <PrivateRoute 
         exact
         path="/quiz/:chapterId/:subModuleId"
         component={QuizPage}
