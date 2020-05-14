@@ -17,10 +17,10 @@ import {
 } from "@ionic/react";
 import { Link, withRouter, Redirect } from "react-router-dom";
 import { presentToast } from "../components/Toast";
-import { registerUser, logoutUser } from "../firebaseConfig";
+import { registerUser } from "../firebaseConfig";
 import { AuthContext } from "../components/AuthProvider";
 
-function RegisterPage(props: any) {
+function RegisterPage() {
   const [wait, setWait] = useState<boolean>(false);
 
   const [name, setName] = useState<string>("");

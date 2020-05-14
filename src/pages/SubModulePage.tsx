@@ -96,8 +96,7 @@ export default function SubModulePage(props: any) {
                     <IonCard>
                       {slide.title ? (
                         <IonCardHeader>
-                          <IonCardTitle>{slide.title}
-                          </IonCardTitle>
+                          <IonCardTitle>{slide.title}</IonCardTitle>
                         </IonCardHeader>
                       ) : null}
                       <IonCardContent>
@@ -155,10 +154,14 @@ export default function SubModulePage(props: any) {
                 },
                 {
                   text: "Kerjakan Quiz",
-                  handler: () =>
+                  handler: () => {
+                    setProgressIndex(0);
+                    console.log(progressIndex);
                     props.history.push(
                       `/quiz/${props.match.params.chapterId}/${props.match.params.subModuleId}`
-                    ),
+                    );
+                    slider.current.slideTo(0);
+                  },
                 },
               ]}
             />

@@ -12,6 +12,7 @@ import {
   IonButton,
   IonSpinner,
   IonAlert,
+  IonLoading,
 } from "@ionic/react";
 import { Chapter, Quiz } from "../models/learnModules";
 import { LearnContext } from "../components/LearnProvider";
@@ -25,6 +26,8 @@ export default function QuizPage(props: any) {
   const [index, setIndex] = useState<number>(0);
 
   const [streak, setStreak] = useState<number>(0);
+
+  const [busyUpdate, setBusyUpdate] = useState<boolean>(false);
 
   useEffect(() => {
     const chapter = chapters.find(
@@ -46,7 +49,17 @@ export default function QuizPage(props: any) {
     const newScore = score;
     const newStreak = streak;
     
-    props.history.replace(`/learn/${props.match.params.chapterId}`);
+    setBusyUpdate(true);
+    setTimeout(()=>{
+      setBusyUpdate(false);
+
+      // Re-initialize states
+      setScore(0);
+      setIndex(0);
+      setStreak(0);
+      
+      props.history.replace(`/learn/${props.match.params.chapterId}`);
+    }, 2000)
   }
 
   return (
@@ -61,6 +74,7 @@ export default function QuizPage(props: any) {
             </IonToolbar>
           </IonHeader>
           <IonContent>
+            <IonLoading message={"Mohon Tunggu..."} isOpen={busyUpdate} />
             <IonGrid>
               <IonRow>
                 <IonCol class="ion-text-center">Skor : {score}</IonCol>
@@ -71,9 +85,9 @@ export default function QuizPage(props: any) {
                 </IonCol>
               </IonRow>
               <IonRow>
-                {quiz.contents[index].answers.map((answer, index) => {
+                {quiz.contents[index].answers.map((answer, ind) => {
                   return (
-                    <IonCol key={index} size="12">
+                    <IonCol key={ind} size="12">
                       <IonButton
                         class="quizAnswerButton"
                         shape="round"
@@ -86,12 +100,12 @@ export default function QuizPage(props: any) {
                             setStreak(0);
                           }
                           
-                          if (index < quiz.contents.length - 1) {
-                            setIndex(index + 1);
-                            console.log(index, 'lah');
-                          } else {
+                          if (index === (quiz.contents.length - 1)) {
+                            // console.log(quiz.contents.length, index)
                             updateLearnProgress();
-                            console.log('loh')
+                          } else {
+                            setIndex(index + 1);
+                            // console.log(index, 'lah');
                           }
                         }}
                       >
