@@ -7,7 +7,12 @@ Bachelor Thesis (Final Project) of [Agustinus Nathaniel](https://agustinusnathan
 ## Tech Stacks
 * Framework : Ionic React
 * Database + Auth : Firebase
-<!-- * Deployment : Vercel (Formerly Zeit) -->
+* Tools, Libraries : 
+  - CloudImage for image resizing, compression, and acceleration
+  - Cloudinary for image storage
+  - SwiperJS (used for useRef towards IonSlides)
+  - TypeScript
+* Deployment : Vercel (Formerly Zeit)
 
 ## Getting Started
 * [Download](https://nodejs.org) and install node.js

@@ -1,5 +1,5 @@
 import * as firebase from "firebase/app";
-import "firebase"
+import "firebase";
 import { presentToast } from "./components/Toast";
 
 require("dotenv").config();
@@ -54,9 +54,18 @@ export async function registerUser(
 ) {
   try {
     await fbase.auth().createUserWithEmailAndPassword(userEmail, userPassword);
-    fbase.auth().currentUser?.updateProfile({
+    const user = fbase.auth().currentUser;
+    user?.updateProfile({
       displayName: name,
-    })
+    });
+    if(user !== null){
+      fbase.database().ref("users").child(user.uid).set({
+        id: user.uid,
+        email: userEmail,
+        name: name,
+        level: 0,
+      });
+    }
     return true;
   } catch (error) {
     // TODO : try to handle error message in localized language
@@ -88,7 +97,4 @@ export function getCurrentUserProfileName() {
   }
 }
 
-
-export function updateUserLearnProgress(){
-  
-}
+export function updateUserLearnProgress() {}

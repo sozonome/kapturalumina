@@ -5,7 +5,7 @@ export interface UserData {
   level: number,
   achievements?: string[],
   friends?: string[],
-  progress: Progress[],
+  progress?: Progress[],
   streaks?: {
     bestQuizStreak?: number,
     prevBestStreak?: number,

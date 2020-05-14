@@ -61,7 +61,7 @@ function RegisterPage() {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Masuk</IonTitle>
+          <IonTitle>Daftar</IonTitle>
         </IonToolbar>
       </IonHeader>
       {
