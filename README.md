@@ -46,6 +46,7 @@ In order for the application to run, you will need to connect it to Firebase Aut
 - [Environment Variables](https://www.youtube.com/watch?v=17UVejOw3zA)
 - [Firebase](https://firebase.google.com/)
   - [React Auth with Firebase and Hooks](https://www.youtube.com/watch?v=unr4s3jd9qA)
-  - [Firebase Realtime Database Read and Write](https://firebase.google.com/docs/database/web/read-and-write)
+  - [Manage Users](https://firebase.google.com/docs/auth/web/manage-users)
+  - [Realtime Database Read and Write](https://firebase.google.com/docs/database/web/read-and-write)
 - [Persistent Login](https://www.youtube.com/watch?v=2Oz-OLB8FQQ)
 - [Swiperjs](https://swiperjs.com/api)
