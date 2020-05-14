@@ -35,7 +35,6 @@ const Home: React.FC = () => {
       setUserDisplayName(userDName);
     }
     setBusy(false);
-    console.log(userDName)
   });
 
   return (

@@ -19,7 +19,6 @@ import {
 } from "@ionic/react";
 import { LearnContext } from "../components/LearnProvider";
 import { Chapter } from "../models/learnModules";
-import { camera } from "ionicons/icons";
 
 export default function ChapterPage(props: any) {
   const { chapters } = useContext(LearnContext);

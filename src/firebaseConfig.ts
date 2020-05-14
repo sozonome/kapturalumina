@@ -87,3 +87,8 @@ export function getCurrentUserProfileName() {
     return "Belum Login";
   }
 }
+
+
+export function updateUserLearnProgress(){
+  
+}

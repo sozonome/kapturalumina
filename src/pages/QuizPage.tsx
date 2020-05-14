@@ -24,7 +24,7 @@ export default function QuizPage(props: any) {
   const [quiz, setQuiz] = useState<Quiz>();
   const [index, setIndex] = useState<number>(0);
 
-  const [alertSubmitQuiz, setAlertSubmitQuiz] = useState<boolean>(false);
+  const [streak, setStreak] = useState<number>(0);
 
   useEffect(() => {
     const chapter = chapters.find(
@@ -40,6 +40,14 @@ export default function QuizPage(props: any) {
     }
     setBusy(false);
   }, [chapters, props.match.params.chapterId, props.match.params.subModuleId]);
+
+  function updateLearnProgress() {
+    // Value Streak and Points
+    const newScore = score;
+    const newStreak = streak;
+    
+    props.history.replace(`/learn/${props.match.params.chapterId}`);
+  }
 
   return (
     <IonPage>
@@ -73,16 +81,17 @@ export default function QuizPage(props: any) {
                         onClick={() => {
                           if (answer.correct) {
                             setScore(score + 1);
+                            setStreak(streak + 1);
+                          } else {
+                            setStreak(0);
                           }
+                          
                           if (index < quiz.contents.length - 1) {
                             setIndex(index + 1);
-                            console.log(index);
-                          }
-                          if (index === quiz.contents.length - 1) {
-                            // setAlertSubmitQuiz(true);
-                            props.history.replace(
-                              `/learn/${props.match.params.chapterId}`
-                            );
+                            console.log(index, 'lah');
+                          } else {
+                            updateLearnProgress();
+                            console.log('loh')
                           }
                         }}
                       >

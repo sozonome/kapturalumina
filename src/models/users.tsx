@@ -13,3 +13,10 @@ export interface Progress {
   subModuleId: string,
   score: number
 }
+
+export interface Achievement {
+  id: string,
+  title: string,
+  img: string,
+  subtitle: string,
+}
