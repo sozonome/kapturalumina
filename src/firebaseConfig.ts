@@ -58,7 +58,7 @@ export async function registerUser(
     user?.updateProfile({
       displayName: name,
     });
-    if(user !== null){
+    if (user !== null) {
       fbase.database().ref("users").child(user.uid).set({
         id: user.uid,
         email: userEmail,
@@ -97,4 +97,23 @@ export function getCurrentUserProfileName() {
   }
 }
 
-export function updateUserLearnProgress() {}
+export function updateUserLearnProgress(
+  subModuleId: string,
+  chapterId: string,
+  score: number,
+  streak: number
+) {
+  const user = fbase.auth().currentUser;
+  if (user !== null) {
+    fbase.database().ref("users").child(user.uid).child("progress").push({
+      subModuleId: subModuleId,
+      chapterId: chapterId,
+      score: score,
+    });
+    fbase.database().ref("users").child(user.uid).child("streaks").set({
+      lastStreak: streak,
+      newBestStreak: streak,
+      prevStreak: streak,
+    });
+  }
+}

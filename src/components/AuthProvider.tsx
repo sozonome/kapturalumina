@@ -9,6 +9,7 @@ export const AuthContext = React.createContext({
 export default function AuthProvider({ children }: any) {
   const [currentUserState, setCurrentUserState] = useState<any>(null);
   const [busy, setBusy] = useState(true);
+  // const [update, setUpdate] = useState(false);
 
   useEffect(() => {
     fbase.auth().onAuthStateChanged((user) => {

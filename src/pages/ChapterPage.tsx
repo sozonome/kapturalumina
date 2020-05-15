@@ -19,6 +19,7 @@ import {
 } from "@ionic/react";
 import { LearnContext } from "../components/LearnProvider";
 import { Chapter } from "../models/learnModules";
+import fbase from "../firebaseConfig";
 
 export default function ChapterPage(props: any) {
   const { chapters } = useContext(LearnContext);
@@ -28,6 +29,7 @@ export default function ChapterPage(props: any) {
 
   useEffect(() => {
     setChapter(chapters.find((chapter) => chapter.id === props.match.params.chapterId));
+
     setBusy(false);
   }, [chapters, props.match.params.chapterId]);
 

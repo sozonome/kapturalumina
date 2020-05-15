@@ -16,6 +16,7 @@ import {
 } from "@ionic/react";
 import { Chapter, Quiz } from "../models/learnModules";
 import { LearnContext } from "../components/LearnProvider";
+import fbase, { updateUserLearnProgress } from "../firebaseConfig";
 
 export default function QuizPage(props: any) {
   const { chapters }: { chapters: Chapter[] } = useContext(LearnContext);
@@ -46,10 +47,13 @@ export default function QuizPage(props: any) {
 
   function updateLearnProgress() {
     // Value Streak and Points
-    const newScore = score;
+    const newScore = score / (index+1);
     const newStreak = streak;
     
     setBusyUpdate(true);
+
+    updateUserLearnProgress(props.match.params.subModuleId, props.match.params.chapterId, newScore, newStreak);
+
     setTimeout(()=>{
       setBusyUpdate(false);
 
