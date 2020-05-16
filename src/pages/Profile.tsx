@@ -7,13 +7,37 @@ import {
   IonButtons,
   IonMenuButton,
   IonContent,
+  IonGrid,
+  IonRow,
+  IonAvatar,
+  IonLoading,
+  IonCol,
 } from "@ionic/react";
 import { UserData } from "../models/users";
+import fbase, { getCurrentUser } from "../firebaseConfig";
 
 export default function Profile() {
   const [user, setUser] = useState<UserData>();
+  const [busy, setBusy] = useState<boolean>(true);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const user = getCurrentUser();
+    if (user) {
+      fbase
+        .database()
+        .ref("users/" + user.uid)
+        .on("value", (snap) => {
+          if (snap) {
+            setUser(snap.val());
+            setBusy(false);
+          }
+        });
+    } else {
+      setTimeout(() => {
+        setBusy(false);
+      }, 10000);
+    }
+  }, []);
 
   return (
     <IonPage>
@@ -25,13 +49,29 @@ export default function Profile() {
           </IonButtons>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Profil</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-      </IonContent>
+      {busy ? (
+        <IonLoading isOpen={busy} />
+      ) : user !== null ? (
+        <>
+          <IonContent>
+            <IonHeader collapse="condense">
+              <IonToolbar>
+                <IonTitle size="large">Profil</IonTitle>
+              </IonToolbar>
+            </IonHeader>
+            <IonGrid>
+              <IonRow class="ion-padding">
+                <IonCol>
+                  <IonTitle>{user?.name}</IonTitle>
+                </IonCol>
+              </IonRow>
+              <IonRow>
+                <IonCol></IonCol>
+              </IonRow>
+            </IonGrid>
+          </IonContent>
+        </>
+      ) : null}
     </IonPage>
   );
 }
