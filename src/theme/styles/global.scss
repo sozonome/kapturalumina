@@ -1,0 +1,35 @@
+ion-button.quizAnswerButton{
+  /* --background: rgb(195,254,255); */
+}
+
+ion-col.chapterList{
+  @media screen and (min-width:768px) {
+    display: flex;
+    ion-card{
+      flex-basis: 50%;
+    }
+  } 
+}
+
+.loginBox, .registerBox{
+  // ion-title{
+  //   text-align: center;
+  //   margin-bottom: 20px;
+  // }
+
+  margin-top: 50px;
+  margin: 0 auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.registerBox{
+  ion-icon{
+    margin-right: 20px;
+  }
+
+  padding:20px;
+}

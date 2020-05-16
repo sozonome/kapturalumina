@@ -83,7 +83,7 @@ const Home: React.FC = () => {
                 </IonCol>
               </IonRow>
               <IonRow>
-                <IonCol>
+                <IonCol class="chapterList">
                   {chapters.map((chapter, index) => {
                     let chapterProgress = 0;
                     progress.map((prog)=>{

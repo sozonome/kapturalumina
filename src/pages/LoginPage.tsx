@@ -31,8 +31,8 @@ function LoginPage(props: any) {
     const res = await loginUser(email, password);
     if (res) {
       presentTopToast("Berhasil Masuk!");
-      setEmail("")
-      setPassword("")
+      setEmail("");
+      setPassword("");
       props.history.replace("/");
     } else {
       setEmail("");
@@ -49,36 +49,42 @@ function LoginPage(props: any) {
   return (
     <IonPage>
       {<IonLoading message="Mohon Tunggu..." duration={0} isOpen={wait} />}
-      <IonContent>
-        <IonHeader>
-          <IonToolbar style={{ height: "20vh" }} color="tertiary">
-            <IonTitle size="large">Masuk</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <div className="ion-padding">
+
+      <IonContent className="ion-padding">
+        <div className="loginBox">
           <IonGrid>
-          <IonRow className="ion-justify-content-center">
-            <IonCol sizeSm="6">
-              <IonList>
-                <IonItem>
-                  <IonInput
-                    value={email}
-                    onIonChange={(e) => setEmail(e.detail.value!)}
-                    type="email"
-                    placeholder="E-Mail Anda"
-                  />
-                </IonItem>
-                <IonItem>
-                  <IonInput
-                    value={password}
-                    type="password"
-                    placeholder="Kata Sandi Anda"
-                    onIonChange={(e) => setPassword(e.detail.value!)}
-                  />
-                </IonItem>
-              </IonList>
-            </IonCol>
-          </IonRow>
+            <IonRow>
+              <IonCol>
+                <IonTitle>
+                  <span role="img" aria-label="camera">
+                    📷
+                  </span>
+                  KapturaLumina
+                </IonTitle>
+              </IonCol>
+            </IonRow>
+            <IonRow className="ion-justify-content-center">
+              <IonCol sizeSm="6">
+                <IonList>
+                  <IonItem>
+                    <IonInput
+                      value={email}
+                      onIonChange={(e) => setEmail(e.detail.value!)}
+                      type="email"
+                      placeholder="E-Mail Anda"
+                    />
+                  </IonItem>
+                  <IonItem>
+                    <IonInput
+                      value={password}
+                      type="password"
+                      placeholder="Kata Sandi Anda"
+                      onIonChange={(e) => setPassword(e.detail.value!)}
+                    />
+                  </IonItem>
+                </IonList>
+              </IonCol>
+            </IonRow>
             <IonRow className="ion-justify-content-center">
               <IonCol sizeSm="6">
                 <IonButton

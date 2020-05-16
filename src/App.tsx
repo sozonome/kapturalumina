@@ -33,7 +33,7 @@ import AuthProvider from "./components/providers/AuthProvider";
 import LearnProvider from "./components/providers/LearnProvider";
 
 // Global CSS
-import "./styles/global.css";
+import "./theme/styles/global.scss";
 
 // const store = createStore(reducer);
 

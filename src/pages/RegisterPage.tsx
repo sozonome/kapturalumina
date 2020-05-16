@@ -14,11 +14,14 @@ import {
   IonButton,
   IonText,
   IonLoading,
+  IonLabel,
+  IonIcon,
 } from "@ionic/react";
 import { Link, withRouter, Redirect } from "react-router-dom";
 import { presentToast } from "../components/Toast";
 import { registerUser } from "../firebaseConfig";
 import { AuthContext } from "../components/providers/AuthProvider";
+import { person, mail, key, keyOutline } from "ionicons/icons";
 
 function RegisterPage() {
   const [wait, setWait] = useState<boolean>(false);
@@ -42,9 +45,9 @@ function RegisterPage() {
       return presentToast("Mohon lengkapi data Anda.", 3000, "warning");
     } else {
       // setWait(false);
-      setShowPassConfAlert(false); 
+      setShowPassConfAlert(false);
       // Post and Get response from Firebase
-      const res = await registerUser(name, email, password)
+      const res = await registerUser(name, email, password);
       setWait(false);
       if (res) {
         presentToast("Pendaftaran berhasil!");
@@ -59,11 +62,6 @@ function RegisterPage() {
 
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Daftar</IonTitle>
-        </IonToolbar>
-      </IonHeader>
       {
         <IonLoading
           message="Pendaftaran sedang di proses..."
@@ -72,61 +70,79 @@ function RegisterPage() {
         />
       }
       <IonContent className="ion-padding">
-        <IonList>
-          <IonItem className="ion-padding-bottom">
-            <IonInput
-              onIonChange={(e) => setName(e.detail.value!)}
-              type="text"
-              placeholder="Nama Anda"
-            />
-          </IonItem>
-          <IonItem>
-            <IonInput
-              onIonChange={(e) => setEmail(e.detail.value!)}
-              type="email"
-              placeholder="E-Mail Anda"
-            />
-          </IonItem>
-          <IonItem>
-            <IonInput
-              type="password"
-              placeholder="Kata Sandi Anda"
-              onIonChange={(e) => setPassword(e.detail.value!)}
-            />
-          </IonItem>
-          <IonItem>
-            <IonInput
-              type="password"
-              placeholder="Konfirmasi Kata Sandi Anda"
-              onIonChange={(e) => setCPassword(e.detail.value!)}
-            />
-          </IonItem>
-          <IonText className="ion-padding-start" color="danger">
-            {showPassConfAlert ? confirmationAlert : null}
-          </IonText>
-        </IonList>
-        <IonGrid>
-          <IonRow>
-            <IonCol>
-              <IonButton
-                expand="block"
-                shape="round"
-                fill="solid"
-                color="success"
-                onClick={register}
-              >
-                Daftar
-              </IonButton>
-            </IonCol>
-          </IonRow>
-          <IonRow>
-            <IonCol className="ion-text-center">
-              <IonText>
-                Sudah punya akun? <Link to="/login">Login</Link>
-              </IonText>
-            </IonCol>
-          </IonRow>
-        </IonGrid>
+        <div className="registerBox">
+          <IonGrid>
+            <IonRow>
+              <IonCol size="12">
+                <IonTitle>
+                  <span role="img" aria-label="camera">
+                    📷
+                  </span>
+                  KapturaLumina
+                </IonTitle>
+              </IonCol>
+            </IonRow>
+          </IonGrid>
+          <IonList>
+            <IonItem>
+              <IonIcon icon={person} />
+              <IonInput
+                onIonChange={(e) => setName(e.detail.value!)}
+                type="text"
+                placeholder="Nama Anda"
+              />
+            </IonItem>
+            <IonItem>
+              <IonIcon icon={mail} />
+              <IonInput
+                onIonChange={(e) => setEmail(e.detail.value!)}
+                type="email"
+                placeholder="E-Mail Anda"
+              />
+            </IonItem>
+            <IonItem>
+              <IonIcon icon={key} />
+              <IonInput
+                type="password"
+                placeholder="Kata Sandi Anda"
+                onIonChange={(e) => setPassword(e.detail.value!)}
+              />
+            </IonItem>
+            <IonItem>
+              <IonIcon icon={keyOutline} />
+              <IonInput
+                type="password"
+                placeholder="Konfirmasi Kata Sandi Anda"
+                onIonChange={(e) => setCPassword(e.detail.value!)}
+              />
+            </IonItem>
+            <IonText className="ion-padding-start" color="danger">
+              {showPassConfAlert ? confirmationAlert : null}
+            </IonText>
+          </IonList>
+          <IonGrid>
+            <IonRow>
+              <IonCol>
+                <IonButton
+                  expand="block"
+                  shape="round"
+                  fill="solid"
+                  color="success"
+                  onClick={register}
+                >
+                  Daftar
+                </IonButton>
+              </IonCol>
+            </IonRow>
+            <IonRow>
+              <IonCol className="ion-text-center">
+                <IonText>
+                  Sudah punya akun? <Link to="/login">Login</Link>
+                </IonText>
+              </IonCol>
+            </IonRow>
+          </IonGrid>
+        </div>
       </IonContent>
     </IonPage>
   );
