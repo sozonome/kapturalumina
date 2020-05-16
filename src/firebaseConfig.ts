@@ -111,11 +111,29 @@ export function updateUserLearnProgress(
 ) {
   const user = fbase.auth().currentUser;
   if (user !== null) {
-    fbase.database().ref("users").child(user.uid).child("progress").push({
-      subModuleId: subModuleId,
-      chapterId: chapterId,
-      score: score,
-    });
+    fbase.database().ref('users/'+user.uid+'/progress').on('value', (snap)=>{
+      if(snap.exists()){
+        snap.forEach((row)=>{
+          console.log('update')
+          console.log(row.val(), row.key)
+          if(row.val().subModuleId === subModuleId && row.val().chapterId === chapterId && score > row.val().score){
+            console.log('really update')
+            fbase.database().ref('users/'+user.uid+'/progress/'+row.key).set({
+              subModuleId: subModuleId,
+              chapterId: chapterId,
+              score: score
+            })
+          }
+        })
+      }else{
+        console.log('new')
+        fbase.database().ref("users").child(user.uid).child("progress").push({
+          subModuleId: subModuleId,
+          chapterId: chapterId,
+          score: score,
+        });
+      }
+    })
     fbase.database().ref("users").child(user.uid).child("streaks").set({
       lastStreak: streak,
       newBestStreak: streak,

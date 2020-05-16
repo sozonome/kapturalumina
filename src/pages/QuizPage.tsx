@@ -27,6 +27,7 @@ export default function QuizPage(props: any) {
   const [streak, setStreak] = useState<number>(0);
 
   const [busyUpdate, setBusyUpdate] = useState<boolean>(false);
+  const [finish, setFinish] = useState<boolean>(false);
 
   useEffect(() => {
     const chapter = chapters.find(
@@ -43,8 +44,16 @@ export default function QuizPage(props: any) {
     setBusy(false);
   }, [chapters, props.match.params.chapterId, props.match.params.subModuleId]);
 
+  useEffect(()=>{
+    if(finish===true){
+      updateLearnProgress();
+      setFinish(false); //Re-initialize finish state
+    }
+  }, [finish])
+
   function updateLearnProgress() {
     // Value Streak and Points
+    console.log(score, index, streak);
     const newScore = score / (index+1);
     const newStreak = streak;
     
@@ -104,7 +113,7 @@ export default function QuizPage(props: any) {
                           
                           if (index === (quiz.contents.length - 1)) {
                             // console.log(quiz.contents.length, index)
-                            updateLearnProgress();
+                            setFinish(true)
                           } else {
                             setIndex(index + 1);
                             // console.log(index, 'lah');

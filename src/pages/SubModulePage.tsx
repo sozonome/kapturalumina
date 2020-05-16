@@ -85,7 +85,7 @@ export default function SubModulePage(props: any) {
               ref={slider}
               style={{
                 width: "100%",
-                height: "90%",
+                height: "80%",
                 margin: "0 auto",
               }}
             >
@@ -115,29 +115,32 @@ export default function SubModulePage(props: any) {
                     fill="outline"
                     onClick={() => slider.current.slidePrev()}
                   >
-                    <IonIcon slot="start" name={chevronBack} />
+                    <IonIcon slot="start" icon={chevronBack} />
                     Prev
                   </IonButton>
                 </IonCol>
                 <IonCol size="6">
-                  {progressIndex === subModule.slides.length - 1 ? (
-                    <IonButton
-                      expand="block"
-                      // routerLink={`/quiz/${props.match.params.chapterId}/${props.match.params.subModuleId}`}
-                      onClick={() => setAlertQuiz(true)}
-                    >
-                      Next
-                      <IonIcon slot="end" name={chevronForward} />
-                    </IonButton>
-                  ) : (
-                    <IonButton
-                      expand="block"
-                      onClick={() => slider.current.slideNext()}
-                    >
-                      Next
-                      <IonIcon slot="end" name={chevronForward} />
-                    </IonButton>
-                  )}
+                  <IonButton
+                    expand="block"
+                    // routerLink={`/quiz/${props.match.params.chapterId}/${props.match.params.subModuleId}`}
+                    onClick={() => {
+                      if (progressIndex === subModule.slides.length - 1) {
+                        setAlertQuiz(true);
+                      } else {
+                        slider.current.slideNext();
+                      }
+                    }}
+                  >
+                    Next
+                    <IonIcon slot="end" icon={chevronForward} />
+                  </IonButton>
+                </IonCol>
+              </IonRow>
+              <IonRow>
+                <IonCol size="12">
+                  <IonButton expand="block" onClick={()=>{
+                    setAlertQuiz(true);
+                  }}>Skip to Quiz</IonButton>
                 </IonCol>
               </IonRow>
             </IonGrid>

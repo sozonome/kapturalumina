@@ -16,11 +16,13 @@ import {
   IonCardContent,
   IonImg,
   IonProgressBar,
+  IonIcon,
 } from "@ionic/react";
 import { LearnContext } from "../components/providers/LearnProvider";
 import { Chapter } from "../models/chapters";
 import fbase, { getCurrentUser } from "../firebaseConfig";
 import { Progress } from "../models/users";
+import { playCircle, checkmarkCircle } from "ionicons/icons";
 
 export default function ChapterPage(props: any) {
   const { chapters } = useContext(LearnContext);
@@ -28,6 +30,7 @@ export default function ChapterPage(props: any) {
   const [chapter, setChapter] = useState<Chapter>();
   const [busy, setBusy] = useState<boolean>(true);
   const [learnProgress, setLearnProgress] = useState<Progress[]>([]);
+  const [updateProgress, setUpdateProgress] = useState<boolean>(false);
 
   useEffect(() => {
     setChapter(
@@ -40,14 +43,16 @@ export default function ChapterPage(props: any) {
         .database()
         .ref("users/" + user.uid + "/progress")
         .on("value", (snapshot) => {
+          setUpdateProgress(true);
           snapshot.forEach((row) => {
             setLearnProgress((progress) => [...progress, row.val()]);
           });
+          setUpdateProgress(false);
         });
     }
 
     setBusy(false);
-  }, [chapters, props.match.params.chapterId]);
+  }, [chapters, props.match.params.chapterId, updateProgress]);
 
   return (
     <IonPage>
@@ -65,6 +70,15 @@ export default function ChapterPage(props: any) {
           </IonHeader>
           <IonContent>
             {chapter.subModules.map((subModule, index) => {
+              let bestScore = null;
+              learnProgress.map((progress, i) => {
+                if (
+                  progress.chapterId === chapter.id &&
+                  progress.subModuleId === chapter.subModules[index].id
+                ) {
+                  bestScore = progress.score;
+                }
+              });
               return (
                 <IonCard
                   key={index}
@@ -76,17 +90,15 @@ export default function ChapterPage(props: any) {
                   </IonCardHeader>
                   <IonCardContent>
                     <IonImg src={subModule.thumbnail} />
-                    <IonText>
-                      Best Score : 
-                      {learnProgress.map((progress, i) => {
-                        if (
-                          progress.chapterId === chapter.id &&
-                          progress.subModuleId === chapter.subModules[index].id
-                        ) {
-                          return <IonProgressBar key={i} value={progress.score} />;
-                        }
-                      })}
-                    </IonText>
+
+                    {bestScore !== null ? (
+                      <>
+                        <IonIcon icon={checkmarkCircle} />
+                        <IonText>Best Score : {bestScore * 100}%</IonText>
+                      </>
+                    ) : (
+                      <IonIcon icon={playCircle} />
+                    )}
                   </IonCardContent>
                 </IonCard>
               );
