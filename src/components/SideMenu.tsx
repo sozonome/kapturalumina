@@ -22,7 +22,7 @@ import {
 } from "ionicons/icons";
 import { logoutUser } from "../firebaseConfig";
 import { withRouter } from "react-router";
-import { AuthContext } from "./AuthProvider";
+import { AuthContext } from "./providers/AuthProvider";
 
 function SideMenu(props: any) {
   const { currentUser } = useContext(AuthContext);

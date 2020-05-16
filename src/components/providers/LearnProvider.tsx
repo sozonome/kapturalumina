@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import fbase from "../firebaseConfig";
-import { Chapter } from "../models/learnModules";
-import Loader from "./Loader";
+import fbase from "../../firebaseConfig";
+import { Chapter } from "../../models/chapters";
+import Loader from "../Loader";
 
 export const LearnContext = React.createContext({
   chapters: [] as Chapter[]

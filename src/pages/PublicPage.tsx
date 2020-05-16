@@ -18,7 +18,7 @@ import {
   IonButton,
 } from "@ionic/react";
 import { withRouter, Redirect } from "react-router";
-import { AuthContext } from "../components/AuthProvider";
+import { AuthContext } from "../components/providers/AuthProvider";
 
 function PublicPage() {
   const { currentUser } = useContext(AuthContext);

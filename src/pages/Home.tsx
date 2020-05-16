@@ -22,7 +22,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { camera } from "ionicons/icons";
 import { getCurrentUserProfileName } from "../firebaseConfig";
 import { withRouter } from "react-router";
-import { LearnContext } from "../components/LearnProvider";
+import { LearnContext } from "../components/providers/LearnProvider";
 
 const Home: React.FC = () => {
   const { chapters } = useContext(LearnContext);

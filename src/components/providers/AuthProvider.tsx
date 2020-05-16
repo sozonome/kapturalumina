@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import fbase from "../firebaseConfig";
-import Loader from "./Loader";
+import fbase from "../../firebaseConfig";
+import Loader from "../Loader";
 
 export const AuthContext = React.createContext({
   currentUser: null,

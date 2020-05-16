@@ -18,7 +18,7 @@ import {
 import { loginUser } from "../firebaseConfig";
 import { presentTopToast } from "../components/Toast";
 import { withRouter, Redirect } from "react-router";
-import { AuthContext } from "../components/AuthProvider";
+import { AuthContext } from "../components/providers/AuthProvider";
 
 function LoginPage(props: any) {
   const [wait, setWait] = useState<boolean>(false);

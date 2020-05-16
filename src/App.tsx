@@ -29,8 +29,8 @@ import Routing from "./components/Routing";
 // import { Provider } from "react-redux";
 // import reducer from "./redux/reducer";
 // import { createStore } from "redux";
-import AuthProvider from "./components/AuthProvider";
-import LearnProvider from "./components/LearnProvider";
+import AuthProvider from "./components/providers/AuthProvider";
+import LearnProvider from "./components/providers/LearnProvider";
 
 // Global CSS
 import "./styles/global.css";

@@ -18,7 +18,7 @@ import {
 import { Link, withRouter, Redirect } from "react-router-dom";
 import { presentToast } from "../components/Toast";
 import { registerUser } from "../firebaseConfig";
-import { AuthContext } from "../components/AuthProvider";
+import { AuthContext } from "../components/providers/AuthProvider";
 
 function RegisterPage() {
   const [wait, setWait] = useState<boolean>(false);

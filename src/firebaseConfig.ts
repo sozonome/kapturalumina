@@ -75,17 +75,23 @@ export async function registerUser(
 }
 
 export function getCurrentUser() {
-  return new Promise((resolve, reject) => {
-    const unsubscribe = fbase.auth().onAuthStateChanged(function (user) {
-      if (user) {
-        resolve(user);
-        return true;
-      }
-      resolve(null);
-      unsubscribe();
-      return false;
-    });
-  });
+  // return new Promise((resolve, reject) => {
+  //   const unsubscribe = fbase.auth().onAuthStateChanged(function (user) {
+  //     if (user) {
+  //       resolve(user);
+  //       return true;
+  //     }
+  //     resolve(null);
+  //     unsubscribe();
+  //     return false;
+  //   });
+  // });
+  const user = fbase.auth().currentUser;
+  if(user){
+    return user;
+  }else{
+    return null;
+  }
 }
 
 export function getCurrentUserProfileName() {

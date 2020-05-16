@@ -9,12 +9,12 @@ import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import PublicHome from "../pages/PublicPage";
 import ChapterPage from "../pages/ChapterPage";
-import { AuthContext } from "./AuthProvider";
+import { AuthContext } from "./providers/AuthProvider";
 import PrivateRoute from "./PrivateRoute";
 import QuizPage from "../pages/QuizPage";
 // import { PrivateRoute, PublicRoute } from "./RouteType";
 
-function Routing(props: any, isLoggedIn: boolean) {
+function Routing() {
   const {currentUser} = useContext(AuthContext)
   
   return (

@@ -4,18 +4,16 @@ import {
   IonHeader,
   IonContent,
   IonToolbar,
-  IonButtons,
   IonTitle,
   IonGrid,
   IonRow,
   IonCol,
   IonButton,
   IonSpinner,
-  IonAlert,
   IonLoading,
 } from "@ionic/react";
-import { Chapter, Quiz } from "../models/learnModules";
-import { LearnContext } from "../components/LearnProvider";
+import { Chapter, Quiz } from "../models/chapters";
+import { LearnContext } from "../components/providers/LearnProvider";
 import fbase, { updateUserLearnProgress } from "../firebaseConfig";
 
 export default function QuizPage(props: any) {

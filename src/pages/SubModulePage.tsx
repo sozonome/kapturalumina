@@ -21,14 +21,13 @@ import {
   IonGrid,
   IonRow,
   IonCol,
-  IonCardSubtitle,
   IonAlert,
   IonImg,
 } from "@ionic/react";
-import { LearnContext } from "../components/LearnProvider";
-import { Chapter, SubModule } from "../models/learnModules";
+import { LearnContext } from "../components/providers/LearnProvider";
+import { Chapter, SubModule } from "../models/chapters";
 import Swiper from "swiper";
-import { chevronBack, chevronForward, camera } from "ionicons/icons";
+import { chevronBack, chevronForward } from "ionicons/icons";
 // import { Prompt } from "react-router";
 
 export default function SubModulePage(props: any) {
