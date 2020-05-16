@@ -17,25 +17,42 @@ import {
   IonCardContent,
   IonImg,
   IonLoading,
+  IonText,
+  IonProgressBar,
 } from "@ionic/react";
 import React, { useContext, useState, useEffect } from "react";
 import { camera } from "ionicons/icons";
-import { getCurrentUserProfileName } from "../firebaseConfig";
+import fbase, { getCurrentUserProfileName, getCurrentUser } from "../firebaseConfig";
 import { withRouter } from "react-router";
 import { LearnContext } from "../components/providers/LearnProvider";
+import { Progress } from "../models/users";
 
 const Home: React.FC = () => {
   const { chapters } = useContext(LearnContext);
   const [userDisplayName, setUserDisplayName] = useState<string>();
   const [busy, setBusy] = useState<boolean>(true);
+  const [progress, setProgress] = useState<Progress[]>([])
 
   useEffect(() => {
     const userDName = getCurrentUserProfileName();
     if (userDName) {
       setUserDisplayName(userDName);
     }
+
+    const user = getCurrentUser();
+    if (user) {
+      fbase
+        .database()
+        .ref("users/" + user.uid + "/progress")
+        .on("value", (snapshot) => {
+          snapshot.forEach((row) => {
+            setProgress((prog) => [...prog, row.val()]);
+          });
+        });
+    }
+
     setBusy(false);
-  });
+  },[]);
 
   return (
     <IonPage>
@@ -68,6 +85,12 @@ const Home: React.FC = () => {
               <IonRow>
                 <IonCol>
                   {chapters.map((chapter, index) => {
+                    let chapterProgress = 0;
+                    progress.map((prog)=>{
+                      if(prog.chapterId === chapter.id){
+                        chapterProgress++;
+                      }
+                    })
                     return (
                       <IonCard key={index} routerLink={`/learn/${chapter.id}`}>
                         <IonCardHeader>
@@ -76,6 +99,10 @@ const Home: React.FC = () => {
                         </IonCardHeader>
                         <IonCardContent>
                           <IonImg src={chapter.thumbnail} />
+                          <IonText>
+                            Progress :
+                          </IonText>
+                          <IonProgressBar value={chapterProgress / chapter.subModules.length} />
                         </IonCardContent>
                       </IonCard>
                     );

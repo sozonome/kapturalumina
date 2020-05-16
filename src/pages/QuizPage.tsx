@@ -11,10 +11,12 @@ import {
   IonButton,
   IonSpinner,
   IonLoading,
+  IonText,
 } from "@ionic/react";
 import { Chapter, Quiz } from "../models/chapters";
 import { LearnContext } from "../components/providers/LearnProvider";
 import fbase, { updateUserLearnProgress } from "../firebaseConfig";
+import ErrorContent from "../components/ErrorContent";
 
 export default function QuizPage(props: any) {
   const { chapters }: { chapters: Chapter[] } = useContext(LearnContext);
@@ -44,33 +46,38 @@ export default function QuizPage(props: any) {
     setBusy(false);
   }, [chapters, props.match.params.chapterId, props.match.params.subModuleId]);
 
-  useEffect(()=>{
-    if(finish===true){
+  useEffect(() => {
+    if (finish === true) {
       updateLearnProgress();
       setFinish(false); //Re-initialize finish state
     }
-  }, [finish])
+  }, [finish]);
 
   function updateLearnProgress() {
     // Value Streak and Points
     console.log(score, index, streak);
-    const newScore = score / (index+1);
+    const newScore = score / (index + 1);
     const newStreak = streak;
-    
+
     setBusyUpdate(true);
 
-    updateUserLearnProgress(props.match.params.subModuleId, props.match.params.chapterId, newScore, newStreak);
+    updateUserLearnProgress(
+      props.match.params.subModuleId,
+      props.match.params.chapterId,
+      newScore,
+      newStreak
+    );
 
-    setTimeout(()=>{
+    setTimeout(() => {
       setBusyUpdate(false);
 
       // Re-initialize states
       setScore(0);
       setIndex(0);
       setStreak(0);
-      
+
       props.history.replace(`/learn/${props.match.params.chapterId}`);
-    }, 2000)
+    }, 2000);
   }
 
   return (
@@ -110,10 +117,10 @@ export default function QuizPage(props: any) {
                           } else {
                             setStreak(0);
                           }
-                          
-                          if (index === (quiz.contents.length - 1)) {
+
+                          if (index === quiz.contents.length - 1) {
                             // console.log(quiz.contents.length, index)
-                            setFinish(true)
+                            setFinish(true);
                           } else {
                             setIndex(index + 1);
                             // console.log(index, 'lah');
@@ -145,10 +152,7 @@ export default function QuizPage(props: any) {
           </IonContent>
         </>
       ) : (
-        <>
-          <IonHeader></IonHeader>
-          <IonContent>Maaf, coba </IonContent>
-        </>
+        <ErrorContent />
       )}
     </IonPage>
   );

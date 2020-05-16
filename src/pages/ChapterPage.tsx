@@ -23,6 +23,7 @@ import { Chapter } from "../models/chapters";
 import fbase, { getCurrentUser } from "../firebaseConfig";
 import { Progress } from "../models/users";
 import { playCircle, checkmarkCircle } from "ionicons/icons";
+import ErrorContent from "../components/ErrorContent";
 
 export default function ChapterPage(props: any) {
   const { chapters } = useContext(LearnContext);
@@ -30,7 +31,6 @@ export default function ChapterPage(props: any) {
   const [chapter, setChapter] = useState<Chapter>();
   const [busy, setBusy] = useState<boolean>(true);
   const [learnProgress, setLearnProgress] = useState<Progress[]>([]);
-  const [updateProgress, setUpdateProgress] = useState<boolean>(false);
 
   useEffect(() => {
     setChapter(
@@ -43,16 +43,14 @@ export default function ChapterPage(props: any) {
         .database()
         .ref("users/" + user.uid + "/progress")
         .on("value", (snapshot) => {
-          setUpdateProgress(true);
           snapshot.forEach((row) => {
             setLearnProgress((progress) => [...progress, row.val()]);
           });
-          setUpdateProgress(false);
         });
     }
 
     setBusy(false);
-  }, [chapters, props.match.params.chapterId, updateProgress]);
+  }, [chapters, props.match.params.chapterId]);
 
   return (
     <IonPage>
@@ -106,12 +104,7 @@ export default function ChapterPage(props: any) {
           </IonContent>
         </>
       ) : (
-        <>
-          <IonHeader></IonHeader>
-          <IonContent>
-            <IonText>Something's Wrong</IonText>
-          </IonContent>
-        </>
+        <ErrorContent/>
       )}
     </IonPage>
   );

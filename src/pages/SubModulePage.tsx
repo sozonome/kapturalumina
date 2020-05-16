@@ -28,6 +28,7 @@ import { LearnContext } from "../components/providers/LearnProvider";
 import { Chapter, SubModule } from "../models/chapters";
 import Swiper from "swiper";
 import { chevronBack, chevronForward } from "ionicons/icons";
+import ErrorContent from "../components/ErrorContent";
 // import { Prompt } from "react-router";
 
 export default function SubModulePage(props: any) {
@@ -170,10 +171,7 @@ export default function SubModulePage(props: any) {
           </IonContent>
         </>
       ) : (
-        <>
-          <IonHeader></IonHeader>
-          <IonContent>Maaf, coba </IonContent>
-        </>
+        <ErrorContent/>
       )}
     </IonPage>
   );
