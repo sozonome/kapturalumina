@@ -11,6 +11,11 @@ export interface UserData {
     prevBestStreak?: number;
     lastStreak?: number;
   };
+  socialLinks?: {
+    youtube?: string;
+    instagram?: string;
+    website?: string;
+  };
 }
 
 export interface Progress {
