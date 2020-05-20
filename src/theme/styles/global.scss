@@ -22,7 +22,11 @@ ion-col.chapterList{
   } 
 }
 
-ion-progress-bar{
+a:link{
+  text-decoration: none;
+}
+
+#homePage ion-progress-bar{
   height: 1rem;
   border-radius: 0.5rem;
 }

@@ -19,9 +19,13 @@ import {
   IonItem,
   IonInput,
   IonLabel,
+  IonChip,
+  IonIcon,
+  IonListHeader,
 } from "@ionic/react";
 import { UserData } from "../models/users";
 import fbase, { getCurrentUser } from "../firebaseConfig";
+import { logoInstagram, logoYoutube, globeOutline } from "ionicons/icons";
 
 export default function Profile() {
   const [user, setUser] = useState<UserData>();
@@ -69,7 +73,19 @@ export default function Profile() {
             </IonHeader>
             <IonGrid>
               <IonRow>
-                <IonCol size="8">
+                <IonCol size="3" style={{ position: "relative" }}>
+                  <IonAvatar
+                    style={{
+                      position: "absolute",
+                      top: "50%",
+                      left: "50%",
+                      transform: "translate(-50%, -50%)",
+                    }}
+                  >
+                    <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y" />
+                  </IonAvatar>
+                </IonCol>
+                <IonCol size="9">
                   <IonText>
                     <h4>{user?.name}</h4>
                   </IonText>
@@ -77,8 +93,61 @@ export default function Profile() {
                     <p>Email : {user?.email}</p>
                   </IonText>
                 </IonCol>
-                <IonCol size="4" style={{ paddingTop: "10%" }}>
+              </IonRow>
+              <IonRow class="socialMediaLinks">
+                {/* {user?.socialLinks?.instagram ? (
+                  <IonChip color="primary">
+                    <IonIcon icon={logoInstagram} />
+                    <IonLabel>Instagram</IonLabel>
+                  </IonChip>
+                ) : null}
+                {user?.socialLinks?.youtube ? (
+                  <IonChip color="danger">
+                    <IonIcon icon={logoYoutube} />
+                    <IonLabel>YouTube</IonLabel>
+                  </IonChip>
+                ) : null}
+                {user?.socialLinks?.website ? (
+                  <IonChip>
+                    <IonIcon icon={globeOutline} />
+                    <IonLabel>Website</IonLabel>
+                  </IonChip>
+                ) : null} */}
+                <a
+                  href="http://www.instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <IonChip color="primary">
+                    <IonIcon icon={logoInstagram} />
+                    <IonLabel>Instagram</IonLabel>
+                  </IonChip>
+                </a>
+                <a
+                  href="http://www.youtube.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <IonChip color="danger">
+                    <IonIcon icon={logoYoutube} />
+                    <IonLabel>YouTube</IonLabel>
+                  </IonChip>
+                </a>
+                <a
+                  href="http://www.google.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <IonChip>
+                    <IonIcon icon={globeOutline} />
+                    <IonLabel>Website</IonLabel>
+                  </IonChip>
+                </a>
+              </IonRow>
+              <IonRow>
+                <IonCol size="6">
                   <IonButton
+                    expand="block"
                     size="small"
                     shape="round"
                     onClick={() => setEditMode(true)}
@@ -87,31 +156,49 @@ export default function Profile() {
                   </IonButton>
                 </IonCol>
               </IonRow>
-              <IonRow>
-                <IonCol></IonCol>
-              </IonRow>
               <IonRow></IonRow>
             </IonGrid>
-            <IonModal
-              // swipeToClose={true}
-              onDidDismiss={() => setEditMode(false)}
-              isOpen={editMode}
-            >
+            <IonModal onDidDismiss={() => setEditMode(false)} isOpen={editMode}>
               <div className="ion-padding">
                 <IonText>
                   <h2>Edit Profile</h2>
                 </IonText>
                 <IonList lines="none">
+                  <IonListHeader color="secondary">
+                    <h5>Account Details</h5>
+                  </IonListHeader>
                   <IonItem>
                     <IonLabel position="stacked">Name</IonLabel>
                     <IonInput value={user?.name} type="text" />
                   </IonItem>
                   <IonItem>
                     <IonLabel position="stacked">Email</IonLabel>
-                    <IonInput value={user?.email} type="text" />
+                    <IonInput value={user?.email} type="email" />
                   </IonItem>
-                  <IonButton expand="block" color="success" size="default">Save</IonButton>
                 </IonList>
+                <IonList lines="none">
+                  <IonListHeader color="tertiary">
+                    <h5>Links</h5>
+                  </IonListHeader>
+                  <IonItem>
+                    <IonLabel position="stacked">Instagram</IonLabel>
+                    <IonInput
+                      type="text"
+                      placeholder={"Your Instagram Username"}
+                    />
+                  </IonItem>
+                  <IonItem>
+                    <IonLabel position="stacked">YouTube</IonLabel>
+                    <IonInput type="url" />
+                  </IonItem>
+                  <IonItem>
+                    <IonLabel position="stacked">Website</IonLabel>
+                    <IonInput type="url" />
+                  </IonItem>
+                </IonList>
+                <IonButton expand="block" color="success" size="default">
+                  Save
+                </IonButton>
               </div>
               <IonButton onClick={() => setEditMode(false)}>Cancel</IonButton>
             </IonModal>
