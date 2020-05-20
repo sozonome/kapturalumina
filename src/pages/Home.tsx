@@ -102,7 +102,7 @@ const Home: React.FC = () => {
                           <IonText>
                             Progress :
                           </IonText>
-                          <IonProgressBar value={chapterProgress / chapter.subModules.length} />
+                          <IonProgressBar color={'secondary'} value={chapterProgress / chapter.subModules.length} />
                         </IonCardContent>
                       </IonCard>
                     );

@@ -33,6 +33,8 @@ import AuthProvider from "./components/providers/AuthProvider";
 import LearnProvider from "./components/providers/LearnProvider";
 
 // Global CSS
+import "typeface-inter";
+import "typeface-karla";
 import "./theme/styles/global.scss";
 
 // const store = createStore(reducer);

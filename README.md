@@ -43,6 +43,7 @@ In order for the application to run, you will need to connect it to Firebase Aut
 - [Ionic](https://ionicframerwork.com/)
   - [Ionic Docs](https://ionicframework.com/docs/react) 
   - [Ionic + React + Firebase Tutorial](https://www.youtube.com/playlist?list=PLYxzS__5yYQlhvyLXSKhv4oAvl06MInSE)
+  - [Change Font](https://commentedcoding.com/how-to-create-a-settings-page-with-customizable-font-family-in-ionic-5-steps/)
 - [Environment Variables](https://www.youtube.com/watch?v=17UVejOw3zA)
 - [Firebase](https://firebase.google.com/)
   - [React Auth with Firebase and Hooks](https://www.youtube.com/watch?v=unr4s3jd9qA)

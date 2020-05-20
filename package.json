@@ -27,6 +27,8 @@
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
     "swiper": "^5.3.8",
+    "typeface-inter": "^3.12.0",
+    "typeface-karla": "0.0.72",
     "typescript": "3.8.3"
   },
   "scripts": {
