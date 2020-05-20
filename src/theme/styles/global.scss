@@ -1,12 +1,10 @@
 ion-app{
-  --ion-font-family: 'Inter';
+  --ion-font-family: 'Karla';
   h1,h2,h3,h4,h5,h6, ion-title, ion-card-title{
     font-family: 'Inter';
     font-weight: bold;
   }
-  ion-text, p{
-    font-family: 'Karla';
-  }
+  font-family: 'Karla';
 }
 
 ion-button.quizAnswerButton{
