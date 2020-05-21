@@ -1,5 +1,7 @@
 {
-  "name": "kapturalumina",
-  "integrations": {},
+  "name": "KapturaLumina",
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "react"
 }

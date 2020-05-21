@@ -34,7 +34,7 @@ Bachelor Thesis (Final Project) of [Agustinus Nathaniel](https://agustinusnathan
 In order for the application to run, you will need to connect it to Firebase Auth and Database. The specified database structure are included in the [models](https://github.com/sozonome/kapturalumina/blob/master/src/models/learnModules.tsx).
 
 ## General Build Guide
--- W.I.P.
+* `npm run build-release-android` or `npm run build-clean-release-android`
 
 ## Build to APK Guide
 -- W.I.P.
