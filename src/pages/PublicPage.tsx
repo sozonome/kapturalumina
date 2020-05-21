@@ -29,15 +29,15 @@ function PublicPage() {
           <IonTitle>KapturaLumina</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent id="publicHome" style={{display:'flex', flexWrap:'wrap', minHeight:'100vh'}}>
+      <IonContent id="publicHome">
         <PublicHomeSlide />
-        <div style={{alignSelf:'flex-end'}}>
-        <IonButton routerLink="/login" color="secondary" expand="block">
-          Masuk
-        </IonButton>
-        <IonButton routerLink="/register" color="success" expand="block">
-          Daftar
-        </IonButton>
+        <div>
+          <IonButton routerLink="/login" color="secondary" expand="block">
+            Masuk
+          </IonButton>
+          <IonButton routerLink="/register" color="success" expand="block">
+            Daftar
+          </IonButton>
         </div>
       </IonContent>
     </IonPage>
