@@ -4,7 +4,7 @@ import { removeSharp, addSharp } from 'ionicons/icons';
 import shuffleSet from '../functions/shuffle';
 
 export default function ComponentTestPage() {
-  const rArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+  const rArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N'];
   const [prog, setProg] = useState(0.2);
 
   return (
@@ -36,8 +36,11 @@ export default function ComponentTestPage() {
                 </IonButton>
               </IonButtons>
               <IonButton onClick={()=> {
-                console.log(shuffleSet(rArray))
+                console.log(shuffleSet(rArray, 8))
                 }}>Test Shuffle (see console.log)</IonButton>
+                <IonButton onClick={()=> {
+                console.log(shuffleSet(rArray))
+                }}>Test Shuffle All (see console.log)</IonButton>
             </IonCol>
           </IonRow>
         </IonGrid>
