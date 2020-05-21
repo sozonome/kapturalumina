@@ -1,8 +1,6 @@
 import React, { useState, useContext } from "react";
 import {
   IonPage,
-  IonHeader,
-  IonToolbar,
   IonTitle,
   IonContent,
   IonList,
@@ -14,7 +12,6 @@ import {
   IonButton,
   IonText,
   IonLoading,
-  IonLabel,
   IonIcon,
 } from "@ionic/react";
 import { Link, withRouter, Redirect } from "react-router-dom";

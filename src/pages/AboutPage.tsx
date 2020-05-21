@@ -24,7 +24,7 @@ export default function AboutPage() {
       <IonContent className="ion-padding">
         <IonText>
           <h1>Terima Kasih</h1>
-          <p>Sudah menggunakan aplikasi KapturaLumina yang dirancang dan dibangun untuk meraih gelar Sarjana Komputer (S.Kom.).</p>
+          <p>Sudah menggunakan aplikasi KapturaLumina yang dibangun untuk meraih gelar Sarjana Komputer (S.Kom.).</p>
           <p>Aplikasi ini ditujukan untuk teman-teman yang ingin belajar fotografi dengan mudah dan menyenangkan.</p>
           <p>Harapannya, teman-teman yang menggunakan aplikasi ini semakin ter-motivasi atau tertarik untuk belajar fotografi dan meningkatkan kualitas hasil karya fotografi teman-teman.</p>
           

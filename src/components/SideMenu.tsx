@@ -104,7 +104,7 @@ function SideMenu(props: any) {
           <IonMenuToggle auto-hide="false">
             <IonItem routerLink="/about">
               <IonIcon slot="start" icon={informationCircleSharp} />
-              <IonLabel>Tentang KapturaLumina</IonLabel>
+              <IonLabel>Tentang</IonLabel>
             </IonItem>
           </IonMenuToggle>
           <IonItem>

@@ -1,5 +1,6 @@
 import * as firebase from "firebase/app";
-import "firebase";
+import "firebase/database";
+import "firebase/auth"
 import { presentToast } from "./components/Toast";
 
 require("dotenv").config();

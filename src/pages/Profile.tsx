@@ -72,7 +72,7 @@ export default function Profile() {
               </IonToolbar>
             </IonHeader>
             <IonGrid>
-              <IonRow>
+              <IonRow class="ion-padding-vertical">
                 <IonCol size="3" style={{ position: "relative" }}>
                   <IonAvatar
                     style={{
@@ -89,9 +89,9 @@ export default function Profile() {
                   <IonText>
                     <h4>{user?.name}</h4>
                   </IonText>
-                  <IonText>
+                  {/* <IonText>
                     <p>Email : {user?.email}</p>
-                  </IonText>
+                  </IonText> */}
                 </IonCol>
               </IonRow>
               <IonRow class="socialMediaLinks">
@@ -145,55 +145,86 @@ export default function Profile() {
                 </a>
               </IonRow>
               <IonRow>
-                <IonCol size="6">
+                <IonCol size="12">
                   <IonButton
                     expand="block"
                     size="small"
                     shape="round"
                     onClick={() => setEditMode(true)}
                   >
-                    Edit Profile
+                    Edit Profil
                   </IonButton>
                 </IonCol>
               </IonRow>
-              <IonRow></IonRow>
+              <IonRow class="ion-text-center">
+                <IonCol>
+                  <IonText>
+                    <h3>{user?.level}</h3>
+                    <p>Level</p>
+                  </IonText>
+                </IonCol>
+                <IonCol>
+                  <IonText>
+                    <h3>{user?.achievements ? user.achievements.length : 0}</h3>
+                    <p>Pencapaian</p>
+                  </IonText>
+                </IonCol>
+                <IonCol>
+                  <IonText>
+                    <h3>{user?.friends ? user.friends.length : 0}</h3>
+                    <p>Teman yang diikuti</p>
+                  </IonText>
+                </IonCol>
+              </IonRow>
             </IonGrid>
-            <IonModal onDidDismiss={() => setEditMode(false)} isOpen={editMode}>
+
+            <IonModal
+              swipeToClose={true}
+              onDidDismiss={() => setEditMode(false)}
+              isOpen={editMode}
+            >
               <div className="ion-padding">
                 <IonText>
                   <h2>Edit Profile</h2>
                 </IonText>
                 <IonList lines="none">
                   <IonListHeader color="secondary">
-                    <h5>Account Details</h5>
+                    <h5>Detail Akun</h5>
                   </IonListHeader>
                   <IonItem>
-                    <IonLabel position="stacked">Name</IonLabel>
+                    <IonLabel position="stacked">Nama</IonLabel>
                     <IonInput value={user?.name} type="text" />
                   </IonItem>
                   <IonItem>
-                    <IonLabel position="stacked">Email</IonLabel>
+                    <IonLabel position="stacked">Alamat E-mail</IonLabel>
                     <IonInput value={user?.email} type="email" />
+                  </IonItem>
+                  <IonItem>
+                    <IonLabel position="stacked">Deskripsi diri</IonLabel>
+                    <IonInput value={user?.bio} type="text" />
                   </IonItem>
                 </IonList>
                 <IonList lines="none">
                   <IonListHeader color="tertiary">
-                    <h5>Links</h5>
+                    <h5>Tautan Media Sosial</h5>
                   </IonListHeader>
                   <IonItem>
                     <IonLabel position="stacked">Instagram</IonLabel>
                     <IonInput
                       type="text"
-                      placeholder={"Your Instagram Username"}
+                      placeholder={"Username Instagram Anda"}
                     />
                   </IonItem>
                   <IonItem>
                     <IonLabel position="stacked">YouTube</IonLabel>
-                    <IonInput type="url" />
+                    <IonInput
+                      type="url"
+                      placeholder="URL YouTube Channel Anda"
+                    />
                   </IonItem>
                   <IonItem>
                     <IonLabel position="stacked">Website</IonLabel>
-                    <IonInput type="url" />
+                    <IonInput type="url" placeholder="URL Website Anda" />
                   </IonItem>
                 </IonList>
                 <IonButton expand="block" color="success" size="default">

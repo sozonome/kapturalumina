@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useEffect } from "react";
+import React, { useContext } from "react";
 import {
   IonContent,
   IonToolbar,
@@ -7,22 +7,10 @@ import {
   IonTitle,
   IonMenuButton,
   IonPage,
-  IonGrid,
-  IonRow,
-  IonCol,
-  IonCard,
-  IonCardHeader,
-  IonCardContent,
-  IonCardTitle,
-  IonCardSubtitle,
   IonButton,
-  IonSlides,
-  IonSlide,
-  IonText,
 } from "@ionic/react";
 import { withRouter, Redirect } from "react-router";
 import { AuthContext } from "../components/providers/AuthProvider";
-import Swiper from "swiper";
 import PublicHomeSlide from "../components/PublicHomeSlide";
 
 function PublicPage() {

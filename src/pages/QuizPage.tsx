@@ -11,11 +11,10 @@ import {
   IonButton,
   IonSpinner,
   IonLoading,
-  IonText,
 } from "@ionic/react";
 import { Chapter, Quiz } from "../models/chapters";
 import { LearnContext } from "../components/providers/LearnProvider";
-import fbase, { updateUserLearnProgress } from "../firebaseConfig";
+import { updateUserLearnProgress } from "../firebaseConfig";
 import ErrorContent from "../components/ErrorContent";
 
 export default function QuizPage(props: any) {
@@ -44,7 +43,7 @@ export default function QuizPage(props: any) {
       }
     }
     setBusy(false);
-  }, [chapters, props.match.params.chapterId, props.match.params.subModuleId]);
+  },[chapters, props.match.params.chapterId, props.match.params.subModuleId]);
 
   useEffect(() => {
     if (finish === true) {

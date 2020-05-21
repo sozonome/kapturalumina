@@ -15,7 +15,6 @@ import {
   IonCardSubtitle,
   IonCardContent,
   IonImg,
-  IonProgressBar,
   IonIcon,
 } from "@ionic/react";
 import { LearnContext } from "../components/providers/LearnProvider";

@@ -9,7 +9,6 @@ import {
   IonGrid,
   IonRow,
   IonCol,
-  IonIcon,
   IonCard,
   IonCardHeader,
   IonCardTitle,
@@ -21,7 +20,6 @@ import {
   IonProgressBar,
 } from "@ionic/react";
 import React, { useContext, useState, useEffect } from "react";
-import { camera } from "ionicons/icons";
 import fbase, { getCurrentUserProfileName, getCurrentUser } from "../firebaseConfig";
 import { withRouter } from "react-router";
 import { LearnContext } from "../components/providers/LearnProvider";
@@ -68,7 +66,7 @@ const Home: React.FC = () => {
               <IonTitle>Home</IonTitle>
             </IonToolbar>
           </IonHeader>
-          <IonContent id="homePage" className="ion-padding">
+          <IonContent id="homePage" >
             <IonHeader collapse="condense">
               <IonToolbar>
                 <IonTitle size="large">Home</IonTitle>
