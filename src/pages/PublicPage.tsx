@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef, useEffect } from "react";
 import {
   IonContent,
   IonToolbar,
@@ -16,9 +16,14 @@ import {
   IonCardTitle,
   IonCardSubtitle,
   IonButton,
+  IonSlides,
+  IonSlide,
+  IonText,
 } from "@ionic/react";
 import { withRouter, Redirect } from "react-router";
 import { AuthContext } from "../components/providers/AuthProvider";
+import Swiper from "swiper";
+import PublicHomeSlide from "../components/PublicHomeSlide";
 
 function PublicPage() {
   const { currentUser } = useContext(AuthContext);
@@ -36,35 +41,16 @@ function PublicPage() {
           <IonTitle>KapturaLumina</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent className="ion-padding">
-        <IonGrid>
-          <IonRow className="ion-justify-content-center">
-            <IonCol sizeSm="6">
-              <IonCard>
-                <IonCardHeader>
-                  <IonCardTitle>Welcome</IonCardTitle>
-                  <IonCardSubtitle>Let's Learn Photography!</IonCardSubtitle>
-                </IonCardHeader>
-                <IonCardContent>
-                  <IonButton
-                    routerLink="/login"
-                    color="secondary"
-                    expand="block"
-                  >
-                    Masuk
-                  </IonButton>
-                  <IonButton
-                    routerLink="/register"
-                    color="success"
-                    expand="block"
-                  >
-                    Daftar
-                  </IonButton>
-                </IonCardContent>
-              </IonCard>
-            </IonCol>
-          </IonRow>
-        </IonGrid>
+      <IonContent id="publicHome" style={{display:'flex', flexWrap:'wrap', minHeight:'100vh'}}>
+        <PublicHomeSlide />
+        <div style={{alignSelf:'flex-end'}}>
+        <IonButton routerLink="/login" color="secondary" expand="block">
+          Masuk
+        </IonButton>
+        <IonButton routerLink="/register" color="success" expand="block">
+          Daftar
+        </IonButton>
+        </div>
       </IonContent>
     </IonPage>
   );

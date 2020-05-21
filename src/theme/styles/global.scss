@@ -24,6 +24,22 @@ a:link{
   text-decoration: none;
 }
 
+hr{
+  background: black;
+}
+
+#publicHome{
+  ion-img{
+    margin-left: auto;
+    margin-right: auto;
+    width:60%;
+  }
+  ion-card{
+    background: none;
+    box-shadow: none;
+  }
+}
+
 #homePage ion-progress-bar{
   height: 1rem;
   border-radius: 0.5rem;
@@ -50,4 +66,13 @@ a:link{
   }
 
   padding:20px;
+}
+
+@media(prefers-color-scheme: dark) {
+  :root {
+    
+  }
+  hr{
+    background: gray;
+  }  
 }
