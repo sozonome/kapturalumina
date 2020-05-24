@@ -65,7 +65,7 @@ export default function ChapterPage(props: any) {
               <IonTitle>{chapter.title}</IonTitle>
             </IonToolbar>
           </IonHeader>
-          <IonContent>
+          <IonContent class="ion-padding">
             {chapter.subModules.map((subModule, index) => {
               let bestScore = null;
               learnProgress.map((progress, i) => {

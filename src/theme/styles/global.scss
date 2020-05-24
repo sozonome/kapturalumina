@@ -76,6 +76,11 @@ hr{
   ion-card{
     max-width: 500px;
     // min-height: 00px;
+    ion-img{
+        max-height: 200px;
+        width: auto;
+        overflow: hidden;
+    }
     ion-card-content{
       p{
         font-size: 1.2em;

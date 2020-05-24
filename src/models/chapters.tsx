@@ -23,7 +23,10 @@ export interface Slide {
   subTitle?: string;
   titleType?: "big" | "regular";
   text?: string;
-  img?: string;
+  img?: {
+    url: string;
+    position: "top" | "middle" | "bottom";
+  };
   images?: {
     url: string;
     caption?: string;

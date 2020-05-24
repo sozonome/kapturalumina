@@ -95,6 +95,11 @@ export default function SubModulePage(props: any) {
                 return (
                   <IonSlide key={index}>
                     <IonCard>
+                      {slide.img ? (
+                        slide.img.position === "top" ? (
+                          <IonImg src={slide.img.url} />
+                        ) : null
+                      ) : null}
                       {slide.title ? (
                         <IonCardHeader>
                           {slide.titleType === "big" ? (
@@ -104,14 +109,24 @@ export default function SubModulePage(props: any) {
                           )}
                         </IonCardHeader>
                       ) : null}
+                      {slide.img ? (
+                        slide.img.position === "middle" ? (
+                          <IonImg src={slide.img.url} />
+                        ) : null
+                      ) : null}
                       <IonCardContent>
-                        {slide.img ? <IonImg src={slide.img} /> : null}
+                        {/* {slide.img ? <IonImg src={slide.img.url} /> : null} */}
                         {slide.text ? (
                           <IonText>
                             <p>{slide.text}</p>
                           </IonText>
                         ) : null}
                       </IonCardContent>
+                      {slide.img ? (
+                        slide.img.position === "bottom" ? (
+                          <IonImg src={slide.img.url} />
+                        ) : null
+                      ) : null}
                     </IonCard>
                   </IonSlide>
                 );
