@@ -28,14 +28,10 @@ function LoginPage(props: any) {
     setWait(true);
     const res = await loginUser(email, password);
     if (res) {
-      presentTopToast("Berhasil Masuk!");
       setEmail("");
       setPassword("");
       props.history.replace("/");
-    } else {
-      setEmail("");
-      setPassword("");
-    }
+    } 
     setWait(false);
   }
 

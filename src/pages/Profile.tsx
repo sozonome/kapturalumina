@@ -22,6 +22,7 @@ import {
   IonChip,
   IonIcon,
   IonListHeader,
+  IonImg,
 } from "@ionic/react";
 import { UserData } from "../models/users";
 import fbase, { getCurrentUser } from "../firebaseConfig";
@@ -82,7 +83,7 @@ export default function Profile() {
                       transform: "translate(-50%, -50%)",
                     }}
                   >
-                    <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y" />
+                    <IonImg src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y" />
                   </IonAvatar>
                 </IonCol>
                 <IonCol size="9">

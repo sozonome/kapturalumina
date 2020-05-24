@@ -20,7 +20,10 @@ import {
   IonProgressBar,
 } from "@ionic/react";
 import React, { useContext, useState, useEffect } from "react";
-import fbase, { getCurrentUserProfileName, getCurrentUser } from "../firebaseConfig";
+import fbase, {
+  getCurrentUserProfileName,
+  getCurrentUser,
+} from "../firebaseConfig";
 import { withRouter } from "react-router";
 import { LearnContext } from "../components/providers/LearnProvider";
 import { Progress } from "../models/users";
@@ -29,7 +32,7 @@ const Home: React.FC = () => {
   const { chapters } = useContext(LearnContext);
   const [userDisplayName, setUserDisplayName] = useState<string>();
   const [busy, setBusy] = useState<boolean>(true);
-  const [progress, setProgress] = useState<Progress[]>([])
+  const [progress, setProgress] = useState<Progress[]>([]);
 
   useEffect(() => {
     const userDName = getCurrentUserProfileName();
@@ -50,7 +53,7 @@ const Home: React.FC = () => {
     }
 
     setBusy(false);
-  },[]);
+  }, []);
 
   return (
     <IonPage>
@@ -66,7 +69,7 @@ const Home: React.FC = () => {
               <IonTitle>Home</IonTitle>
             </IonToolbar>
           </IonHeader>
-          <IonContent id="homePage" >
+          <IonContent id="homePage">
             <IonHeader collapse="condense">
               <IonToolbar>
                 <IonTitle size="large">Home</IonTitle>
@@ -84,23 +87,28 @@ const Home: React.FC = () => {
                 <IonCol class="chapterList">
                   {chapters.map((chapter, index) => {
                     let chapterProgress = 0;
-                    progress.map((prog)=>{
-                      if(prog.chapterId === chapter.id){
+                    progress.map((prog) => {
+                      if (prog.chapterId === chapter.id) {
                         chapterProgress++;
                       }
-                    })
+                    });
                     return (
-                      <IonCard key={index} routerLink={`/learn/${chapter.id}`}>
+                      <IonCard
+                        // disabled={true}
+                        key={index}
+                        routerLink={`/learn/${chapter.id}`}
+                      >
                         <IonCardHeader>
                           <IonCardTitle>{chapter.title}</IonCardTitle>
                           <IonCardSubtitle>{chapter.subtitle}</IonCardSubtitle>
                         </IonCardHeader>
                         <IonCardContent>
                           <IonImg src={chapter.thumbnail} />
-                          <IonText>
-                            Progress :
-                          </IonText>
-                          <IonProgressBar color={'secondary'} value={chapterProgress / chapter.subModules.length} />
+                          <IonText>Progress :</IonText>
+                          <IonProgressBar
+                            color={"secondary"}
+                            value={chapterProgress / chapter.subModules.length}
+                          />
                         </IonCardContent>
                       </IonCard>
                     );
