@@ -72,6 +72,18 @@ hr{
   padding:20px;
 }
 
+.subModule{
+  ion-card{
+    max-width: 500px;
+    // min-height: 00px;
+    ion-card-content{
+      p{
+        font-size: 1.2em;
+      }
+    }
+  }
+}
+
 @media(prefers-color-scheme: dark) {
   :root {
     

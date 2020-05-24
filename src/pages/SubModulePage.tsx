@@ -23,6 +23,7 @@ import {
   IonCol,
   IonAlert,
   IonImg,
+  IonCardSubtitle,
 } from "@ionic/react";
 import { LearnContext } from "../components/providers/LearnProvider";
 import { Chapter, SubModule } from "../models/chapters";
@@ -74,7 +75,7 @@ export default function SubModulePage(props: any) {
               </IonTitle>
             </IonToolbar>
           </IonHeader>
-          <IonContent>
+          <IonContent class="subModule">
             <IonProgressBar
               color="primary"
               value={(progressIndex + 1) / (subModule.slides.length + 1)}
@@ -96,12 +97,20 @@ export default function SubModulePage(props: any) {
                     <IonCard>
                       {slide.title ? (
                         <IonCardHeader>
-                          <IonCardTitle>{slide.title}</IonCardTitle>
+                          {slide.titleType === "big" ? (
+                            <IonCardTitle>{slide.title}</IonCardTitle>
+                          ) : (
+                            <IonCardSubtitle>{slide.title}</IonCardSubtitle>
+                          )}
                         </IonCardHeader>
                       ) : null}
                       <IonCardContent>
                         {slide.img ? <IonImg src={slide.img} /> : null}
-                        {slide.text ? <IonText>{slide.text}</IonText> : null}
+                        {slide.text ? (
+                          <IonText>
+                            <p>{slide.text}</p>
+                          </IonText>
+                        ) : null}
                       </IonCardContent>
                     </IonCard>
                   </IonSlide>
@@ -139,9 +148,14 @@ export default function SubModulePage(props: any) {
               </IonRow>
               <IonRow>
                 <IonCol size="12">
-                  <IonButton expand="block" onClick={()=>{
-                    setAlertQuiz(true);
-                  }}>Skip to Quiz</IonButton>
+                  <IonButton
+                    expand="block"
+                    onClick={() => {
+                      setAlertQuiz(true);
+                    }}
+                  >
+                    Skip to Quiz
+                  </IonButton>
                 </IonCol>
               </IonRow>
             </IonGrid>
@@ -171,7 +185,7 @@ export default function SubModulePage(props: any) {
           </IonContent>
         </>
       ) : (
-        <ErrorContent/>
+        <ErrorContent />
       )}
     </IonPage>
   );

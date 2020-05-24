@@ -10,7 +10,7 @@ import {
   IonText,
   IonIcon,
 } from "@ionic/react";
-import { logoIonic, logoReact, logoFirebase } from "ionicons/icons";
+import { logoIonic, logoReact, logoFirebase, person } from "ionicons/icons";
 
 export default function AboutPage() {
   return (
@@ -52,11 +52,14 @@ export default function AboutPage() {
           <h6>Aset Gambar</h6>
           <ul>
             <li>FreePik</li>
+            <li>Unsplash</li>
           </ul>
         </IonText>
         <hr />
         <IonText>
           <p>
+            <IonIcon icon={person} />
+            {"  "}
             <a
               href="https://agustinusnathaniel.com"
               target="_blank"

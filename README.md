@@ -11,11 +11,11 @@ Bachelor Thesis (Final Project) of [Agustinus Nathaniel](https://agustinusnathan
 * Framework : Ionic React
 * Database + Auth : Firebase
 * Tools, Libraries : 
-  - CloudImage for image resizing, compression, and acceleration
   - Cloudinary for image storage
+  - CloudImage for image resizing, compression, (image transformer) and acceleration
   - SwiperJS (used for useRef towards IonSlides)
   - TypeScript
-* Deployment : Vercel (Formerly Zeit)
+* Deployment : Vercel (Formerly Zeit) for PWA (Web App) Version
 
 ## Getting Started
 * [Download](https://nodejs.org) and install node.js
