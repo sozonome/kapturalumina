@@ -53,6 +53,11 @@ export default function AboutPage() {
           <ul>
             <li>FreePik</li>
             <li>Unsplash</li>
+            <li>WikiPedia</li>
+          </ul>
+          <h6>Referensi Materi / Panduan Pembelajaran</h6>
+          <ul>
+            <li>Situs PhotographyLife.com</li>
           </ul>
         </IonText>
         <hr />

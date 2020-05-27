@@ -18,8 +18,14 @@ ion-button.quizAnswerButton{
 ion-col.chapterList{
   @media screen and (min-width:768px) {
     display: flex;
+    flex-wrap: wrap;
     ion-card{
-      flex-basis: 50%;
+      flex-basis: 47%;
+    }
+  } 
+  @media screen and (min-width:1200px) {
+    ion-card{
+      flex-basis: 30%;
     }
   } 
 }
@@ -77,9 +83,8 @@ hr{
     max-width: 500px;
     // min-height: 00px;
     ion-img{
-        max-height: 200px;
-        width: auto;
-        overflow: hidden;
+      // height: 200px;
+      // overflow: hidden;
     }
     ion-card-content{
       p{
