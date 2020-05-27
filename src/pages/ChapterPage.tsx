@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useEffect, useContext, useState, useRef } from "react";
 import {
   IonPage,
   IonHeader,
@@ -27,12 +27,25 @@ import { Progress } from "../models/users";
 import { playCircle, checkmarkCircle } from "ionicons/icons";
 import ErrorContent from "../components/ErrorContent";
 
+function useIsMountedRef() {
+  const isMountedRef = useRef(null as any);
+  useEffect(() => {
+    isMountedRef.current = true;
+    return () => {
+      isMountedRef.current = false;
+    };
+  });
+  return isMountedRef;
+}
+
 export default function ChapterPage(props: any) {
   const { chapters } = useContext(LearnContext);
 
   const [chapter, setChapter] = useState<Chapter>();
   const [busy, setBusy] = useState<boolean>(true);
   const [learnProgress, setLearnProgress] = useState<Progress[]>([]);
+
+  const isMountedRef = useIsMountedRef();
 
   useEffect(() => {
     setChapter(
@@ -50,7 +63,6 @@ export default function ChapterPage(props: any) {
           });
         });
     }
-
     setBusy(false);
   }, [chapters, props.match.params.chapterId]);
 
@@ -117,7 +129,11 @@ export default function ChapterPage(props: any) {
                               </h3>
                             </IonText>
                           ) : (
-                            <IonIcon icon={playCircle} color="primary" size="large" />
+                            <IonIcon
+                              icon={playCircle}
+                              color="primary"
+                              size="large"
+                            />
                           )}
                         </IonCardContent>
                       </IonCard>

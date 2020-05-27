@@ -12,18 +12,22 @@ export default function LearnProvider({children}:any) {
   const [busy, setBusy] = useState(true);
 
   useEffect(() => {
+    let fetched = true;
     fbase.auth().onAuthStateChanged(()=>{
       const rootRef = fbase.database().ref();
       const chaptersRef = rootRef.child("chapters");
       setChaptersState([]);
-      chaptersRef.once("value", (snap) => {
-        const data = snap;
-        data.forEach((row) => {
-          const entry = row;
-          setChaptersState((chapters)=> [...chapters, entry.val()]);
+      if(fetched){
+        chaptersRef.once("value", (snap) => {
+          const data = snap;
+          data.forEach((row) => {
+            const entry = row;
+            setChaptersState((chapters)=> [...chapters, entry.val()]);
+          });
         });
-      });
+      }
       setBusy(false);
+      return fetched = false;
     })
   }, []);
 

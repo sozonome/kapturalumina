@@ -27,6 +27,7 @@ import fbase, {
 import { withRouter } from "react-router";
 import { LearnContext } from "../components/providers/LearnProvider";
 import { Progress } from "../models/users";
+import useIsMountedRef from "../functions/useIsMountedRef";
 
 const Home: React.FC = () => {
   const { chapters } = useContext(LearnContext);
@@ -35,6 +36,8 @@ const Home: React.FC = () => {
   const [progress, setProgress] = useState<Progress[]>([]);
 
   const [tempProgress, setTempProgress] = useState([]);
+
+  const isMountedRef = useIsMountedRef();
 
   useEffect(() => {
     const userDName = getCurrentUserProfileName();
@@ -63,9 +66,6 @@ const Home: React.FC = () => {
         <IonLoading isOpen={busy} translucent={true} />
       ) : (
         <>
-        {
-          console.log("Home")
-        }
           <IonHeader>
             <IonToolbar>
               <IonButtons slot="start">
@@ -91,7 +91,7 @@ const Home: React.FC = () => {
               <IonRow>
                 {chapters.map((chapter, index) => {
                   let chapterProgress = 0;
-                  let locked = index===0 ? false : true;
+                  let locked = index === 0 ? false : true;
                   progress.map((prog) => {
                     if (prog.chapterId === chapter.id) {
                       chapterProgress++;

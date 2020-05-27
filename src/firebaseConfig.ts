@@ -112,7 +112,6 @@ export function updateUserLearnProgress(
 ) {
   // const currentDate = new Date().toString();
   const user = fbase.auth().currentUser;
-  let update = false;
   let found = false;
   if (user !== null) {
     fbase
@@ -127,30 +126,29 @@ export function updateUserLearnProgress(
               row.val().subModuleId === subModuleId &&
               row.val().chapterId === chapterId
             ) {
-              found= true;
-              if(score > row.val().score){
+              found = true;
+              if (score > row.val().score) {
                 fbase
                   .database()
                   .ref("users/" + user.uid + "/progress/" + row.key)
                   .update({
                     score: score,
                   });
-                  update=true;
               }
             }
           });
-        } 
-      });
-      setTimeout(()=>{
-        if(!found){
-          // New
-          fbase.database().ref("users").child(user.uid).child("progress").push({
-            subModuleId: subModuleId,
-            chapterId: chapterId,
-            score: score,
-          });
         }
-      }, 2000)
+      });
+    setTimeout(() => {
+      if (!found) {
+        // New
+        fbase.database().ref("users").child(user.uid).child("progress").push({
+          subModuleId: subModuleId,
+          chapterId: chapterId,
+          score: score,
+        });
+      }
+    }, 1000);
 
     if (streak) {
       fbase.database().ref("users").child(user.uid).child("streaks").set({

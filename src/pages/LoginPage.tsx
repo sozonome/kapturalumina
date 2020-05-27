@@ -14,7 +14,6 @@ import {
   IonLoading,
 } from "@ionic/react";
 import { loginUser } from "../firebaseConfig";
-import { presentTopToast } from "../components/Toast";
 import { withRouter, Redirect } from "react-router";
 import { AuthContext } from "../components/providers/AuthProvider";
 

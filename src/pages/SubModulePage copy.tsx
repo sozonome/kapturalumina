@@ -31,6 +31,7 @@ import { chevronBack, chevronForward } from "ionicons/icons";
 import ErrorContent from "../components/ErrorContent";
 import SubModuleSlideImage from "../components/SubModuleSlideImage";
 import { updateUserLearnProgress } from "../firebaseConfig";
+import useAbortableEffect from "../functions/useAbortableEffect";
 
 export default function SubModulePage(props: any) {
   const { chapters }: { chapters: Chapter[] } = useContext(LearnContext);
@@ -55,7 +56,7 @@ export default function SubModulePage(props: any) {
       );
     }
     setBusy(false);
-  }, [chapters]);
+  }, [chapters, props.match.params.subModuleId]);
 
   const slider = useRef(null as any);
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import fbase from "../../firebaseConfig";
 import Loader from "../Loader";
+import useAbortableEffect from "../../functions/useAbortableEffect";
 
 export const AuthContext = React.createContext({
   currentUser: null,
@@ -20,6 +21,9 @@ export default function AuthProvider({ children }: any) {
 
   return (
     <>
+    {
+      console.log("Auth Provider")
+    }
       {busy === true ? (
         <Loader />
       ) : (
