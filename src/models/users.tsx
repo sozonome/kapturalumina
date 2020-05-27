@@ -22,7 +22,7 @@ export interface UserData {
 export interface Progress {
   chapterId: string;
   subModuleId: string;
-  score: number;
+  score?: number;
 }
 
 export interface Achievement {

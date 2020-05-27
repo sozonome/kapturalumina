@@ -84,18 +84,17 @@ const Home: React.FC = () => {
                 </IonCol>
               </IonRow>
               <IonRow>
-                <IonCol class="chapterList">
-                  {chapters.map((chapter, index) => {
-                    let chapterProgress = 0;
-                    progress.map((prog) => {
-                      if (prog.chapterId === chapter.id) {
-                        chapterProgress++;
-                      }
-                    });
-                    return (
+                {chapters.map((chapter, index) => {
+                  let chapterProgress = 0;
+                  progress.map((prog) => {
+                    if (prog.chapterId === chapter.id) {
+                      chapterProgress++;
+                    }
+                  });
+                  return (
+                    <IonCol sizeXs="12" sizeSm="6" sizeXl="4" key={index}>
                       <IonCard
                         // disabled={true}
-                        key={index}
                         routerLink={`/learn/${chapter.id}`}
                       >
                         <IonCardHeader>
@@ -111,9 +110,9 @@ const Home: React.FC = () => {
                           />
                         </IonCardContent>
                       </IonCard>
-                    );
-                  })}
-                </IonCol>
+                    </IonCol>
+                  );
+                })}
               </IonRow>
             </IonGrid>
           </IonContent>

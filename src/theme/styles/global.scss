@@ -15,20 +15,20 @@ ion-button.quizAnswerButton{
   /* --background: rgb(195,254,255); */
 }
 
-ion-col.chapterList{
-  @media screen and (min-width:768px) {
-    display: flex;
-    flex-wrap: wrap;
-    ion-card{
-      flex-basis: 47%;
-    }
-  } 
-  @media screen and (min-width:1200px) {
-    ion-card{
-      flex-basis: 30%;
-    }
-  } 
-}
+// ion-col.chapterList{
+//   @media screen and (min-width:767px) {
+//     display: flex;
+//     flex-wrap: wrap;
+//     ion-card{
+//       flex-basis: 42%;
+//     }
+//   } 
+//   @media screen and (min-width:1200px) {
+//     ion-card{
+//       flex-basis: 30%;
+//     }
+//   } 
+// }
 
 a:link{
   text-decoration: none;

@@ -16,6 +16,9 @@ import {
   IonCardContent,
   IonImg,
   IonIcon,
+  IonGrid,
+  IonRow,
+  IonCol,
 } from "@ionic/react";
 import { LearnContext } from "../components/providers/LearnProvider";
 import { Chapter } from "../models/chapters";
@@ -66,44 +69,51 @@ export default function ChapterPage(props: any) {
             </IonToolbar>
           </IonHeader>
           <IonContent class="ion-padding">
-            {chapter.subModules.map((subModule, index) => {
-              let bestScore = null;
-              learnProgress.map((progress, i) => {
-                if (
-                  progress.chapterId === chapter.id &&
-                  progress.subModuleId === chapter.subModules[index].id
-                ) {
-                  bestScore = progress.score;
-                }
-              });
-              return (
-                <IonCard
-                  key={index}
-                  routerLink={`/learn/${chapter.id}/${subModule.id}`}
-                >
-                  <IonCardHeader>
-                    <IonCardTitle>{subModule.title}</IonCardTitle>
-                    <IonCardSubtitle>{subModule.subtitle}</IonCardSubtitle>
-                  </IonCardHeader>
-                  <IonCardContent>
-                    <IonImg src={subModule.thumbnail} />
+            <IonGrid>
+              <IonRow>
+                {chapter.subModules.map((subModule, index) => {
+                  let bestScore = null;
+                  learnProgress.map((progress, i) => {
+                    if (
+                      progress.chapterId === chapter.id &&
+                      progress.subModuleId === chapter.subModules[index].id
+                    ) {
+                      bestScore = progress.score;
+                    }
+                  });
+                  return (
+                    <IonCol sizeXs="12" sizeSm="6" sizeXl="4" key={index}>
+                      <IonCard
+                        routerLink={`/learn/${chapter.id}/${subModule.id}`}
+                      >
+                        <IonCardHeader>
+                          <IonCardTitle>{subModule.title}</IonCardTitle>
+                          <IonCardSubtitle>
+                            {subModule.subtitle}
+                          </IonCardSubtitle>
+                        </IonCardHeader>
+                        <IonCardContent>
+                          <IonImg src={subModule.thumbnail} />
 
-                    {bestScore !== null ? (
-                      <>
-                        <IonIcon icon={checkmarkCircle} />
-                        <IonText>Best Score : {bestScore * 100}%</IonText>
-                      </>
-                    ) : (
-                      <IonIcon icon={playCircle} />
-                    )}
-                  </IonCardContent>
-                </IonCard>
-              );
-            })}
+                          {bestScore !== null ? (
+                            <>
+                              <IonIcon icon={checkmarkCircle} />
+                              <IonText>Best Score : {bestScore * 100}%</IonText>
+                            </>
+                          ) : (
+                            <IonIcon icon={playCircle} />
+                          )}
+                        </IonCardContent>
+                      </IonCard>
+                    </IonCol>
+                  );
+                })}
+              </IonRow>
+            </IonGrid>
           </IonContent>
         </>
       ) : (
-        <ErrorContent/>
+        <ErrorContent />
       )}
     </IonPage>
   );
