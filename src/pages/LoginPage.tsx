@@ -93,11 +93,11 @@ function LoginPage(props: any) {
                 </IonButton>
               </IonCol>
             </IonRow>
-            <IonRow className="ion-justify-content-center">
+            {/* <IonRow className="ion-justify-content-center">
               <IonCol sizeSm="6" className="ion-text-center">
                 <IonButton fill="clear">Lupa Kata Sandi</IonButton>
               </IonCol>
-            </IonRow>
+            </IonRow> */}
             <IonRow className="ion-justify-content-center">
               <IonCol sizeSm="6" className="ion-text-center">
                 <IonText>Belum punya akun?</IonText>

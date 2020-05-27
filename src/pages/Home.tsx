@@ -34,6 +34,8 @@ const Home: React.FC = () => {
   const [busy, setBusy] = useState<boolean>(true);
   const [progress, setProgress] = useState<Progress[]>([]);
 
+  const [tempProgress, setTempProgress] = useState([]);
+
   useEffect(() => {
     const userDName = getCurrentUserProfileName();
     if (userDName) {
@@ -61,6 +63,9 @@ const Home: React.FC = () => {
         <IonLoading isOpen={busy} translucent={true} />
       ) : (
         <>
+        {
+          console.log("Home")
+        }
           <IonHeader>
             <IonToolbar>
               <IonButtons slot="start">
@@ -86,15 +91,18 @@ const Home: React.FC = () => {
               <IonRow>
                 {chapters.map((chapter, index) => {
                   let chapterProgress = 0;
+                  let locked = index===0 ? false : true;
                   progress.map((prog) => {
                     if (prog.chapterId === chapter.id) {
                       chapterProgress++;
                     }
                   });
+                  // console.log(chapterProgress, chapter.id)
+                  // console.log(chapter.id, chapterProgress, chapter.subModules.length)
                   return (
                     <IonCol sizeXs="12" sizeSm="6" sizeXl="4" key={index}>
                       <IonCard
-                        // disabled={true}
+                        disabled={locked}
                         routerLink={`/learn/${chapter.id}`}
                       >
                         <IonCardHeader>

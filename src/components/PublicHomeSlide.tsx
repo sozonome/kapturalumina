@@ -9,13 +9,12 @@ import {
   IonCardTitle,
   IonCardHeader,
 } from "@ionic/react";
-import Swiper from "swiper";
 import lumin01 from "../assets/images/lumin/lumin-001.png";
 import lumin02 from "../assets/images/lumin/lumin-002.png";
 import lumin03 from "../assets/images/lumin/lumin-003.png";
 
 export default function PublicHomeSlide() {
-  const slider = useRef(Swiper as any);
+  const slider = useRef(null as any);
 
   useEffect(() => {
     slider.current.startAutoplay();

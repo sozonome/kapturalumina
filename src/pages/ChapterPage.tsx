@@ -73,6 +73,7 @@ export default function ChapterPage(props: any) {
               <IonRow>
                 {chapter.subModules.map((subModule, index) => {
                   let bestScore = null;
+                  let locked = index === 0 ? false : true;
                   learnProgress.map((progress, i) => {
                     if (
                       progress.chapterId === chapter.id &&
@@ -80,10 +81,19 @@ export default function ChapterPage(props: any) {
                     ) {
                       bestScore = progress.score;
                     }
+                    if (index > 0) {
+                      if (
+                        progress.subModuleId ===
+                        chapter.subModules[index - 1].id
+                      ) {
+                        locked = false;
+                      }
+                    }
                   });
                   return (
                     <IonCol sizeXs="12" sizeSm="6" sizeXl="4" key={index}>
                       <IonCard
+                        disabled={locked}
                         routerLink={`/learn/${chapter.id}/${subModule.id}`}
                       >
                         <IonCardHeader>
@@ -96,12 +106,18 @@ export default function ChapterPage(props: any) {
                           <IonImg src={subModule.thumbnail} />
 
                           {bestScore !== null ? (
-                            <>
-                              <IonIcon icon={checkmarkCircle} />
-                              <IonText>Best Score : {bestScore * 100}%</IonText>
-                            </>
+                            <IonText>
+                              <h3>
+                                <IonIcon
+                                  icon={checkmarkCircle}
+                                  color="success"
+                                  size="large"
+                                />{" "}
+                                Best Score : {bestScore * 100}%
+                              </h3>
+                            </IonText>
                           ) : (
-                            <IonIcon icon={playCircle} />
+                            <IonIcon icon={playCircle} color="primary" size="large" />
                           )}
                         </IonCardContent>
                       </IonCard>

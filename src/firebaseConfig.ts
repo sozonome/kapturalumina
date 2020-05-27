@@ -1,6 +1,6 @@
 import * as firebase from "firebase/app";
 import "firebase/database";
-import "firebase/auth"
+import "firebase/auth";
 import { presentToast } from "./components/Toast";
 
 require("dotenv").config();
@@ -108,47 +108,57 @@ export function updateUserLearnProgress(
   subModuleId: string,
   chapterId: string,
   score: number,
-  streak: number
+  streak?: number
 ) {
+  // const currentDate = new Date().toString();
   const user = fbase.auth().currentUser;
+  let update = false;
+  let found = false;
   if (user !== null) {
     fbase
       .database()
       .ref("users/" + user.uid + "/progress")
       .on("value", (snap) => {
         if (snap.exists()) {
+          // Check Previous Score
+          console.log("checking...");
           snap.forEach((row) => {
-            console.log("update");
-            console.log(row.val(), row.key);
             if (
               row.val().subModuleId === subModuleId &&
-              row.val().chapterId === chapterId &&
-              score > row.val().score
+              row.val().chapterId === chapterId
             ) {
-              console.log("really update");
-              fbase
-                .database()
-                .ref("users/" + user.uid + "/progress/" + row.key)
-                .set({
-                  subModuleId: subModuleId,
-                  chapterId: chapterId,
-                  score: score,
-                });
+              found= true;
+              if(score > row.val().score){
+                fbase
+                  .database()
+                  .ref("users/" + user.uid + "/progress/" + row.key)
+                  .update({
+                    score: score,
+                  });
+                  update=true;
+              }
             }
           });
-        } else {
-          console.log("new");
+        } 
+      });
+      setTimeout(()=>{
+        if(!found){
+          // New
           fbase.database().ref("users").child(user.uid).child("progress").push({
             subModuleId: subModuleId,
             chapterId: chapterId,
             score: score,
           });
         }
+      }, 2000)
+
+    if (streak) {
+      fbase.database().ref("users").child(user.uid).child("streaks").set({
+        lastStreak: streak,
+        newBestStreak: streak,
+        prevStreak: streak,
       });
-    fbase.database().ref("users").child(user.uid).child("streaks").set({
-      lastStreak: streak,
-      newBestStreak: streak,
-      prevStreak: streak,
-    });
+      //
+    }
   }
 }

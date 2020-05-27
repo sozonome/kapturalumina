@@ -12,7 +12,7 @@ export interface SubModule {
   title: string;
   subtitle?: string;
   thumbnail?: string;
-  quiz: Quiz;
+  quiz?: Quiz;
   subModules?: SubModule[];
   slides: Slide[];
 }

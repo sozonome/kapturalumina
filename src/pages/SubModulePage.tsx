@@ -23,14 +23,14 @@ import {
   IonCol,
   IonAlert,
   IonCardSubtitle,
+  IonLoading,
 } from "@ionic/react";
 import { LearnContext } from "../components/providers/LearnProvider";
 import { Chapter, SubModule } from "../models/chapters";
-import Swiper from "swiper";
 import { chevronBack, chevronForward } from "ionicons/icons";
 import ErrorContent from "../components/ErrorContent";
 import SubModuleSlideImage from "../components/SubModuleSlideImage";
-// import { Prompt } from "react-router";
+import { updateUserLearnProgress } from "../firebaseConfig";
 
 export default function SubModulePage(props: any) {
   const { chapters }: { chapters: Chapter[] } = useContext(LearnContext);
@@ -41,6 +41,7 @@ export default function SubModulePage(props: any) {
   const [progressIndex, setProgressIndex] = useState<number>(0);
 
   const [alertQuiz, setAlertQuiz] = useState<boolean>(false);
+  const [busyUpdate, setBusyUpdate] = useState<boolean>(false);
 
   useEffect(() => {
     const chapter = chapters.find(
@@ -54,9 +55,34 @@ export default function SubModulePage(props: any) {
       );
     }
     setBusy(false);
-  }, [chapters, props.match.params.chapterId, props.match.params.subModuleId]);
+  }, [chapters]);
 
-  const slider = useRef(Swiper as any);
+  const slider = useRef(null as any);
+
+  function afterRead() {
+    setProgressIndex(0);
+    if (subModule?.quiz) {
+      props.history.push(
+        `/quiz/${props.match.params.chapterId}/${props.match.params.subModuleId}`
+      );
+    } else {
+      setBusyUpdate(true);
+      updateUserLearnProgress(
+        props.match.params.subModuleId,
+        props.match.params.chapterId,
+        1
+      );
+      setBusyUpdate(false);
+      props.history.replace(`/learn/${props.match.params.chapterId}`);
+
+      // setTimeout(() => {
+      //   setBusyUpdate(false);
+
+      //   props.history.replace(`/learn/${props.match.params.chapterId}`);
+      // }, 1500);
+    }
+    slider.current.slideTo(0);
+  }
 
   return (
     <IonPage>
@@ -70,12 +96,11 @@ export default function SubModulePage(props: any) {
               <IonButtons slot="start">
                 <IonBackButton />
               </IonButtons>
-              <IonTitle>
-                {subModule.title} <IonIcon name={chevronBack} />
-              </IonTitle>
+              <IonTitle>{subModule.title}</IonTitle>
             </IonToolbar>
           </IonHeader>
           <IonContent class="subModule">
+            <IonLoading message={"Mohon Tunggu..."} isOpen={busyUpdate} />
             <IonProgressBar
               color="primary"
               value={(progressIndex + 1) / (subModule.slides.length + 1)}
@@ -150,7 +175,11 @@ export default function SubModulePage(props: any) {
                     // routerLink={`/quiz/${props.match.params.chapterId}/${props.match.params.subModuleId}`}
                     onClick={() => {
                       if (progressIndex === subModule.slides.length - 1) {
-                        setAlertQuiz(true);
+                        if (subModule.quiz) {
+                          setAlertQuiz(true);
+                        } else {
+                          afterRead();
+                        }
                       } else {
                         slider.current.slideNext();
                       }
@@ -161,18 +190,20 @@ export default function SubModulePage(props: any) {
                   </IonButton>
                 </IonCol>
               </IonRow>
-              <IonRow>
-                <IonCol size="12">
-                  <IonButton
-                    expand="block"
-                    onClick={() => {
-                      setAlertQuiz(true);
-                    }}
-                  >
-                    Skip to Quiz
-                  </IonButton>
-                </IonCol>
-              </IonRow>
+              {subModule.quiz ? (
+                <IonRow>
+                  <IonCol size="12">
+                    <IonButton
+                      expand="block"
+                      onClick={() => {
+                        setAlertQuiz(true);
+                      }}
+                    >
+                      Skip to Quiz
+                    </IonButton>
+                  </IonCol>
+                </IonRow>
+              ) : null}
             </IonGrid>
             <IonAlert
               isOpen={alertQuiz}
@@ -187,12 +218,7 @@ export default function SubModulePage(props: any) {
                 {
                   text: "Kerjakan Quiz",
                   handler: () => {
-                    setProgressIndex(0);
-                    console.log(progressIndex);
-                    props.history.push(
-                      `/quiz/${props.match.params.chapterId}/${props.match.params.subModuleId}`
-                    );
-                    slider.current.slideTo(0);
+                    afterRead();
                   },
                 },
               ]}

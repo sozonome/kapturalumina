@@ -28,7 +28,6 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
-    "swiper": "^5.3.8",
     "typeface-inter": "^3.12.0",
     "typeface-karla": "0.0.72",
     "typescript": "3.8.3"
@@ -38,7 +37,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build-release-android": "npm run build && npx cap copy", 
+    "build-release-android": "npm run build && npx cap copy",
     "debug-android": "npx cap open android",
     "build-clean-release-android": "rm android && npm run build-release-android"
   },
