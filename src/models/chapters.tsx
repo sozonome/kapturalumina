@@ -26,9 +26,6 @@ export interface Slide {
   img?: {
     url: string;
     position: "top" | "middle" | "bottom";
-  };
-  images?: {
-    url: string;
     caption?: string;
   };
 }

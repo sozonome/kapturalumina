@@ -22,7 +22,6 @@ import {
   IonRow,
   IonCol,
   IonAlert,
-  IonImg,
   IonCardSubtitle,
 } from "@ionic/react";
 import { LearnContext } from "../components/providers/LearnProvider";
@@ -30,6 +29,7 @@ import { Chapter, SubModule } from "../models/chapters";
 import Swiper from "swiper";
 import { chevronBack, chevronForward } from "ionicons/icons";
 import ErrorContent from "../components/ErrorContent";
+import SubModuleSlideImage from "../components/SubModuleSlideImage";
 // import { Prompt } from "react-router";
 
 export default function SubModulePage(props: any) {
@@ -97,7 +97,7 @@ export default function SubModulePage(props: any) {
                     <IonCard>
                       {slide.img ? (
                         slide.img.position === "top" ? (
-                          <IonImg src={slide.img.url} />
+                          <SubModuleSlideImage img={slide.img} />
                         ) : null
                       ) : null}
                       {slide.title ? (
@@ -111,7 +111,7 @@ export default function SubModulePage(props: any) {
                       ) : null}
                       {slide.img ? (
                         slide.img.position === "middle" ? (
-                          <IonImg src={slide.img.url} />
+                          <SubModuleSlideImage img={slide.img} />
                         ) : null
                       ) : null}
                       <IonCardContent>
@@ -124,7 +124,7 @@ export default function SubModulePage(props: any) {
                       </IonCardContent>
                       {slide.img ? (
                         slide.img.position === "bottom" ? (
-                          <IonImg src={slide.img.url} />
+                          <SubModuleSlideImage img={slide.img} />
                         ) : null
                       ) : null}
                     </IonCard>
