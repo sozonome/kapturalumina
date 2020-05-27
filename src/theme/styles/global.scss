@@ -94,6 +94,10 @@ hr{
   }
 }
 
+ion-img, img {
+  pointer-events: none;
+}
+
 @media(prefers-color-scheme: dark) {
   :root {
     
