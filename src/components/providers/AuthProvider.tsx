@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import fbase from "../../firebaseConfig";
+import fbase from "../../firebase/firebaseConfig";
 import Loader from "../Loader";
-import useAbortableEffect from "../../functions/useAbortableEffect";
 
 export const AuthContext = React.createContext({
   currentUser: null,

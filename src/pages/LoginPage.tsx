@@ -13,9 +13,9 @@ import {
   IonText,
   IonLoading,
 } from "@ionic/react";
-import { loginUser } from "../firebaseConfig";
 import { withRouter, Redirect } from "react-router";
 import { AuthContext } from "../components/providers/AuthProvider";
+import { loginUser } from "../firebase/auth";
 
 function LoginPage(props: any) {
   const [wait, setWait] = useState<boolean>(false);

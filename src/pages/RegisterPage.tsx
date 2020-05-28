@@ -16,9 +16,9 @@ import {
 } from "@ionic/react";
 import { Link, withRouter, Redirect } from "react-router-dom";
 import { presentToast } from "../components/Toast";
-import { registerUser } from "../firebaseConfig";
 import { AuthContext } from "../components/providers/AuthProvider";
 import { person, mail, key, keyOutline } from "ionicons/icons";
+import { registerUser } from "../firebase/auth";
 
 function RegisterPage() {
   const [wait, setWait] = useState<boolean>(false);

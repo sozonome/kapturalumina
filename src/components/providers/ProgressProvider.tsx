@@ -1,6 +1,7 @@
 import { Progress } from "../../models/users";
 import React, { useState, useEffect, useContext } from "react";
-import fbase, { getCurrentUser } from "../../firebaseConfig";
+import fbase from "../../firebase/firebaseConfig";
+import { getCurrentUser } from "../../firebase/auth";
 import Loader from "../Loader";
 import { AuthContext } from "./AuthProvider";
 

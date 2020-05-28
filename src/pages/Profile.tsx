@@ -25,8 +25,9 @@ import {
   IonImg,
 } from "@ionic/react";
 import { UserData } from "../models/users";
-import fbase, { getCurrentUser } from "../firebaseConfig";
+import fbase from "../firebase/firebaseConfig";
 import { logoInstagram, logoYoutube, globeOutline } from "ionicons/icons";
+import { getCurrentUser } from "../firebase/auth";
 
 export default function Profile() {
   const [user, setUser] = useState<UserData>();

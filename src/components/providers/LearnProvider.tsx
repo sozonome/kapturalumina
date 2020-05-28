@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import fbase from "../../firebaseConfig";
+import fbase from "../../firebase/firebaseConfig";
 import { Chapter } from "../../models/chapters";
 import Loader from "../Loader";
 

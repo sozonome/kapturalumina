@@ -30,7 +30,7 @@ import { Chapter, SubModule } from "../models/chapters";
 import { chevronBack, chevronForward } from "ionicons/icons";
 import ErrorContent from "../components/ErrorContent";
 import SubModuleSlideImage from "../components/SubModuleSlideImage";
-import { updateUserLearnProgress } from "../firebaseConfig";
+import { updateUserLearnProgress } from "../firebase/users";
 import { useLocation } from "react-router";
 
 export default function SubModulePage(props: any) {

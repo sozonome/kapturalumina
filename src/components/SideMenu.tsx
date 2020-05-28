@@ -20,9 +20,9 @@ import {
   logInSharp,
   personAddSharp,
 } from "ionicons/icons";
-import { logoutUser } from "../firebaseConfig";
 import { withRouter } from "react-router";
 import { AuthContext } from "./providers/AuthProvider";
+import { logoutUser } from "../firebase/auth";
 
 function SideMenu(props: any) {
   const { currentUser } = useContext(AuthContext);

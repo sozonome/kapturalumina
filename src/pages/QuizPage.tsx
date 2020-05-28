@@ -14,7 +14,7 @@ import {
 } from "@ionic/react";
 import { Chapter, Quiz, Question, Scoring } from "../models/chapters";
 import { LearnContext } from "../components/providers/LearnProvider";
-import { updateUserLearnProgress } from "../firebaseConfig";
+import { updateUserLearnProgress } from "../firebase/users";
 import ErrorContent from "../components/ErrorContent";
 import shuffleSet from "../functions/shuffle";
 

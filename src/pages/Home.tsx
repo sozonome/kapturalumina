@@ -20,14 +20,12 @@ import {
   IonProgressBar,
 } from "@ionic/react";
 import React, { useContext, useState, useEffect } from "react";
-import fbase, {
-  getCurrentUserProfileName,
-  getCurrentUser,
-} from "../firebaseConfig";
+import fbase from "../firebase/firebaseConfig";
 import { withRouter } from "react-router";
 import { LearnContext } from "../components/providers/LearnProvider";
 import { Progress } from "../models/users";
 import { UserProgressContext } from "../components/providers/ProgressProvider";
+import { getCurrentUserProfileName } from "../firebase/auth";
 
 const Home: React.FC = () => {
   const { chapters } = useContext(LearnContext);
