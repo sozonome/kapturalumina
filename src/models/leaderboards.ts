@@ -1,11 +1,13 @@
 export interface Leaderboard {
   name: string;
-  score: number;
-  dailyScore?: {
-    lastReset: Date;
-    value: number;
-  };
+  points: number;
+  dailyPoints?: DailyPoint[];
   level: number;
   chaptersDone: number;
   modulesDone: number;
+}
+
+export interface DailyPoint {
+  date: Date;
+  value: number;
 }

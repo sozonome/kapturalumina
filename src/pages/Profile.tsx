@@ -120,7 +120,7 @@ export default function Profile() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <IonChip color="primary">
+                  <IonChip color="insta">
                     <IonIcon icon={logoInstagram} />
                     <IonLabel>Instagram</IonLabel>
                   </IonChip>
@@ -130,7 +130,7 @@ export default function Profile() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <IonChip color="danger">
+                  <IonChip color="youtube">
                     <IonIcon icon={logoYoutube} />
                     <IonLabel>YouTube</IonLabel>
                   </IonChip>
@@ -140,7 +140,7 @@ export default function Profile() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <IonChip>
+                  <IonChip color="darkcream">
                     <IonIcon icon={globeOutline} />
                     <IonLabel>Website</IonLabel>
                   </IonChip>

@@ -33,3 +33,12 @@ export interface Achievement {
   img: string;
   subTitle: string;
 }
+
+export interface ProfilePicture{
+  id: string,
+  img: {
+    name: string,
+    src: string
+  },
+  unlockLimit: number
+}
