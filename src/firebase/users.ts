@@ -59,7 +59,6 @@ export function updateUserLearnProgress(
         .child("streaks");
       userStreak.on("value", (snap) => {
         if (snap.exists()) {
-          const lastStreak = streak;
           let newBestStreak: number, prevBestStreak: number;
           if (streak > snap.val().bestStreak) {
             newBestStreak = streak;

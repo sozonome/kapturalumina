@@ -34,21 +34,23 @@ export default function QuizPage(props: any) {
 
   useEffect(() => {
     const chapter = chapters.find(
-      (chapter) => chapter.id === props.match.params.chapterId
+      (chapter) => chapter.id === props.match.params.chapter_id
     );
     if (chapter) {
       const subModule = chapter.subModules.find(
-        (subModule) => subModule.id === props.match.params.subModuleId
+        (subModule) => subModule.id === props.match.params.subModule_id
       );
       if (subModule) {
         if (subModule.quiz) {
+          setQuiz([])
+          setQuizPassingScore([])
           setQuiz(shuffleSet(subModule.quiz.contents, subModule.quiz.pick));
           setQuizPassingScore(subModule.quiz.passingScore);
         }
       }
     }
     setBusy(false);
-  }, [chapters, props.match.params.chapterId, props.match.params.subModuleId]);
+  }, [chapters, props.match.params.chapter_id, props.match.params.subModule_id]);
 
   useEffect(() => {
     if (finish === true) {
@@ -78,8 +80,8 @@ export default function QuizPage(props: any) {
 
     setTimeout(()=>{
       updateUserLearnProgress(
-        props.match.params.subModuleId,
-        props.match.params.chapterId,
+        props.match.params.subModule_id,
+        props.match.params.chapter_id,
         newScore,
         passed,
         newStreak
@@ -93,9 +95,9 @@ export default function QuizPage(props: any) {
       setScore(0);
       setIndex(0);
       setStreak(0);
-      props.history.replace(`/learn/${props.match.params.chapterId}`);
-      setQuiz([]);
-      setQuizPassingScore([]);
+      props.history.replace(`/learn/${props.match.params.chapter_id}`);
+      // setQuiz([]);
+      // setQuizPassingScore([]);
     }, 2000);
   }
 

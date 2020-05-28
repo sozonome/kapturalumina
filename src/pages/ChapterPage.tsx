@@ -26,6 +26,7 @@ import { Progress } from "../models/users";
 import { playCircle, checkmarkCircle, reloadCircle } from "ionicons/icons";
 import ErrorContent from "../components/ErrorContent";
 import { UserProgressContext } from "../components/providers/ProgressProvider";
+import { withRouter } from "react-router";
 
 // function useIsMountedRef() {
 //   const isMountedRef = useRef(null as any);
@@ -38,7 +39,7 @@ import { UserProgressContext } from "../components/providers/ProgressProvider";
 //   return isMountedRef;
 // }
 
-export default function ChapterPage(props: any) {
+function ChapterPage(props: any) {
   const { chapters } = useContext(LearnContext);
   const { progress } = useContext(UserProgressContext);
 
@@ -48,13 +49,14 @@ export default function ChapterPage(props: any) {
 
   useEffect(() => {
     setChapter(
-      chapters.find((chapter) => chapter.id === props.match.params.chapterId)
+      chapters.find((chapter) => chapter.id === props.match.params.chapter__id)
     );
     setBusy(false);
-  }, [chapters, progress, props.match.params.chapterId]);
+  }, [chapters, progress, props.match.params.chapter__id]);
 
   return (
     <IonPage>
+      {/* {console.log("back to chapter")} */}
       {busy ? (
         <IonSpinner />
       ) : chapter ? (
@@ -151,3 +153,5 @@ export default function ChapterPage(props: any) {
     </IonPage>
   );
 }
+
+export default withRouter(ChapterPage);

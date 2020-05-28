@@ -20,7 +20,6 @@ import {
   IonProgressBar,
 } from "@ionic/react";
 import React, { useContext, useState, useEffect } from "react";
-import fbase from "../firebase/firebaseConfig";
 import { withRouter } from "react-router";
 import { LearnContext } from "../components/providers/LearnProvider";
 import { Progress } from "../models/users";

@@ -1,4 +1,11 @@
-import React, { useContext, useEffect, useState, useRef } from "react";
+import React, {
+  useContext,
+  useEffect,
+  useState,
+  useRef,
+  useReducer,
+} from "react";
+import ReactDOM from 'react-dom'
 import {
   IonPage,
   IonHeader,
@@ -31,71 +38,166 @@ import { chevronBack, chevronForward } from "ionicons/icons";
 import ErrorContent from "../components/ErrorContent";
 import SubModuleSlideImage from "../components/SubModuleSlideImage";
 import { updateUserLearnProgress } from "../firebase/users";
-import { useLocation } from "react-router";
+import { useLocation, withRouter } from "react-router";
 
-export default function SubModulePage(props: any) {
+// export interface Action {
+//   type: string;
+//   payload?: SubModule | undefined;
+// }
+
+// function reducer(state: SubModule | undefined, action: Action) {
+//   switch (action.type) {
+//     case "fetch":
+//       return (state = action.payload);
+//     case "reset":
+//       return (state = undefined);
+//   }
+// }
+
+const initialSlides : SubModule = {
+  id: "blank",
+  title: "Blank",
+  slides: [
+    {
+      id: "slide01",
+      text: "This is a Blank Module"
+    }
+  ]
+}
+
+function SubModulePage(props: any) {
   const { chapters }: { chapters: Chapter[] } = useContext(LearnContext);
 
   const [subModule, setSubModule] = useState<SubModule>();
   const [busy, setBusy] = useState<boolean>(true);
+  const [finish, setFinish] = useState<boolean>(true);
 
   const [progressIndex, setProgressIndex] = useState<number>(0);
 
   const [alertQuiz, setAlertQuiz] = useState<boolean>(false);
   const [busyUpdate, setBusyUpdate] = useState<boolean>(false);
 
-  const location = useLocation();
+  // const [subModule, dispatch] = useReducer(reducer, undefined);
 
   useEffect(() => {
+    // console.log("useEffect", subModule);
     const chapter = chapters.find(
       (chapter) => chapter.id === props.match.params.chapterId
     );
-    if (chapter) {
+    if (
+      chapter &&
+      props.match.params.chapterId !== null &&
+      props.match.params.subModuleId !== null 
+    ) {
+      // console.log("fetchh", subModule, props.match.params.subModuleId);
+      // dispatch({
+      //   type: "fetch",
+      //   payload: chapter.subModules.find(
+      //     (subModule) => subModule.id === props.match.params.subModuleId
+      //   ),
+      // });
+      setSubModule(undefined);
       setSubModule(
         chapter.subModules.find(
           (subModule) => subModule.id === props.match.params.subModuleId
         )
       );
+      setFinish(false);
     }
     setBusy(false);
-  }, [chapters, props.match.params.chapterId, props.match.params.subModuleId]);
+  }, [props.match.params.chapterId, props.match.params.subModuleId, chapters]);
 
-  const slider = useRef(null as any);
+  useEffect(()=>{
+    return ()=>{
+      // console.log("cleaned up")
+      setSubModule(undefined)
+    };
+  },[])
+
+  const slider = useRef<HTMLIonSlidesElement>(null);
 
   function afterRead() {
+    // console.log("after read")
     setBusyUpdate(true);
+    updateUserLearnProgress(
+      props.match.params.subModuleId,
+      props.match.params.chapterId,
+      1,
+      true
+    );
     
-    if (subModule?.quiz) {
+    setTimeout(() => {
+      // console.log("timeout")
+      setFinish(true);
+      setSubModule(undefined);
+      // dispatch({
+      //   type: "reset",
+      // });
       setProgressIndex(0);
-      setTimeout(() => {
-        setSubModule(undefined);
-        setBusyUpdate(false);
-        props.history.push(
-          `/quiz/${props.match.params.chapterId}/${props.match.params.subModuleId}`
-        );
-      }, 1000);
-    } else {
-      updateUserLearnProgress(
-        props.match.params.subModuleId,
-        props.match.params.chapterId,
-        1,
-        true
+      setBusyUpdate(false);
+      props.history.replace(`/learn/${props.match.params.chapterId}`);
+    }, 1000);
+    slider.current!.slideTo(0);
+  }
+
+  function renderSlides(subModule: SubModule) {
+    return subModule.slides.map((slide, index) => {
+      return (
+        <IonSlide key={index}>
+          <IonCard>
+            {slide.img ? (
+              slide.img.position === "top" ? (
+                <SubModuleSlideImage img={slide.img} />
+              ) : null
+            ) : null}
+            {slide.title ? (
+              <IonCardHeader>
+                {slide.titleType === "big" ? (
+                  <IonCardTitle>{slide.title}</IonCardTitle>
+                ) : (
+                  <IonCardSubtitle>{slide.title}</IonCardSubtitle>
+                )}
+              </IonCardHeader>
+            ) : null}
+            {slide.img ? (
+              slide.img.position === "middle" ? (
+                <SubModuleSlideImage img={slide.img} />
+              ) : null
+            ) : null}
+            <IonCardContent>
+              {/* {slide.img ? <IonImg src={slide.img.url} /> : null} */}
+              {slide.text ? (
+                <IonText>
+                  <p>{slide.text}</p>
+                </IonText>
+              ) : null}
+            </IonCardContent>
+            {slide.img ? (
+              slide.img.position === "bottom" ? (
+                <SubModuleSlideImage img={slide.img} />
+              ) : null
+            ) : null}
+          </IonCard>
+        </IonSlide>
       );
-      setTimeout(() => {
-        setSubModule(undefined);
-        setProgressIndex(0);
-        setBusyUpdate(false);
-        props.history.replace(`/learn/${props.match.params.chapterId}`);
-      }, 1000);
-    }
-    slider.current.slideTo(0);
+    });
   }
 
   return (
     <IonPage>
+      {/* {console.log(
+        props.match.params.chapterId,
+        props.match.params.subModuleId,
+        subModule,
+        subModule?.slides.length,
+        chapters,
+        progressIndex,
+        slider,
+        finish
+      )} */}
       {busy ? (
         <IonSpinner />
-      ) : subModule ? (
+      ) : subModule !== undefined ? (
         <>
           {/* <Prompt message="Apakah anda yakin?" /> */}
           <IonHeader>
@@ -123,46 +225,7 @@ export default function SubModulePage(props: any) {
                 margin: "0 auto",
               }}
             >
-              {subModule.slides.map((slide, index) => {
-                return (
-                  <IonSlide key={index}>
-                    <IonCard>
-                      {slide.img ? (
-                        slide.img.position === "top" ? (
-                          <SubModuleSlideImage img={slide.img} />
-                        ) : null
-                      ) : null}
-                      {slide.title ? (
-                        <IonCardHeader>
-                          {slide.titleType === "big" ? (
-                            <IonCardTitle>{slide.title}</IonCardTitle>
-                          ) : (
-                            <IonCardSubtitle>{slide.title}</IonCardSubtitle>
-                          )}
-                        </IonCardHeader>
-                      ) : null}
-                      {slide.img ? (
-                        slide.img.position === "middle" ? (
-                          <SubModuleSlideImage img={slide.img} />
-                        ) : null
-                      ) : null}
-                      <IonCardContent>
-                        {/* {slide.img ? <IonImg src={slide.img.url} /> : null} */}
-                        {slide.text ? (
-                          <IonText>
-                            <p>{slide.text}</p>
-                          </IonText>
-                        ) : null}
-                      </IonCardContent>
-                      {slide.img ? (
-                        slide.img.position === "bottom" ? (
-                          <SubModuleSlideImage img={slide.img} />
-                        ) : null
-                      ) : null}
-                    </IonCard>
-                  </IonSlide>
-                );
-              })}
+              {renderSlides(subModule)}
             </IonSlides>
             <IonGrid>
               <IonRow>
@@ -170,7 +233,7 @@ export default function SubModulePage(props: any) {
                   <IonButton
                     expand="block"
                     fill="outline"
-                    onClick={() => slider.current.slidePrev()}
+                    onClick={() => slider.current!.slidePrev()}
                   >
                     <IonIcon slot="start" icon={chevronBack} />
                     Prev
@@ -188,7 +251,7 @@ export default function SubModulePage(props: any) {
                           afterRead();
                         }
                       } else {
-                        slider.current.slideNext();
+                        slider.current!.slideNext();
                       }
                     }}
                   >
@@ -206,7 +269,9 @@ export default function SubModulePage(props: any) {
                         setAlertQuiz(true);
                       }}
                     >
-                      Skip to Quiz
+                      {progressIndex === subModule.slides.length - 1
+                        ? "Quiz"
+                        : "Skip to Quiz"}
                     </IonButton>
                   </IonCol>
                 </IonRow>
@@ -225,7 +290,14 @@ export default function SubModulePage(props: any) {
                 {
                   text: "Kerjakan Quiz",
                   handler: () => {
-                    afterRead();
+                    setProgressIndex(0);
+                    setSubModule(undefined);
+                    // dispatch({
+                    //   type: "reset",
+                    // });
+                    props.history.push(
+                      `/quiz/${props.match.params.chapterId}/${props.match.params.subModuleId}`
+                    );
                   },
                 },
               ]}
@@ -234,7 +306,9 @@ export default function SubModulePage(props: any) {
         </>
       ) : (
         <ErrorContent />
+        // props.history.push('/')
       )}
     </IonPage>
   );
 }
+export default withRouter(SubModulePage)

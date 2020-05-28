@@ -30,7 +30,7 @@ export default function UserProgressProvider({ children }: any, props: any) {
       setProgressState([])
     }
     setBusy(false);
-  }, [currentUser]);
+  }, [currentUser, user]);
 
   return (
     <>
