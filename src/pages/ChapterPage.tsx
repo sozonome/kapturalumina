@@ -26,6 +26,7 @@ import fbase, { getCurrentUser } from "../firebaseConfig";
 import { Progress } from "../models/users";
 import { playCircle, checkmarkCircle } from "ionicons/icons";
 import ErrorContent from "../components/ErrorContent";
+import { UserProgressContext } from "../components/providers/ProgressProvider";
 
 // function useIsMountedRef() {
 //   const isMountedRef = useRef(null as any);
@@ -40,6 +41,7 @@ import ErrorContent from "../components/ErrorContent";
 
 export default function ChapterPage(props: any) {
   const { chapters } = useContext(LearnContext);
+  const { progress} = useContext(UserProgressContext);
 
   const [chapter, setChapter] = useState<Chapter>();
   const [busy, setBusy] = useState<boolean>(true);
@@ -49,21 +51,9 @@ export default function ChapterPage(props: any) {
     setChapter(
       chapters.find((chapter) => chapter.id === props.match.params.chapterId)
     );
-
-    const user = getCurrentUser();
-    if (user) {
-      fbase
-        .database()
-        .ref("users/" + user.uid + "/progress")
-        .on("value", (snapshot) => {
-          setLearnProgress([]);
-          snapshot.forEach((row) => {
-            setLearnProgress((progress) => [...progress, row.val()]);
-          });
-        });
-    }
+    setLearnProgress(progress);
     setBusy(false);
-  }, [chapters, props.match.params.chapterId]);
+  }, [chapters, progress, props.match.params.chapterId]);
 
   return (
     <IonPage>
@@ -71,7 +61,7 @@ export default function ChapterPage(props: any) {
         <IonSpinner />
       ) : chapter ? (
         <>
-          {console.log(learnProgress)}
+          {/* {console.log(learnProgress)} */}
           <IonHeader>
             <IonToolbar>
               <IonButtons slot="start">

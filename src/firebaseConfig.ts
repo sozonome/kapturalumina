@@ -121,7 +121,7 @@ export function updateUserLearnProgress(
       .on("value", (snap) => {
         if (snap.exists()) {
           // Check Previous Score
-          console.log("checking...");
+          // console.log("checking...");
           snap.forEach((row) => {
             if (
               row.val().subModuleId === subModuleId &&

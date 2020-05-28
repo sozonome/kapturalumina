@@ -31,6 +31,7 @@ import { chevronBack, chevronForward } from "ionicons/icons";
 import ErrorContent from "../components/ErrorContent";
 import SubModuleSlideImage from "../components/SubModuleSlideImage";
 import { updateUserLearnProgress } from "../firebaseConfig";
+import { UserProgressContext } from "../components/providers/ProgressProvider";
 
 export default function SubModulePage(props: any) {
   const { chapters }: { chapters: Chapter[] } = useContext(LearnContext);
@@ -60,7 +61,6 @@ export default function SubModulePage(props: any) {
   const slider = useRef(null as any);
 
   function afterRead() {
-    setProgressIndex(0);
     if (subModule?.quiz) {
       props.history.push(
         `/quiz/${props.match.params.chapterId}/${props.match.params.subModuleId}`
@@ -72,12 +72,10 @@ export default function SubModulePage(props: any) {
         props.match.params.chapterId,
         1
       );
-      // setBusyUpdate(false);
-      // props.history.replace(`/learn/${props.match.params.chapterId}`);
-
       setTimeout(() => {
         setBusyUpdate(false);
-
+        setProgressIndex(0);
+        setSubModule(undefined);
         props.history.replace(`/learn/${props.match.params.chapterId}`);
       }, 1000);
     }

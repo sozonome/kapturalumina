@@ -21,9 +21,7 @@ export default function AuthProvider({ children }: any) {
 
   return (
     <>
-    {
-      console.log("Auth Provider")
-    }
+      {/* {console.log("Auth Provider")} */}
       {busy === true ? (
         <Loader />
       ) : (

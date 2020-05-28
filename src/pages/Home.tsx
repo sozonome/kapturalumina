@@ -27,17 +27,15 @@ import fbase, {
 import { withRouter } from "react-router";
 import { LearnContext } from "../components/providers/LearnProvider";
 import { Progress } from "../models/users";
-import useIsMountedRef from "../functions/useIsMountedRef";
+import { UserProgressContext } from "../components/providers/ProgressProvider";
 
 const Home: React.FC = () => {
   const { chapters } = useContext(LearnContext);
+  const {progress} = useContext(UserProgressContext);
+
   const [userDisplayName, setUserDisplayName] = useState<string>();
   const [busy, setBusy] = useState<boolean>(true);
-  const [progress, setProgress] = useState<Progress[]>([]);
-
-  const [tempProgress, setTempProgress] = useState([]);
-
-  const isMountedRef = useIsMountedRef();
+  const [learnProgress, setLearnProgress] = useState<Progress[]>([]);
 
   useEffect(() => {
     const userDName = getCurrentUserProfileName();
@@ -45,18 +43,7 @@ const Home: React.FC = () => {
       setUserDisplayName(userDName);
     }
 
-    const user = getCurrentUser();
-    if (user) {
-      fbase
-        .database()
-        .ref("users/" + user.uid + "/progress")
-        .on("value", (snapshot) => {
-          setProgress([]);
-          snapshot.forEach((row) => {
-            setProgress((prog) => [...prog, row.val()]);
-          });
-        });
-    }
+    setLearnProgress(progress)
 
     setBusy(false);
   }, []);
