@@ -22,9 +22,8 @@ import {
 } from "@ionic/react";
 import { LearnContext } from "../components/providers/LearnProvider";
 import { Chapter } from "../models/chapters";
-import fbase, { getCurrentUser } from "../firebaseConfig";
 import { Progress } from "../models/users";
-import { playCircle, checkmarkCircle } from "ionicons/icons";
+import { playCircle, checkmarkCircle, reloadCircle } from "ionicons/icons";
 import ErrorContent from "../components/ErrorContent";
 import { UserProgressContext } from "../components/providers/ProgressProvider";
 
@@ -41,7 +40,7 @@ import { UserProgressContext } from "../components/providers/ProgressProvider";
 
 export default function ChapterPage(props: any) {
   const { chapters } = useContext(LearnContext);
-  const { progress} = useContext(UserProgressContext);
+  const { progress } = useContext(UserProgressContext);
 
   const [chapter, setChapter] = useState<Chapter>();
   const [busy, setBusy] = useState<boolean>(true);
@@ -75,17 +74,20 @@ export default function ChapterPage(props: any) {
                 {chapter.subModules.map((subModule, index) => {
                   let bestScore = null;
                   let locked = index === 0 ? false : true;
+                  let passed = false;
                   progress.map((progress, i) => {
                     if (
                       progress.chapterId === chapter.id &&
                       progress.subModuleId === chapter.subModules[index].id
                     ) {
                       bestScore = progress.score;
+                      passed = progress.passed;
                     }
                     if (index > 0) {
                       if (
                         progress.subModuleId ===
-                        chapter.subModules[index - 1].id
+                          chapter.subModules[index - 1].id &&
+                        progress.passed === true
                       ) {
                         locked = false;
                       }
@@ -108,13 +110,23 @@ export default function ChapterPage(props: any) {
 
                           {bestScore !== null ? (
                             <IonText>
-                              <h3>
-                                <IonIcon
-                                  icon={checkmarkCircle}
-                                  color="success"
-                                  size="large"
-                                />{" "}
-                                Best Score : {bestScore * 100}%
+                              <h3 style={{ verticalAlign: "middle" }}>
+                                {passed ? (
+                                  <IonIcon
+                                    icon={checkmarkCircle}
+                                    color="success"
+                                    size="large"
+                                  />
+                                ) : (
+                                  <IonIcon
+                                    icon={reloadCircle}
+                                    color="warning"
+                                    size="large"
+                                  />
+                                )}
+                                {subModule.quiz ? (
+                                  <>Best Score : {bestScore * 100}%</>
+                                ) : null}
                               </h3>
                             </IonText>
                           ) : (

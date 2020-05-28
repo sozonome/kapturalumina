@@ -1,16 +1,24 @@
+// For Next Version of KapturaLumina
+
 export interface Chapter {
   id: string;
-  title: string;
-  subtitle?: string;
+  title: multiLang;
+  subtitle?: multiLang;
   thumbnail?: string;
   subModules: SubModule[];
   quiz?: Quiz;
 }
 
+export interface multiLang{
+  id?:string;
+  en?:string;
+  // add other language
+}
+
 export interface SubModule {
   id: string;
-  title: string;
-  subtitle?: string;
+  title: multiLang;
+  subtitle?: multiLang;
   thumbnail?: string;
   quiz?: Quiz;
   subModules?: SubModule[];
@@ -19,10 +27,10 @@ export interface SubModule {
 
 export interface Slide {
   id: string;
-  title?: string;
-  subTitle?: string;
+  title?: multiLang;
+  subTitle?: multiLang;
   titleType?: "big" | "regular";
-  text?: string;
+  text?: multiLang;
   img?: {
     url: string;
     position: "top" | "middle" | "bottom";
@@ -31,27 +39,20 @@ export interface Slide {
 }
 
 export interface Quiz {
-  id: string; 
+  id: string;
   pick: number;
-  passingScore: Scoring[];
   contents: Question[];
 }
 
 export interface Question {
-  id: number;
-  question: string;
+  id: string;
+  question: multiLang;
   answers: Answer[];
 }
 
 export interface Answer {
-  content: string;
+  content: multiLang;
   correct: boolean;
-}
-
-export interface Scoring {
-  value: number,
-  points: number,
-  passed: boolean
 }
 
 export interface Score {

@@ -12,17 +12,19 @@ import {
   IonSpinner,
   IonLoading,
 } from "@ionic/react";
-import { Chapter, Quiz } from "../models/chapters";
+import { Chapter, Quiz, Question, Scoring } from "../models/chapters";
 import { LearnContext } from "../components/providers/LearnProvider";
 import { updateUserLearnProgress } from "../firebaseConfig";
 import ErrorContent from "../components/ErrorContent";
+import shuffleSet from "../functions/shuffle";
 
 export default function QuizPage(props: any) {
   const { chapters }: { chapters: Chapter[] } = useContext(LearnContext);
   const [score, setScore] = useState<number>(0);
 
   const [busy, setBusy] = useState<boolean>(true);
-  const [quiz, setQuiz] = useState<Quiz>();
+  const [quiz, setQuiz] = useState<Question[]>([]);
+  const [quizPassingScore, setQuizPassingScore] = useState<Scoring[]>([]);
   const [index, setIndex] = useState<number>(0);
 
   const [streak, setStreak] = useState<number>(0);
@@ -39,11 +41,14 @@ export default function QuizPage(props: any) {
         (subModule) => subModule.id === props.match.params.subModuleId
       );
       if (subModule) {
-        setQuiz(subModule.quiz);
+        if (subModule.quiz) {
+          setQuiz(shuffleSet(subModule.quiz.contents, subModule.quiz.pick));
+          setQuizPassingScore(subModule.quiz.passingScore);
+        }
       }
     }
     setBusy(false);
-  },[chapters, props.match.params.chapterId, props.match.params.subModuleId]);
+  }, [chapters, props.match.params.chapterId, props.match.params.subModuleId]);
 
   useEffect(() => {
     if (finish === true) {
@@ -54,18 +59,32 @@ export default function QuizPage(props: any) {
 
   function updateLearnProgress() {
     // Value Streak and Points
-    console.log(score, index, streak);
+    console.log("Score:", score, "Index: ", index, "Streak: ", streak);
     const newScore = score / (index + 1);
     const newStreak = streak;
 
     setBusyUpdate(true);
 
-    updateUserLearnProgress(
-      props.match.params.subModuleId,
-      props.match.params.chapterId,
-      newScore,
-      newStreak
-    );
+    let points = 0;
+    let passed = false;
+
+    for(let i=0; i<quizPassingScore.length; i++){
+      if (newScore >= quizPassingScore[i].value) {
+        points = quizPassingScore[i].points 
+        passed = quizPassingScore[i].passed
+        break;
+      }
+    }
+
+    setTimeout(()=>{
+      updateUserLearnProgress(
+        props.match.params.subModuleId,
+        props.match.params.chapterId,
+        newScore,
+        passed,
+        newStreak
+      );
+    }, 500);
 
     setTimeout(() => {
       setBusyUpdate(false);
@@ -74,8 +93,9 @@ export default function QuizPage(props: any) {
       setScore(0);
       setIndex(0);
       setStreak(0);
-
       props.history.replace(`/learn/${props.match.params.chapterId}`);
+      setQuiz([]);
+      setQuizPassingScore([]);
     }, 2000);
   }
 
@@ -83,7 +103,7 @@ export default function QuizPage(props: any) {
     <IonPage>
       {busy ? (
         <IonSpinner />
-      ) : quiz ? (
+      ) : quiz.length > 0 ? (
         <>
           <IonHeader>
             <IonToolbar>
@@ -98,11 +118,11 @@ export default function QuizPage(props: any) {
               </IonRow>
               <IonRow>
                 <IonCol class="ion-text-center">
-                  <h3>{quiz.contents[index].question}</h3>
+                  <h3>{quiz[index].question}</h3>
                 </IonCol>
               </IonRow>
               <IonRow>
-                {quiz.contents[index].answers.map((answer, ind) => {
+                {shuffleSet(quiz[index].answers).map((answer, ind) => {
                   return (
                     <IonCol key={ind} size="12">
                       <IonButton
@@ -117,7 +137,7 @@ export default function QuizPage(props: any) {
                             setStreak(0);
                           }
 
-                          if (index === quiz.contents.length - 1) {
+                          if (index === quiz.length - 1) {
                             // console.log(quiz.contents.length, index)
                             setFinish(true);
                           } else {

@@ -31,7 +31,7 @@ import { chevronBack, chevronForward } from "ionicons/icons";
 import ErrorContent from "../components/ErrorContent";
 import SubModuleSlideImage from "../components/SubModuleSlideImage";
 import { updateUserLearnProgress } from "../firebaseConfig";
-import { UserProgressContext } from "../components/providers/ProgressProvider";
+import { useLocation } from "react-router";
 
 export default function SubModulePage(props: any) {
   const { chapters }: { chapters: Chapter[] } = useContext(LearnContext);
@@ -43,6 +43,8 @@ export default function SubModulePage(props: any) {
 
   const [alertQuiz, setAlertQuiz] = useState<boolean>(false);
   const [busyUpdate, setBusyUpdate] = useState<boolean>(false);
+
+  const location = useLocation();
 
   useEffect(() => {
     const chapter = chapters.find(
@@ -56,26 +58,33 @@ export default function SubModulePage(props: any) {
       );
     }
     setBusy(false);
-  }, [chapters, props.match.params.chapterId, props.match.params.subModuleId]);
+  }, [chapters, props.match.params.chapterId, props.match.params.subModuleId, location]);
 
   const slider = useRef(null as any);
 
   function afterRead() {
+    setBusyUpdate(true);
+    
     if (subModule?.quiz) {
-      props.history.push(
-        `/quiz/${props.match.params.chapterId}/${props.match.params.subModuleId}`
-      );
+      setProgressIndex(0);
+      setTimeout(() => {
+        setSubModule(undefined);
+        setBusyUpdate(false);
+        props.history.push(
+          `/quiz/${props.match.params.chapterId}/${props.match.params.subModuleId}`
+        );
+      }, 1000);
     } else {
-      setBusyUpdate(true);
       updateUserLearnProgress(
         props.match.params.subModuleId,
         props.match.params.chapterId,
-        1
+        1,
+        true
       );
       setTimeout(() => {
-        setBusyUpdate(false);
-        setProgressIndex(0);
         setSubModule(undefined);
+        setProgressIndex(0);
+        setBusyUpdate(false);
         props.history.replace(`/learn/${props.match.params.chapterId}`);
       }, 1000);
     }

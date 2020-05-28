@@ -8,7 +8,7 @@ export interface UserData {
   friends?: string[];
   progress?: Progress[];
   streaks?: {
-    bestQuizStreak?: number;
+    bestStreak?: number;
     prevBestStreak?: number;
     lastStreak?: number;
   };
@@ -24,6 +24,7 @@ export interface Progress {
   subModuleId: string;
   date?: Date;
   score?: number;
+  passed:boolean;
 }
 
 export interface Achievement {
