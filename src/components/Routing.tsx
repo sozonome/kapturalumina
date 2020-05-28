@@ -12,6 +12,8 @@ import ChapterPage from "../pages/ChapterPage";
 import { AuthContext } from "./providers/AuthProvider";
 import PrivateRoute from "./PrivateRoute";
 import QuizPage from "../pages/QuizPage";
+import LearnWrapper from "../pages/LearnWrapper";
+import { BrowserRouter } from "react-router-dom";
 // import { PrivateRoute, PublicRoute } from "./RouteType";
 
 function Routing() {
@@ -24,18 +26,22 @@ function Routing() {
         <PrivateRoute path="/main" component={MainTabs} />
         <Route path="/login" component={LoginPage} />
         <Route path="/register" component={RegisterPage} />
+        <PrivateRoute
+          exact
+          path="/learn/:chapter__id"
+          component={ChapterPage}
+        />
         <Switch>
-          <PrivateRoute
-            exact
-            path="/learn/:chapter__id"
-            component={ChapterPage}
-          />
           <PrivateRoute
             exact
             path="/learn/:chapterId/:subModuleId"
             component={SubModulePage}
           />
         </Switch>
+        {/* <PrivateRoute 
+          path="/learn"
+          component={LearnWrapper}
+        /> */}
         <PrivateRoute
           exact
           path="/quiz/:chapter_id/:subModule_id"

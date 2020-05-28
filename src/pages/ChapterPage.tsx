@@ -19,11 +19,17 @@ import {
   IonGrid,
   IonRow,
   IonCol,
+  IonButton,
 } from "@ionic/react";
 import { LearnContext } from "../components/providers/LearnProvider";
 import { Chapter } from "../models/chapters";
 import { Progress } from "../models/users";
-import { playCircle, checkmarkCircle, reloadCircle } from "ionicons/icons";
+import {
+  playCircle,
+  checkmarkCircle,
+  reloadCircle,
+  arrowBackOutline,
+} from "ionicons/icons";
 import ErrorContent from "../components/ErrorContent";
 import { UserProgressContext } from "../components/providers/ProgressProvider";
 import { withRouter } from "react-router";
@@ -65,7 +71,10 @@ function ChapterPage(props: any) {
           <IonHeader>
             <IonToolbar>
               <IonButtons slot="start">
-                <IonBackButton />
+                <IonBackButton/>
+                {/* <IonButton routerLink="/">
+                  <IonIcon icon={arrowBackOutline} />
+                </IonButton> */}
               </IonButtons>
               <IonTitle>{chapter.title}</IonTitle>
             </IonToolbar>

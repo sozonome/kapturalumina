@@ -42,15 +42,19 @@ export default function QuizPage(props: any) {
       );
       if (subModule) {
         if (subModule.quiz) {
-          setQuiz([])
-          setQuizPassingScore([])
+          setQuiz([]);
+          setQuizPassingScore([]);
           setQuiz(shuffleSet(subModule.quiz.contents, subModule.quiz.pick));
           setQuizPassingScore(subModule.quiz.passingScore);
         }
       }
     }
     setBusy(false);
-  }, [chapters, props.match.params.chapter_id, props.match.params.subModule_id]);
+  }, [
+    chapters,
+    props.match.params.chapter_id,
+    props.match.params.subModule_id,
+  ]);
 
   useEffect(() => {
     if (finish === true) {
@@ -70,15 +74,15 @@ export default function QuizPage(props: any) {
     let points = 0;
     let passed = false;
 
-    for(let i=0; i<quizPassingScore.length; i++){
+    for (let i = 0; i < quizPassingScore.length; i++) {
       if (newScore >= quizPassingScore[i].value) {
-        points = quizPassingScore[i].points 
-        passed = quizPassingScore[i].passed
+        points = quizPassingScore[i].points;
+        passed = quizPassingScore[i].passed;
         break;
       }
     }
 
-    setTimeout(()=>{
+    setTimeout(() => {
       updateUserLearnProgress(
         props.match.params.subModule_id,
         props.match.params.chapter_id,
@@ -114,9 +118,9 @@ export default function QuizPage(props: any) {
           </IonHeader>
           <IonContent>
             <IonLoading message={"Mohon Tunggu..."} isOpen={busyUpdate} />
-            <IonGrid>
+            <IonGrid class="ion-padding quizContainer">
               <IonRow>
-                <IonCol class="ion-text-center">Skor : {score}</IonCol>
+                <IonCol size="12" class="ion-text-center">Skor : {score}</IonCol>
               </IonRow>
               <IonRow>
                 <IonCol class="ion-text-center">

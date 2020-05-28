@@ -11,6 +11,18 @@ ion-app{
 //   border-radius: 15px;
 // }
 
+ion-grid.quizContainer{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translate(-14%, -50%);
+  @media screen and (min-width:900px){
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
 ion-button.quizAnswerButton{
   /* --background: rgb(195,254,255); */
 }

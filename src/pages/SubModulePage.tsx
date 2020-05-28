@@ -5,7 +5,7 @@ import React, {
   useRef,
   useReducer,
 } from "react";
-import ReactDOM from 'react-dom'
+import ReactDOM from "react-dom";
 import {
   IonPage,
   IonHeader,
@@ -54,16 +54,16 @@ import { useLocation, withRouter } from "react-router";
 //   }
 // }
 
-const initialSlides : SubModule = {
+const initialSlides: SubModule = {
   id: "blank",
   title: "Blank",
   slides: [
     {
       id: "slide01",
-      text: "This is a Blank Module"
-    }
-  ]
-}
+      text: "This is a Blank Module",
+    },
+  ],
+};
 
 function SubModulePage(props: any) {
   const { chapters }: { chapters: Chapter[] } = useContext(LearnContext);
@@ -80,16 +80,16 @@ function SubModulePage(props: any) {
   // const [subModule, dispatch] = useReducer(reducer, undefined);
 
   useEffect(() => {
-    // console.log("useEffect", subModule);
+    console.log("useEffect Fetch", subModule);
     const chapter = chapters.find(
       (chapter) => chapter.id === props.match.params.chapterId
     );
     if (
       chapter &&
       props.match.params.chapterId !== null &&
-      props.match.params.subModuleId !== null 
+      props.match.params.subModuleId !== null
     ) {
-      // console.log("fetchh", subModule, props.match.params.subModuleId);
+      console.log("fetchh", subModule, props.match.params.subModuleId);
       // dispatch({
       //   type: "fetch",
       //   payload: chapter.subModules.find(
@@ -107,35 +107,46 @@ function SubModulePage(props: any) {
     setBusy(false);
   }, [props.match.params.chapterId, props.match.params.subModuleId, chapters]);
 
-  useEffect(()=>{
-    return ()=>{
-      // console.log("cleaned up")
-      setSubModule(undefined)
+  useEffect(() => {
+    // Cleanup Effect
+    return () => {
+      console.log("cleaned up");
+      setFinish(true);
+      setSubModule(undefined);
+      setSubModule(undefined);
+      setProgressIndex(0);
     };
-  },[])
+  }, []);
 
   const slider = useRef<HTMLIonSlidesElement>(null);
 
   function afterRead() {
-    // console.log("after read")
+    console.log("after read");
     setBusyUpdate(true);
-    updateUserLearnProgress(
-      props.match.params.subModuleId,
-      props.match.params.chapterId,
-      1,
-      true
-    );
-    
+    if (subModule?.quiz == null) {
+      updateUserLearnProgress(
+        props.match.params.subModuleId,
+        props.match.params.chapterId,
+        1,
+        true
+      );
+    }
+
     setTimeout(() => {
-      // console.log("timeout")
-      setFinish(true);
-      setSubModule(undefined);
+      console.log("timeout");
       // dispatch({
       //   type: "reset",
       // });
-      setProgressIndex(0);
+
       setBusyUpdate(false);
-      props.history.replace(`/learn/${props.match.params.chapterId}`);
+      if (subModule?.quiz) {
+        props.history.replace(
+          `/quiz/${props.match.params.chapterId}/${props.match.params.subModuleId}`
+        );
+      } else {
+        props.history.replace(`/learn/${props.match.params.chapterId}`);
+      }
+      return <IonAlert isOpen={true} />;
     }, 1000);
     slider.current!.slideTo(0);
   }
@@ -185,7 +196,7 @@ function SubModulePage(props: any) {
 
   return (
     <IonPage>
-      {/* {console.log(
+      {console.log(
         props.match.params.chapterId,
         props.match.params.subModuleId,
         subModule,
@@ -194,7 +205,7 @@ function SubModulePage(props: any) {
         progressIndex,
         slider,
         finish
-      )} */}
+      )}
       {busy ? (
         <IonSpinner />
       ) : subModule !== undefined ? (
@@ -290,14 +301,7 @@ function SubModulePage(props: any) {
                 {
                   text: "Kerjakan Quiz",
                   handler: () => {
-                    setProgressIndex(0);
-                    setSubModule(undefined);
-                    // dispatch({
-                    //   type: "reset",
-                    // });
-                    props.history.push(
-                      `/quiz/${props.match.params.chapterId}/${props.match.params.subModuleId}`
-                    );
+                    afterRead();
                   },
                 },
               ]}
@@ -311,4 +315,4 @@ function SubModulePage(props: any) {
     </IonPage>
   );
 }
-export default withRouter(SubModulePage)
+export default withRouter(SubModulePage);
