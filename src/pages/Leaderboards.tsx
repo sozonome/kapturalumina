@@ -1,7 +1,12 @@
-import React from 'react'
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonMenuButton } from '@ionic/react'
+import React, { useEffect } from 'react'
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonMenuButton, IonGrid, IonList } from '@ionic/react'
 
 function Leaderboards() {
+
+  useEffect(()=>{
+
+  },[])
+
   return (
     <IonPage>
       <IonHeader>
@@ -18,6 +23,9 @@ function Leaderboards() {
             <IonTitle size="large">Papan Peringkat</IonTitle>
           </IonToolbar>
         </IonHeader>
+        <IonList>
+
+        </IonList>
       </IonContent>
     </IonPage>
   )
