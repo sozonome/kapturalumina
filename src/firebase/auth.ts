@@ -47,7 +47,7 @@ export async function registerUser(
         id: user.uid,
         email: userEmail,
         name: name,
-        level: 0,
+        points: 0,
       });
     }
     return true;

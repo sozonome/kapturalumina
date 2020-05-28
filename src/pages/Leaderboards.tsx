@@ -30,18 +30,18 @@ import { personCircle } from "ionicons/icons";
 
 function Leaderboards() {
   useEffect(() => {}, []);
-  const [filterUser, setFilterUser] = useState<"global" | "antar-teman">(
+  const [filterUser, setFilterUser] = useState<"global" | "friends">(
     "global"
   );
   const [filterTime, setFilterTime] = useState<"daily" | "all-time">("daily");
 
   const [busy, setBusy] = useState<boolean>(false);
 
-  useEffect(()=>{
+  useEffect(() => {
     setBusy(true);
 
     setBusy(false);
-  }, [filterUser, filterTime])
+  }, [filterUser, filterTime]);
 
   const leaederboardData: Leaderboard[] = [
     {
@@ -141,7 +141,8 @@ function Leaderboards() {
         </IonToolbar>
         <IonToolbar>
           <IonSegment
-            onIonChange={(e) => console.log("Segment Selected", e.detail.value)}
+            onIonChange={(e:any) =>  setFilterUser(e.detail.value)}
+            color="primary"
             value={filterUser}
           >
             <IonSegmentButton value="global">

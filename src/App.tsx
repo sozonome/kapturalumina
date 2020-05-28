@@ -37,6 +37,7 @@ import "typeface-inter";
 import "typeface-karla";
 import "./theme/styles/global.scss";
 import UserProgressProvider from "./components/providers/ProgressProvider";
+import UserProfileProvider from "./components/providers/UserProfileProvider";
 
 // const store = createStore(reducer);
 
@@ -44,16 +45,18 @@ const App: React.FC = () => {
   return (
     <AuthProvider>
       <LearnProvider>
-        <UserProgressProvider>
-          <IonApp>
-            <IonReactRouter>
-              <IonSplitPane contentId="main">
-                <SideMenu />
-                <Routing />
-              </IonSplitPane>
-            </IonReactRouter>
-          </IonApp>
-        </UserProgressProvider>
+        <UserProfileProvider>
+          <UserProgressProvider>
+            <IonApp>
+              <IonReactRouter>
+                <IonSplitPane contentId="main">
+                  <SideMenu />
+                  <Routing />
+                </IonSplitPane>
+              </IonReactRouter>
+            </IonApp>
+          </UserProgressProvider>
+        </UserProfileProvider>
       </LearnProvider>
     </AuthProvider>
   );

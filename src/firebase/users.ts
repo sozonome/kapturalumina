@@ -1,6 +1,7 @@
 // Every functions related to "users" root in Realtime Database
 
 import fbase from "./firebaseConfig";
+import { presentToast } from "../components/Toast";
 
 export function updateUserLearnProgress(
   subModuleId: string,
@@ -89,5 +90,52 @@ export function updateUserLearnProgress(
       });
       //
     }
+  }
+}
+
+export async function updateUserProfile(
+  name: string,
+  bio?: string,
+  instagram?: string,
+  youTube?: string,
+  website?: string
+) {
+  const user = fbase.auth().currentUser;
+  if (user) {
+    const userProfile = fbase.database().ref(`/users/${user.uid}`);
+    userProfile.update({
+      name: name,
+    });
+    if (bio) {
+      userProfile.child("bio").set(bio);
+    }
+    if (bio?.length === 0) {
+      userProfile.child("bio").set(null);
+    }
+    const userProfileLinks = userProfile.child("socialLinks");
+    if (instagram) {
+      userProfileLinks.child("instagram").set(instagram);
+    }
+    if (instagram?.length === 0) {
+      userProfileLinks.child("instagram").set(null);
+    }
+    if (youTube) {
+      userProfileLinks.child("youtube").set(youTube);
+    }
+    if (youTube?.length === 0) {
+      userProfileLinks.child("youtube").set(null);
+    }
+    if (website) {
+      userProfileLinks.child("website").set(website);
+    }
+    if (website?.length === 0) {
+      userProfileLinks.child("website").set(null);
+    }
+  }
+
+  try {
+    return true;
+  } catch (error) {
+    presentToast(error.message);
   }
 }

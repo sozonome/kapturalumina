@@ -25,23 +25,24 @@ import { LearnContext } from "../components/providers/LearnProvider";
 import { Progress } from "../models/users";
 import { UserProgressContext } from "../components/providers/ProgressProvider";
 import { getCurrentUserProfileName } from "../firebase/auth";
+import { UserProfileContext } from "../components/providers/UserProfileProvider";
 
 const Home: React.FC = () => {
   const { chapters } = useContext(LearnContext);
   const {progress} = useContext(UserProgressContext);
+  const {user} = useContext(UserProfileContext);
 
   const [userDisplayName, setUserDisplayName] = useState<string>();
   const [busy, setBusy] = useState<boolean>(true);
   const [learnProgress, setLearnProgress] = useState<Progress[]>([]);
 
   useEffect(() => {
-    const userDName = getCurrentUserProfileName();
-    if (userDName) {
-      setUserDisplayName(userDName);
+    if (user) {
+      setUserDisplayName(user.name);
     }
 
     setBusy(false);
-  }, []);
+  }, [user]);
 
   return (
     <IonPage>

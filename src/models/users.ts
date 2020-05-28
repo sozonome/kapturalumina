@@ -2,7 +2,7 @@ export interface UserData {
   id: string;
   name: string;
   email: string;
-  level: number;
+  points: number;
   bio?: string;
   achievements?: string[];
   friends?: string[];

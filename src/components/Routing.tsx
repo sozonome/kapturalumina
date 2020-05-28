@@ -14,6 +14,7 @@ import PrivateRoute from "./PrivateRoute";
 import QuizPage from "../pages/QuizPage";
 import LearnWrapper from "../pages/LearnWrapper";
 import { BrowserRouter } from "react-router-dom";
+import EditProfile from "../pages/EditProfile";
 // import { PrivateRoute, PublicRoute } from "./RouteType";
 
 function Routing() {
@@ -46,6 +47,11 @@ function Routing() {
           exact
           path="/quiz/:chapter_id/:subModule_id"
           component={QuizPage}
+        />
+        <PrivateRoute
+          exact
+          path="/editprofile"
+          component={EditProfile}
         />
         <Route path="/about" component={AboutPage} />
         <Route path="/test" component={ComponentTestPage} />

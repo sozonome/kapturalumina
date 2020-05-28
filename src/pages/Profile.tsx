@@ -90,6 +90,7 @@ export default function Profile() {
                 <IonCol size="9">
                   <IonText>
                     <h4>{user?.name}</h4>
+                  <p>{user?.bio} </p>
                   </IonText>
                   {/* <IonText>
                     <p>Email : {user?.email}</p>
@@ -97,54 +98,46 @@ export default function Profile() {
                 </IonCol>
               </IonRow>
               <IonRow class="socialMediaLinks">
-                {/* {user?.socialLinks?.instagram ? (
-                  <IonChip color="primary">
-                    <IonIcon icon={logoInstagram} />
-                    <IonLabel>Instagram</IonLabel>
-                  </IonChip>
+                {user?.socialLinks?.instagram ? (
+                  <a
+                    href={
+                      "http://www.instagram.com/" + user?.socialLinks?.instagram
+                    }
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <IonChip color="insta">
+                      <IonIcon icon={logoInstagram} />
+                      <IonLabel>Instagram</IonLabel>
+                    </IonChip>
+                  </a>
                 ) : null}
+
                 {user?.socialLinks?.youtube ? (
-                  <IonChip color="danger">
-                    <IonIcon icon={logoYoutube} />
-                    <IonLabel>YouTube</IonLabel>
-                  </IonChip>
+                  <a
+                    href={"https://youtube.com/"+user?.socialLinks?.youtube}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <IonChip color="youtube">
+                      <IonIcon icon={logoYoutube} />
+                      <IonLabel>YouTube</IonLabel>
+                    </IonChip>
+                  </a>
                 ) : null}
+
                 {user?.socialLinks?.website ? (
-                  <IonChip>
-                    <IonIcon icon={globeOutline} />
-                    <IonLabel>Website</IonLabel>
-                  </IonChip>
-                ) : null} */}
-                <a
-                  href="http://www.instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <IonChip color="insta">
-                    <IonIcon icon={logoInstagram} />
-                    <IonLabel>Instagram</IonLabel>
-                  </IonChip>
-                </a>
-                <a
-                  href="http://www.youtube.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <IonChip color="youtube">
-                    <IonIcon icon={logoYoutube} />
-                    <IonLabel>YouTube</IonLabel>
-                  </IonChip>
-                </a>
-                <a
-                  href="http://www.google.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <IonChip color="darkcream">
-                    <IonIcon icon={globeOutline} />
-                    <IonLabel>Website</IonLabel>
-                  </IonChip>
-                </a>
+                  <a
+                    href={user?.socialLinks?.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <IonChip color="darkcream">
+                      <IonIcon icon={globeOutline} />
+                      <IonLabel>Website</IonLabel>
+                    </IonChip>
+                  </a>
+                ) : null}
               </IonRow>
               <IonRow>
                 <IonCol size="12">
@@ -152,7 +145,8 @@ export default function Profile() {
                     expand="block"
                     size="small"
                     shape="round"
-                    onClick={() => setEditMode(true)}
+                    // onClick={() => setEditMode(true)}
+                    routerLink={"/editprofile"}
                   >
                     Edit Profil
                   </IonButton>
@@ -161,8 +155,8 @@ export default function Profile() {
               <IonRow class="ion-text-center">
                 <IonCol>
                   <IonText>
-                    <h3>{user?.level}</h3>
-                    <p>Level</p>
+                    <h3>{user?.points}</h3>
+                    <p>Poin</p>
                   </IonText>
                 </IonCol>
                 <IonCol>
@@ -185,54 +179,6 @@ export default function Profile() {
               onDidDismiss={() => setEditMode(false)}
               isOpen={editMode}
             >
-              <div className="ion-padding">
-                <IonText>
-                  <h2>Edit Profile</h2>
-                </IonText>
-                <IonList lines="none">
-                  <IonListHeader color="secondary">
-                    <h5>Detail Akun</h5>
-                  </IonListHeader>
-                  <IonItem>
-                    <IonLabel position="stacked">Nama</IonLabel>
-                    <IonInput value={user?.name} type="text" />
-                  </IonItem>
-                  <IonItem>
-                    <IonLabel position="stacked">Alamat E-mail</IonLabel>
-                    <IonInput value={user?.email} type="email" />
-                  </IonItem>
-                  <IonItem>
-                    <IonLabel position="stacked">Deskripsi diri</IonLabel>
-                    <IonInput value={user?.bio} type="text" />
-                  </IonItem>
-                </IonList>
-                <IonList lines="none">
-                  <IonListHeader color="tertiary">
-                    <h5>Tautan Media Sosial</h5>
-                  </IonListHeader>
-                  <IonItem>
-                    <IonLabel position="stacked">Instagram</IonLabel>
-                    <IonInput
-                      type="text"
-                      placeholder={"Username Instagram Anda"}
-                    />
-                  </IonItem>
-                  <IonItem>
-                    <IonLabel position="stacked">YouTube</IonLabel>
-                    <IonInput
-                      type="url"
-                      placeholder="URL YouTube Channel Anda"
-                    />
-                  </IonItem>
-                  <IonItem>
-                    <IonLabel position="stacked">Website</IonLabel>
-                    <IonInput type="url" placeholder="URL Website Anda" />
-                  </IonItem>
-                </IonList>
-                <IonButton expand="block" color="success" size="default">
-                  Save
-                </IonButton>
-              </div>
               <IonButton onClick={() => setEditMode(false)}>Cancel</IonButton>
             </IonModal>
           </IonContent>
