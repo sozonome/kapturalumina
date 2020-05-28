@@ -82,11 +82,12 @@ export function getCurrentUser() {
   //       resolve(user);
   //       return true;
   //     }
-  //     resolve(null);
+  //     reject(null);
   //     unsubscribe();
   //     return false;
   //   });
   // });
+
   const user = fbase.auth().currentUser;
   if (user) {
     return user;

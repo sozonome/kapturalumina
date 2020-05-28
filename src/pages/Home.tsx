@@ -51,6 +51,7 @@ const Home: React.FC = () => {
         .database()
         .ref("users/" + user.uid + "/progress")
         .on("value", (snapshot) => {
+          setProgress([]);
           snapshot.forEach((row) => {
             setProgress((prog) => [...prog, row.val()]);
           });

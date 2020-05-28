@@ -55,7 +55,7 @@ export default function SubModulePage(props: any) {
       );
     }
     setBusy(false);
-  }, [chapters]);
+  }, [chapters, props.match.params.chapterId, props.match.params.subModuleId]);
 
   const slider = useRef(null as any);
 

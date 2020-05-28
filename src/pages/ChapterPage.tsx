@@ -27,16 +27,16 @@ import { Progress } from "../models/users";
 import { playCircle, checkmarkCircle } from "ionicons/icons";
 import ErrorContent from "../components/ErrorContent";
 
-function useIsMountedRef() {
-  const isMountedRef = useRef(null as any);
-  useEffect(() => {
-    isMountedRef.current = true;
-    return () => {
-      isMountedRef.current = false;
-    };
-  });
-  return isMountedRef;
-}
+// function useIsMountedRef() {
+//   const isMountedRef = useRef(null as any);
+//   useEffect(() => {
+//     isMountedRef.current = true;
+//     return () => {
+//       isMountedRef.current = false;
+//     };
+//   });
+//   return isMountedRef;
+// }
 
 export default function ChapterPage(props: any) {
   const { chapters } = useContext(LearnContext);
@@ -44,8 +44,6 @@ export default function ChapterPage(props: any) {
   const [chapter, setChapter] = useState<Chapter>();
   const [busy, setBusy] = useState<boolean>(true);
   const [learnProgress, setLearnProgress] = useState<Progress[]>([]);
-
-  const isMountedRef = useIsMountedRef();
 
   useEffect(() => {
     setChapter(
@@ -58,6 +56,7 @@ export default function ChapterPage(props: any) {
         .database()
         .ref("users/" + user.uid + "/progress")
         .on("value", (snapshot) => {
+          setLearnProgress([]);
           snapshot.forEach((row) => {
             setLearnProgress((progress) => [...progress, row.val()]);
           });
@@ -72,6 +71,7 @@ export default function ChapterPage(props: any) {
         <IonSpinner />
       ) : chapter ? (
         <>
+          {console.log(learnProgress)}
           <IonHeader>
             <IonToolbar>
               <IonButtons slot="start">
