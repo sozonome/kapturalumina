@@ -43,8 +43,6 @@ const Home: React.FC = () => {
       setUserDisplayName(userDName);
     }
 
-    setLearnProgress(progress)
-
     setBusy(false);
   }, []);
 
@@ -79,10 +77,19 @@ const Home: React.FC = () => {
               <IonRow>
                 {chapters.map((chapter, index) => {
                   let chapterProgress = 0;
+                  let prevChapterProgress = 0;
                   let locked = index === 0 ? false : true;
                   progress.map((prog) => {
                     if (prog.chapterId === chapter.id) {
                       chapterProgress++;
+                    }
+                    if(index>0){
+                      if(chapters[index-1].id === prog.chapterId){
+                        prevChapterProgress++;
+                      }
+                      if(prevChapterProgress === chapters[index-1].subModules.length){
+                        locked = false;
+                      }
                     }
                   });
                   // console.log(chapterProgress, chapter.id)

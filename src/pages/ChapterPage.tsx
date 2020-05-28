@@ -51,7 +51,6 @@ export default function ChapterPage(props: any) {
     setChapter(
       chapters.find((chapter) => chapter.id === props.match.params.chapterId)
     );
-    setLearnProgress(progress);
     setBusy(false);
   }, [chapters, progress, props.match.params.chapterId]);
 
@@ -76,7 +75,7 @@ export default function ChapterPage(props: any) {
                 {chapter.subModules.map((subModule, index) => {
                   let bestScore = null;
                   let locked = index === 0 ? false : true;
-                  learnProgress.map((progress, i) => {
+                  progress.map((progress, i) => {
                     if (
                       progress.chapterId === chapter.id &&
                       progress.subModuleId === chapter.subModules[index].id
