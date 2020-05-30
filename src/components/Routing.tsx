@@ -36,25 +36,19 @@ function Routing() {
             path="/learn/:chapterId/:subModuleId"
             component={SubModulePage}
           />
+          <PrivateRoute
+            exact
+            path="/quiz/:chapter_id/:subModule_id"
+            component={QuizPage}
+          />
         </Switch>
         {/* <PrivateRoute 
           path="/learn"
           component={LearnWrapper}
         /> */}
-        <PrivateRoute
-          exact
-          path="/quiz/:chapter_id/:subModule_id"
-          component={QuizPage}
-        />
-        <PrivateRoute
-          exact
-          path="/editprofile"
-          component={EditProfile}
-        />
-        <PrivateRoute
-          exact path="/user/:userId"
-          component={UserProfile}
-        />
+
+        <PrivateRoute exact path="/editprofile" component={EditProfile} />
+        <PrivateRoute exact path="/user/:userId" component={UserProfile} />
         <Route path="/about" component={AboutPage} />
         <Route path="/superadmintest" component={ComponentTestPage} />
         <Route path="/home" component={PublicHome} />

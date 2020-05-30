@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { IonApp, IonSplitPane } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 
@@ -42,6 +42,7 @@ import UserProfileProvider from "./components/providers/UserProfileProvider";
 // const store = createStore(reducer);
 
 const App: React.FC = () => {
+  
   return (
     <AuthProvider>
       <LearnProvider>

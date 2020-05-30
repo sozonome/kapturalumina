@@ -103,10 +103,8 @@ function SubModulePage(props: any) {
         true
       );
       if(subModule?.passingPoints){
-        console.log("passing points")
         updateUserLeaderBoardPoints(subModule.passingPoints)
       }else{
-        console.log("default pass points")
         updateUserLeaderBoardPoints(100);
       }
     }

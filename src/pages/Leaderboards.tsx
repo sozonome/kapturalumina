@@ -168,7 +168,7 @@ function Leaderboards() {
         <IonToolbar>
           <IonSegment
             onIonChange={(e: any) => setFilterTime(e.detail.value)}
-            color="secondary"
+            color="darkcream"
             value={filterTime}
           >
             <IonSegmentButton value="all-time">

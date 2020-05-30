@@ -37,9 +37,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "add-android": "npx cap add android",
     "build-release-android": "npm run build && npx cap copy",
-    "debug-android": "npx cap open android",
-    "build-clean-release-android": "rm android && npm run build-release-android"
+    "debug-android": "npx cap open android"
   },
   "eslintConfig": {
     "extends": "react-app"

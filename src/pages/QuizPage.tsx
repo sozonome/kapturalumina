@@ -91,6 +91,7 @@ export default function QuizPage(props: any) {
         passed,
         newStreak
       );
+      console.log(points)
       updateUserLeaderBoardPoints(
         points
       )

@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package dev.sznm.kapturalumina;
 
 import android.os.Bundle;
 

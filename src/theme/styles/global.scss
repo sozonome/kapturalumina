@@ -84,10 +84,14 @@ hr{
     margin-bottom: 20px;
   }
 
+  ion-img{
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
   @media screen and (min-width:768px){
     ion-img{
       max-width: 400px;
-      margin: 0 auto;
     }
     margin-top: 50px;
     margin: 0 auto;

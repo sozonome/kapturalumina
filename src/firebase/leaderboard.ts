@@ -27,6 +27,11 @@ export function initUserLeaderBoard(
 export function updateUserLeaderBoardPoints(points: number) {
   const user = getCurrentUser();
 
+  // To make sure if mistakenly insert chapters scoring entry in form of string in database
+  if(typeof(points)==='string'){
+    points = parseInt(points)
+  }
+
   if (user !==null) {
     const userLeaderboard = leaderboard.child(user.uid)
     userLeaderboard.child("dailyPoints").once("value", (snap) => {
@@ -48,15 +53,17 @@ export function updateUserLeaderBoardPoints(points: number) {
           });
   
           const currentDate = getCurrentDate();
+          console.log(todaysDailyPoint, todaysDailyPointKey, points);
   
           if (dailyPoint === true && todaysDailyPointKey) {
             if (todaysDailyPoint.date === currentDate) {
               // Update if today's dailyPoint entry exists
-              const currentDailyPoint:number = parseInt(todaysDailyPoint.points);
+              
+              const currentDailyPoint:number = parseInt(todaysDailyPoint.points) + points;
               return userLeaderboard
                 .child(`dailyPoints/${todaysDailyPointKey}`)
                 .update({
-                  points: currentDailyPoint + points,
+                  points: currentDailyPoint,
                 });
             } else {
               // Push new entry
@@ -70,9 +77,10 @@ export function updateUserLeaderBoardPoints(points: number) {
           }
         };
         userLeaderboard.once("value", (snap) => {
-          const pointsBefore:number = parseInt(snap.val().points)
+          const currentPoints = parseInt(snap.val().points) + points;
+          
           userLeaderboard.update({
-            points: pointsBefore + points,
+            points: currentPoints,
           });
         });
   
