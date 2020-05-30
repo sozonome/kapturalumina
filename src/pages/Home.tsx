@@ -65,6 +65,11 @@ const Home: React.FC = () => {
                 </IonCol>
               </IonRow>
               <IonRow>
+                <IonCol>
+                  <IonImg src={"https://res.cloudinary.com/irsnmt20/image/upload/v1590842111/shootnow/assets/Hello-rafiki_kjnhqo.svg"} />
+                </IonCol>
+              </IonRow>
+              <IonRow>
                 {chapters.map((chapter, index) => {
                   let chapterProgress = 0;
                   let prevChapterProgress = 0;

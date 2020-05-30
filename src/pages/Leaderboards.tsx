@@ -180,13 +180,18 @@ function Leaderboards() {
           </IonSegment>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
+      <IonContent class="leaderboardPage">
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">Papan Peringkat</IonTitle>
           </IonToolbar>
         </IonHeader>
         <IonGrid style={{ padding: 0 }}>
+          <IonRow>
+            <IonCol>
+              <IonImg src={"https://res.cloudinary.com/irsnmt20/image/upload/v1590842764/shootnow/assets/Winners-pana_dlzblq.svg"} />
+            </IonCol>
+          </IonRow>
           <IonRow>
             <IonCol>
               <IonText class="ion-text-center">

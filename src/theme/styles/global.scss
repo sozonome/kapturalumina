@@ -67,9 +67,15 @@ hr{
   }
 }
 
-#homePage ion-progress-bar{
-  height: 1rem;
-  border-radius: 0.5rem;
+#homePage {
+  ion-img{
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  ion-progress-bar{
+    height: 1rem;
+    border-radius: 0.5rem;
+  }
 }
 
 .loginBox, .registerBox{
@@ -91,7 +97,6 @@ hr{
     top: 50%;
     transform: translateY(-50%);
   }
-
 }
 
 .registerBox{
@@ -114,6 +119,18 @@ hr{
       p{
         font-size: 1.2em;
       }
+    }
+  }
+}
+
+.leaderboardPage{
+  ion-img{
+    margin: 0 auto;
+    max-width: 200px;
+  }
+  @media screen and (min-width: 768px) {
+    ion-img{
+      max-width: 500px;
     }
   }
 }
