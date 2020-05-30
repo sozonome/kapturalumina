@@ -46,7 +46,7 @@ export default function EditProfile(props: any) {
   async function saveEdit() {
     setBusy(true);
     if (name.length > 0) {
-      console.log("updating...");
+      // console.log("updating...");
       const res = await updateUserProfile(name, bio, insta, youTube, website);
       if(res){
         props.history.replace("/main/profile");
@@ -64,7 +64,7 @@ export default function EditProfile(props: any) {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonButtons>
+          <IonButtons slot="start">
             <IonBackButton />
           </IonButtons>
           <IonTitle>Edit Profil</IonTitle>

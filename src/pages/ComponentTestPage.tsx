@@ -1,10 +1,42 @@
-import React, { useState } from 'react'
-import { IonPage, IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent, IonGrid, IonRow, IonProgressBar, IonButton, IonIcon, IonCol } from '@ionic/react'
-import { removeSharp, addSharp } from 'ionicons/icons';
-import shuffleSet from '../functions/shuffle';
+import React, { useState } from "react";
+import {
+  IonPage,
+  IonHeader,
+  IonToolbar,
+  IonButtons,
+  IonMenuButton,
+  IonTitle,
+  IonContent,
+  IonGrid,
+  IonRow,
+  IonProgressBar,
+  IonButton,
+  IonIcon,
+  IonCol,
+} from "@ionic/react";
+import { removeSharp, addSharp } from "ionicons/icons";
+import shuffleSet from "../functions/shuffle";
+import getCurrentDate from "../functions/getCurrentDate";
+import { updateUserLeaderBoardPoints } from "../firebase/leaderboard";
+import { updateUserLearnProgress } from "../firebase/users";
 
 export default function ComponentTestPage() {
-  const rArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N'];
+  const rArray = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+  ];
   const [prog, setProg] = useState(0.2);
 
   return (
@@ -12,7 +44,7 @@ export default function ComponentTestPage() {
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
-            <IonMenuButton/>
+            <IonMenuButton />
           </IonButtons>
           <IonTitle>Test Page</IonTitle>
         </IonToolbar>
@@ -28,23 +60,50 @@ export default function ComponentTestPage() {
             <IonCol>
               <IonProgressBar color="primary" value={prog}></IonProgressBar>
               <IonButtons>
-                <IonButton onClick={()=>setProg( (prog - 0.2) <= 0 ? 0 : prog - 0.2 )}>
-                  <IonIcon icon={removeSharp}  />
+                <IonButton
+                  onClick={() => setProg(prog - 0.2 <= 0 ? 0 : prog - 0.2)}
+                >
+                  <IonIcon icon={removeSharp} />
                 </IonButton>
-                <IonButton onClick={()=> setProg( (prog+0.2) >= 1 ? 1 : prog+0.2)}>
-                  <IonIcon icon={addSharp}  />
+                <IonButton
+                  onClick={() => setProg(prog + 0.2 >= 1 ? 1 : prog + 0.2)}
+                >
+                  <IonIcon icon={addSharp} />
                 </IonButton>
               </IonButtons>
-              <IonButton onClick={()=> {
-                console.log(shuffleSet(rArray, 8))
-                }}>Test Shuffle (see console.log)</IonButton>
-                <IonButton onClick={()=> {
-                console.log(shuffleSet(rArray))
-                }}>Test Shuffle All (see console.log)</IonButton>
+              <IonButton
+                onClick={() => {
+                  console.log(shuffleSet(rArray, 8));
+                }}
+              >
+                Test Shuffle (see console.log)
+              </IonButton>
+              <IonButton
+                onClick={() => {
+                  console.log(shuffleSet(rArray));
+                }}
+              >
+                Test Shuffle All (see console.log)
+              </IonButton>
+              <IonButton onClick={()=>{
+                getCurrentDate();
+              }}>
+                Test CurrentDate
+              </IonButton>
+              <IonButton onClick={()=>{
+                updateUserLeaderBoardPoints(100);
+              }}>
+                Test updateleaderboard
+              </IonButton>
+              <IonButton onClick={()=>{
+                updateUserLearnProgress("c02sub01", "c02", 1, true, 5);
+              }}>
+                Test updateScoreNewScore
+              </IonButton>
             </IonCol>
           </IonRow>
         </IonGrid>
       </IonContent>
     </IonPage>
-  )
+  );
 }

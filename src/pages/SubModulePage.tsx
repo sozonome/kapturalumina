@@ -39,6 +39,7 @@ import ErrorContent from "../components/ErrorContent";
 import SubModuleSlideImage from "../components/SubModuleSlideImage";
 import { updateUserLearnProgress } from "../firebase/users";
 import { useLocation, withRouter } from "react-router";
+import { updateUserLeaderBoardPoints } from "../firebase/leaderboard";
 
 // export interface Action {
 //   type: string;
@@ -80,7 +81,7 @@ function SubModulePage(props: any) {
   // const [subModule, dispatch] = useReducer(reducer, undefined);
 
   useEffect(() => {
-    console.log("useEffect Fetch", subModule);
+    // console.log("useEffect Fetch", subModule);
     const chapter = chapters.find(
       (chapter) => chapter.id === props.match.params.chapterId
     );
@@ -89,7 +90,7 @@ function SubModulePage(props: any) {
       props.match.params.chapterId !== null &&
       props.match.params.subModuleId !== null
     ) {
-      console.log("fetchh", subModule, props.match.params.subModuleId);
+      // console.log("fetchh", subModule, props.match.params.subModuleId);
       // dispatch({
       //   type: "fetch",
       //   payload: chapter.subModules.find(
@@ -121,7 +122,7 @@ function SubModulePage(props: any) {
   const slider = useRef<HTMLIonSlidesElement>(null);
 
   function afterRead() {
-    console.log("after read");
+    // console.log("after read");
     setBusyUpdate(true);
     if (subModule?.quiz == null) {
       updateUserLearnProgress(
@@ -130,10 +131,15 @@ function SubModulePage(props: any) {
         1,
         true
       );
+      if(subModule?.passingPoints){
+        updateUserLeaderBoardPoints(subModule.passingPoints)
+      }else{
+        updateUserLeaderBoardPoints(100);
+      }
     }
 
     setTimeout(() => {
-      console.log("timeout");
+      // console.log("timeout");
       // dispatch({
       //   type: "reset",
       // });
@@ -196,7 +202,7 @@ function SubModulePage(props: any) {
 
   return (
     <IonPage>
-      {console.log(
+      {/* {console.log(
         props.match.params.chapterId,
         props.match.params.subModuleId,
         subModule,
@@ -205,7 +211,7 @@ function SubModulePage(props: any) {
         progressIndex,
         slider,
         finish
-      )}
+      )} */}
       {busy ? (
         <IonSpinner />
       ) : subModule !== undefined ? (

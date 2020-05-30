@@ -2,6 +2,7 @@
 
 import fbase from "./firebaseConfig";
 import { presentToast } from "../components/Toast";
+import getCurrentDate from "../functions/getCurrentDate";
 
 export async function loginUser(userEmail: string, userPassword: string) {
   // Auth with firebase
@@ -38,10 +39,13 @@ export async function registerUser(
 ) {
   try {
     await fbase.auth().createUserWithEmailAndPassword(userEmail, userPassword);
+
+
     const user = fbase.auth().currentUser;
     user?.updateProfile({
       displayName: name,
     });
+
     if (user !== null) {
       fbase.database().ref("users").child(user.uid).set({
         id: user.uid,
@@ -49,6 +53,16 @@ export async function registerUser(
         name: name,
         points: 0,
       });
+      fbase.database().ref("leaderboards").child(user.uid).set({
+        name: name,
+        points: 0,
+        chaptersDone: 0,
+        modulesDone: 0,
+        dailyPoints: [{
+          date : getCurrentDate(),
+          points: 0
+        }]
+      })
     }
     return true;
   } catch (error) {

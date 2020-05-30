@@ -27,6 +27,7 @@ import {
 } from "@ionic/react";
 import { Leaderboard } from "../models/leaderboards";
 import { personCircle } from "ionicons/icons";
+import fbase from "../firebase/firebaseConfig";
 
 function Leaderboards() {
   useEffect(() => {}, []);
@@ -37,98 +38,23 @@ function Leaderboards() {
 
   const [busy, setBusy] = useState<boolean>(false);
 
+  const [leaderboardData, setLeaderboardData] = useState<Leaderboard[]>([]);
+
   useEffect(() => {
     setBusy(true);
+    console.log(filterUser, filterTime)
+    setLeaderboardData([]);
+    if(filterUser==="global"){
+      fbase.database().ref("leaderboards/").on("value", (snap)=>{
+        snap.forEach((entry)=>{
+          setLeaderboardData((prev)=>[...prev, entry.val()])
+        })
+      })
+    }
 
     setBusy(false);
   }, [filterUser, filterTime]);
 
-  const leaederboardData: Leaderboard[] = [
-    {
-      name: "Willy",
-      modulesDone: 12,
-      chaptersDone: 2,
-      points: 300,
-      level: 2,
-    },
-    {
-      name: "Wonky",
-      modulesDone: 12,
-      chaptersDone: 2,
-      points: 200,
-      level: 2,
-    },
-    {
-      name: "Wonka",
-      modulesDone: 12,
-      chaptersDone: 2,
-      points: 100,
-      level: 2,
-    },
-    {
-      name: "Wendy",
-      modulesDone: 12,
-      chaptersDone: 2,
-      points: 500,
-      level: 2,
-    },
-    {
-      name: "Willy",
-      modulesDone: 12,
-      chaptersDone: 2,
-      points: 300,
-      level: 2,
-    },
-    {
-      name: "Wonky",
-      modulesDone: 12,
-      chaptersDone: 2,
-      points: 200,
-      level: 2,
-    },
-    {
-      name: "Wonka",
-      modulesDone: 12,
-      chaptersDone: 2,
-      points: 100,
-      level: 2,
-    },
-    {
-      name: "Wendy",
-      modulesDone: 12,
-      chaptersDone: 2,
-      points: 500,
-      level: 2,
-    },
-    {
-      name: "Willy",
-      modulesDone: 12,
-      chaptersDone: 2,
-      points: 300,
-      level: 2,
-    },
-    {
-      name: "Wonky",
-      modulesDone: 12,
-      chaptersDone: 2,
-      points: 200,
-      level: 2,
-    },
-    {
-      name: "Wonka",
-      modulesDone: 12,
-      chaptersDone: 2,
-      points: 100,
-      level: 2,
-    },
-    {
-      name: "Wendy",
-      modulesDone: 12,
-      chaptersDone: 2,
-      points: 500,
-      level: 2,
-    },
-  ];
   return (
     <IonPage>
       {<IonLoading message={"Mohon tunggu..."} isOpen={busy} />}
@@ -155,7 +81,7 @@ function Leaderboards() {
         </IonToolbar>
         <IonToolbar>
           <IonSegment
-            onIonChange={(e) => console.log("Segment Selected", e.detail.value)}
+            onIonChange={(e:any) => setFilterTime(e.detail.value)}
             color="secondary"
             value={filterTime}
           >
@@ -189,7 +115,7 @@ function Leaderboards() {
             </IonCol>
           </IonRow>
           <IonList lines="none">
-            {leaederboardData.map((user, index) => {
+            {leaderboardData?.map((user, index) => {
               return (
                 <IonItemSliding key={index}>
                   <IonItemOptions side="start">

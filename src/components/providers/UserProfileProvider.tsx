@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import { getCurrentUser } from "../../firebase/auth";
 import fbase from "../../firebase/firebaseConfig";
 import Loader from "../Loader";
 import { UserData } from "../../models/users";
+import { AuthContext } from "./AuthProvider";
 
 const initialUser:UserData = {
   id: 'abcde',
-  name: 'Blank User',
+  name: 'hari yang baik',
   email: 'abcd@efgh.com',
   points: 0
 }
@@ -20,9 +21,12 @@ export default function UserProfileProvider({ children }: any, props: any) {
   const [userProfile, setUserProfile] = useState<UserData>(initialUser);
   const [busy, setBusy] = useState<boolean>(true);
 
+  const {currentUser} = useContext(AuthContext);
+
   const user = getCurrentUser();
 
   useEffect(() => {
+    // setBusy(true);
     if (user) {
       fbase
         .database()
@@ -35,7 +39,7 @@ export default function UserProfileProvider({ children }: any, props: any) {
       setUserProfile(initialUser);
     }
     setBusy(false);
-  }, [user]);
+  }, [user, currentUser]);
 
   return (
     <>

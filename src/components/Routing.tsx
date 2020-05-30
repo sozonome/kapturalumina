@@ -54,7 +54,7 @@ function Routing() {
           component={EditProfile}
         />
         <Route path="/about" component={AboutPage} />
-        <Route path="/test" component={ComponentTestPage} />
+        <Route path="/superadmintest" component={ComponentTestPage} />
         <Route path="/home" component={PublicHome} />
         {currentUser ? (
           <Route exact path="/" render={() => <Redirect to="/main" />} />

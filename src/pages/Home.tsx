@@ -32,15 +32,13 @@ const Home: React.FC = () => {
   const {progress} = useContext(UserProgressContext);
   const {user} = useContext(UserProfileContext);
 
-  const [userDisplayName, setUserDisplayName] = useState<string>();
   const [busy, setBusy] = useState<boolean>(true);
   const [learnProgress, setLearnProgress] = useState<Progress[]>([]);
 
   useEffect(() => {
-    if (user) {
-      setUserDisplayName(user.name);
-    }
-
+    // setBusy(true)
+    // if(user !==null && chapters!==null){
+    // }
     setBusy(false);
   }, [user]);
 
@@ -68,7 +66,7 @@ const Home: React.FC = () => {
               <IonRow>
                 <IonCol>
                   <IonTitle style={{ marginTop: "12px" }}>
-                    Halo, {userDisplayName ? userDisplayName : null}!
+                    Halo, {user.name}!
                   </IonTitle>
                 </IonCol>
               </IonRow>

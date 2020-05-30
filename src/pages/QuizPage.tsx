@@ -17,6 +17,7 @@ import { LearnContext } from "../components/providers/LearnProvider";
 import { updateUserLearnProgress } from "../firebase/users";
 import ErrorContent from "../components/ErrorContent";
 import shuffleSet from "../functions/shuffle";
+import { updateUserLeaderBoardPoints } from "../firebase/leaderboard";
 
 export default function QuizPage(props: any) {
   const { chapters }: { chapters: Chapter[] } = useContext(LearnContext);
@@ -90,6 +91,9 @@ export default function QuizPage(props: any) {
         passed,
         newStreak
       );
+      updateUserLeaderBoardPoints(
+        points
+      )
     }, 500);
 
     setTimeout(() => {
