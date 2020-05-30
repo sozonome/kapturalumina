@@ -12,6 +12,7 @@ import {
   IonCol,
   IonText,
   IonLoading,
+  IonImg,
 } from "@ionic/react";
 import { withRouter, Redirect } from "react-router";
 import { AuthContext } from "../components/providers/AuthProvider";
@@ -54,6 +55,11 @@ function LoginPage(props: any) {
                   </span>
                   KapturaLumina
                 </IonTitle>
+              </IonCol>
+            </IonRow>
+            <IonRow>
+              <IonCol>
+                <IonImg src={"https://res.cloudinary.com/irsnmt20/image/upload/v1590840419/shootnow/assets/Focus-rafiki_ly9vso.svg"} />
               </IonCol>
             </IonRow>
             <IonRow className="ion-justify-content-center">

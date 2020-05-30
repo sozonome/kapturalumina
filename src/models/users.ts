@@ -4,7 +4,10 @@ export interface UserData {
   email: string;
   public_id: string;
   bio?: string;
-  achievements?: string[];
+  achievements?: [{
+    id: string,
+    qty?: number
+  }];
   friends?: string[];
   progress?: Progress[];
   streaks?: {

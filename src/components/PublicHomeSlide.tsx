@@ -9,9 +9,6 @@ import {
   IonCardTitle,
   IonCardHeader,
 } from "@ionic/react";
-import lumin01 from "../assets/images/lumin/lumin-001.png";
-import lumin02 from "../assets/images/lumin/lumin-002.png";
-import lumin03 from "../assets/images/lumin/lumin-003.png";
 
 export default function PublicHomeSlide() {
   const slider = useRef(null as any);
@@ -40,7 +37,7 @@ export default function PublicHomeSlide() {
             </IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
-            <IonImg src={lumin01} />
+            <IonImg src={"https://res.cloudinary.com/irsnmt20/image/upload/v1590840124/shootnow/assets/Photo-amico_vpvqni.svg"} />
           </IonCardContent>
         </IonCard>
       </IonSlide>
@@ -54,7 +51,7 @@ export default function PublicHomeSlide() {
             </IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
-            <IonImg src={lumin03} />
+            <IonImg src={"https://res.cloudinary.com/irsnmt20/image/upload/v1590840357/shootnow/assets/Focus-amico_qrc5x8.svg"} />
           </IonCardContent>
         </IonCard>
         <IonText></IonText>
@@ -69,7 +66,7 @@ export default function PublicHomeSlide() {
             </IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
-            <IonImg src={lumin02} />
+            <IonImg src={"https://res.cloudinary.com/irsnmt20/image/upload/v1590840499/shootnow/assets/Focus-pana_zfvc2u.svg"} />
           </IonCardContent>
         </IonCard>
       </IonSlide>

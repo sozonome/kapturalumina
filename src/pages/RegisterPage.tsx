@@ -13,6 +13,7 @@ import {
   IonText,
   IonLoading,
   IonIcon,
+  IonImg,
 } from "@ionic/react";
 import { Link, withRouter, Redirect } from "react-router-dom";
 import { presentToast } from "../components/Toast";
@@ -77,6 +78,11 @@ function RegisterPage() {
                   </span>
                   KapturaLumina
                 </IonTitle>
+              </IonCol>
+            </IonRow>
+            <IonRow>
+              <IonCol>
+                <IonImg src={"https://res.cloudinary.com/irsnmt20/image/upload/v1590841512/shootnow/assets/Focus-bro_kjxelk.svg"} />
               </IonCol>
             </IonRow>
           </IonGrid>
