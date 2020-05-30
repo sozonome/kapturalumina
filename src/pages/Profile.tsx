@@ -38,7 +38,6 @@ export default function Profile() {
       usersData.child(user.uid).on("value", (snap) => {
         if (snap.exists()) {
           setUser(snap.val());
-          setBusy(false);
         }
       });
       leaderboard.on("value",(snap)=>{
@@ -48,6 +47,7 @@ export default function Profile() {
           }
         })
       })
+      setBusy(false);
     } else {
       setTimeout(() => {
         setBusy(false);

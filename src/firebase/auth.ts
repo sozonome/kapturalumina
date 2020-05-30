@@ -4,6 +4,7 @@ import fbase from "./firebaseConfig";
 import { presentToast } from "../components/Toast";
 import { createNewUser } from "./users";
 import { initUserLeaderBoard } from "./leaderboard";
+import randomString from "../functions/randomString";
 
 export async function loginUser(userEmail: string, userPassword: string) {
   // Auth with firebase
@@ -52,8 +53,9 @@ export async function registerUser(
     });
 
     if (user !== null) {
-      createNewUser(user.uid, userEmail, name);
-      initUserLeaderBoard(user.uid, name)
+      const public_id = randomString();
+      createNewUser(user.uid, userEmail, name, public_id);
+      initUserLeaderBoard(user.uid, name, public_id)
     }
     return true;
   } catch (error) {

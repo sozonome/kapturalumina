@@ -63,6 +63,7 @@ function Leaderboards() {
               leaderBoardData.push({
                 name: entry.val().name,
                 points: todayPoints.points,
+                public_id: entry.val().public_id
               });
             }
           });
@@ -109,6 +110,7 @@ function Leaderboards() {
                   leaderBoardData.push({
                     name: entry.val().name,
                     points: todayPoints.points,
+                    public_id: entry.val().public_id
                   });
                 }
                 usersData
@@ -121,6 +123,7 @@ function Leaderboards() {
                           leaderBoardData.push({
                             name: entry.val().name,
                             points: todayPoints.points,
+                            public_id: entry.val().public_id
                           });
                         }
                       });
@@ -210,7 +213,7 @@ function Leaderboards() {
               return (
                 <IonItemSliding key={index}>
                   <IonItemOptions side="start">
-                    <IonItemOption expandable>
+                    <IonItemOption routerLink={`/user/${user.public_id}`} expandable>
                       <IonIcon icon={personCircle} size="large" />
                     </IonItemOption>
                   </IonItemOptions>
@@ -251,7 +254,7 @@ function Leaderboards() {
                     </IonRow>
                   </IonItem>
                   <IonItemOptions side="end">
-                    <IonItemOption>Lihat Profil</IonItemOption>
+                    <IonItemOption routerLink={`/user/${user.public_id}`}>Lihat Profil</IonItemOption>
                   </IonItemOptions>
                 </IonItemSliding>
               );

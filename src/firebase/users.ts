@@ -143,14 +143,15 @@ export function updateUserLearnProgress(
 export function createNewUser(
   user_uid: string,
   user_email: string,
-  user_name: string
+  user_name: string,
+  pub_id:string
 ) {
   usersData.child(user_uid).set({
     id: user_uid,
     email: user_email,
     name: user_name,
     points: 0,
-    public_id: randomString(),
+    public_id: pub_id,
   });
 }
 

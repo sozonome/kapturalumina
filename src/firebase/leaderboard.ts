@@ -8,13 +8,15 @@ export const leaderboard = fbase.database().ref(`leaderboards`);
 
 export function initUserLeaderBoard(
   user_uid: string,
-  user_name: string
+  user_name: string,
+  pub_id: string
 ){
   leaderboard.child(user_uid).set({
     name: user_name,
     points: 0,
     chaptersDone: 0,
     modulesDone: 0,
+    public_id: pub_id,
     dailyPoints: [{
       date : getCurrentDate(),
       points: 0
