@@ -8,6 +8,7 @@ import {
   IonItem,
   IonLabel,
   IonIcon,
+  IonImg,
 } from "@ionic/react";
 import "./SideMenu.css";
 import {
@@ -28,7 +29,7 @@ function SideMenu(props: any) {
 
   return (
     <IonMenu type="overlay" contentId="main">
-      <IonContent>
+      <IonContent class="sideMenu">
         <IonList lines="none">
           <IonListHeader>
             <span role="img" aria-label="camera">
@@ -106,6 +107,15 @@ function SideMenu(props: any) {
               <IonLabel>Tentang</IonLabel>
             </IonItem>
           </IonMenuToggle>
+        </IonList>
+        <IonList>
+          <IonItem>
+            <IonImg
+              src={
+                "https://res.cloudinary.com/irsnmt20/image/upload/v1590843201/shootnow/assets/Focus-rafiki-grey_o4fv8s.svg"
+              }
+            />
+          </IonItem>
         </IonList>
       </IonContent>
     </IonMenu>

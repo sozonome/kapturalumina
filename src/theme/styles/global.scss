@@ -135,6 +135,12 @@ hr{
   }
 }
 
+.sideMenu{
+  ion-img{
+    margin: 0 auto;
+  }
+}
+
 ion-img, img {
   pointer-events: none;
 }
