@@ -52,7 +52,7 @@ export function updateUserLeaderBoardPoints(points: number) {
           if (dailyPoint === true && todaysDailyPointKey) {
             if (todaysDailyPoint.date === currentDate) {
               // Update if today's dailyPoint entry exists
-              const currentDailyPoint:number = todaysDailyPoint.points;
+              const currentDailyPoint:number = parseInt(todaysDailyPoint.points);
               return userLeaderboard
                 .child(`dailyPoints/${todaysDailyPointKey}`)
                 .update({
@@ -69,9 +69,10 @@ export function updateUserLeaderBoardPoints(points: number) {
             }
           }
         };
-        userLeaderboard.child("points").once("value", (snap) => {
+        userLeaderboard.once("value", (snap) => {
+          const pointsBefore:number = parseInt(snap.val().points)
           userLeaderboard.update({
-            points: snap.val() + points,
+            points: pointsBefore + points,
           });
         });
   
