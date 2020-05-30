@@ -52,7 +52,7 @@ export function updateUserLeaderBoardPoints(points: number) {
           if (dailyPoint === true && todaysDailyPointKey) {
             if (todaysDailyPoint.date === currentDate) {
               // Update if today's dailyPoint entry exists
-              const currentDailyPoint = todaysDailyPoint.points;
+              const currentDailyPoint:number = todaysDailyPoint.points;
               return userLeaderboard
                 .child(`dailyPoints/${todaysDailyPointKey}`)
                 .update({

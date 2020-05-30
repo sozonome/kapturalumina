@@ -112,7 +112,7 @@ function SubModulePage(props: any) {
     }
 
     setTimeout(() => {
-      console.log("timeout");
+      // console.log("timeout");
       // dispatch({
       //   type: "reset",
       // });
