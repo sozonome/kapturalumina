@@ -14,7 +14,6 @@ export interface SubModule {
   thumbnail?: string;
   passingPoints?:number;
   quiz?: Quiz;
-  subModules?: SubModule[];
   slides: Slide[];
 }
 
@@ -24,18 +23,20 @@ export interface Slide {
   subTitle?: string;
   titleType?: "big" | "regular";
   text?: string;
-  img?: {
-    url: string;
-    position: "top" | "middle" | "bottom";
-    caption?: string;
-  };
+  img?: SlideImg;
+}
+
+export interface SlideImg{
+  url: string;
+  position: "top" | "middle" | "bottom";
+  caption?: string;
 }
 
 export interface Quiz {
   id: string; 
-  pick: number;
-  passingScore: Scoring[];
   contents: Question[];
+  passingScore: Scoring[];
+  pick: number;
 }
 
 export interface Question {
@@ -53,11 +54,4 @@ export interface Scoring {
   value: number,
   points: number,
   passed: boolean
-}
-
-export interface Score {
-  id: string;
-  userId: string;
-  subModuleId: string;
-  score: number;
 }

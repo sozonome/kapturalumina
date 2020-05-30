@@ -3,6 +3,8 @@
 import fbase from "./firebaseConfig";
 import { presentToast } from "../components/Toast";
 import getCurrentDate from "../functions/getCurrentDate";
+import { createNewUser } from "./users";
+import { initUserLeaderBoard } from "./leaderboard";
 
 export async function loginUser(userEmail: string, userPassword: string) {
   // Auth with firebase
@@ -10,8 +12,13 @@ export async function loginUser(userEmail: string, userPassword: string) {
     await fbase.auth().signInWithEmailAndPassword(userEmail, userPassword);
     return true;
   } catch (error) {
+    console.log(error)
+    let errormsg = "Email atau Kata Sandi yang kamu masukkan salah. Silakan coba lagi.";
+    if(error.code === "auth/user-not-found"){
+      errormsg = "Akun ini belum terdaftar"
+    }
     presentToast(
-      "Email atau Kata Sandi yang kamu masukkan salah. Silakan coba lagi.",
+      errormsg,
       4000,
       "warning"
     );
@@ -47,22 +54,8 @@ export async function registerUser(
     });
 
     if (user !== null) {
-      fbase.database().ref("users").child(user.uid).set({
-        id: user.uid,
-        email: userEmail,
-        name: name,
-        points: 0,
-      });
-      fbase.database().ref("leaderboards").child(user.uid).set({
-        name: name,
-        points: 0,
-        chaptersDone: 0,
-        modulesDone: 0,
-        dailyPoints: [{
-          date : getCurrentDate(),
-          points: 0
-        }]
-      })
+      createNewUser(user.uid, userEmail, name);
+      initUserLeaderBoard(user.uid, name)
     }
     return true;
   } catch (error) {

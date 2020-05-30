@@ -27,7 +27,11 @@ import {
 } from "@ionic/react";
 import { Leaderboard } from "../models/leaderboards";
 import { personCircle } from "ionicons/icons";
-import fbase from "../firebase/firebaseConfig";
+import { leaderboard } from "../firebase/leaderboard";
+import getCurrentDate from "../functions/getCurrentDate";
+import { usersData, getUserData } from "../firebase/users";
+import { User } from "firebase";
+import { getCurrentUser } from "../firebase/auth";
 
 function Leaderboards() {
   useEffect(() => {}, []);
@@ -43,15 +47,93 @@ function Leaderboards() {
   useEffect(() => {
     setBusy(true);
     console.log(filterUser, filterTime)
-    setLeaderboardData([]);
+    
     if(filterUser==="global"){
-      fbase.database().ref("leaderboards/").on("value", (snap)=>{
-        snap.forEach((entry)=>{
-          setLeaderboardData((prev)=>[...prev, entry.val()])
+      if(filterTime==="all-time"){
+        leaderboard.orderByChild('points').on("value", (snap)=>{
+          setLeaderboardData([]);
+          const leaderBoardData:Leaderboard[] = [];
+          snap.forEach((entry)=>{
+            leaderBoardData.push(entry.val())
+          })
+          setLeaderboardData(leaderBoardData.reverse())
         })
-      })
+      }else{
+        leaderboard.on("value", (snap)=>{
+          setLeaderboardData([]);
+          const leaderBoardData:Leaderboard[] = [];
+          snap.forEach((entry)=>{
+            const todayPoints = entry.val().dailyPoints.pop();
+            if(todayPoints.date === getCurrentDate()){
+              console.log(todayPoints)
+              leaderBoardData.push({
+                name: entry.val().name,
+                points: todayPoints.points
+              })
+            }
+          })
+          leaderBoardData.sort((a, b)=> b.points - a.points)
+          setLeaderboardData(leaderBoardData);
+        })
+      }
+    } else {
+      const user = getCurrentUser()
+      if(filterTime==="all-time"){
+        leaderboard.orderByChild('points').on("value", (snap)=>{
+          setLeaderboardData([]);
+          const leaderBoardData:Leaderboard[] = [];
+          snap.forEach((entry)=>{
+            if(user){
+              if(entry.key===user.uid){
+                leaderBoardData.push(entry.val())
+              }
+              usersData.child(user.uid).child("friends").once("value", (userSnap)=>{
+                if(userSnap.exists()){
+                  userSnap.forEach((friend)=>{
+                    if(friend.val() === entry.key){
+                      leaderBoardData.push(entry.val());
+                    }
+                  })
+                }
+              })
+            }
+          })
+          setLeaderboardData(leaderBoardData.reverse())
+        })
+      } else {
+        leaderboard.on("value", (snap)=>{
+          setLeaderboardData([]);
+          const leaderBoardData:Leaderboard[] = [];
+          snap.forEach((entry)=>{
+            const todayPoints = entry.val().dailyPoints.pop();
+            if(todayPoints.date === getCurrentDate()){
+              console.log(todayPoints)
+              if(user){
+                if(entry.key===user.uid){
+                  leaderBoardData.push({
+                    name: entry.val().name,
+                    points: todayPoints.points
+                  })
+                }
+                usersData.child(user.uid).child("friends").on("value", (userSnap)=>{
+                  if(userSnap.exists()){
+                    userSnap.forEach((friend)=>{
+                      if(friend.val() === entry.key){
+                        leaderBoardData.push({
+                          name: entry.val().name,
+                          points: todayPoints.points
+                        });
+                      }
+                    })
+                  }
+                })
+              }
+            }
+          })
+          setLeaderboardData(leaderBoardData.sort((a,b)=> b.points - a.points));
+        })
+      }
     }
-
     setBusy(false);
   }, [filterUser, filterTime]);
 

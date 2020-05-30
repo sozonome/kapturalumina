@@ -125,6 +125,7 @@ function SubModulePage(props: any) {
     // console.log("after read");
     setBusyUpdate(true);
     if (subModule?.quiz == null) {
+      console.log("No Quiz")
       updateUserLearnProgress(
         props.match.params.subModuleId,
         props.match.params.chapterId,
@@ -132,14 +133,16 @@ function SubModulePage(props: any) {
         true
       );
       if(subModule?.passingPoints){
+        console.log("passing points")
         updateUserLeaderBoardPoints(subModule.passingPoints)
       }else{
+        console.log("default pass points")
         updateUserLeaderBoardPoints(100);
       }
     }
 
     setTimeout(() => {
-      // console.log("timeout");
+      console.log("timeout");
       // dispatch({
       //   type: "reset",
       // });
