@@ -29,16 +29,13 @@ import { Leaderboard } from "../models/leaderboards";
 import { personCircle } from "ionicons/icons";
 import { leaderboard } from "../firebase/leaderboard";
 import getCurrentDate from "../functions/getCurrentDate";
-import { usersData, getUserData } from "../firebase/users";
-import { User } from "firebase";
+import { usersData } from "../firebase/users";
 import { getCurrentUser } from "../firebase/auth";
 
 function Leaderboards() {
   useEffect(() => {}, []);
-  const [filterUser, setFilterUser] = useState<"global" | "friends">(
-    "global"
-  );
-  const [filterTime, setFilterTime] = useState<"daily" | "all-time">("daily");
+  const [filterUser, setFilterUser] = useState<"global" | "friends">("global");
+  const [filterTime, setFilterTime] = useState<"daily" | "all-time">("all-time");
 
   const [busy, setBusy] = useState<boolean>(false);
 
@@ -46,92 +43,100 @@ function Leaderboards() {
 
   useEffect(() => {
     setBusy(true);
-    console.log(filterUser, filterTime)
-    
-    if(filterUser==="global"){
-      if(filterTime==="all-time"){
-        leaderboard.orderByChild('points').on("value", (snap)=>{
+    console.log(filterUser, filterTime);
+
+    if (filterUser === "global") {
+      if (filterTime === "all-time") {
+        leaderboard.orderByChild("points").on("value", (snap) => {
           setLeaderboardData([]);
-          const leaderBoardData:Leaderboard[] = [];
-          snap.forEach((entry)=>{
-            leaderBoardData.push(entry.val())
-          })
-          setLeaderboardData(leaderBoardData.reverse())
-        })
-      }else{
-        leaderboard.on("value", (snap)=>{
+          const leaderBoardData: Leaderboard[] = [];
+          snap.forEach((entry) => {
+            leaderBoardData.push(entry.val());
+          });
+          setLeaderboardData(leaderBoardData.reverse());
+        });
+      } else {
+        leaderboard.on("value", (snap) => {
           setLeaderboardData([]);
-          const leaderBoardData:Leaderboard[] = [];
-          snap.forEach((entry)=>{
+          const leaderBoardData: Leaderboard[] = [];
+          snap.forEach((entry) => {
             const todayPoints = entry.val().dailyPoints.pop();
-            if(todayPoints.date === getCurrentDate()){
-              console.log(todayPoints)
+            if (todayPoints.date === getCurrentDate()) {
+              console.log(todayPoints);
               leaderBoardData.push({
                 name: entry.val().name,
-                points: todayPoints.points
-              })
+                points: todayPoints.points,
+              });
             }
-          })
-          leaderBoardData.sort((a, b)=> b.points - a.points)
+          });
+          leaderBoardData.sort((a, b) => b.points - a.points);
           setLeaderboardData(leaderBoardData);
-        })
+        });
       }
     } else {
-      const user = getCurrentUser()
-      if(filterTime==="all-time"){
-        leaderboard.orderByChild('points').on("value", (snap)=>{
+      const user = getCurrentUser();
+      if (filterTime === "all-time") {
+        leaderboard.orderByChild("points").on("value", (snap) => {
           setLeaderboardData([]);
-          const leaderBoardData:Leaderboard[] = [];
-          snap.forEach((entry)=>{
-            if(user){
-              if(entry.key===user.uid){
-                leaderBoardData.push(entry.val())
+          const leaderBoardData: Leaderboard[] = [];
+          snap.forEach((entry) => {
+            if (user) {
+              if (entry.key === user.uid) {
+                leaderBoardData.push(entry.val());
               }
-              usersData.child(user.uid).child("friends").once("value", (userSnap)=>{
-                if(userSnap.exists()){
-                  userSnap.forEach((friend)=>{
-                    if(friend.val() === entry.key){
-                      leaderBoardData.push(entry.val());
-                    }
-                  })
-                }
-              })
+              usersData
+                .child(user.uid)
+                .child("friends")
+                .once("value", (userSnap) => {
+                  if (userSnap.exists()) {
+                    userSnap.forEach((friend) => {
+                      if (friend.val() === entry.key) {
+                        leaderBoardData.push(entry.val());
+                      }
+                    });
+                  }
+                });
             }
-          })
-          setLeaderboardData(leaderBoardData.reverse())
-        })
+          });
+          setLeaderboardData(leaderBoardData.reverse());
+        });
       } else {
-        leaderboard.on("value", (snap)=>{
+        leaderboard.on("value", (snap) => {
           setLeaderboardData([]);
-          const leaderBoardData:Leaderboard[] = [];
-          snap.forEach((entry)=>{
+          const leaderBoardData: Leaderboard[] = [];
+          snap.forEach((entry) => {
             const todayPoints = entry.val().dailyPoints.pop();
-            if(todayPoints.date === getCurrentDate()){
-              console.log(todayPoints)
-              if(user){
-                if(entry.key===user.uid){
+            if (todayPoints.date === getCurrentDate()) {
+              console.log(todayPoints);
+              if (user) {
+                if (entry.key === user.uid) {
                   leaderBoardData.push({
                     name: entry.val().name,
-                    points: todayPoints.points
-                  })
+                    points: todayPoints.points,
+                  });
                 }
-                usersData.child(user.uid).child("friends").on("value", (userSnap)=>{
-                  if(userSnap.exists()){
-                    userSnap.forEach((friend)=>{
-                      if(friend.val() === entry.key){
-                        leaderBoardData.push({
-                          name: entry.val().name,
-                          points: todayPoints.points
-                        });
-                      }
-                    })
-                  }
-                })
+                usersData
+                  .child(user.uid)
+                  .child("friends")
+                  .on("value", (userSnap) => {
+                    if (userSnap.exists()) {
+                      userSnap.forEach((friend) => {
+                        if (friend.val() === entry.key) {
+                          leaderBoardData.push({
+                            name: entry.val().name,
+                            points: todayPoints.points,
+                          });
+                        }
+                      });
+                    }
+                  });
               }
             }
-          })
-          setLeaderboardData(leaderBoardData.sort((a,b)=> b.points - a.points));
-        })
+          });
+          setLeaderboardData(
+            leaderBoardData.sort((a, b) => b.points - a.points)
+          );
+        });
       }
     }
     setBusy(false);
@@ -149,7 +154,7 @@ function Leaderboards() {
         </IonToolbar>
         <IonToolbar>
           <IonSegment
-            onIonChange={(e:any) =>  setFilterUser(e.detail.value)}
+            onIonChange={(e: any) => setFilterUser(e.detail.value)}
             color="primary"
             value={filterUser}
           >
@@ -163,15 +168,15 @@ function Leaderboards() {
         </IonToolbar>
         <IonToolbar>
           <IonSegment
-            onIonChange={(e:any) => setFilterTime(e.detail.value)}
+            onIonChange={(e: any) => setFilterTime(e.detail.value)}
             color="secondary"
             value={filterTime}
           >
-            <IonSegmentButton value="daily">
-              <IonLabel>Harian</IonLabel>
-            </IonSegmentButton>
             <IonSegmentButton value="all-time">
               <IonLabel>Sepanjang-Waktu</IonLabel>
+            </IonSegmentButton>
+            <IonSegmentButton value="daily">
+              <IonLabel>Harian</IonLabel>
             </IonSegmentButton>
           </IonSegment>
         </IonToolbar>
@@ -182,8 +187,16 @@ function Leaderboards() {
             <IonTitle size="large">Papan Peringkat</IonTitle>
           </IonToolbar>
         </IonHeader>
-
         <IonGrid style={{ padding: 0 }}>
+          <IonRow>
+            <IonCol>
+              <IonText class="ion-text-center">
+                <p>
+                  Slide ke kanan atau kiri <br /> untuk melihat Profil
+                </p>
+              </IonText>
+            </IonCol>
+          </IonRow>
           <IonRow>
             <IonCol size="5" push="4">
               <IonText>
@@ -224,7 +237,7 @@ function Leaderboards() {
                             transform: "translate(-50%, -50%)",
                           }}
                         >
-                          <IonImg src="https://api.adorable.io/avatars/285/admin2@adorable.io" />
+                          <IonImg src={"https://api.adorable.io/avatars/200/"+user.name} />
                         </IonAvatar>
                       </IonCol>
                       <IonCol size="5">

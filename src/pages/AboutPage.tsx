@@ -54,6 +54,7 @@ export default function AboutPage() {
             <li>FreePik</li>
             <li>Unsplash</li>
             <li>WikiPedia</li>
+            <li>Adorable Avatars</li>
           </ul>
           <h6>Referensi Materi / Panduan Pembelajaran</h6>
           <ul>
