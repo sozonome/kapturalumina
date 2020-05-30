@@ -39,7 +39,7 @@ export function updateUserLeaderBoardPoints(points: number) {
           // Get entry key
           const dailyPoint = await snap.forEach((entry) => {
             i++;
-            if (i == snap.val().length) {
+            if (i === snap.val().length) {
               todaysDailyPointKey = entry.key;
               return true;
             }
@@ -47,7 +47,7 @@ export function updateUserLeaderBoardPoints(points: number) {
   
           const currentDate = getCurrentDate();
   
-          if (dailyPoint == true && todaysDailyPointKey) {
+          if (dailyPoint === true && todaysDailyPointKey) {
             if (todaysDailyPoint.date === currentDate) {
               // Update if today's dailyPoint entry exists
               const currentDailyPoint = todaysDailyPoint.points;

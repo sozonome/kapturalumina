@@ -12,10 +12,8 @@ import ChapterPage from "../pages/ChapterPage";
 import { AuthContext } from "./providers/AuthProvider";
 import PrivateRoute from "./PrivateRoute";
 import QuizPage from "../pages/QuizPage";
-import LearnWrapper from "../pages/LearnWrapper";
-import { BrowserRouter } from "react-router-dom";
 import EditProfile from "../pages/EditProfile";
-// import { PrivateRoute, PublicRoute } from "./RouteType";
+import UserProfile from "../pages/UserProfile";
 
 function Routing() {
   const { currentUser } = useContext(AuthContext);
@@ -52,6 +50,10 @@ function Routing() {
           exact
           path="/editprofile"
           component={EditProfile}
+        />
+        <PrivateRoute
+          exact path="/user/:userId"
+          component={UserProfile}
         />
         <Route path="/about" component={AboutPage} />
         <Route path="/superadmintest" component={ComponentTestPage} />

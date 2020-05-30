@@ -4,7 +4,7 @@ import fbase from "./firebaseConfig";
 import { presentToast } from "../components/Toast";
 import { leaderboard } from "./leaderboard";
 import { getCurrentUser } from "./auth";
-import { User } from "firebase";
+import randomString from "../functions/randomString";
 
 // All Users
 export const usersData = fbase.database().ref("users");
@@ -12,14 +12,14 @@ export const usersData = fbase.database().ref("users");
 // All Chapters
 export const chapters = fbase.database().ref("chapters");
 
-export function getUserData(){
-  const user = getCurrentUser()
-  if(user){
+export function getUserData() {
+  const user = getCurrentUser();
+  if (user) {
     let userData;
-    usersData.child(user.uid).once("value", (snap)=>{
-      userData = snap.val()
-    })
-    return userData
+    usersData.child(user.uid).once("value", (snap) => {
+      userData = snap.val();
+    });
+    return userData;
   }
 }
 
@@ -145,11 +145,12 @@ export function createNewUser(
   user_email: string,
   user_name: string
 ) {
-  fbase.database().ref("users").child(user_uid).set({
+  usersData.child(user_uid).set({
     id: user_uid,
     email: user_email,
     name: user_name,
     points: 0,
+    public_id: randomString(),
   });
 }
 

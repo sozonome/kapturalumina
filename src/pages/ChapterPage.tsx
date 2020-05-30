@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState, useRef } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import {
   IonPage,
   IonHeader,
@@ -19,31 +19,18 @@ import {
   IonGrid,
   IonRow,
   IonCol,
-  IonButton,
 } from "@ionic/react";
 import { LearnContext } from "../components/providers/LearnProvider";
 import { Chapter } from "../models/chapters";
-import { Progress } from "../models/users";
 import {
   playCircle,
   checkmarkCircle,
   reloadCircle,
-  arrowBackOutline,
 } from "ionicons/icons";
 import ErrorContent from "../components/ErrorContent";
 import { UserProgressContext } from "../components/providers/ProgressProvider";
 import { withRouter } from "react-router";
 
-// function useIsMountedRef() {
-//   const isMountedRef = useRef(null as any);
-//   useEffect(() => {
-//     isMountedRef.current = true;
-//     return () => {
-//       isMountedRef.current = false;
-//     };
-//   });
-//   return isMountedRef;
-// }
 
 function ChapterPage(props: any) {
   const { chapters } = useContext(LearnContext);
@@ -51,7 +38,6 @@ function ChapterPage(props: any) {
 
   const [chapter, setChapter] = useState<Chapter>();
   const [busy, setBusy] = useState<boolean>(true);
-  const [learnProgress, setLearnProgress] = useState<Progress[]>([]);
 
   useEffect(() => {
     setChapter(

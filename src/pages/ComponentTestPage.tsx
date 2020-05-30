@@ -19,6 +19,7 @@ import shuffleSet from "../functions/shuffle";
 import getCurrentDate from "../functions/getCurrentDate";
 import { updateUserLeaderBoardPoints } from "../firebase/leaderboard";
 import { updateUserLearnProgress } from "../firebase/users";
+import randomString from "../functions/randomString";
 
 export default function ComponentTestPage() {
   const rArray = [
@@ -99,6 +100,13 @@ export default function ComponentTestPage() {
                 updateUserLearnProgress("c02sub01", "c02", 1, true, 5);
               }}>
                 Test updateScoreNewScore
+              </IonButton>
+              <IonButton
+                onClick={()=>{
+                  console.log(randomString())
+                }}
+              >
+                Test Random String
               </IonButton>
             </IonCol>
           </IonRow>

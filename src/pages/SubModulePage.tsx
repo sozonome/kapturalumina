@@ -3,9 +3,7 @@ import React, {
   useEffect,
   useState,
   useRef,
-  useReducer,
 } from "react";
-import ReactDOM from "react-dom";
 import {
   IonPage,
   IonHeader,
@@ -38,40 +36,14 @@ import { chevronBack, chevronForward } from "ionicons/icons";
 import ErrorContent from "../components/ErrorContent";
 import SubModuleSlideImage from "../components/SubModuleSlideImage";
 import { updateUserLearnProgress } from "../firebase/users";
-import { useLocation, withRouter } from "react-router";
+import { withRouter } from "react-router";
 import { updateUserLeaderBoardPoints } from "../firebase/leaderboard";
-
-// export interface Action {
-//   type: string;
-//   payload?: SubModule | undefined;
-// }
-
-// function reducer(state: SubModule | undefined, action: Action) {
-//   switch (action.type) {
-//     case "fetch":
-//       return (state = action.payload);
-//     case "reset":
-//       return (state = undefined);
-//   }
-// }
-
-const initialSlides: SubModule = {
-  id: "blank",
-  title: "Blank",
-  slides: [
-    {
-      id: "slide01",
-      text: "This is a Blank Module",
-    },
-  ],
-};
 
 function SubModulePage(props: any) {
   const { chapters }: { chapters: Chapter[] } = useContext(LearnContext);
 
   const [subModule, setSubModule] = useState<SubModule>();
   const [busy, setBusy] = useState<boolean>(true);
-  const [finish, setFinish] = useState<boolean>(true);
 
   const [progressIndex, setProgressIndex] = useState<number>(0);
 
@@ -103,7 +75,6 @@ function SubModulePage(props: any) {
           (subModule) => subModule.id === props.match.params.subModuleId
         )
       );
-      setFinish(false);
     }
     setBusy(false);
   }, [props.match.params.chapterId, props.match.params.subModuleId, chapters]);
@@ -111,8 +82,7 @@ function SubModulePage(props: any) {
   useEffect(() => {
     // Cleanup Effect
     return () => {
-      console.log("cleaned up");
-      setFinish(true);
+      // console.log("cleaned up");
       setSubModule(undefined);
       setSubModule(undefined);
       setProgressIndex(0);

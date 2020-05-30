@@ -18,7 +18,6 @@ import {
   IonSegment,
   IonSegmentButton,
   IonCol,
-  IonCard,
   IonItemSliding,
   IonItemOptions,
   IonItemOption,
@@ -43,7 +42,6 @@ function Leaderboards() {
 
   useEffect(() => {
     setBusy(true);
-    console.log(filterUser, filterTime);
 
     if (filterUser === "global") {
       if (filterTime === "all-time") {
@@ -62,7 +60,6 @@ function Leaderboards() {
           snap.forEach((entry) => {
             const todayPoints = entry.val().dailyPoints.pop();
             if (todayPoints.date === getCurrentDate()) {
-              console.log(todayPoints);
               leaderBoardData.push({
                 name: entry.val().name,
                 points: todayPoints.points,
@@ -107,7 +104,6 @@ function Leaderboards() {
           snap.forEach((entry) => {
             const todayPoints = entry.val().dailyPoints.pop();
             if (todayPoints.date === getCurrentDate()) {
-              console.log(todayPoints);
               if (user) {
                 if (entry.key === user.uid) {
                   leaderBoardData.push({

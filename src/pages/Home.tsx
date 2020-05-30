@@ -22,9 +22,7 @@ import {
 import React, { useContext, useState, useEffect } from "react";
 import { withRouter } from "react-router";
 import { LearnContext } from "../components/providers/LearnProvider";
-import { Progress } from "../models/users";
 import { UserProgressContext } from "../components/providers/ProgressProvider";
-import { getCurrentUserProfileName } from "../firebase/auth";
 import { UserProfileContext } from "../components/providers/UserProfileProvider";
 
 const Home: React.FC = () => {
@@ -33,12 +31,8 @@ const Home: React.FC = () => {
   const {user} = useContext(UserProfileContext);
 
   const [busy, setBusy] = useState<boolean>(true);
-  const [learnProgress, setLearnProgress] = useState<Progress[]>([]);
 
   useEffect(() => {
-    // setBusy(true)
-    // if(user !==null && chapters!==null){
-    // }
     setBusy(false);
   }, [user]);
 

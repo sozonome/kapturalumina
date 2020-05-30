@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
 import {
-  IonText,
   IonList,
   IonListHeader,
   IonLabel,

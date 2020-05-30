@@ -15,37 +15,39 @@ import {
   IonText,
   IonButton,
   IonModal,
-  IonList,
-  IonItem,
-  IonInput,
   IonLabel,
   IonChip,
   IonIcon,
-  IonListHeader,
   IonImg,
 } from "@ionic/react";
 import { UserData } from "../models/users";
-import fbase from "../firebase/firebaseConfig";
 import { logoInstagram, logoYoutube, globeOutline } from "ionicons/icons";
 import { getCurrentUser } from "../firebase/auth";
+import { usersData } from "../firebase/users";
+import { leaderboard } from "../firebase/leaderboard";
 
 export default function Profile() {
   const [user, setUser] = useState<UserData>();
   const [busy, setBusy] = useState<boolean>(true);
   const [editMode, setEditMode] = useState<boolean>(false);
+  const [userPoint, setPoints] = useState<number>(0);
 
   useEffect(() => {
     const user = getCurrentUser();
     if (user) {
-      fbase
-        .database()
-        .ref("users/" + user.uid)
-        .on("value", (snap) => {
-          if (snap) {
-            setUser(snap.val());
-            setBusy(false);
+      usersData.child(user.uid).on("value", (snap) => {
+        if (snap.exists()) {
+          setUser(snap.val());
+          setBusy(false);
+        }
+      });
+      leaderboard.on("value",(snap)=>{
+        snap.forEach((entry)=>{
+          if(entry.key === user.uid){
+            setPoints(entry.val().points)
           }
-        });
+        })
+      })
     } else {
       setTimeout(() => {
         setBusy(false);
@@ -84,13 +86,15 @@ export default function Profile() {
                       transform: "translate(-50%, -50%)",
                     }}
                   >
-                    <IonImg src={"https://api.adorable.io/avatars/200/"+user?.name} />
+                    <IonImg
+                      src={"https://api.adorable.io/avatars/200/" + user?.name}
+                    />
                   </IonAvatar>
                 </IonCol>
                 <IonCol size="9">
                   <IonText>
                     <h4>{user?.name}</h4>
-                  <p>{user?.bio} </p>
+                    <p>{user?.bio} </p>
                   </IonText>
                   {/* <IonText>
                     <p>Email : {user?.email}</p>
@@ -115,7 +119,7 @@ export default function Profile() {
 
                 {user?.socialLinks?.youtube ? (
                   <a
-                    href={"https://youtube.com/"+user?.socialLinks?.youtube}
+                    href={"https://youtube.com/" + user?.socialLinks?.youtube}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -155,7 +159,7 @@ export default function Profile() {
               <IonRow class="ion-text-center">
                 <IonCol>
                   <IonText>
-                    <h3>{user?.points}</h3>
+                    <h3>{userPoint}</h3>
                     <p>Poin</p>
                   </IonText>
                 </IonCol>

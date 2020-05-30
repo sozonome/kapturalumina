@@ -2,7 +2,6 @@
 
 import fbase from "./firebaseConfig";
 import { presentToast } from "../components/Toast";
-import getCurrentDate from "../functions/getCurrentDate";
 import { createNewUser } from "./users";
 import { initUserLeaderBoard } from "./leaderboard";
 
@@ -47,7 +46,6 @@ export async function registerUser(
   try {
     await fbase.auth().createUserWithEmailAndPassword(userEmail, userPassword);
 
-
     const user = fbase.auth().currentUser;
     user?.updateProfile({
       displayName: name,
@@ -66,18 +64,6 @@ export async function registerUser(
 }
 
 export function getCurrentUser() {
-  // return new Promise((resolve, reject) => {
-  //   const unsubscribe = fbase.auth().onAuthStateChanged(function (user) {
-  //     if (user) {
-  //       resolve(user);
-  //       return true;
-  //     }
-  //     reject(null);
-  //     unsubscribe();
-  //     return false;
-  //   });
-  // });
-
   const user = fbase.auth().currentUser;
   if (user) {
     return user;

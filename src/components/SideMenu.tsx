@@ -16,7 +16,6 @@ import {
   personSharp,
   logOutSharp,
   informationCircleSharp,
-  openSharp,
   logInSharp,
   personAddSharp,
 } from "ionicons/icons";
@@ -107,22 +106,6 @@ function SideMenu(props: any) {
               <IonLabel>Tentang</IonLabel>
             </IonItem>
           </IonMenuToggle>
-          <IonItem>
-            <p
-              style={{
-                letterSpacing: "0.1em",
-                fontWeight: 450,
-                fontSize: "0.8em",
-              }}
-            >
-              Jika Anda telah mencoba menggunakan aplikasi ini, silakan mengisi
-              form di bawah ini. Terima Kasih
-            </p>
-          </IonItem>
-          <IonItem onClick={() => window.open("https://google.com")}>
-            <IonIcon slot="start" icon={openSharp} />
-            <IonLabel>Isi Form</IonLabel>
-          </IonItem>
         </IonList>
       </IonContent>
     </IonMenu>

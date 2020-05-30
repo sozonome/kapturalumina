@@ -12,7 +12,7 @@ import {
   IonSpinner,
   IonLoading,
 } from "@ionic/react";
-import { Chapter, Quiz, Question, Scoring } from "../models/chapters";
+import { Chapter, Question, Scoring } from "../models/chapters";
 import { LearnContext } from "../components/providers/LearnProvider";
 import { updateUserLearnProgress } from "../firebase/users";
 import ErrorContent from "../components/ErrorContent";
@@ -62,11 +62,11 @@ export default function QuizPage(props: any) {
       updateLearnProgress();
       setFinish(false); //Re-initialize finish state
     }
-  }, [finish]);
+  });
 
   function updateLearnProgress() {
     // Value Streak and Points
-    console.log("Score:", score, "Index: ", index, "Streak: ", streak);
+    // console.log("Score:", score, "Index: ", index, "Streak: ", streak);
     const newScore = score / (index + 1);
     const newStreak = streak;
 

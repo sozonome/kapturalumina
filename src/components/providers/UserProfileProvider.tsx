@@ -10,7 +10,7 @@ const initialUser:UserData = {
   id: 'abcde',
   name: 'hari yang baik',
   email: 'abcd@efgh.com',
-  points: 0
+  public_id: 'public_id'
 }
 
 export const UserProfileContext = React.createContext({
