@@ -9,6 +9,10 @@ import {
   IonBackButton,
   IonText,
   IonIcon,
+  IonImg,
+  IonGrid,
+  IonRow,
+  IonCol,
 } from "@ionic/react";
 import { logoIonic, logoReact, logoFirebase, person } from "ionicons/icons";
 
@@ -23,7 +27,14 @@ export default function AboutPage() {
           <IonTitle>Tentang Aplikasi</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent className="ion-padding">
+      <IonContent  className="ion-padding">
+        <IonGrid class="aboutPage">
+          <IonRow>
+            <IonCol>
+              <IonImg src="https://res.cloudinary.com/irsnmt20/image/upload/v1590845059/shootnow/assets/Static_assets-amico_ukigtm.svg" />
+            </IonCol>
+          </IonRow>
+        </IonGrid>
         <IonText>
           <h1>Terima Kasih</h1>
           <p>

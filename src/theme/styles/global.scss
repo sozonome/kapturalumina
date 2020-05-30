@@ -141,9 +141,22 @@ hr{
   }
 }
 
+.aboutPage{
+  ion-img{
+    margin: 0 auto;
+    max-width: 300px;
+  }
+  @media screen and (min-width: 768px) {
+    ion-img{
+      max-width: 400px;
+    }
+  }
+}
+
 ion-img, img {
   pointer-events: none;
 }
+
 
 @media(prefers-color-scheme: dark) {
   :root {
