@@ -53,8 +53,7 @@ export function updateUserLeaderBoardPoints(points: number) {
           });
   
           const currentDate = getCurrentDate();
-          console.log(todaysDailyPoint, todaysDailyPointKey, points);
-  
+          
           if (dailyPoint === true && todaysDailyPointKey) {
             if (todaysDailyPoint.date === currentDate) {
               // Update if today's dailyPoint entry exists

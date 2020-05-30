@@ -12,7 +12,6 @@ export async function loginUser(userEmail: string, userPassword: string) {
     await fbase.auth().signInWithEmailAndPassword(userEmail, userPassword);
     return true;
   } catch (error) {
-    console.log(error)
     let errormsg = "Email atau Kata Sandi yang kamu masukkan salah. Silakan coba lagi.";
     if(error.code === "auth/user-not-found"){
       errormsg = "Akun ini belum terdaftar"
