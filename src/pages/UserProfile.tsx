@@ -22,11 +22,11 @@ import { UserData } from "../models/users";
 import { usersData } from "../firebase/users";
 import { leaderboard } from "../firebase/leaderboard";
 import { logoInstagram, logoYoutube, globeOutline } from "ionicons/icons";
+import { Leaderboard } from "../models/leaderboards";
 
 export default function UserProfile(props: any) {
   const [user, setUser] = useState<UserData>();
-  const [busy, setBusy] = useState<boolean>(true);
-  const [userPoint, setPoints] = useState<number>(0);
+  const [userLeaderboardData, setPoints] = useState<Leaderboard>();
 
   useEffect(() => {
     const user_id = props.match.params.userId;
@@ -40,11 +40,10 @@ export default function UserProfile(props: any) {
     leaderboard.on("value", (snap) => {
       snap.forEach((entry) => {
         if (entry.val().public_id === user_id) {
-          setPoints(entry.val().points);
+          setPoints(entry.val());
         }
       });
     });
-    setBusy(false);
   }, []);
 
   return (
@@ -129,7 +128,7 @@ export default function UserProfile(props: any) {
           <IonRow class="ion-text-center">
             <IonCol>
               <IonText>
-                <h3>{userPoint}</h3>
+                <h3>{userLeaderboardData?.points}</h3>
                 <p>Poin</p>
               </IonText>
             </IonCol>
@@ -138,6 +137,19 @@ export default function UserProfile(props: any) {
                 <h3>{user?.achievements ? user.achievements.length : 0}</h3>
                 <p>Pencapaian</p>
               </IonText>
+            </IonCol>
+          </IonRow>
+          <IonRow class="ion-text-center">
+            <IonText>
+              <p>Panduan Pembelajaran yang telah / sedang diselesaikan</p>
+            </IonText>
+            <IonCol>
+              <h3>{userLeaderboardData?.chaptersDone}</h3>
+              <p>Bab</p>
+            </IonCol>
+            <IonCol>
+              <h3>{userLeaderboardData?.modulesDone}</h3>
+              <p>Modul</p>
             </IonCol>
           </IonRow>
         </IonGrid>

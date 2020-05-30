@@ -152,6 +152,7 @@ export function createNewUser(
     name: user_name,
     points: 0,
     public_id: pub_id,
+    bio: "Learning is lifetime process"
   });
 }
 
