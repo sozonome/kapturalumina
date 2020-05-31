@@ -52,4 +52,5 @@ In order for the application to run, you will need to connect it to Firebase Aut
   - [Manage Users](https://firebase.google.com/docs/auth/web/manage-users)
   - [Realtime Database Read and Write](https://firebase.google.com/docs/database/web/read-and-write)
 - [Persistent Login](https://www.youtube.com/watch?v=2Oz-OLB8FQQ)
-- [Swiperjs](https://swiperjs.com/api)
+- [Capacitor](https://capacitor.ionicframework.com/docs/)
+- [Android App Version Number](https://www.freakyjolly.com/change-version-number-of-app-in-android-studio/#.XtM01TPiuHs)

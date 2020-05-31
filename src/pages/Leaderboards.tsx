@@ -49,18 +49,21 @@ function Leaderboards() {
 
     if (filterUser === "global") {
       if (filterTime === "all-time") {
+        const leaderBoardData: Leaderboard[] = [];
         leaderboard.orderByChild("points").on("value", (snap) => {
+          setNeedUpdate(true);
           setLeaderboardData([]);
-          const leaderBoardData: Leaderboard[] = [];
           snap.forEach((entry) => {
             leaderBoardData.push(entry.val());
           });
           setLeaderboardData(leaderBoardData.reverse());
         });
+        setNeedUpdate(false);
       } else {
+        const leaderBoardData: Leaderboard[] = [];
         leaderboard.on("value", (snap) => {
+          setNeedUpdate(true)
           setLeaderboardData([]);
-          const leaderBoardData: Leaderboard[] = [];
           snap.forEach((entry) => {
             const todayPoints = entry.val().dailyPoints.pop();
             if (todayPoints.date === getCurrentDate()) {
@@ -74,6 +77,7 @@ function Leaderboards() {
           leaderBoardData.sort((a, b) => b.points - a.points);
           setLeaderboardData(leaderBoardData);
         });
+        setNeedUpdate(false)
       }
     } else {
       // Followed Friend
@@ -85,7 +89,6 @@ function Leaderboards() {
           snap.forEach((entry) => {
             if (user) {
               if (entry.key === user.uid) {
-                console.log("self", entry.val());
                 leaderBoardData.push(entry.val());
               }
               usersData
@@ -97,7 +100,6 @@ function Leaderboards() {
                   if (userSnap.exists()) {
                     userSnap.forEach((friend) => {
                       if (friend.val() === entry.key) {
-                        console.log("friend", entry.val());
                         leaderBoardData.push(entry.val());
                       }
                     });

@@ -71,8 +71,7 @@ export default function EditProfile(props: any) {
       </IonHeader>
       <IonContent>
         <IonLoading isOpen={busy} message="Mohon Tunggu..." />
-        <div className="ion-padding">
-          <IonList lines="none">
+          <IonList style={{paddingTop:'0'}} lines="none">
             <IonListHeader color="secondary">
               <h5>Detail Akun</h5>
             </IonListHeader>
@@ -153,7 +152,6 @@ export default function EditProfile(props: any) {
           >
             Save
           </IonButton>
-        </div>
       </IonContent>
     </IonPage>
   );
