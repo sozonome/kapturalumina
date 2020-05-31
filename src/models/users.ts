@@ -30,13 +30,6 @@ export interface Progress {
   passed:boolean;
 }
 
-export interface Achievement {
-  id: string;
-  title: string;
-  img: string;
-  subTitle: string;
-}
-
 export interface ProfilePicture{
   id: string,
   img: {

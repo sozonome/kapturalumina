@@ -32,10 +32,10 @@ function PublicPage() {
       <IonContent id="publicHome">
         <PublicHomeSlide />
         <div>
-          <IonButton routerLink="/login" color="secondary" expand="block">
+          <IonButton shape="round" routerLink="/login" color="secondary" expand="block">
             Masuk
           </IonButton>
-          <IonButton routerLink="/register" color="success" expand="block">
+          <IonButton shape="round" routerLink="/register" color="success" expand="block">
             Daftar
           </IonButton>
         </div>

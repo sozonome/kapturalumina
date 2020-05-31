@@ -106,7 +106,7 @@ export function updateUserLearnProgress(
     // Update User Streak
     if (streak) {
       const userStreak = usersData.child(user.uid).child("streaks");
-      userStreak.on("value", (snap) => {
+      userStreak.once("value", (snap) => {
         if (snap.exists()) {
           let newBestStreak: number, prevBestStreak: number;
           if (streak > snap.val().bestStreak) {
