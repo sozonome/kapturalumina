@@ -97,9 +97,39 @@ export default function ComponentTestPage() {
                 Test updateleaderboard
               </IonButton>
               <IonButton onClick={()=>{
-                updateUserLearnProgress("c02sub01", "c02", 1, true, 5);
+                updateUserLearnProgress("c01sub01", "c01", 1, true, 5);
               }}>
-                Test updateScoreNewScore
+                Test updateScoreNewScore c01sub01
+              </IonButton>
+              <IonButton onClick={()=>{
+                updateUserLearnProgress("c01sub02", "c01", 1, true, 5);
+              }}>
+                Test updateScoreNewScore c01sub02 success
+              </IonButton>
+              <IonButton onClick={()=>{
+                updateUserLearnProgress("c01sub02", "c01", 0.4, false, 5);
+              }}>
+                Test updateScoreNewScore c01sub02 faile
+              </IonButton>
+              <IonButton onClick={()=>{
+                updateUserLearnProgress("c01sub03", "c01", 1, true, 5);
+              }}>
+                Test updateScoreNewScore c01sub03
+              </IonButton>
+              <IonButton onClick={()=>{
+                updateUserLearnProgress("c01sub04", "c01", 1, true, 5);
+              }}>
+                Test updateScoreNewScore c01sub04
+              </IonButton>
+              <IonButton onClick={()=>{
+                updateUserLearnProgress("c01sub05", "c01", 1, true, 5);
+              }}>
+                Test updateScoreNewScore c01sub05
+              </IonButton>
+              <IonButton onClick={()=>{
+                updateUserLearnProgress("c01sub06", "c01", 1, true, 5);
+              }}>
+                Test updateScoreNewScore c01sub06
               </IonButton>
               <IonButton
                 onClick={()=>{

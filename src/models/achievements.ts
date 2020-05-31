@@ -4,6 +4,7 @@ export interface Achievement {
   img: string;
   conditions: AchievementConditions;
   subTitle?: string;
+  oneTime: boolean;
 }
 
 export interface AchievementConditions {
@@ -11,6 +12,8 @@ export interface AchievementConditions {
   chaptersDone?: number;
   modulesDone?: number;
   quizLength?: number;
+  dailyUse?: number;
+  dailyPoints?: number;
   chapterId?: string;
   moduleId?: string;
 }

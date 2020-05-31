@@ -3,6 +3,7 @@
 import fbase from "./firebaseConfig";
 import getCurrentDate from "../functions/getCurrentDate";
 import { getCurrentUser } from "./auth";
+import UpdateUserAchievements, { UpdateUserLeaderBoardAchievements } from "./achievements";
 
 export const leaderboard = fbase.database().ref(`leaderboards`);
 
@@ -83,7 +84,7 @@ export function updateUserLeaderBoardPoints(points: number) {
           });
         });
   
-        return dailyPointKey();
+        return dailyPointKey().then(()=>UpdateUserLeaderBoardAchievements());
       }
     });
   }

@@ -19,11 +19,11 @@ export default function LearnProvider({children}:any) {
       setChaptersState([]);
       // if(fetched){
         chaptersRef.once("value", (snap) => {
-          const data = snap;
-          data.forEach((row) => {
-            const entry = row;
-            setChaptersState((chapters)=> [...chapters, entry.val()]);
-          });
+          setChaptersState(snap.val());
+          // data.forEach((row) => {
+          //   const entry = row;
+          //   setChaptersState((chapters)=> [...chapters, entry.val()]);
+          // });
         });
       // }
       setBusy(false);

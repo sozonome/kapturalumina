@@ -34,6 +34,10 @@ export default function UserProfile(props: any) {
   const currentLoggedInUser = getCurrentUser();
   const user_id = props.match.params.userId;
 
+  const [achievementNumber, setAchievementNumber] = useState<number>(0);
+  const [friendsFollowedNumber, setFriendsFollowedNumber] = useState<number>(0);
+
+
   useEffect(() => {
     if(currentLoggedInUser){
       usersData.on("value", (snap) => {
@@ -55,6 +59,12 @@ export default function UserProfile(props: any) {
                 })
               }
             })
+            entry.child("achievements").forEach(() => {
+              setAchievementNumber(achievementNumber + 1);
+            });
+            entry.child("friends").forEach(() => {
+              setFriendsFollowedNumber(friendsFollowedNumber + 1);
+            });
           }
         });
       });
@@ -185,7 +195,7 @@ export default function UserProfile(props: any) {
             </IonCol>
             <IonCol>
               <IonText>
-                <h3>{user?.achievements ? user.achievements.length : 0}</h3>
+                <h3>{achievementNumber}</h3>
                 <p>Pencapaian</p>
               </IonText>
             </IonCol>
@@ -193,7 +203,7 @@ export default function UserProfile(props: any) {
           <IonRow class="ion-text-center">
             <IonCol>
               <IonText>
-                <p>Panduan Pembelajaran yang telah / sedang diselesaikan</p>
+                <p>Panduan Pembelajaran yang telah diselesaikan</p>
               </IonText>
             </IonCol>
           </IonRow>

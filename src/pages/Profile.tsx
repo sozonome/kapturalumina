@@ -19,34 +19,61 @@ import {
   IonChip,
   IonIcon,
   IonImg,
+  IonCard,
+  IonCardContent,
 } from "@ionic/react";
 import { UserData } from "../models/users";
 import { logoInstagram, logoYoutube, globeOutline } from "ionicons/icons";
 import { getCurrentUser } from "../firebase/auth";
 import { usersData } from "../firebase/users";
 import { leaderboard } from "../firebase/leaderboard";
+import { achievements } from "../firebase/achievements";
+import { Achievement } from "../models/achievements";
 
 export default function Profile() {
   const [user, setUser] = useState<UserData>();
   const [busy, setBusy] = useState<boolean>(true);
   const [editMode, setEditMode] = useState<boolean>(false);
   const [userPoint, setPoints] = useState<number>(0);
+  const [achievementNumber, setAchievementNumber] = useState<number>(0);
+  const [friendsFollowedNumber, setFriendsFollowedNumber] = useState<number>(0);
+
+  const [userAchievement, setUserAchievement] = useState<Achievement[]>([]);
 
   useEffect(() => {
-    const user = getCurrentUser();
-    if (user) {
-      usersData.child(user.uid).on("value", (snap) => {
+    const currentUser = getCurrentUser();
+    if (currentUser) {
+      usersData.child(currentUser.uid).on("value", (snap) => {
+        let userAchievements: Achievement[] = [];
         if (snap.exists()) {
           setUser(snap.val());
+          snap.child("achievements").forEach((userAchievement) => {
+            achievements.once("value", (snapAchievement) => {
+              snapAchievement.forEach((achievement) => {
+                if (userAchievement.val().id === achievement.val().id) {
+                  userAchievements.push(achievement.val());
+                }
+              });
+            }).then(()=>{
+              setUserAchievement(userAchievements);
+            });
+          });
+          snap.child("friends").forEach((friend) => {
+            setFriendsFollowedNumber(
+              (friendsFollowedNumber) => friendsFollowedNumber + 1
+            );
+            console.log(friend.val());
+          });
         }
       });
-      leaderboard.on("value",(snap)=>{
-        snap.forEach((entry)=>{
-          if(entry.key === user.uid){
-            setPoints(entry.val().points)
+      leaderboard.on("value", (snap) => {
+        snap.forEach((entry) => {
+          if (entry.key === currentUser.uid) {
+            setPoints(entry.val().points);
           }
-        })
-      })
+        });
+      });
+
       setBusy(false);
     } else {
       setTimeout(() => {
@@ -165,16 +192,31 @@ export default function Profile() {
                 </IonCol>
                 <IonCol>
                   <IonText>
-                    <h3>{user?.achievements ? user.achievements.length : 0}</h3>
+                    <h3>{userAchievement.length}</h3>
                     <p>Pencapaian</p>
                   </IonText>
                 </IonCol>
                 <IonCol>
                   <IonText>
-                    <h3>{user?.friends ? user.friends.length : 0}</h3>
+                    <h3>{friendsFollowedNumber}</h3>
                     <p>Teman yang diikuti</p>
                   </IonText>
                 </IonCol>
+              </IonRow>
+              <IonRow>
+                {userAchievement.map((achievement, index) => {
+                  return (
+                    <IonCol class="ion-text-center" size="6" key={index}>
+                      <IonCard>
+                        <IonCardContent>
+                          <IonText>
+                            <p>{achievement.title}</p>
+                          </IonText>
+                        </IonCardContent>
+                      </IonCard>
+                    </IonCol>
+                  );
+                })}
               </IonRow>
             </IonGrid>
 

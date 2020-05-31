@@ -5,6 +5,7 @@ import { presentToast } from "../components/Toast";
 import { leaderboard } from "./leaderboard";
 import { getCurrentUser } from "./auth";
 import randomString from "../functions/randomString";
+import updateUserAchievements from "./achievements";
 
 // All Users
 export const usersData = fbase.database().ref("users");
@@ -38,70 +39,108 @@ export function updateUserLearnProgress(
 
     let countChapters: number = 0;
     let countModules: number = 0;
-    let currentChapterRead: string | undefined;
-    let currentModuleRead: string | undefined;
+    let countModulesTemp: number = 0;
+    let newModuleProgress: boolean = true;
+    let newChapterProgress: boolean = false;
 
     let found = false;
 
-    userProgress.once("value", (snap) => {
-      if (snap.exists()) {
-        // Check Previous Score
+    fbase
+      .database()
+      .ref(`chapters`)
+      .once("value", (snapChapter) => {
+        snapChapter.forEach((chapter) => {
+          userProgress.once("value", (snap) => {
+            snap.forEach((progress) => {
+              if (chapter.val().id === progress.val().chapterId) {
+                chapter.child("subModules").forEach((subModule) => {
+                  if (subModule.val().id === progress.val().subModuleId) {
+                    countModules++;
+                    console.log(countModules);
+                  }
+                  if (subModuleId === progress.val().subModuleId) {
+                    newModuleProgress = false;
+                  }
+                  if (
+                    countModules === chapter.val().subModules.length ||
+                    (countModules === chapter.val().subModules.length - 1 &&
+                      newModuleProgress &&
+                      passed === true)
+                  ) {
+                    if (
+                      countModules === chapter.val().subModules.length - 1 &&
+                      newModuleProgress &&
+                      passed === true
+                    ) {
+                      newChapterProgress = true;
+                    }
+                    countChapters++;
+                    countModulesTemp += countModules;
+                    countModules = 0;
+                    console.log(
+                      countModules,
+                      chapter.val().subModules.length,
+                      newModuleProgress,
+                      passed
+                    );
+                  }
+                });
+              }
+            });
+          });
+        });
+      })
+      .then(() => {
+        userProgress.once("value", (snap) => {
+          if (snap.exists()) {
+            snap.forEach((row) => {
+              // Count Chapters and Modules Done
 
-        snap.forEach((row) => {
-          // Count Chapters and Modules Done
-          if (
-            currentModuleRead === undefined ||
-            currentModuleRead !== row.val().subModuleId
-          ) {
-            currentModuleRead = row.val().subModuleId;
-            if (row.val().passed === true) {
-              countModules++;
-            }
-          }
-          if (
-            currentChapterRead === undefined ||
-            currentChapterRead !== row.val().chapterId
-          ) {
-            currentChapterRead = row.val().chapterId;
-            countChapters++;
-          }
-
-          // Update Progress
-          if (
-            row.val().subModuleId === subModuleId &&
-            row.val().chapterId === chapterId
-          ) {
-            found = true;
-            if (passed === true && passed !== row.val().passed) {
-              userLeaderboard.child("modulesDone").set(countModules + 1);
-              userLeaderboard.child("chaptersDone").set(countChapters);
-            }
-            if (score > row.val().score) {
-              userProgress.child(`${row.key}`).update({
-                score: score,
-                passed: passed,
-              });
-            }
+              // Update Progress
+              if (
+                row.val().subModuleId === subModuleId &&
+                row.val().chapterId === chapterId
+              ) {
+                found = true;
+                // Update new passed module
+                if (passed === true && passed !== row.val().passed) {
+                  userLeaderboard
+                    .child("modulesDone")
+                    .set(countModulesTemp + countModules);
+                  userLeaderboard.child("chaptersDone").set(countChapters);
+                }
+                // Update user progress
+                if (score > row.val().score) {
+                  userProgress.child(`${row.key}`).update({
+                    score: score,
+                    passed: passed,
+                  });
+                }
+              }
+            });
           }
         });
-      }
-    });
-
-    setTimeout(() => {
-      if (!found) {
-        // New
-        userProgress.push({
-          subModuleId: subModuleId,
-          chapterId: chapterId,
-          score: score,
-          passed: passed,
-        });
-        if ((passed = true)) {
-          userLeaderboard.child("modulesDone").set(countModules + 1);
-          userLeaderboard.child("chaptersDone").set(countChapters);
+      })
+      .then(() => {
+        if (!found) {
+          // New
+          userProgress.push({
+            subModuleId: subModuleId,
+            chapterId: chapterId,
+            score: score,
+            passed: passed,
+          });
+          if (passed === true) {
+            userLeaderboard
+              .child("modulesDone")
+              .set(countModulesTemp + countModules + 1);
+            userLeaderboard.child("chaptersDone").set(countChapters);
+          }
         }
-      }
-    }, 1000);
+      })
+      .then(() => {
+        updateUserAchievements(chapterId, subModuleId, newChapterProgress, newModuleProgress, streak, passed,);
+      });
 
     // Update User Streak
     if (streak) {
@@ -144,7 +183,7 @@ export function createNewUser(
   user_uid: string,
   user_email: string,
   user_name: string,
-  pub_id:string
+  pub_id: string
 ) {
   usersData.child(user_uid).set({
     id: user_uid,
@@ -152,7 +191,7 @@ export function createNewUser(
     name: user_name,
     points: 0,
     public_id: pub_id,
-    bio: "Learning is lifetime process"
+    bio: "Learning is lifetime process",
   });
 }
 
@@ -220,26 +259,32 @@ export async function updateUserProfile(
   }
 }
 
-export function followAsFriend(id:string){
+export function followAsFriend(id: string) {
   const user = getCurrentUser();
-  if(user){
+  if (user) {
     usersData.child(user.uid).child("friends").push(id);
   }
 }
 
-export function removeFollowedFriend(id:string){
+export function removeFollowedFriend(id: string) {
   const user = getCurrentUser();
-  if(user){
-    usersData.child(user.uid).child("friends").once("value", (snap)=>{
-      if(snap.exists()){
-        snap.forEach((friend)=>{
-          if(friend.val() === id){
-            console.log(friend.key)
-            fbase.database().ref(`users/${user.uid}/friends/${friend.key}`).remove()
-            usersData.off()
-          }
-        })
-      }
-    })
+  if (user) {
+    usersData
+      .child(user.uid)
+      .child("friends")
+      .once("value", (snap) => {
+        if (snap.exists()) {
+          snap.forEach((friend) => {
+            if (friend.val() === id) {
+              console.log(friend.key);
+              fbase
+                .database()
+                .ref(`users/${user.uid}/friends/${friend.key}`)
+                .remove();
+              usersData.off();
+            }
+          });
+        }
+      });
   }
 }
