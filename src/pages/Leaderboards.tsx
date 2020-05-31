@@ -34,7 +34,11 @@ import { getCurrentUser } from "../firebase/auth";
 function Leaderboards() {
   useEffect(() => {}, []);
   const [filterUser, setFilterUser] = useState<"global" | "friends">("global");
-  const [filterTime, setFilterTime] = useState<"daily" | "all-time">("all-time");
+  const [filterTime, setFilterTime] = useState<"daily" | "all-time">(
+    "all-time"
+  );
+
+  const [needUpdate, setNeedUpdate] = useState<boolean>(false);
 
   const [busy, setBusy] = useState<boolean>(false);
 
@@ -63,7 +67,7 @@ function Leaderboards() {
               leaderBoardData.push({
                 name: entry.val().name,
                 points: todayPoints.points,
-                public_id: entry.val().public_id
+                public_id: entry.val().public_id,
               });
             }
           });
@@ -72,23 +76,28 @@ function Leaderboards() {
         });
       }
     } else {
+      // Followed Friend
       const user = getCurrentUser();
       if (filterTime === "all-time") {
+        let leaderBoardData: Leaderboard[] = [];
+        setLeaderboardData([]);
         leaderboard.orderByChild("points").on("value", (snap) => {
-          setLeaderboardData([]);
-          const leaderBoardData: Leaderboard[] = [];
           snap.forEach((entry) => {
             if (user) {
               if (entry.key === user.uid) {
+                console.log("self", entry.val());
                 leaderBoardData.push(entry.val());
               }
               usersData
                 .child(user.uid)
                 .child("friends")
-                .once("value", (userSnap) => {
+                .on("value", (userSnap) => {
+                  setNeedUpdate(true);
+                  // leaderBoardData = [];
                   if (userSnap.exists()) {
                     userSnap.forEach((friend) => {
                       if (friend.val() === entry.key) {
+                        console.log("friend", entry.val());
                         leaderBoardData.push(entry.val());
                       }
                     });
@@ -97,11 +106,12 @@ function Leaderboards() {
             }
           });
           setLeaderboardData(leaderBoardData.reverse());
+          setNeedUpdate(false);
         });
       } else {
         leaderboard.on("value", (snap) => {
+          let leaderBoardData: Leaderboard[] = [];
           setLeaderboardData([]);
-          const leaderBoardData: Leaderboard[] = [];
           snap.forEach((entry) => {
             const todayPoints = entry.val().dailyPoints.pop();
             if (todayPoints.date === getCurrentDate()) {
@@ -110,20 +120,22 @@ function Leaderboards() {
                   leaderBoardData.push({
                     name: entry.val().name,
                     points: todayPoints.points,
-                    public_id: entry.val().public_id
+                    public_id: entry.val().public_id,
                   });
                 }
                 usersData
                   .child(user.uid)
                   .child("friends")
                   .on("value", (userSnap) => {
+                    setNeedUpdate(true);
+                    // leaderBoardData = [];
                     if (userSnap.exists()) {
                       userSnap.forEach((friend) => {
                         if (friend.val() === entry.key) {
                           leaderBoardData.push({
                             name: entry.val().name,
                             points: todayPoints.points,
-                            public_id: entry.val().public_id
+                            public_id: entry.val().public_id,
                           });
                         }
                       });
@@ -135,11 +147,12 @@ function Leaderboards() {
           setLeaderboardData(
             leaderBoardData.sort((a, b) => b.points - a.points)
           );
+          setNeedUpdate(false);
         });
       }
     }
     setBusy(false);
-  }, [filterUser, filterTime]);
+  }, [filterUser, filterTime, needUpdate]);
 
   return (
     <IonPage>
@@ -189,18 +202,30 @@ function Leaderboards() {
         <IonGrid style={{ padding: 0 }}>
           <IonRow>
             <IonCol>
-              <IonImg src={"https://res.cloudinary.com/irsnmt20/image/upload/v1590842764/shootnow/assets/Winners-pana_dlzblq.svg"} />
+              <IonImg
+                src={
+                  "https://res.cloudinary.com/irsnmt20/image/upload/v1590842764/shootnow/assets/Winners-pana_dlzblq.svg"
+                }
+              />
             </IonCol>
           </IonRow>
-          <IonRow>
-            <IonCol>
-              <IonText class="ion-text-center">
-                <p>
-                  Slide ke kanan atau kiri <br /> untuk melihat Profil
-                </p>
-              </IonText>
-            </IonCol>
-          </IonRow>
+          {filterTime === "daily" ? (
+            <IonRow class="ion-text-center">
+              <IonCol>
+                <IonText>
+                  <h4>{getCurrentDate()}</h4>
+                </IonText>
+              </IonCol>
+            </IonRow>
+          ) : null}
+          <IonRow></IonRow>
+          <IonCol size="12">
+            <IonText class="ion-text-center">
+              <p>
+                Swipe user ke kanan atau kiri <br /> untuk melihat Profil
+              </p>
+            </IonText>
+          </IonCol>
           <IonRow>
             <IonCol size="5" push="4">
               <IonText>
@@ -218,7 +243,10 @@ function Leaderboards() {
               return (
                 <IonItemSliding key={index}>
                   <IonItemOptions side="start">
-                    <IonItemOption routerLink={`/user/${user.public_id}`} expandable>
+                    <IonItemOption
+                      routerLink={`/user/${user.public_id}`}
+                      expandable
+                    >
                       <IonIcon icon={personCircle} size="large" />
                     </IonItemOption>
                   </IonItemOptions>
@@ -241,7 +269,11 @@ function Leaderboards() {
                             transform: "translate(-50%, -50%)",
                           }}
                         >
-                          <IonImg src={"https://api.adorable.io/avatars/200/"+user.name} />
+                          <IonImg
+                            src={
+                              "https://api.adorable.io/avatars/200/" + user.name
+                            }
+                          />
                         </IonAvatar>
                       </IonCol>
                       <IonCol size="5">
@@ -259,7 +291,9 @@ function Leaderboards() {
                     </IonRow>
                   </IonItem>
                   <IonItemOptions side="end">
-                    <IonItemOption routerLink={`/user/${user.public_id}`}>Lihat Profil</IonItemOption>
+                    <IonItemOption routerLink={`/user/${user.public_id}`}>
+                      Lihat Profil
+                    </IonItemOption>
                   </IonItemOptions>
                 </IonItemSliding>
               );

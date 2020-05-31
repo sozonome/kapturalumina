@@ -23,10 +23,10 @@ export interface Slide {
   subTitle?: string;
   titleType?: "big" | "regular";
   text?: string;
-  img?: SlideImg;
+  img?: ContentImg;
 }
 
-export interface SlideImg{
+export interface ContentImg{
   url: string;
   position: "top" | "middle" | "bottom";
   caption?: string;
@@ -42,6 +42,7 @@ export interface Quiz {
 export interface Question {
   id: number;
   question: string;
+  img: ContentImg;
   answers: Answer[];
 }
 

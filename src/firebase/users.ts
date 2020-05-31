@@ -219,3 +219,27 @@ export async function updateUserProfile(
     return false;
   }
 }
+
+export function followAsFriend(id:string){
+  const user = getCurrentUser();
+  if(user){
+    usersData.child(user.uid).child("friends").push(id);
+  }
+}
+
+export function removeFollowedFriend(id:string){
+  const user = getCurrentUser();
+  if(user){
+    usersData.child(user.uid).child("friends").once("value", (snap)=>{
+      if(snap.exists()){
+        snap.forEach((friend)=>{
+          if(friend.val() === id){
+            console.log(friend.key)
+            fbase.database().ref(`users/${user.uid}/friends/${friend.key}`).remove()
+            usersData.off()
+          }
+        })
+      }
+    })
+  }
+}

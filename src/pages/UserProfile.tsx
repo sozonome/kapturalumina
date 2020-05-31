@@ -19,32 +19,68 @@ import {
   IonButton,
 } from "@ionic/react";
 import { UserData } from "../models/users";
-import { usersData } from "../firebase/users";
+import { usersData, removeFollowedFriend, followAsFriend } from "../firebase/users";
 import { leaderboard } from "../firebase/leaderboard";
 import { logoInstagram, logoYoutube, globeOutline } from "ionicons/icons";
 import { Leaderboard } from "../models/leaderboards";
+import { getCurrentUser } from "../firebase/auth";
+import Profile from "./Profile";
 
 export default function UserProfile(props: any) {
   const [user, setUser] = useState<UserData>();
   const [userLeaderboardData, setPoints] = useState<Leaderboard>();
+  const [loggedInUser, setLoggedInUser] = useState<boolean>(false);
+  const [addedAsFriend, setAddedAsFriend] = useState<boolean>(false);
+  const currentLoggedInUser = getCurrentUser();
+  const user_id = props.match.params.userId;
 
   useEffect(() => {
-    const user_id = props.match.params.userId;
-    usersData.on("value", (snap) => {
-      snap.forEach((entry) => {
-        if (entry.val().public_id === user_id) {
-          setUser(entry.val());
-        }
+    if(currentLoggedInUser){
+      usersData.on("value", (snap) => {
+        setUser(undefined);
+        setLoggedInUser(false);
+        setAddedAsFriend(false);
+        snap.forEach((entry) => {
+          if (entry.val().public_id === user_id) {
+            setUser(entry.val());
+            if(entry.val().id === currentLoggedInUser.uid){
+              setLoggedInUser(true);
+            }
+            usersData.child(currentLoggedInUser.uid).child("friends").on("value", (snap)=>{
+              if(snap.exists()){
+                snap.forEach((friend)=>{
+                  if(friend.val()===entry.val().id){
+                    setAddedAsFriend(true);
+                  }
+                })
+              }
+            })
+          }
+        });
       });
-    });
-    leaderboard.on("value", (snap) => {
-      snap.forEach((entry) => {
-        if (entry.val().public_id === user_id) {
-          setPoints(entry.val());
-        }
+      leaderboard.on("value", (snap) => {
+        setPoints(undefined)
+        snap.forEach((entry) => {
+          if (entry.val().public_id === user_id) {
+            setPoints(entry.val());
+          }
+        });
       });
-    });
+    }
   }, []);
+
+  useEffect(()=>{
+    // Clean up effect
+    return () => {
+      console.log('cleaned up');
+      setUser(undefined)
+      setPoints(undefined)
+      setLoggedInUser(false)
+      setAddedAsFriend(false)
+      usersData.off()
+      leaderboard.off()
+    }
+  }, [])
 
   return (
     <IonPage>
@@ -125,6 +161,21 @@ export default function UserProfile(props: any) {
               </a>
             ) : null}
           </IonRow>
+          {loggedInUser === false ? (
+            <IonRow>
+              <IonCol>
+                <IonButton
+                  color={addedAsFriend ? "tertiary" : "primary"}
+                  expand="block"
+                  onClick={()=>{
+                    addedAsFriend ? removeFollowedFriend(user?.id!) : followAsFriend(user?.id!)
+                  }}
+                >
+                  {addedAsFriend ? "Sedang diikuti" : "Ikuti Sebagai Teman"}
+                </IonButton>
+              </IonCol>
+            </IonRow>
+          ) : null}
           <IonRow class="ion-text-center">
             <IonCol>
               <IonText>
@@ -140,9 +191,13 @@ export default function UserProfile(props: any) {
             </IonCol>
           </IonRow>
           <IonRow class="ion-text-center">
-            <IonText>
-              <p>Panduan Pembelajaran yang telah / sedang diselesaikan</p>
-            </IonText>
+            <IonCol>
+              <IonText>
+                <p>Panduan Pembelajaran yang telah / sedang diselesaikan</p>
+              </IonText>
+            </IonCol>
+          </IonRow>
+          <IonRow class="ion-text-center">
             <IonCol>
               <h3>{userLeaderboardData?.chaptersDone}</h3>
               <p>Bab</p>
