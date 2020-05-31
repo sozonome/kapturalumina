@@ -21,6 +21,7 @@ import {
   IonImg,
   IonCard,
   IonCardContent,
+  IonBadge,
 } from "@ionic/react";
 import { UserData } from "../models/users";
 import { logoInstagram, logoYoutube, globeOutline } from "ionicons/icons";
@@ -33,36 +34,46 @@ import { Achievement } from "../models/achievements";
 export default function Profile() {
   const [user, setUser] = useState<UserData>();
   const [busy, setBusy] = useState<boolean>(true);
-  const [editMode, setEditMode] = useState<boolean>(false);
+
+  const [openAchievement, setOpenAchievement] = useState<boolean>(false);
+  const [viewAchievement, setViewAchievement] = useState<Achievement>();
+
   const [userPoint, setPoints] = useState<number>(0);
-  const [achievementNumber, setAchievementNumber] = useState<number>(0);
   const [friendsFollowedNumber, setFriendsFollowedNumber] = useState<number>(0);
 
   const [userAchievement, setUserAchievement] = useState<Achievement[]>([]);
+  const [userAchievementList, setUserAchievementList] = useState<any[]>([]);
 
   useEffect(() => {
     const currentUser = getCurrentUser();
     if (currentUser) {
       usersData.child(currentUser.uid).on("value", (snap) => {
         let userAchievements: Achievement[] = [];
+        let userAchievementList: any[] = [];
         if (snap.exists()) {
           setUser(snap.val());
           snap.child("achievements").forEach((userAchievement) => {
-            achievements.once("value", (snapAchievement) => {
-              snapAchievement.forEach((achievement) => {
-                if (userAchievement.val().id === achievement.val().id) {
-                  userAchievements.push(achievement.val());
-                }
+            achievements
+              .once("value", (snapAchievement) => {
+                snapAchievement.forEach((achievement) => {
+                  if (userAchievement.val().id === achievement.val().id) {
+                    userAchievements.push(achievement.val());
+                    userAchievementList.push({
+                      id: userAchievement.val().id,
+                      qty: userAchievement.val().qty,
+                    });
+                  }
+                });
+              })
+              .then(() => {
+                setUserAchievement(userAchievements);
+                setUserAchievementList(userAchievementList);
               });
-            }).then(()=>{
-              setUserAchievement(userAchievements);
-            });
           });
           snap.child("friends").forEach((friend) => {
             setFriendsFollowedNumber(
               (friendsFollowedNumber) => friendsFollowedNumber + 1
             );
-            console.log(friend.val());
           });
         }
       });
@@ -203,14 +214,41 @@ export default function Profile() {
                   </IonText>
                 </IonCol>
               </IonRow>
-              <IonRow>
+              <IonRow class="ion-text-center">
+                {userAchievement.length > 0 ? (
+                  <IonCol size="12">
+                    <IonText>
+                      <h4>
+                        Pencapaian yang <br /> sudah diraih
+                      </h4>
+                      <p className="mini">
+                        Klik untuk melihat detail pencapaian
+                      </p>
+                    </IonText>
+                  </IonCol>
+                ) : null}
                 {userAchievement.map((achievement, index) => {
+                  let qty;
+                  userAchievementList.map((list) => {
+                    if (list.id === achievement.id && list.qty) {
+                      qty = list.qty;
+                    }
+                  });
                   return (
-                    <IonCol class="ion-text-center" size="6" key={index}>
-                      <IonCard>
+                    <IonCol size="6" sizeMd="4" sizeXl="3" key={index}>
+                      <IonCard
+                        onClick={() => {
+                          setOpenAchievement(true);
+                          setViewAchievement(achievement);
+                        }}
+                      >
                         <IonCardContent>
+                          <IonImg src={achievement.img} />
                           <IonText>
                             <p>{achievement.title}</p>
+                            {qty ? (
+                              <IonBadge color="darkcream">{qty}</IonBadge>
+                            ) : null}
                           </IonText>
                         </IonCardContent>
                       </IonCard>
@@ -221,11 +259,27 @@ export default function Profile() {
             </IonGrid>
 
             <IonModal
+              cssClass={"achievementModal ion-padding ion-text-center"}
               swipeToClose={true}
-              onDidDismiss={() => setEditMode(false)}
-              isOpen={editMode}
+              onDidDismiss={() => setOpenAchievement(false)}
+              isOpen={openAchievement}
             >
-              <IonButton onClick={() => setEditMode(false)}>Cancel</IonButton>
+              <IonText>
+                <h2>{viewAchievement?.title}</h2>
+              </IonText>
+              <IonImg
+                style={{ margin: "0 auto", width: "280px" }}
+                src={viewAchievement?.img}
+              />
+              <IonText>
+                <p>{viewAchievement?.subTitle}</p>
+              </IonText>
+              <IonButton
+                shape="round"
+                onClick={() => setOpenAchievement(false)}
+              >
+                Kembali
+              </IonButton>
             </IonModal>
           </IonContent>
         </>

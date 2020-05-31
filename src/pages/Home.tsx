@@ -27,8 +27,8 @@ import { UserProfileContext } from "../components/providers/UserProfileProvider"
 
 const Home: React.FC = () => {
   const { chapters } = useContext(LearnContext);
-  const {progress} = useContext(UserProgressContext);
-  const {user} = useContext(UserProfileContext);
+  const { progress } = useContext(UserProgressContext);
+  const { user } = useContext(UserProfileContext);
 
   const [busy, setBusy] = useState<boolean>(true);
 
@@ -66,7 +66,12 @@ const Home: React.FC = () => {
               </IonRow>
               <IonRow>
                 <IonCol>
-                  <IonImg src={"https://res.cloudinary.com/irsnmt20/image/upload/v1590842111/shootnow/assets/Hello-rafiki_kjnhqo.svg"} />
+                  <IonImg
+                    class="headerImage"
+                    src={
+                      "https://res.cloudinary.com/irsnmt20/image/upload/v1590842111/shootnow/assets/Hello-rafiki_kjnhqo.svg"
+                    }
+                  />
                 </IonCol>
               </IonRow>
               <IonRow>
@@ -78,11 +83,14 @@ const Home: React.FC = () => {
                     if (prog.chapterId === chapter.id) {
                       chapterProgress++;
                     }
-                    if(index>0){
-                      if(chapters[index-1].id === prog.chapterId){
+                    if (index > 0) {
+                      if (chapters[index - 1].id === prog.chapterId) {
                         prevChapterProgress++;
                       }
-                      if(prevChapterProgress === chapters[index-1].subModules.length){
+                      if (
+                        prevChapterProgress ===
+                        chapters[index - 1].subModules.length
+                      ) {
                         locked = false;
                       }
                     }
@@ -95,18 +103,19 @@ const Home: React.FC = () => {
                         disabled={locked}
                         routerLink={`/learn/${chapter.id}`}
                       >
+                        <IonImg src={chapter.thumbnail} />
                         <IonCardHeader>
                           <IonCardTitle>{chapter.title}</IonCardTitle>
                           <IonCardSubtitle>{chapter.subtitle}</IonCardSubtitle>
                         </IonCardHeader>
                         <IonCardContent>
-                          <IonImg src={chapter.thumbnail} />
                           <IonText>Progress :</IonText>
                           <IonProgressBar
-                            color={"secondary"}
+                            color={chapterProgress / chapter.subModules.length > 0.5 ? "primary" : "secondary"}
                             value={chapterProgress / chapter.subModules.length}
                           />
                         </IonCardContent>
+                        
                       </IonCard>
                     </IonCol>
                   );

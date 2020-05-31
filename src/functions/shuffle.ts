@@ -40,6 +40,6 @@ export default function shuffleSet(array: any[], pick?: number) {
     result.push(temp);
   }
 
-  console.log(result);
+  // console.log(result);
   return result;
 }

@@ -225,9 +225,11 @@ export default function updateUserAchievements(
           });
       })
       .then(() => {
-        presentToast(
-          `Kamu mendapat ${getAchievements} pencapaian baru, lihat di 'Profil'`
-        );
+        if (getAchievements > 0) {
+          presentToast(
+            `Kamu mendapat ${getAchievements} pencapaian baru, lihat di 'Profil'`
+          );
+        }
       });
   }
 
@@ -313,16 +315,24 @@ export function UpdateUserLeaderBoardAchievements() {
             }
           })
           .then(() => {
-            console.log('add')
-            if (!dailyPointAch && dailyPointsAchievements.length>0) {
-              console.log('push', dailyPointsAchievements[0], dailyPointsAchievements)
+            console.log("add");
+            if (!dailyPointAch && dailyPointsAchievements.length > 0) {
+              console.log(
+                "push",
+                dailyPointsAchievements[0],
+                dailyPointsAchievements
+              );
               userAchievementData.push({
                 id: dailyPointsAchievements[0].id,
               });
               getAchievements++;
             }
-            if (!dailyUseAch && dailyUseAchievements.length>0) {
-              console.log('push', dailyPointsAchievements[0], dailyPointsAchievements)
+            if (!dailyUseAch && dailyUseAchievements.length > 0) {
+              console.log(
+                "push",
+                dailyPointsAchievements[0],
+                dailyPointsAchievements
+              );
               userAchievementData.push({
                 id: dailyUseAchievements[0].id,
               });
@@ -331,10 +341,11 @@ export function UpdateUserLeaderBoardAchievements() {
           });
       })
       .then(() => {
-        console.log(getAchievements)
-        presentToast(
-          `Kamu mendapat ${getAchievements} pencapaian baru, lihat di 'Profil'`
-        );
+        if (getAchievements > 0) {
+          presentToast(
+            `Kamu mendapat ${getAchievements} pencapaian baru, lihat di 'Profil'`
+          );
+        }
       });
   }
 }

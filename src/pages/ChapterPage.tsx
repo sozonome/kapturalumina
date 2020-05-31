@@ -22,15 +22,10 @@ import {
 } from "@ionic/react";
 import { LearnContext } from "../components/providers/LearnProvider";
 import { Chapter } from "../models/chapters";
-import {
-  playCircle,
-  checkmarkCircle,
-  reloadCircle,
-} from "ionicons/icons";
+import { playCircle, checkmarkCircle, reloadCircle } from "ionicons/icons";
 import ErrorContent from "../components/ErrorContent";
 import { UserProgressContext } from "../components/providers/ProgressProvider";
 import { withRouter } from "react-router";
-
 
 function ChapterPage(props: any) {
   const { chapters } = useContext(LearnContext);
@@ -57,7 +52,7 @@ function ChapterPage(props: any) {
           <IonHeader>
             <IonToolbar>
               <IonButtons slot="start">
-                <IonBackButton/>
+                <IonBackButton />
                 {/* <IonButton routerLink="/">
                   <IonIcon icon={arrowBackOutline} />
                 </IonButton> */}
@@ -91,11 +86,12 @@ function ChapterPage(props: any) {
                     }
                   });
                   return (
-                    <IonCol sizeXs="12" sizeSm="6" sizeXl="4" key={index}>
+                    <IonCol class="ion-align-items-center" sizeXs="12" sizeSm="6" sizeXl="4" key={index}>
                       <IonCard
                         disabled={locked}
                         routerLink={`/learn/${chapter.id}/${subModule.id}`}
                       >
+                        <IonImg src={subModule.thumbnail} />
                         <IonCardHeader>
                           <IonCardTitle>{subModule.title}</IonCardTitle>
                           <IonCardSubtitle>
@@ -103,10 +99,8 @@ function ChapterPage(props: any) {
                           </IonCardSubtitle>
                         </IonCardHeader>
                         <IonCardContent>
-                          <IonImg src={subModule.thumbnail} />
-
                           {bestScore !== null ? (
-                            <IonText>
+                            <IonText class="">
                               <h3 style={{ verticalAlign: "middle" }}>
                                 {passed ? (
                                   <IonIcon

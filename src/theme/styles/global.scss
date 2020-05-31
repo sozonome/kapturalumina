@@ -32,6 +32,12 @@ ion-row.leaderboardEntry{
   margin-bottom: 12px;
 }
 
+.mini{
+  font-size: 0.8rem;
+}
+
+
+
 // ion-col.chapterList{
 //   @media screen and (min-width:767px) {
 //     display: flex;
@@ -67,8 +73,12 @@ hr{
   }
 }
 
+// ion-card{
+//   height: 30vh;
+// }
+
 #homePage {
-  ion-img{
+  ion-img.headerImage{
     max-width: 300px;
     margin: 0 auto;
   }
@@ -86,6 +96,13 @@ hr{
 
   ion-img{
     max-width: 280px;
+    margin: 0 auto;
+  }
+
+  margin-top: 50px;
+
+  ion-list{
+    max-width: 400px;
     margin: 0 auto;
   }
 
@@ -155,6 +172,10 @@ hr{
       max-width: 400px;
     }
   }
+}
+
+.achievementModal .modal-wrapper{
+  color: white;
 }
 
 ion-img, img {
