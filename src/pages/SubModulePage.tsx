@@ -1,9 +1,4 @@
-import React, {
-  useContext,
-  useEffect,
-  useState,
-  useRef,
-} from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import {
   IonPage,
   IonHeader,
@@ -95,16 +90,16 @@ function SubModulePage(props: any) {
     // console.log("after read");
     setBusyUpdate(true);
     if (subModule?.quiz == null) {
-      console.log("No Quiz")
+      console.log("No Quiz");
       updateUserLearnProgress(
         props.match.params.subModuleId,
         props.match.params.chapterId,
         1,
         true
       );
-      if(subModule?.passingPoints){
-        updateUserLeaderBoardPoints(subModule.passingPoints)
-      }else{
+      if (subModule?.passingPoints) {
+        updateUserLeaderBoardPoints(subModule.passingPoints);
+      } else {
         updateUserLeaderBoardPoints(100);
       }
     }
@@ -259,11 +254,25 @@ function SubModulePage(props: any) {
                     >
                       {progressIndex === subModule.slides.length - 1
                         ? "Quiz"
-                        : "Skip to Quiz"}
+                        : "Lewati langsung ke Quiz"}
                     </IonButton>
                   </IonCol>
                 </IonRow>
               ) : null}
+              <IonRow class="ion-text-center">
+                <IonCol>
+                  <IonText>
+                    {progressIndex === subModule.slides.length - 1 ? (
+                      <p>Tekan Tombol Next untuk menyelesaikan modul.</p>
+                    ) : (
+                      <p>
+                        Gunakan tombol next dan prev <br /> atau swipe ke kanan
+                        dan kiri.
+                      </p>
+                    )}
+                  </IonText>
+                </IonCol>
+              </IonRow>
             </IonGrid>
             <IonAlert
               isOpen={alertQuiz}

@@ -32,20 +32,20 @@ export default function updateUserAchievements(
   let chapterAch = false;
   let moduleAch = false;
 
-  console.log(
-    "Chapter: ",
-    chapterId,
-    "Module: ",
-    moduleId,
-    "ChaptersDoneAdd:",
-    addedChapterProgress,
-    "New Module: ",
-    addedModuleProgress,
-    "Streak: ",
-    streak,
-    "Passed: ",
-    passed
-  );
+  // console.log(
+  //   "Chapter: ",
+  //   chapterId,
+  //   "Module: ",
+  //   moduleId,
+  //   "ChaptersDoneAdd:",
+  //   addedChapterProgress,
+  //   "New Module: ",
+  //   addedModuleProgress,
+  //   "Streak: ",
+  //   streak,
+  //   "Passed: ",
+  //   passed
+  // );
 
   if (user) {
     achievements
@@ -77,7 +77,7 @@ export default function updateUserAchievements(
                     streak === achievement.conditions.streak
                   ) {
                     quizAchievements.push(achievement);
-                    console.log(achievement, "quiz");
+                    // console.log(achievement, "quiz");
                   }
                 }
               });
@@ -92,7 +92,7 @@ export default function updateUserAchievements(
           ) {
             if (streak >= achievement.conditions.streak) {
               streakAchievements.push(achievement);
-              console.log(achievement, "streak");
+              // console.log(achievement, "streak");
             }
           }
 
@@ -104,7 +104,7 @@ export default function updateUserAchievements(
                   snap.val().chaptersDone >= achievement.conditions.chaptersDone
                 ) {
                   chapterAchievements.push(achievement);
-                  console.log(achievement, "chapter");
+                  // console.log(achievement, "chapter");
                 }
               }
             });
@@ -118,7 +118,7 @@ export default function updateUserAchievements(
                   snap.val().modulesDone >= achievement.conditions.modulesDone
                 ) {
                   moduleAchievements.push(achievement);
-                  console.log(achievement, "module");
+                  // console.log(achievement, "module");
                 }
               }
             });
@@ -147,15 +147,15 @@ export default function updateUserAchievements(
           );
         }
 
-        console.log(
-          quizAchievements,
-          streakAchievements,
-          chapterAchievements,
-          moduleAchievements
-        );
+        // console.log(
+        //   quizAchievements,
+        //   streakAchievements,
+        //   chapterAchievements,
+        //   moduleAchievements
+        // );
       })
       .then(() => {
-        console.log("db conn");
+        // console.log("db conn");
         const userAchievementData = usersData
           .child(user.uid)
           .child("achievements");

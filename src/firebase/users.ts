@@ -56,7 +56,7 @@ export function updateUserLearnProgress(
                 chapter.child("subModules").forEach((subModule) => {
                   if (subModule.val().id === progress.val().subModuleId) {
                     countModules++;
-                    // console.log(countModules);
+                    console.log(countModules, chapter.val().id);
                   }
                   if (subModuleId === progress.val().subModuleId) {
                     newModuleProgress = false;
@@ -65,27 +65,40 @@ export function updateUserLearnProgress(
                     countModules === chapter.val().subModules.length ||
                     (countModules === chapter.val().subModules.length - 1 &&
                       newModuleProgress &&
-                      passed === true)
+                      passed === true &&
+                      subModuleId === chapter.val().subModules.pop().id)
                   ) {
                     if (
                       countModules === chapter.val().subModules.length - 1 &&
                       newModuleProgress &&
-                      passed === true
+                      passed === true &&
+                      subModuleId === chapter.val().subModules.pop().id
                     ) {
                       newChapterProgress = true;
                     }
                     countChapters++;
                     countModulesTemp += countModules;
                     countModules = 0;
-                    // console.log(
-                    //   countModules,
-                    //   chapter.val().subModules.length,
-                    //   newModuleProgress,
-                    //   passed
-                    // );
+                    console.log(
+                      countModules,
+                      countChapters,
+                      chapter.val().subModules.length,
+                      chapter.val().id,
+                      newModuleProgress,
+                      passed,
+                      "Chapter Finish Added"
+                    );
                   }
                 });
               }
+              console.log(
+                countModules,
+                countChapters,
+                chapter.val().subModules.length,
+                chapter.val().id,
+                newModuleProgress,
+                passed
+              );
             });
           });
         });
@@ -139,7 +152,14 @@ export function updateUserLearnProgress(
         }
       })
       .then(() => {
-        updateUserAchievements(chapterId, subModuleId, newChapterProgress, newModuleProgress, streak, passed,);
+        updateUserAchievements(
+          chapterId,
+          subModuleId,
+          newChapterProgress,
+          newModuleProgress,
+          streak,
+          passed
+        );
       });
 
     // Update User Streak
