@@ -94,7 +94,7 @@ export default function QuizPage(props: any) {
         passed,
         newStreak
       );
-      console.log(points);
+      // console.log(points);
       updateUserLeaderBoardPoints(points);
     }, 500);
 

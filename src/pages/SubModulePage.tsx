@@ -90,7 +90,7 @@ function SubModulePage(props: any) {
     // console.log("after read");
     setBusyUpdate(true);
     if (subModule?.quiz == null) {
-      console.log("No Quiz");
+      // console.log("No Quiz");
       updateUserLearnProgress(
         props.match.params.subModuleId,
         props.match.params.chapterId,
