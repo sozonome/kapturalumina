@@ -1,11 +1,17 @@
 # KapturaLumina
+![KapturaLumina](previews\banner.jpg)
 
 Basic Photography Learning Mobile Applications with Gamification
 
 Bachelor Thesis (Final Project) of [Agustinus Nathaniel](https://agustinusnathaniel.com)
 
 ## Previews
--- W.I.P.
+
+Home Page | Leaderboard | Profile
+:-------------------------:|:-------------------------:|:-------------------------:
+![01](previews\01.jpg) | ![02](previews\02.jpg) | ![03](previews\03.jpg)
+Learn | Quiz | 
+![04](previews\04.jpg) | ![05](previews\05.jpg) | 
 
 App Theme color inspired by Dracula Theme color palette
 
