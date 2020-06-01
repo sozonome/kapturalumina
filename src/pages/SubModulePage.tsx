@@ -27,7 +27,7 @@ import {
 } from "@ionic/react";
 import { LearnContext } from "../components/providers/LearnProvider";
 import { Chapter, SubModule } from "../models/chapters";
-import { chevronBack, chevronForward } from "ionicons/icons";
+import { chevronBack, chevronForward, checkmarkCircle } from "ionicons/icons";
 import ErrorContent from "../components/ErrorContent";
 import SubModuleSlideImage from "../components/SubModuleSlideImage";
 import { updateUserLearnProgress } from "../firebase/users";
@@ -207,7 +207,7 @@ function SubModulePage(props: any) {
               ref={slider}
               style={{
                 width: "100%",
-                height: "80%",
+                height: "85%",
                 margin: "0 auto",
               }}
             >
@@ -242,8 +242,17 @@ function SubModulePage(props: any) {
                       }
                     }}
                   >
-                    Next
-                    <IonIcon slot="end" icon={chevronForward} />
+                    {progressIndex === subModule.slides.length - 1 ? (
+                      <>
+                        Selesai
+                        <IonIcon slot="end" icon={checkmarkCircle} />
+                      </>
+                    ) : (
+                      <>
+                        Next
+                        <IonIcon slot="end" icon={chevronForward} />
+                      </>
+                    )}
                   </IonButton>
                 </IonCol>
               </IonRow>
@@ -263,28 +272,7 @@ function SubModulePage(props: any) {
                   </IonCol>
                 </IonRow>
               ) : null}
-              <IonRow class="ion-text-center">
-                <IonCol>
-                  <IonText>
-                    {progressIndex === subModule.slides.length - 1 ? (
-                      <p>Tekan Tombol Next untuk menyelesaikan modul.</p>
-                    ) : (
-                      <p>
-                        Gunakan tombol next dan prev <br /> atau swipe ke kanan
-                        dan kiri.
-                      </p>
-                    )}
-                  </IonText>
-                </IonCol>
-              </IonRow>
             </IonGrid>
-            <IonProgressBar
-              style={{
-                height: "16px",
-              }}
-              color="secondary"
-              value={(progressIndex + 1) / (subModule.slides.length + 1)}
-            />
             <IonAlert
               isOpen={alertQuiz}
               onDidDismiss={() => setAlertQuiz(false)}
