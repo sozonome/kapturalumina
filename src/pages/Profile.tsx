@@ -46,13 +46,12 @@ export default function Profile() {
   const [userLeaderboardData, setUserLeaderboardData] = useState<Leaderboard>();
 
   useEffect(() => {
-    
     const currentUser = getCurrentUser();
     if (currentUser) {
       usersData.child(currentUser.uid).on("value", (snap) => {
         let userAchievements: Achievement[] = [];
         let userAchievementList: any[] = [];
-        setBusy(true)
+        setBusy(true);
         if (snap.exists()) {
           setUser(snap.val());
           snap.child("achievements").forEach((userAchievement) => {
@@ -71,7 +70,6 @@ export default function Profile() {
               .then(() => {
                 setUserAchievement(userAchievements);
                 setUserAchievementList(userAchievementList);
-                setBusy(false);
               });
           });
           snap.child("friends").forEach((friend) => {
@@ -79,6 +77,7 @@ export default function Profile() {
               (friendsFollowedNumber) => friendsFollowedNumber + 1
             );
           });
+          setBusy(false);
         }
       });
       leaderboard.on("value", (snap) => {
@@ -89,7 +88,6 @@ export default function Profile() {
           }
         });
       });
-      
     } else {
       setTimeout(() => {
         setBusy(false);

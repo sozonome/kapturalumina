@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { IonApp, IonSplitPane } from "@ionic/react";
+import { IonApp, IonSplitPane, setupConfig } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 
 /* Core CSS required for Ionic components to work properly */
@@ -40,6 +40,10 @@ import UserProgressProvider from "./components/providers/ProgressProvider";
 import UserProfileProvider from "./components/providers/UserProfileProvider";
 
 // const store = createStore(reducer);
+
+setupConfig({
+  hardwareBackButton: false
+});
 
 const App: React.FC = () => {
   

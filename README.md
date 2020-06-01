@@ -8,13 +8,13 @@ Bachelor Thesis (Final Project) of [Agustinus Nathaniel](https://agustinusnathan
 -- W.I.P.
 
 ## Tech Stacks
-* Framework : Ionic React
+* Framework : Ionic v5 - React
 * Database + Auth : Firebase
 * Tools, Libraries : 
-  - Cloudinary for image storage
-  - CloudImage for image resizing, compression, (image transformer) and acceleration
-  - SwiperJS (used for useRef towards IonSlides)
+  - Ionic Capacitor
   - TypeScript
+  - Cloudinary for image storage
+  - CloudImage for image resizing, compression, (image transformer) and acceleration / optimization
 * Deployment : Vercel (Formerly Zeit) for PWA (Web App) Version
 
 ## Getting Started
@@ -46,6 +46,16 @@ In order for the application to run, you will need to connect it to Firebase Aut
   - [Change Font](https://commentedcoding.com/how-to-create-a-settings-page-with-customizable-font-family-in-ionic-5-steps/)
   - [Theming](https://ionicframework.com/docs/theming/themes)
   - [Colors - Color Generator](https://ionicframework.com/docs/theming/colors)
+  - Hardware Back Button Android Problem
+    - [Hardware Back Button Android Problem - Android](https://ionicframework.com/docs/developing/hardware-back-button)
+    - [Hardware Back Button Android Problem - Android](https://forum.ionicframework.com/t/react-handle-hardware-back-button/183566/3)
+      <pre><code>
+        setupConfig({
+          swipeBackEnabled: false,// also prevent swiping back on either platform
+          hardwareBackButton: false// this is what you need (android only)
+        });
+      </code></pre>
+    - [React Config](https://ionicframework.com/docs/react/config)
 - [Environment Variables](https://www.youtube.com/watch?v=17UVejOw3zA)
 - [Firebase](https://firebase.google.com/)
   - [React Auth with Firebase and Hooks](https://www.youtube.com/watch?v=unr4s3jd9qA)
