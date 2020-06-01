@@ -194,7 +194,10 @@ function SubModulePage(props: any) {
           <IonContent class="subModule">
             <IonLoading message={"Mohon Tunggu..."} isOpen={busyUpdate} />
             <IonProgressBar
-              color="primary"
+              style={{
+                height: "16px",
+              }}
+              color="secondary"
               value={(progressIndex + 1) / (subModule.slides.length + 1)}
             />
             <IonSlides
@@ -210,6 +213,7 @@ function SubModulePage(props: any) {
             >
               {renderSlides(subModule)}
             </IonSlides>
+
             <IonGrid>
               <IonRow>
                 <IonCol size="6">
@@ -274,6 +278,13 @@ function SubModulePage(props: any) {
                 </IonCol>
               </IonRow>
             </IonGrid>
+            <IonProgressBar
+              style={{
+                height: "16px",
+              }}
+              color="secondary"
+              value={(progressIndex + 1) / (subModule.slides.length + 1)}
+            />
             <IonAlert
               isOpen={alertQuiz}
               onDidDismiss={() => setAlertQuiz(false)}

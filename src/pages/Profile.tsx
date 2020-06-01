@@ -30,6 +30,7 @@ import { usersData } from "../firebase/users";
 import { leaderboard } from "../firebase/leaderboard";
 import { achievements } from "../firebase/achievements";
 import { Achievement } from "../models/achievements";
+import { Leaderboard } from "../models/leaderboards";
 
 export default function Profile() {
   const [user, setUser] = useState<UserData>();
@@ -38,18 +39,20 @@ export default function Profile() {
   const [openAchievement, setOpenAchievement] = useState<boolean>(false);
   const [viewAchievement, setViewAchievement] = useState<Achievement>();
 
-  const [userPoint, setPoints] = useState<number>(0);
   const [friendsFollowedNumber, setFriendsFollowedNumber] = useState<number>(0);
 
   const [userAchievement, setUserAchievement] = useState<Achievement[]>([]);
   const [userAchievementList, setUserAchievementList] = useState<any[]>([]);
+  const [userLeaderboardData, setUserLeaderboardData] = useState<Leaderboard>();
 
   useEffect(() => {
+    
     const currentUser = getCurrentUser();
     if (currentUser) {
       usersData.child(currentUser.uid).on("value", (snap) => {
         let userAchievements: Achievement[] = [];
         let userAchievementList: any[] = [];
+        setBusy(true)
         if (snap.exists()) {
           setUser(snap.val());
           snap.child("achievements").forEach((userAchievement) => {
@@ -68,6 +71,7 @@ export default function Profile() {
               .then(() => {
                 setUserAchievement(userAchievements);
                 setUserAchievementList(userAchievementList);
+                setBusy(false);
               });
           });
           snap.child("friends").forEach((friend) => {
@@ -78,14 +82,14 @@ export default function Profile() {
         }
       });
       leaderboard.on("value", (snap) => {
+        setUserLeaderboardData(undefined);
         snap.forEach((entry) => {
           if (entry.key === currentUser.uid) {
-            setPoints(entry.val().points);
+            setUserLeaderboardData(entry.val());
           }
         });
       });
-
-      setBusy(false);
+      
     } else {
       setTimeout(() => {
         setBusy(false);
@@ -197,7 +201,7 @@ export default function Profile() {
               <IonRow class="ion-text-center">
                 <IonCol>
                   <IonText>
-                    <h3>{userPoint}</h3>
+                    <h3>{userLeaderboardData?.points}</h3>
                     <p>Poin</p>
                   </IonText>
                 </IonCol>
@@ -214,6 +218,25 @@ export default function Profile() {
                   </IonText>
                 </IonCol>
               </IonRow>
+              <IonCard>
+                <IonRow class="ion-text-center">
+                  <IonCol>
+                    <IonText>
+                      <p>
+                        Panduan Pembelajaran <br /> yang telah diselesaikan
+                      </p>
+                    </IonText>
+                  </IonCol>
+                  <IonCol>
+                    <h3>{userLeaderboardData?.chaptersDone}</h3>
+                    <p>Bab</p>
+                  </IonCol>
+                  <IonCol>
+                    <h3>{userLeaderboardData?.modulesDone}</h3>
+                    <p>Modul</p>
+                  </IonCol>
+                </IonRow>
+              </IonCard>
               <IonRow class="ion-text-center">
                 {userAchievement.length > 0 ? (
                   <IonCol size="12">

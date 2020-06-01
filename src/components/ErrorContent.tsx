@@ -13,9 +13,12 @@ export default function ErrorContent() {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <div style={{ marginTop: "45vh", textAlign: "center" }}>
+        <div style={{ marginTop: "40vh", textAlign: "center" }}>
           <IonText style={{ display: "block" }}>
-            Sorry, you got to see this mess
+            Sorry, you got to see this mess <br/>
+            Please wait for a while <br/>
+            If nothing happened after few minutes <br/>
+            Hit the reload button
           </IonText>
           <IonButton onClick={()=>{
             window.location.reload()

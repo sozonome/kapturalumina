@@ -21,6 +21,7 @@ import {
   IonBadge,
   IonCard,
   IonModal,
+  IonLoading,
 } from "@ionic/react";
 import { UserData } from "../models/users";
 import {
@@ -38,7 +39,7 @@ import { Achievement } from "../models/achievements";
 
 export default function UserProfile(props: any) {
   const [user, setUser] = useState<UserData>();
-  const [userLeaderboardData, setPoints] = useState<Leaderboard>();
+  const [userLeaderboardData, setUserLeaderboardData] = useState<Leaderboard>();
   const [loggedInUser, setLoggedInUser] = useState<boolean>(false);
   const [addedAsFriend, setAddedAsFriend] = useState<boolean>(false);
   const currentLoggedInUser = getCurrentUser();
@@ -52,6 +53,8 @@ export default function UserProfile(props: any) {
   const [userAchievement, setUserAchievement] = useState<Achievement[]>([]);
   const [userAchievementList, setUserAchievementList] = useState<any[]>([]);
 
+  const [busy, setBusy] = useState<boolean>(true);
+
   useEffect(() => {
     if (currentLoggedInUser) {
       let userAchievements: Achievement[] = [];
@@ -60,6 +63,7 @@ export default function UserProfile(props: any) {
         setUser(undefined);
         setLoggedInUser(false);
         setAddedAsFriend(false);
+        setBusy(true);
         snap.forEach((entry) => {
           if (entry.val().public_id === user_id) {
             setUser(entry.val());
@@ -99,28 +103,30 @@ export default function UserProfile(props: any) {
             entry.child("friends").forEach(() => {
               setFriendsFollowedNumber(friendsFollowedNumber + 1);
             });
+            setBusy(false);
           }
         });
       });
       leaderboard.on("value", (snap) => {
-        setPoints(undefined);
+        setUserLeaderboardData(undefined);
         snap.forEach((entry) => {
           if (entry.val().public_id === user_id) {
-            setPoints(entry.val());
+            setUserLeaderboardData(entry.val());
           }
         });
       });
     }
-  }, []);
+  }, [user_id]);
 
   useEffect(() => {
     // Clean up effect
     return () => {
       // console.log('cleaned up');
       setUser(undefined);
-      setPoints(undefined);
+      setUserLeaderboardData(undefined);
       setLoggedInUser(false);
       setAddedAsFriend(false);
+      setBusy(true);
       usersData.off();
       leaderboard.off();
     };
@@ -137,6 +143,7 @@ export default function UserProfile(props: any) {
         </IonToolbar>
       </IonHeader>
       <IonContent>
+        {busy ? <IonLoading isOpen={busy} /> : null}
         <IonGrid>
           <IonRow class="ion-padding-vertical">
             <IonCol size="3" style={{ position: "relative" }}>
@@ -236,25 +243,25 @@ export default function UserProfile(props: any) {
               </IonText>
             </IonCol>
           </IonRow>
-          <IonRow class="ion-text-center">
-            <IonCol>
-              <IonText>
-                <p>
-                  Panduan Pembelajaran <br /> yang telah diselesaikan
-                </p>
-              </IonText>
-            </IonCol>
-          </IonRow>
-          <IonRow class="ion-text-center">
-            <IonCol>
-              <h3>{userLeaderboardData?.chaptersDone}</h3>
-              <p>Bab</p>
-            </IonCol>
-            <IonCol>
-              <h3>{userLeaderboardData?.modulesDone}</h3>
-              <p>Modul</p>
-            </IonCol>
-          </IonRow>
+          <IonCard>
+            <IonRow class="ion-text-center">
+              <IonCol>
+                <IonText>
+                  <p>
+                    Panduan Pembelajaran <br /> yang telah diselesaikan
+                  </p>
+                </IonText>
+              </IonCol>
+              <IonCol>
+                <h3>{userLeaderboardData?.chaptersDone}</h3>
+                <p>Bab</p>
+              </IonCol>
+              <IonCol>
+                <h3>{userLeaderboardData?.modulesDone}</h3>
+                <p>Modul</p>
+              </IonCol>
+            </IonRow>
+          </IonCard>
           <IonRow class="ion-text-center">
             {userAchievement.length > 0 ? (
               <IonCol size="12">
