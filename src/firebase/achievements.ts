@@ -254,7 +254,7 @@ export function UpdateUserLeaderBoardAchievements() {
         achievementsCatalog = snap.val();
       })
       .then(() => {
-        console.log(achievementsCatalog);
+        // console.log(achievementsCatalog);
         achievementsCatalog.map((achievement) => {
           leaderboard
             .child(user.uid)
@@ -263,7 +263,7 @@ export function UpdateUserLeaderBoardAchievements() {
               if (achievement.conditions.dailyUse !== undefined) {
                 if (snap.val().length >= achievement.conditions.dailyUse) {
                   dailyUseAchievements.push(achievement);
-                  console.log(achievement);
+                  // console.log(achievement);
                 }
               }
 
@@ -272,7 +272,7 @@ export function UpdateUserLeaderBoardAchievements() {
               if (achievement.conditions.dailyPoints !== undefined) {
                 if (todayPoints.points >= achievement.conditions.dailyPoints) {
                   dailyPointsAchievements.push(achievement);
-                  console.log(achievement);
+                  // console.log(achievement);
                 }
               }
             });
@@ -317,22 +317,22 @@ export function UpdateUserLeaderBoardAchievements() {
           .then(() => {
             console.log("add");
             if (!dailyPointAch && dailyPointsAchievements.length > 0) {
-              console.log(
-                "push",
-                dailyPointsAchievements[0],
-                dailyPointsAchievements
-              );
+              // console.log(
+              //   "push",
+              //   dailyPointsAchievements[0],
+              //   dailyPointsAchievements
+              // );
               userAchievementData.push({
                 id: dailyPointsAchievements[0].id,
               });
               getAchievements++;
             }
             if (!dailyUseAch && dailyUseAchievements.length > 0) {
-              console.log(
-                "push",
-                dailyPointsAchievements[0],
-                dailyPointsAchievements
-              );
+              // console.log(
+              //   "push",
+              //   dailyPointsAchievements[0],
+              //   dailyPointsAchievements
+              // );
               userAchievementData.push({
                 id: dailyUseAchievements[0].id,
               });
