@@ -21,18 +21,6 @@ function LearnWrapper() {
         component={SubModulePage}
       />
     </Switch>
-    // <Switch>
-    //   <PrivateRoute
-    //     exact
-    //     path="/learn/:chapter__id"
-    //     component={ChapterPage}
-    //   />
-    //   <PrivateRoute
-    //     exact
-    //     path="/learn/:chapterId/:subModuleId"
-    //     component={SubModulePage}
-    //   />
-    // </Switch>
   );
 }
 export default withRouter(LearnWrapper);

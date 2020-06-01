@@ -37,6 +37,8 @@ import Profile from "./Profile";
 import { achievements } from "../firebase/achievements";
 import { Achievement } from "../models/achievements";
 import { presentToast } from "../components/Toast";
+import AchievementsWrapper from "../components/AchievementsWrapper";
+import AchievementModal from "../components/AchievementModal";
 
 export default function UserProfile(props: any) {
   const [user, setUser] = useState<UserData>();
@@ -59,7 +61,7 @@ export default function UserProfile(props: any) {
   useEffect(() => {
     if (currentLoggedInUser) {
       let userAchievements: Achievement[] = [];
-      let userAchievementList: any[] = [];
+      let userAchievementLists: any[] = [];
       usersData.on("value", (snap) => {
         setUser(undefined);
         setLoggedInUser(false);
@@ -90,7 +92,7 @@ export default function UserProfile(props: any) {
                   snapAchievement.forEach((achievement) => {
                     if (userAchievement.val().id === achievement.val().id) {
                       userAchievements.push(achievement.val());
-                      userAchievementList.push({
+                      userAchievementLists.push({
                         id: userAchievement.val().id,
                         qty: userAchievement.val().qty,
                       });
@@ -99,6 +101,7 @@ export default function UserProfile(props: any) {
                 })
                 .then(() => {
                   setUserAchievement(userAchievements);
+                  setUserAchievementList(userAchievementLists);
                 });
             });
             entry.child("friends").forEach(() => {
@@ -117,10 +120,12 @@ export default function UserProfile(props: any) {
         });
       });
     }
-    setTimeout(()=>{
-      setBusy(false)
-      presentToast("Tidak terhubung dengan jaringan Internet")
-    }, 6000)
+    setTimeout(() => {
+      setBusy(false);
+      if (userLeaderboardData === null) {
+        presentToast("Tidak terhubung dengan jaringan Internet");
+      }
+    }, 6000);
   }, [user_id]);
 
   useEffect(() => {
@@ -268,66 +273,21 @@ export default function UserProfile(props: any) {
             </IonRow>
           </IonCard>
           <IonRow class="ion-text-center">
-            {userAchievement.length > 0 ? (
-              <IonCol size="12">
-                <IonText>
-                  <h4>
-                    Pencapaian yang <br /> sudah diraih
-                  </h4>
-                  <p className="mini">Klik untuk melihat detail pencapaian</p>
-                </IonText>
-              </IonCol>
-            ) : null}
-            {userAchievement.map((achievement, index) => {
-              let qty;
-              userAchievementList.map((list) => {
-                if (list.id === achievement.id && list.qty) {
-                  qty = list.qty;
-                }
-              });
-              return (
-                <IonCol size="6" sizeMd="4" sizeXl="3" key={index}>
-                  <IonCard
-                    onClick={() => {
-                      setOpenAchievement(true);
-                      setViewAchievement(achievement);
-                    }}
-                  >
-                    <IonCardContent>
-                      <img src={achievement.img} />
-                      <IonText>
-                        <p>{achievement.title}</p>
-                        {qty ? (
-                          <IonBadge color="darkcream">{qty}</IonBadge>
-                        ) : null}
-                      </IonText>
-                    </IonCardContent>
-                  </IonCard>
-                </IonCol>
-              );
-            })}
+            <AchievementsWrapper
+              userAchievement={userAchievement}
+              userAchievementList={userAchievementList}
+              requestOpenAchievement={(open) => setOpenAchievement(open)}
+              requestViewAchievement={(achievement) =>
+                setViewAchievement(achievement)
+              }
+            />
           </IonRow>
         </IonGrid>
-        <IonModal
-          cssClass={"achievementModal ion-padding ion-text-center"}
-          swipeToClose={true}
-          onDidDismiss={() => setOpenAchievement(false)}
-          isOpen={openAchievement}
-        >
-          <IonText>
-            <h2>{viewAchievement?.title}</h2>
-          </IonText>
-          <img
-            style={{ margin: "0 auto", width: "50vw" }}
-            src={viewAchievement?.img}
-          />
-          <IonText>
-            <p>{viewAchievement?.subTitle}</p>
-          </IonText>
-          <IonButton shape="round" onClick={() => setOpenAchievement(false)}>
-            Kembali
-          </IonButton>
-        </IonModal>
+        <AchievementModal
+          viewAchievement={viewAchievement}
+          openAchievement={openAchievement}
+          dismiss={(dismiss) => setOpenAchievement(dismiss)}
+        />
       </IonContent>
     </IonPage>
   );

@@ -28,7 +28,6 @@ import { getCurrentUser } from "../firebase/auth";
 import { WinnersPana } from "../assets/assetsref";
 
 function Leaderboards() {
-  useEffect(() => {}, []);
   const [filterUser, setFilterUser] = useState<"global" | "friends">("global");
   const [filterTime, setFilterTime] = useState<"daily" | "all-time">(
     "all-time"
