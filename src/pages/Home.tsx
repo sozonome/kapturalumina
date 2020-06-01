@@ -67,7 +67,7 @@ const Home: React.FC = () => {
               </IonRow>
               <IonRow>
                 <IonCol className="headerImage">
-                  <img src={HelloRafiki} />
+                  <img className="glowFilter" src={HelloRafiki} />
                 </IonCol>
               </IonRow>
               <IonRow>

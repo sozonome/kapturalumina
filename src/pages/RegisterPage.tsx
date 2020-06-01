@@ -83,7 +83,7 @@ function RegisterPage() {
             </IonRow>
             <IonRow>
               <IonCol style={{ margin: "0 auto", maxWidth: "300px" }}>
-                <img src={FocusBro} />
+                <img className="glowFilter" src={FocusBro} />
               </IonCol>
             </IonRow>
           </IonGrid>

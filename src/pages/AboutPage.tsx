@@ -32,7 +32,7 @@ export default function AboutPage() {
         <IonGrid class="aboutPage">
           <IonRow>
             <IonCol style={{ margin: "0 auto", maxWidth: "300px" }}>
-              <img src={StaticAssetsAmico} />
+              <img className="glowFilter" src={StaticAssetsAmico} />
             </IonCol>
           </IonRow>
         </IonGrid>

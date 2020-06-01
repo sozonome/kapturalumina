@@ -60,7 +60,7 @@ function LoginPage(props: any) {
             </IonRow>
             <IonRow>
               <IonCol style={{ margin: "0 auto", maxWidth: "300px" }}>
-                <img src={FocusRafiki} />
+                <img className="glowFilter" src={FocusRafiki} />
               </IonCol>
             </IonRow>
             <IonRow className="ion-justify-content-center">

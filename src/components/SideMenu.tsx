@@ -115,6 +115,8 @@ function SideMenu(props: any) {
               src={
                 FocusRafiki
               }
+              width="100%"
+              className="glowFilter"
             />
           </IonItem>
         </IonList>

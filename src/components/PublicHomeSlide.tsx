@@ -38,7 +38,7 @@ export default function PublicHomeSlide() {
             </IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
-            <img src={PhotoAmico} />
+            <img className="glowFilter" src={PhotoAmico} />
           </IonCardContent>
         </IonCard>
       </IonSlide>
@@ -52,7 +52,7 @@ export default function PublicHomeSlide() {
             </IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
-            <img src={FocusAmico} />
+            <img className="glowFilter" src={FocusAmico} />
           </IonCardContent>
         </IonCard>
         <IonText></IonText>
@@ -67,7 +67,7 @@ export default function PublicHomeSlide() {
             </IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
-            <img src={FocusPana} />
+            <img className="glowFilter" src={FocusPana} />
           </IonCardContent>
         </IonCard>
       </IonSlide>

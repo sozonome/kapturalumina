@@ -63,6 +63,11 @@ hr{
   }
 }
 
+.glowFilter{
+  -webkit-filter: drop-shadow(0px 0px 12px rgb(98,114,164));
+  filter: drop-shadow(0px 0px 12px rgb(98,114,164));
+}
+
 .loginBox, .registerBox{
   ion-title{
     text-align: center;
