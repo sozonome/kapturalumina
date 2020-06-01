@@ -42,7 +42,10 @@ export interface Quiz {
 export interface Question {
   id: number;
   question: string;
-  img: ContentImg;
+  img?: {
+    url: string,
+    caption?: string
+  };
   answers: Answer[];
 }
 

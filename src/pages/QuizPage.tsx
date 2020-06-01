@@ -11,6 +11,8 @@ import {
   IonButton,
   IonSpinner,
   IonLoading,
+  IonImg,
+  IonText,
 } from "@ionic/react";
 import { Chapter, Question, Scoring } from "../models/chapters";
 import { LearnContext } from "../components/providers/LearnProvider";
@@ -91,10 +93,8 @@ export default function QuizPage(props: any) {
         passed,
         newStreak
       );
-      console.log(points)
-      updateUserLeaderBoardPoints(
-        points
-      )
+      console.log(points);
+      updateUserLeaderBoardPoints(points);
     }, 500);
 
     setTimeout(() => {
@@ -125,13 +125,28 @@ export default function QuizPage(props: any) {
             <IonLoading message={"Mohon Tunggu..."} isOpen={busyUpdate} />
             <IonGrid class="ion-padding quizContainer">
               <IonRow>
-                <IonCol size="12" class="ion-text-center">Skor : {score}</IonCol>
+                <IonCol size="12" class="ion-text-center">
+                  Skor : {score}
+                </IonCol>
               </IonRow>
               <IonRow>
                 <IonCol class="ion-text-center">
                   <h3>{quiz[index].question}</h3>
                 </IonCol>
               </IonRow>
+              {quiz[index].img ? (
+                <IonRow>
+                  <IonCol>
+                    <IonImg src={quiz[index].img?.url} />
+                    {quiz[index].img?.caption ? (
+                      <IonText>
+                        <p>{quiz[index].img?.caption}</p>
+                      </IonText>
+                    ) : null}
+                  </IonCol>
+                </IonRow>
+              ) : null}
+
               <IonRow>
                 {shuffleSet(quiz[index].answers).map((answer, ind) => {
                   return (
