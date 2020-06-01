@@ -2,6 +2,7 @@
   "name": "kapturalumina",
   "version": "0.0.1",
   "private": true,
+  "author": "sozonome",
   "dependencies": {
     "@capacitor/android": "^2.1.0",
     "@capacitor/core": "2.1.0",
