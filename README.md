@@ -47,6 +47,7 @@ In order for the application to run, you will need to connect it to Firebase Aut
 6. Done
 
 ## References
+##### Some references and problems I encounter during development and I think will be helpful for my next projects
 - [Ionic](https://ionicframerwork.com/)
   - [Ionic Docs](https://ionicframework.com/docs/react) 
   - [Ionic + React + Firebase Tutorial](https://www.youtube.com/playlist?list=PLYxzS__5yYQlhvyLXSKhv4oAvl06MInSE)
@@ -61,6 +62,8 @@ In order for the application to run, you will need to connect it to Firebase Aut
         hardwareBackButton: false, //android
       });</code></pre>
     - [React Config](https://ionicframework.com/docs/react/config)
+      - [Capacitor App API - Add listener back button](https://capacitor.ionicframework.com/docs/apis/app/)
+      - [App Minimize](https://ionicframework.com/docs/native/app-minimize)
 - [Environment Variables](https://www.youtube.com/watch?v=17UVejOw3zA)
 - [Firebase](https://firebase.google.com/)
   - [React Auth with Firebase and Hooks](https://www.youtube.com/watch?v=unr4s3jd9qA)
