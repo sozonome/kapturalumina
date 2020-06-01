@@ -7,6 +7,8 @@ Bachelor Thesis (Final Project) of [Agustinus Nathaniel](https://agustinusnathan
 ## Previews
 -- W.I.P.
 
+App Theme color inspired by Dracula Theme color palette
+
 ## Tech Stacks
 * Framework : Ionic v5 - React
 * Database + Auth : Firebase
