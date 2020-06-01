@@ -20,6 +20,7 @@ import { updateUserLearnProgress } from "../firebase/users";
 import ErrorContent from "../components/ErrorContent";
 import shuffleSet from "../functions/shuffle";
 import { updateUserLeaderBoardPoints } from "../firebase/leaderboard";
+import { presentToast } from "../components/Toast";
 
 export default function QuizPage(props: any) {
   const { chapters }: { chapters: Chapter[] } = useContext(LearnContext);
@@ -161,6 +162,7 @@ export default function QuizPage(props: any) {
                             setStreak(streak + 1);
                           } else {
                             setStreak(0);
+                            presentToast(`Kurang tepat.`, 1500, `tertiary`)
                           }
 
                           if (index === quiz.length - 1) {

@@ -86,7 +86,13 @@ function ChapterPage(props: any) {
                     }
                   });
                   return (
-                    <IonCol class="ion-align-items-center" sizeXs="12" sizeSm="6" sizeXl="4" key={index}>
+                    <IonCol
+                      class="ion-align-items-center"
+                      sizeXs="12"
+                      sizeSm="6"
+                      sizeXl="4"
+                      key={index}
+                    >
                       <IonCard
                         disabled={locked}
                         routerLink={`/learn/${chapter.id}/${subModule.id}`}
@@ -116,7 +122,12 @@ function ChapterPage(props: any) {
                                   />
                                 )}
                                 {subModule.quiz ? (
-                                  <>Best Score : {bestScore * 100}%</>
+                                  <>
+                                    Best Score : {bestScore * 100}%
+                                    {passed
+                                      ? null
+                                      : "Dapatkan skor kuis yang lebih baik untuk membuka modul berikutnya."}
+                                  </>
                                 ) : null}
                               </h3>
                             </IonText>
