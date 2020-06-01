@@ -82,7 +82,7 @@ function RegisterPage() {
               </IonCol>
             </IonRow>
             <IonRow>
-              <IonCol>
+              <IonCol style={{ margin: "0 auto", maxWidth: "300px" }}>
                 <img src={FocusBro} />
               </IonCol>
             </IonRow>
@@ -133,6 +133,7 @@ function RegisterPage() {
                   fill="solid"
                   color="success"
                   onClick={register}
+                  style={{ margin: "0 auto", maxWidth: "320px" }}
                 >
                   Daftar
                 </IonButton>

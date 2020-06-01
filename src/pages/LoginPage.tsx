@@ -59,7 +59,7 @@ function LoginPage(props: any) {
               </IonCol>
             </IonRow>
             <IonRow>
-              <IonCol>
+              <IonCol style={{ margin: "0 auto", maxWidth: "300px" }}>
                 <img src={FocusRafiki} />
               </IonCol>
             </IonRow>
