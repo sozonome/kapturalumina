@@ -36,6 +36,7 @@ import { getCurrentUser } from "../firebase/auth";
 import Profile from "./Profile";
 import { achievements } from "../firebase/achievements";
 import { Achievement } from "../models/achievements";
+import { presentToast } from "../components/Toast";
 
 export default function UserProfile(props: any) {
   const [user, setUser] = useState<UserData>();
@@ -116,6 +117,10 @@ export default function UserProfile(props: any) {
         });
       });
     }
+    setTimeout(()=>{
+      setBusy(false)
+      presentToast("Tidak terhubung dengan jaringan Internet")
+    }, 6000)
   }, [user_id]);
 
   useEffect(() => {

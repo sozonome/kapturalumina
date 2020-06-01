@@ -9,7 +9,7 @@ Bachelor Thesis (Final Project) of [Agustinus Nathaniel](https://agustinusnathan
 
 App Theme color inspired by Dracula Theme color palette
 
-## Tech Stacks
+## Tech Stacks, Dependencies
 * Framework : Ionic v5 - React
 * Database + Auth : Firebase
 * Tools, Libraries : 
@@ -18,6 +18,10 @@ App Theme color inspired by Dracula Theme color palette
   - Cloudinary for image storage
   - CloudImage for image resizing, compression, (image transformer) and acceleration / optimization
 * Deployment : Vercel (Formerly Zeit) for PWA (Web App) Version
+
+* some dependencies
+  - `@ionic-native/app-minimize`
+    Why? So the problem started when I build the app into capacitor-android. The hardware back button behavior in Capacitor Android Ionic React app is a bit annoying and mostly it made the app crashed. So I try to find a way how to fully disable the android hardware back button in this app. Found Capacitor App API and I use it to make the app exit when push the android hardware button. But it ruins the user experience of the app. So I try to think another alternative. I thought why don't I just make the app minimize. Turned out there was a plugin to minimize the app, so that's how I end up using this plugin... Quite a story but I learned so much and have fun.
 
 ## Getting Started
 * [Download](https://nodejs.org) and install node.js

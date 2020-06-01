@@ -18,14 +18,9 @@ import {
   IonSegment,
   IonSegmentButton,
   IonCol,
-  IonItemSliding,
-  IonItemOptions,
-  IonItemOption,
-  IonIcon,
   IonLoading,
 } from "@ionic/react";
 import { Leaderboard } from "../models/leaderboards";
-import { personCircle } from "ionicons/icons";
 import { leaderboard } from "../firebase/leaderboard";
 import getCurrentDate from "../functions/getCurrentDate";
 import { usersData } from "../firebase/users";
@@ -40,9 +35,7 @@ function Leaderboards() {
   );
 
   const [needUpdate, setNeedUpdate] = useState<boolean>(false);
-
   const [busy, setBusy] = useState<boolean>(false);
-
   const [leaderboardData, setLeaderboardData] = useState<Leaderboard[]>([]);
 
   useEffect(() => {
@@ -63,7 +56,7 @@ function Leaderboards() {
       } else {
         const leaderBoardData: Leaderboard[] = [];
         leaderboard.on("value", (snap) => {
-          setNeedUpdate(true)
+          setNeedUpdate(true);
           setLeaderboardData([]);
           snap.forEach((entry) => {
             const todayPoints = entry.val().dailyPoints.pop();
@@ -78,7 +71,7 @@ function Leaderboards() {
           leaderBoardData.sort((a, b) => b.points - a.points);
           setLeaderboardData(leaderBoardData);
         });
-        setNeedUpdate(false)
+        setNeedUpdate(false);
       }
     } else {
       // Followed Friend
@@ -204,12 +197,8 @@ function Leaderboards() {
         </IonHeader>
         <IonGrid style={{ padding: 0 }}>
           <IonRow>
-            <IonCol style={{margin:'0 auto', maxWidth:'250px'}}>
-              <img
-                src={
-                  WinnersPana
-                }
-              />
+            <IonCol style={{ margin: "0 auto", maxWidth: "250px" }}>
+              <img src={WinnersPana} />
             </IonCol>
           </IonRow>
           {filterTime === "daily" ? (
@@ -224,9 +213,7 @@ function Leaderboards() {
           <IonRow></IonRow>
           <IonCol size="12">
             <IonText class="ion-text-center">
-              <p>
-                Swipe user ke kanan atau kiri <br /> untuk melihat Profil
-              </p>
+              <p>Klik user untuk melihat Profil</p>
             </IonText>
           </IonCol>
           <IonRow>
@@ -244,61 +231,46 @@ function Leaderboards() {
           <IonList lines="none">
             {leaderboardData?.map((user, index) => {
               return (
-                <IonItemSliding key={index}>
-                  <IonItemOptions side="start">
-                    <IonItemOption
-                      routerLink={`/user/${user.public_id}`}
-                      expandable
-                    >
-                      <IonIcon icon={personCircle} size="large" />
-                    </IonItemOption>
-                  </IonItemOptions>
-                  <IonItem>
-                    <IonRow
-                      style={{ width: "100%" }}
-                      class="ion-align-items-center leaderboardEntry"
-                    >
-                      <IonCol size="1">
-                        <IonText>
-                          <p>{index + 1}</p>
-                        </IonText>
-                      </IonCol>
-                      <IonCol size="3" class="ion-justify-content-center">
-                        <IonAvatar
-                          style={{
-                            position: "absolute",
-                            top: "50%",
-                            left: "50%",
-                            transform: "translate(-50%, -50%)",
-                          }}
-                        >
-                          <IonImg
-                            src={
-                              "https://api.adorable.io/avatars/200/" + user.name
-                            }
-                          />
-                        </IonAvatar>
-                      </IonCol>
-                      <IonCol size="5">
-                        <IonText>
-                          <p style={{ fontSize: "1.2rem", fontWeight: "bold" }}>
-                            {user.name}
-                          </p>
-                        </IonText>
-                      </IonCol>
-                      <IonCol size="3">
-                        <IonText>
-                          <h2>{user.points}</h2>
-                        </IonText>
-                      </IonCol>
-                    </IonRow>
-                  </IonItem>
-                  <IonItemOptions side="end">
-                    <IonItemOption routerLink={`/user/${user.public_id}`}>
-                      Lihat Profil
-                    </IonItemOption>
-                  </IonItemOptions>
-                </IonItemSliding>
+                <IonItem routerLink={`/user/${user.public_id}`} key={index}>
+                  <IonRow
+                    style={{ width: "100%" }}
+                    class="ion-align-items-center leaderboardEntry"
+                  >
+                    <IonCol size="1">
+                      <IonText>
+                        <p>{index + 1}</p>
+                      </IonText>
+                    </IonCol>
+                    <IonCol size="3" class="ion-justify-content-center">
+                      <IonAvatar
+                        style={{
+                          position: "absolute",
+                          top: "50%",
+                          left: "50%",
+                          transform: "translate(-50%, -50%)",
+                        }}
+                      >
+                        <IonImg
+                          src={
+                            "https://api.adorable.io/avatars/200/" + user.name
+                          }
+                        />
+                      </IonAvatar>
+                    </IonCol>
+                    <IonCol size="5">
+                      <IonText>
+                        <p style={{ fontSize: "1.2rem", fontWeight: "bold" }}>
+                          {user.name}
+                        </p>
+                      </IonText>
+                    </IonCol>
+                    <IonCol size="3">
+                      <IonText>
+                        <h2>{user.points}</h2>
+                      </IonText>
+                    </IonCol>
+                  </IonRow>
+                </IonItem>
               );
             })}
           </IonList>

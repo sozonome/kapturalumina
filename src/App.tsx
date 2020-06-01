@@ -44,14 +44,16 @@ import "./theme/styles/global.scss";
 import UserProgressProvider from "./components/providers/ProgressProvider";
 import UserProfileProvider from "./components/providers/UserProfileProvider";
 
-// const store = createStore(reducer);
 
 import {Plugins} from "@capacitor/core";
+import {AppMinimize} from '@ionic-native/app-minimize';
 const {App} = Plugins
 
 App.addListener('backButton', ()=>{
-  App.exitApp();
+  AppMinimize.minimize()
 })
+
+// const store = createStore(reducer);
 
 setupConfig({
   hardwareBackButton: false,
