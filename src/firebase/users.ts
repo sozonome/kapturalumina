@@ -56,7 +56,7 @@ export function updateUserLearnProgress(
                 chapter.child("subModules").forEach((subModule) => {
                   if (subModule.val().id === progress.val().subModuleId) {
                     countModules++;
-                    console.log(countModules, chapter.val().id);
+                    // console.log(countModules, chapter.val().id);
                   }
                   if (subModuleId === progress.val().subModuleId) {
                     newModuleProgress = false;
@@ -79,26 +79,26 @@ export function updateUserLearnProgress(
                     countChapters++;
                     countModulesTemp += countModules;
                     countModules = 0;
-                    console.log(
-                      countModules,
-                      countChapters,
-                      chapter.val().subModules.length,
-                      chapter.val().id,
-                      newModuleProgress,
-                      passed,
-                      "Chapter Finish Added"
-                    );
+                    // console.log(
+                    //   countModules,
+                    //   countChapters,
+                    //   chapter.val().subModules.length,
+                    //   chapter.val().id,
+                    //   newModuleProgress,
+                    //   passed,
+                    //   "Chapter Finish Added"
+                    // );
                   }
                 });
               }
-              console.log(
-                countModules,
-                countChapters,
-                chapter.val().subModules.length,
-                chapter.val().id,
-                newModuleProgress,
-                passed
-              );
+              // console.log(
+              //   countModules,
+              //   countChapters,
+              //   chapter.val().subModules.length,
+              //   chapter.val().id,
+              //   newModuleProgress,
+              //   passed
+              // );
             });
           });
         });
@@ -296,7 +296,7 @@ export function removeFollowedFriend(id: string) {
         if (snap.exists()) {
           snap.forEach((friend) => {
             if (friend.val() === id) {
-              console.log(friend.key);
+              // console.log(friend.key);
               fbase
                 .database()
                 .ref(`users/${user.uid}/friends/${friend.key}`)

@@ -315,7 +315,7 @@ export function UpdateUserLeaderBoardAchievements() {
             }
           })
           .then(() => {
-            console.log("add");
+            // console.log("add");
             if (!dailyPointAch && dailyPointsAchievements.length > 0) {
               // console.log(
               //   "push",

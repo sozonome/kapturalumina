@@ -50,7 +50,7 @@ function Routing() {
         <PrivateRoute exact path="/editprofile" component={EditProfile} />
         <PrivateRoute exact path="/user/:userId" component={UserProfile} />
         <Route path="/about" component={AboutPage} />
-        <Route path="/superadmintest" component={ComponentTestPage} />
+        <Route path="/superadmintest_aiueo" component={ComponentTestPage} />
         <Route path="/home" component={PublicHome} />
         {currentUser ? (
           <Route exact path="/" render={() => <Redirect to="/main" />} />
