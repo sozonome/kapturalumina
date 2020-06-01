@@ -18,7 +18,7 @@ export default function LearnProvider({children}:any) {
       const chaptersRef = rootRef.child("chapters");
       setChaptersState([]);
       // if(fetched){
-        chaptersRef.once("value", (snap) => {
+        chaptersRef.on("value", (snap) => {
           setChaptersState(snap.val());
           // data.forEach((row) => {
           //   const entry = row;

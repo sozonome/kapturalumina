@@ -15,6 +15,7 @@ import {
   IonCol,
 } from "@ionic/react";
 import { logoIonic, logoReact, logoFirebase, person } from "ionicons/icons";
+import { StaticAssetsAmico } from "../assets/assetsref";
 
 export default function AboutPage() {
   return (
@@ -31,7 +32,7 @@ export default function AboutPage() {
         <IonGrid class="aboutPage">
           <IonRow>
             <IonCol>
-              <IonImg src="https://res.cloudinary.com/irsnmt20/image/upload/v1590845059/shootnow/assets/Static_assets-amico_ukigtm.svg" />
+              <img src={StaticAssetsAmico} />
             </IonCol>
           </IonRow>
         </IonGrid>

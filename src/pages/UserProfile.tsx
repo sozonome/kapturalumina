@@ -155,7 +155,7 @@ export default function UserProfile(props: any) {
                   transform: "translate(-50%, -50%)",
                 }}
               >
-                <IonImg
+                <img
                   src={"https://api.adorable.io/avatars/200/" + user?.name}
                 />
               </IonAvatar>
@@ -289,7 +289,7 @@ export default function UserProfile(props: any) {
                     }}
                   >
                     <IonCardContent>
-                      <IonImg src={achievement.img} />
+                      <img src={achievement.img} />
                       <IonText>
                         <p>{achievement.title}</p>
                         {qty ? (
@@ -312,7 +312,7 @@ export default function UserProfile(props: any) {
           <IonText>
             <h2>{viewAchievement?.title}</h2>
           </IonText>
-          <IonImg
+          <img
             style={{ margin: "0 auto", width: "50vw" }}
             src={viewAchievement?.img}
           />

@@ -138,7 +138,7 @@ export default function QuizPage(props: any) {
               {quiz[index].img ? (
                 <IonRow>
                   <IonCol>
-                    <IonImg src={quiz[index].img?.url} />
+                    <img src={quiz[index].img?.url} />
                     {quiz[index].img?.caption ? (
                       <IonText>
                         <p>{quiz[index].img?.caption}</p>
@@ -151,10 +151,11 @@ export default function QuizPage(props: any) {
               <IonRow>
                 {shuffleSet(quiz[index].answers).map((answer, ind) => {
                   return (
-                    <IonCol key={ind} size="12">
+                    <IonCol class="ion-no-padding" key={ind} size="12">
                       <IonButton
-                        class="quizAnswerButton"
+                        class="quizAnswerButton ion-text-wrap"
                         shape="round"
+                        size="large"
                         expand="block"
                         onClick={() => {
                           if (answer.correct) {

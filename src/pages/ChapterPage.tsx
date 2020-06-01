@@ -97,7 +97,7 @@ function ChapterPage(props: any) {
                         disabled={locked}
                         routerLink={`/learn/${chapter.id}/${subModule.id}`}
                       >
-                        <IonImg src={subModule.thumbnail} />
+                        <img src={subModule.thumbnail} />
                         <IonCardHeader>
                           <IonCardTitle>{subModule.title}</IonCardTitle>
                           <IonCardSubtitle>

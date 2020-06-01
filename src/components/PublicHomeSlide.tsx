@@ -9,6 +9,7 @@ import {
   IonCardTitle,
   IonCardHeader,
 } from "@ionic/react";
+import { PhotoAmico, FocusAmico, FocusPana } from "../assets/assetsref";
 
 export default function PublicHomeSlide() {
   const slider = useRef(null as any);
@@ -37,7 +38,7 @@ export default function PublicHomeSlide() {
             </IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
-            <IonImg src={"https://res.cloudinary.com/irsnmt20/image/upload/v1590840124/shootnow/assets/Photo-amico_vpvqni.svg"} />
+            <img src={PhotoAmico} />
           </IonCardContent>
         </IonCard>
       </IonSlide>
@@ -51,7 +52,7 @@ export default function PublicHomeSlide() {
             </IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
-            <IonImg src={"https://res.cloudinary.com/irsnmt20/image/upload/v1590840357/shootnow/assets/Focus-amico_qrc5x8.svg"} />
+            <img src={FocusAmico} />
           </IonCardContent>
         </IonCard>
         <IonText></IonText>
@@ -66,7 +67,7 @@ export default function PublicHomeSlide() {
             </IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
-            <IonImg src={"https://res.cloudinary.com/irsnmt20/image/upload/v1590840499/shootnow/assets/Focus-pana_zfvc2u.svg"} />
+            <img src={FocusPana} />
           </IonCardContent>
         </IonCard>
       </IonSlide>

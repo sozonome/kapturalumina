@@ -12,7 +12,7 @@ export interface SubModuleSlideImageProps{
 export default function SubModuleSlideImage(props:SubModuleSlideImageProps) {
   return (
     <>
-      <IonImg src={props.img.url} />
+      <img src={props.img.url} />
       {
         props.img.caption?
         <IonText>

@@ -20,6 +20,7 @@ import { presentToast } from "../components/Toast";
 import { AuthContext } from "../components/providers/AuthProvider";
 import { person, mail, key, keyOutline } from "ionicons/icons";
 import { registerUser } from "../firebase/auth";
+import { FocusBro } from "../assets/assetsref";
 
 function RegisterPage() {
   const [wait, setWait] = useState<boolean>(false);
@@ -82,7 +83,7 @@ function RegisterPage() {
             </IonRow>
             <IonRow>
               <IonCol>
-                <IonImg src={"https://res.cloudinary.com/irsnmt20/image/upload/v1590841512/shootnow/assets/Focus-bro_kjxelk.svg"} />
+                <img src={FocusBro} />
               </IonCol>
             </IonRow>
           </IonGrid>

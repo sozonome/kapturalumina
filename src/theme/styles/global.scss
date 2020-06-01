@@ -11,8 +11,13 @@ ion-app{
 //   border-radius: 15px;
 // }
 
+.quizAnswerButton {
+  height: 80px; 
+  font-size: 1.1rem;
+}
+
 ion-grid.quizContainer{
-  margin-top: 8vh;
+  margin-top: 6vh;
 }
 
 ion-row.leaderboardEntry{
@@ -44,10 +49,14 @@ hr{
 }
 
 #homePage {
-  ion-img.headerImage{
-    max-width: 300px;
-    margin: 0 auto;
-  }
+    ion-img.headerImage{
+      max-width: 300px;
+      margin: 0 auto;
+    }
+    .headerImage{
+      max-width: 300px;
+      margin: 0 auto;
+    }
   ion-progress-bar{
     height: 1rem;
     border-radius: 0.5rem;

@@ -23,6 +23,7 @@ import {
 import { withRouter } from "react-router";
 import { AuthContext } from "./providers/AuthProvider";
 import { logoutUser } from "../firebase/auth";
+import { FocusRafiki } from "../assets/assetsref";
 
 function SideMenu(props: any) {
   const { currentUser } = useContext(AuthContext);
@@ -110,9 +111,9 @@ function SideMenu(props: any) {
         </IonList>
         <IonList>
           <IonItem>
-            <IonImg
+            <img
               src={
-                "https://res.cloudinary.com/irsnmt20/image/upload/v1590843201/shootnow/assets/Focus-rafiki-grey_o4fv8s.svg"
+                FocusRafiki
               }
             />
           </IonItem>

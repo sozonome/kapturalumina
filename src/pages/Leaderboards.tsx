@@ -30,6 +30,7 @@ import { leaderboard } from "../firebase/leaderboard";
 import getCurrentDate from "../functions/getCurrentDate";
 import { usersData } from "../firebase/users";
 import { getCurrentUser } from "../firebase/auth";
+import { WinnersPana } from "../assets/assetsref";
 
 function Leaderboards() {
   useEffect(() => {}, []);
@@ -204,9 +205,9 @@ function Leaderboards() {
         <IonGrid style={{ padding: 0 }}>
           <IonRow>
             <IonCol>
-              <IonImg
+              <img
                 src={
-                  "https://res.cloudinary.com/irsnmt20/image/upload/v1590842764/shootnow/assets/Winners-pana_dlzblq.svg"
+                  WinnersPana
                 }
               />
             </IonCol>

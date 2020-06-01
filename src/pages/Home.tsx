@@ -24,6 +24,7 @@ import { withRouter } from "react-router";
 import { LearnContext } from "../components/providers/LearnProvider";
 import { UserProgressContext } from "../components/providers/ProgressProvider";
 import { UserProfileContext } from "../components/providers/UserProfileProvider";
+import { HelloRafiki } from "../assets/assetsref";
 
 const Home: React.FC = () => {
   const { chapters } = useContext(LearnContext);
@@ -65,13 +66,8 @@ const Home: React.FC = () => {
                 </IonCol>
               </IonRow>
               <IonRow>
-                <IonCol>
-                  <IonImg
-                    class="headerImage"
-                    src={
-                      "https://res.cloudinary.com/irsnmt20/image/upload/v1590842111/shootnow/assets/Hello-rafiki_kjnhqo.svg"
-                    }
-                  />
+                <IonCol className="headerImage">
+                  <img src={HelloRafiki} />
                 </IonCol>
               </IonRow>
               <IonRow>
@@ -103,7 +99,7 @@ const Home: React.FC = () => {
                         disabled={locked}
                         routerLink={`/learn/${chapter.id}`}
                       >
-                        <IonImg src={chapter.thumbnail} />
+                        <img src={chapter.thumbnail} />
                         <IonCardHeader>
                           <IonCardTitle>{chapter.title}</IonCardTitle>
                           <IonCardSubtitle>{chapter.subtitle}</IonCardSubtitle>
@@ -111,11 +107,14 @@ const Home: React.FC = () => {
                         <IonCardContent>
                           <IonText>Progress :</IonText>
                           <IonProgressBar
-                            color={chapterProgress / chapter.subModules.length > 0.5 ? "primary" : "secondary"}
+                            color={
+                              chapterProgress / chapter.subModules.length > 0.5
+                                ? "primary"
+                                : "secondary"
+                            }
                             value={chapterProgress / chapter.subModules.length}
                           />
                         </IonCardContent>
-                        
                       </IonCard>
                     </IonCol>
                   );

@@ -1,5 +1,10 @@
 import React, { useEffect } from "react";
-import { IonApp, IonSplitPane, setupConfig } from "@ionic/react";
+import {
+  IonApp,
+  IonSplitPane,
+  setupConfig,
+  useIonViewDidEnter,
+} from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 
 /* Core CSS required for Ionic components to work properly */
@@ -41,12 +46,29 @@ import UserProfileProvider from "./components/providers/UserProfileProvider";
 
 // const store = createStore(reducer);
 
+import {Plugins} from "@capacitor/core";
+const {App} = Plugins
+
+App.addListener('backButton', ()=>{
+  App.exitApp();
+})
+
 setupConfig({
-  hardwareBackButton: false
+  hardwareBackButton: false,
 });
 
-const App: React.FC = () => {
-  
+
+const KapturaLumina: React.FC = () => {
+  useIonViewDidEnter(() => {
+    document.addEventListener(
+      "backbutton",
+      function (e) {
+        console.log("disable back button");
+      },
+      false
+    );
+  });
+
   return (
     <AuthProvider>
       <LearnProvider>
@@ -67,4 +89,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default KapturaLumina;

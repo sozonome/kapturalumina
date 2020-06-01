@@ -17,6 +17,7 @@ import {
 import { withRouter, Redirect } from "react-router";
 import { AuthContext } from "../components/providers/AuthProvider";
 import { loginUser } from "../firebase/auth";
+import { FocusRafiki } from "../assets/assetsref";
 
 function LoginPage(props: any) {
   const [wait, setWait] = useState<boolean>(false);
@@ -59,7 +60,7 @@ function LoginPage(props: any) {
             </IonRow>
             <IonRow>
               <IonCol>
-                <IonImg src={"https://res.cloudinary.com/irsnmt20/image/upload/v1590840419/shootnow/assets/Focus-rafiki_ly9vso.svg"} />
+                <img src={FocusRafiki} />
               </IonCol>
             </IonRow>
             <IonRow className="ion-justify-content-center">
