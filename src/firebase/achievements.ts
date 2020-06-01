@@ -126,22 +126,22 @@ export default function updateUserAchievements(
         });
       })
       .then(() => {
-        if (quizAchievements && quizAchievements.length > 1) {
+        if (quizAchievements.length > 1) {
           quizAchievements.sort(
             (a, b) => b.conditions.quizLength! - a.conditions.quizLength!
           );
         }
-        if (streakAchievements && streakAchievements.length > 1) {
+        if (streakAchievements.length > 1) {
           streakAchievements.sort(
             (a, b) => b.conditions.streak! - a.conditions.streak!
           );
         }
-        if (chapterAchievements && chapterAchievements.length > 1) {
+        if (chapterAchievements.length > 1) {
           chapterAchievements.sort(
             (a, b) => b.conditions.chaptersDone! - a.conditions.chaptersDone!
           );
         }
-        if (moduleAchievements && moduleAchievements.length > 1) {
+        if (moduleAchievements.length > 1) {
           moduleAchievements.sort(
             (a, b) => b.conditions.modulesDone! - a.conditions.modulesDone!
           );

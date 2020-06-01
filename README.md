@@ -37,7 +37,12 @@ In order for the application to run, you will need to connect it to Firebase Aut
 * `npm run build-release-android` or `npm run build-clean-release-android`
 
 ## Build to APK Guide
--- W.I.P.
+1. `npm run build-release-android`,
+2. `npm run debug-android`, wait until Android Studio Open and finish setting up Gradle etc
+3. Clean Project + Rebuild Project if needed
+4. Go to Build > Generate Signed Bundle / APK 
+5. Put in the password of the KeyStore
+6. Done
 
 ## References
 - [Ionic](https://ionicframerwork.com/)
@@ -49,12 +54,10 @@ In order for the application to run, you will need to connect it to Firebase Aut
   - Hardware Back Button Android Problem
     - [Hardware Back Button Android Problem - Android](https://ionicframework.com/docs/developing/hardware-back-button)
     - [Hardware Back Button Android Problem - Android](https://forum.ionicframework.com/t/react-handle-hardware-back-button/183566/3)
-      <pre><code>
-        setupConfig({
-          swipeBackEnabled: false,// also prevent swiping back on either platform
-          hardwareBackButton: false// this is what you need (android only)
-        });
-      </code></pre>
+      <pre><code>setupConfig({
+        swipeBackEnabled: false,
+        hardwareBackButton: false, //android
+      });</code></pre>
     - [React Config](https://ionicframework.com/docs/react/config)
 - [Environment Variables](https://www.youtube.com/watch?v=17UVejOw3zA)
 - [Firebase](https://firebase.google.com/)
