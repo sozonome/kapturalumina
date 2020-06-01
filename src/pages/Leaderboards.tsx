@@ -204,7 +204,7 @@ function Leaderboards() {
         </IonHeader>
         <IonGrid style={{ padding: 0 }}>
           <IonRow>
-            <IonCol>
+            <IonCol style={{margin:'0 auto', maxWidth:'250px'}}>
               <img
                 src={
                   WinnersPana

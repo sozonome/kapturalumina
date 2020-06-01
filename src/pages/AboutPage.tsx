@@ -28,10 +28,10 @@ export default function AboutPage() {
           <IonTitle>Tentang Aplikasi</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent  className="ion-padding">
+      <IonContent className="ion-padding">
         <IonGrid class="aboutPage">
           <IonRow>
-            <IonCol>
+            <IonCol style={{ margin: "0 auto", maxWidth: "300px" }}>
               <img src={StaticAssetsAmico} />
             </IonCol>
           </IonRow>
