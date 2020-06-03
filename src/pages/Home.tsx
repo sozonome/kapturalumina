@@ -94,7 +94,7 @@ const Home: React.FC = () => {
                   // console.log(chapterProgress, chapter.id)
                   // console.log(chapter.id, chapterProgress, chapter.subModules.length)
                   return (
-                    <IonCol sizeXs="12" sizeSm="6" sizeXl="4" key={index}>
+                    <IonCol sizeXs="12" sizeSm="6" key={index}>
                       <IonCard
                         disabled={locked}
                         routerLink={`/learn/${chapter.id}`}

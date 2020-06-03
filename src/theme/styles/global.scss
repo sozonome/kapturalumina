@@ -1,5 +1,7 @@
 ion-app{
   --ion-font-family: 'Karla';
+  max-width: 1000px;
+  margin: 0 auto;
   h1,h2,h3,h4,h5,h6, ion-title, ion-card-title{
     font-family: 'Inter';
     font-weight: bold;

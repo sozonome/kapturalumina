@@ -36,7 +36,7 @@ export default function AchievementsWrapper(props: AchievementWrapperProps) {
           }
         });
         return (
-          <IonCol size="6" sizeMd="4" sizeXl="3" key={index}>
+          <IonCol size="6" sizeMd="4" key={index}>
             <IonCard
               onClick={() => {
                 props.requestOpenAchievement(true);

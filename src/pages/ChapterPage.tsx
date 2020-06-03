@@ -90,7 +90,6 @@ function ChapterPage(props: any) {
                       class="ion-align-items-center"
                       sizeXs="12"
                       sizeSm="6"
-                      sizeXl="4"
                       key={index}
                     >
                       <IonCard
