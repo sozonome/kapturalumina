@@ -122,10 +122,13 @@ function ChapterPage(props: any) {
                                 )}
                                 {subModule.quiz ? (
                                   <>
-                                    Best Score : {bestScore * 100}%
-                                    {passed
-                                      ? null
-                                      : "Dapatkan skor kuis yang lebih baik untuk membuka modul berikutnya."}
+                                    <p>Best Score : {bestScore * 100}%</p>
+                                    {passed ? null : (
+                                      <p>
+                                        Dapatkan skor kuis yang lebih baik untuk
+                                        membuka modul berikutnya.
+                                      </p>
+                                    )}
                                   </>
                                 ) : null}
                               </h3>

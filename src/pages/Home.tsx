@@ -76,11 +76,11 @@ const Home: React.FC = () => {
                   let prevChapterProgress = 0;
                   let locked = index === 0 ? false : true;
                   progress.map((prog) => {
-                    if (prog.chapterId === chapter.id) {
+                    if (prog.chapterId === chapter.id && prog.passed) {
                       chapterProgress++;
                     }
                     if (index > 0) {
-                      if (chapters[index - 1].id === prog.chapterId) {
+                      if (chapters[index - 1].id === prog.chapterId && prog.passed) {
                         prevChapterProgress++;
                       }
                       if (
