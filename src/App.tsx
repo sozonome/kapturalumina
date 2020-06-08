@@ -30,10 +30,6 @@ import "./theme/variables.css";
 import SideMenu from "./components/SideMenu";
 import Routing from "./components/Routing";
 
-// Redux
-// import { Provider } from "react-redux";
-// import reducer from "./redux/reducer";
-// import { createStore } from "redux";
 import AuthProvider from "./components/providers/AuthProvider";
 import LearnProvider from "./components/providers/LearnProvider";
 
