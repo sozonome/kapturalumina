@@ -60,9 +60,9 @@ export default function UserProfile(props: any) {
 
   useEffect(() => {
     if (currentLoggedInUser) {
-      let userAchievements: Achievement[] = [];
-      let userAchievementLists: any[] = [];
       usersData.on("value", (snap) => {
+        let userAchievements: Achievement[] = [];
+        let userAchievementLists: any[] = [];
         setUser(undefined);
         setLoggedInUser(false);
         setAddedAsFriend(false);
