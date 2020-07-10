@@ -11,5 +11,5 @@ export interface Leaderboard {
 export interface DailyPoint {
   date: Date;
   value: number;
-  modulesDone: number
+  modulesDone: number;
 }

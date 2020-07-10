@@ -9,7 +9,6 @@ import {
   IonBackButton,
   IonText,
   IonIcon,
-  IonImg,
   IonGrid,
   IonRow,
   IonCol,

@@ -15,12 +15,12 @@ export default function shuffleSet(array: any[], pick?: number) {
   // To see each iterations, turn on the console.log lines
 
   // console.log(arr);
-  for (; --pickSize >= 0;arraySize--) {
+  for (; --pickSize >= 0; arraySize--) {
     //Range update every iteration
     // console.log(arraySize, pickSize, 'a');
 
     //Randomly pick a number from current iteration range
-    rollIndex = Math.floor(Math.random() * (arraySize));
+    rollIndex = Math.floor(Math.random() * arraySize);
     // console.log(rollIndex, 'b');
 
     //Pick the selected roll index
@@ -28,8 +28,8 @@ export default function shuffleSet(array: any[], pick?: number) {
     // console.log(temp);
 
     //Last element replace the picked index
-    if (rollIndex < arraySize-1) {
-      arr[rollIndex] = arr[arraySize-1];
+    if (rollIndex < arraySize - 1) {
+      arr[rollIndex] = arr[arraySize - 1];
       arr.pop();
     } else {
       arr.pop();

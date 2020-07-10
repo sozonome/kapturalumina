@@ -14,7 +14,6 @@ import {
   IonCardTitle,
   IonCardSubtitle,
   IonCardContent,
-  IonImg,
   IonLoading,
   IonText,
   IonProgressBar,
@@ -80,7 +79,10 @@ const Home: React.FC = () => {
                       chapterProgress++;
                     }
                     if (index > 0) {
-                      if (chapters[index - 1].id === prog.chapterId && prog.passed) {
+                      if (
+                        chapters[index - 1].id === prog.chapterId &&
+                        prog.passed
+                      ) {
                         prevChapterProgress++;
                       }
                       if (

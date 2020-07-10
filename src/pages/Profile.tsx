@@ -14,14 +14,10 @@ import {
   IonCol,
   IonText,
   IonButton,
-  IonModal,
   IonLabel,
   IonChip,
   IonIcon,
-  IonImg,
-  IonCard,
-  IonCardContent,
-  IonBadge,
+  IonCard
 } from "@ionic/react";
 import { UserData } from "../models/users";
 import { logoInstagram, logoYoutube, globeOutline } from "ionicons/icons";
@@ -74,7 +70,7 @@ export default function Profile() {
                 setUserAchievementList(userAchievementList);
               });
           });
-          snap.child("friends").forEach((friend) => {
+          snap.child("friends").forEach(() => {
             setFriendsFollowedNumber(
               (friendsFollowedNumber) => friendsFollowedNumber + 1
             );
@@ -248,7 +244,7 @@ export default function Profile() {
                 />
               </IonRow>
             </IonGrid>
-            
+
             <AchievementModal
               viewAchievement={viewAchievement}
               openAchievement={openAchievement}

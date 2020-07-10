@@ -42,7 +42,8 @@
     "eject": "react-scripts eject",
     "add-android": "npx cap add android",
     "build-release-android": "npm run build && npx cap copy",
-    "debug-android": "npx cap open android"
+    "debug-android": "npx cap open android",
+    "prettify": "prettier --write src/"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -63,6 +64,7 @@
   "devDependencies": {
     "@capacitor/cli": "2.1.0",
     "@types/firebase": "^3.2.1",
-    "@types/react-redux": "^7.1.7"
+    "@types/react-redux": "^7.1.7",
+    "prettier": "^2.0.5"
   }
 }

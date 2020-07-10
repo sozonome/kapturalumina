@@ -147,7 +147,8 @@ function SubModulePage(props: any) {
                 <SubModuleSlideImage img={slide.img} />
               ) : null
             ) : null}
-            <IonCardContent>{slide.text ? (
+            <IonCardContent>
+              {slide.text ? (
                 <IonText>
                   <p>{slide.text}</p>
                 </IonText>

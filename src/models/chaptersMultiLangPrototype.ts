@@ -9,9 +9,9 @@ export interface Chapter {
   quiz?: Quiz;
 }
 
-export interface multiLang{
-  id?:string;
-  en?:string;
+export interface multiLang {
+  id?: string;
+  en?: string;
   // add other language
 }
 

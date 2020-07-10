@@ -86,54 +86,72 @@ export default function ComponentTestPage() {
               >
                 Test Shuffle All (see console.log)
               </IonButton>
-              <IonButton onClick={()=>{
-                getCurrentDate();
-              }}>
+              <IonButton
+                onClick={() => {
+                  getCurrentDate();
+                }}
+              >
                 Test CurrentDate
               </IonButton>
-              <IonButton onClick={()=>{
-                updateUserLeaderBoardPoints(100);
-              }}>
+              <IonButton
+                onClick={() => {
+                  updateUserLeaderBoardPoints(100);
+                }}
+              >
                 Test updateleaderboard
               </IonButton>
-              <IonButton onClick={()=>{
-                updateUserLearnProgress("c01sub01", "c01", 1, true, 5);
-              }}>
+              <IonButton
+                onClick={() => {
+                  updateUserLearnProgress("c01sub01", "c01", 1, true, 5);
+                }}
+              >
                 Test updateScoreNewScore c01sub01
               </IonButton>
-              <IonButton onClick={()=>{
-                updateUserLearnProgress("c01sub02", "c01", 1, true, 5);
-              }}>
+              <IonButton
+                onClick={() => {
+                  updateUserLearnProgress("c01sub02", "c01", 1, true, 5);
+                }}
+              >
                 Test updateScoreNewScore c01sub02 success
               </IonButton>
-              <IonButton onClick={()=>{
-                updateUserLearnProgress("c01sub02", "c01", 0.4, false, 5);
-              }}>
+              <IonButton
+                onClick={() => {
+                  updateUserLearnProgress("c01sub02", "c01", 0.4, false, 5);
+                }}
+              >
                 Test updateScoreNewScore c01sub02 faile
               </IonButton>
-              <IonButton onClick={()=>{
-                updateUserLearnProgress("c01sub03", "c01", 1, true, 5);
-              }}>
+              <IonButton
+                onClick={() => {
+                  updateUserLearnProgress("c01sub03", "c01", 1, true, 5);
+                }}
+              >
                 Test updateScoreNewScore c01sub03
               </IonButton>
-              <IonButton onClick={()=>{
-                updateUserLearnProgress("c01sub04", "c01", 1, true, 5);
-              }}>
+              <IonButton
+                onClick={() => {
+                  updateUserLearnProgress("c01sub04", "c01", 1, true, 5);
+                }}
+              >
                 Test updateScoreNewScore c01sub04
               </IonButton>
-              <IonButton onClick={()=>{
-                updateUserLearnProgress("c01sub05", "c01", 1, true, 5);
-              }}>
+              <IonButton
+                onClick={() => {
+                  updateUserLearnProgress("c01sub05", "c01", 1, true, 5);
+                }}
+              >
                 Test updateScoreNewScore c01sub05
               </IonButton>
-              <IonButton onClick={()=>{
-                updateUserLearnProgress("c01sub06", "c01", 1, true, 5);
-              }}>
+              <IonButton
+                onClick={() => {
+                  updateUserLearnProgress("c01sub06", "c01", 1, true, 5);
+                }}
+              >
                 Test updateScoreNewScore c01sub06
               </IonButton>
               <IonButton
-                onClick={()=>{
-                  console.log(randomString())
+                onClick={() => {
+                  console.log(randomString());
                 }}
               >
                 Test Random String

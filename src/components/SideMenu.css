@@ -10,7 +10,7 @@ ion-menu.md ion-list-header {
   padding-right: 18px;
 
   text-transform: uppercase;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   font-weight: 450;
 }
 
@@ -40,7 +40,6 @@ ion-menu.md ion-item ion-icon {
 ion-menu.md ion-list:not(:last-of-type) {
   border-bottom: 1px solid var(--ion-color-step-150, #d7d8da);
 }
-
 
 /*
  * iOS Menu

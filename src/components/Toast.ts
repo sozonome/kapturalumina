@@ -8,7 +8,11 @@ export function presentToast(message: string, duration = 4000, color?: string) {
   return toast.present();
 }
 
-export function presentTopToast(message: string, duration = 4000, color?: string) {
+export function presentTopToast(
+  message: string,
+  duration = 4000,
+  color?: string
+) {
   const toast = document.createElement("ion-toast");
   toast.message = message;
   toast.duration = duration;

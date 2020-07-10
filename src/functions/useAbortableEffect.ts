@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
-export default function useAbortableEffect(effect:any, dependencies:any) {
-  const status:any = {}; // mutable status object
+export default function useAbortableEffect(effect: any, dependencies: any) {
+  const status: any = {}; // mutable status object
   useEffect(() => {
     status.aborted = false;
     // pass the mutable object to the effect callback

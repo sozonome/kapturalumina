@@ -12,15 +12,12 @@ export async function loginUser(userEmail: string, userPassword: string) {
     await fbase.auth().signInWithEmailAndPassword(userEmail, userPassword);
     return true;
   } catch (error) {
-    let errormsg = "Email atau Kata Sandi yang kamu masukkan salah. Silakan coba lagi.";
-    if(error.code === "auth/user-not-found"){
-      errormsg = "Akun ini belum terdaftar"
+    let errormsg =
+      "Email atau Kata Sandi yang kamu masukkan salah. Silakan coba lagi.";
+    if (error.code === "auth/user-not-found") {
+      errormsg = "Akun ini belum terdaftar";
     }
-    presentToast(
-      errormsg,
-      4000,
-      "warning"
-    );
+    presentToast(errormsg, 4000, "warning");
     return false;
   }
 
@@ -54,7 +51,7 @@ export async function registerUser(
     if (user !== null) {
       const public_id = randomString();
       createNewUser(user.uid, userEmail, name, public_id);
-      initUserLeaderBoard(user.uid, name, public_id)
+      initUserLeaderBoard(user.uid, name, public_id);
     }
     return true;
   } catch (error) {

@@ -26,8 +26,8 @@ export default function UserProgressProvider({ children }: any, props: any) {
             setProgressState((prog) => [...prog, row.val()]);
           });
         });
-    }else{
-      setProgressState([])
+    } else {
+      setProgressState([]);
     }
     setBusy(false);
   }, [currentUser, user]);

@@ -47,10 +47,10 @@ export default function EditProfile(props: any) {
     if (name.length > 0) {
       // console.log("updating...");
       const res = await updateUserProfile(name, bio, insta, youTube, website);
-      if(res){
+      if (res) {
         props.history.replace("/main/profile");
-      }else{
-        presentToast('Gagal melakukan update.')
+      } else {
+        presentToast("Gagal melakukan update.");
       }
       setBusy(false);
     } else {
@@ -71,87 +71,87 @@ export default function EditProfile(props: any) {
       </IonHeader>
       <IonContent>
         <IonLoading isOpen={busy} message="Mohon Tunggu..." />
-          <IonList style={{paddingTop:'0'}} lines="none">
-            <IonListHeader color="secondary">
-              <h5>Detail Akun</h5>
-            </IonListHeader>
-            <IonItem>
-              <IonLabel position="stacked">Nama</IonLabel>
-              <IonInput
-                onIonChange={(e) => {
-                  setName(e.detail.value!);
-                }}
-                value={name}
-                type="text"
-              />
-            </IonItem>
-            <IonItem disabled={true}>
-              <IonLabel position="stacked">Alamat E-mail</IonLabel>
-              <IonInput value={user.email} type="email" />
-            </IonItem>
-            <IonItem>
-              <IonLabel position="stacked">Deskripsi diri</IonLabel>
-              <IonTextarea
-                onIonChange={(e) => {
-                  setBio(e.detail.value!);
-                }}
-                value={bio}
-                maxlength={80}
-                placeholder={"Deskripsi singkat"}
-                autoGrow
-                onChange={() => {}}
-              />
-            </IonItem>
-          </IonList>
-          <IonList lines="none">
-            <IonListHeader color="tertiary">
-              <h5>Tautan Media Sosial</h5>
-            </IonListHeader>
-            <IonItem>
-              <IonLabel position="stacked">Instagram</IonLabel>
-              <IonInput
-                onIonChange={(e) => {
-                  setInsta(e.detail.value!);
-                }}
-                maxlength={30}
-                value={insta}
-                type="text"
-                placeholder={"username Instagram Anda"}
-              />
-            </IonItem>
-            <IonItem>
-              <IonLabel position="stacked">YouTube Channel Username</IonLabel>
-              <IonInput
-                onIonChange={(e) => {
-                  setYouTube(e.detail.value!);
-                }}
-                value={youTube}
-                type="url"
-                placeholder="(cth : mkbhd atau channel/UC00yHz_jzCw3o8lRVRrKMZw )"
-              />
-            </IonItem>
-            <IonItem>
-              <IonLabel position="stacked">Website</IonLabel>
-              <IonInput
-                onIonChange={(e) => {
-                  setWebsite(e.detail.value!);
-                }}
-                value={website}
-                type="url"
-                placeholder="URL Website Anda"
-              />
-            </IonItem>
-          </IonList>
-          <IonButton
-            onClick={() => {
-              saveEdit();
-            }}
-            expand="block"
-            color="success"
-            size="default"
-          >
-            Save
-          </IonButton>
+        <IonList style={{ paddingTop: "0" }} lines="none">
+          <IonListHeader color="secondary">
+            <h5>Detail Akun</h5>
+          </IonListHeader>
+          <IonItem>
+            <IonLabel position="stacked">Nama</IonLabel>
+            <IonInput
+              onIonChange={(e) => {
+                setName(e.detail.value!);
+              }}
+              value={name}
+              type="text"
+            />
+          </IonItem>
+          <IonItem disabled={true}>
+            <IonLabel position="stacked">Alamat E-mail</IonLabel>
+            <IonInput value={user.email} type="email" />
+          </IonItem>
+          <IonItem>
+            <IonLabel position="stacked">Deskripsi diri</IonLabel>
+            <IonTextarea
+              onIonChange={(e) => {
+                setBio(e.detail.value!);
+              }}
+              value={bio}
+              maxlength={80}
+              placeholder={"Deskripsi singkat"}
+              autoGrow
+              onChange={() => {}}
+            />
+          </IonItem>
+        </IonList>
+        <IonList lines="none">
+          <IonListHeader color="tertiary">
+            <h5>Tautan Media Sosial</h5>
+          </IonListHeader>
+          <IonItem>
+            <IonLabel position="stacked">Instagram</IonLabel>
+            <IonInput
+              onIonChange={(e) => {
+                setInsta(e.detail.value!);
+              }}
+              maxlength={30}
+              value={insta}
+              type="text"
+              placeholder={"username Instagram Anda"}
+            />
+          </IonItem>
+          <IonItem>
+            <IonLabel position="stacked">YouTube Channel Username</IonLabel>
+            <IonInput
+              onIonChange={(e) => {
+                setYouTube(e.detail.value!);
+              }}
+              value={youTube}
+              type="url"
+              placeholder="(cth : mkbhd atau channel/UC00yHz_jzCw3o8lRVRrKMZw )"
+            />
+          </IonItem>
+          <IonItem>
+            <IonLabel position="stacked">Website</IonLabel>
+            <IonInput
+              onIonChange={(e) => {
+                setWebsite(e.detail.value!);
+              }}
+              value={website}
+              type="url"
+              placeholder="URL Website Anda"
+            />
+          </IonItem>
+        </IonList>
+        <IonButton
+          onClick={() => {
+            saveEdit();
+          }}
+          expand="block"
+          color="success"
+          size="default"
+        >
+          Save
+        </IonButton>
       </IonContent>
     </IonPage>
   );

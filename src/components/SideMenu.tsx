@@ -8,7 +8,6 @@ import {
   IonItem,
   IonLabel,
   IonIcon,
-  IonImg,
 } from "@ionic/react";
 import "./SideMenu.css";
 import {
@@ -112,11 +111,10 @@ function SideMenu(props: any) {
         <IonList>
           <IonItem>
             <img
-              src={
-                FocusRafiki
-              }
+              src={FocusRafiki}
               width="100%"
               className="glowFilter"
+              alt="A person holding a camera."
             />
           </IonItem>
         </IonList>

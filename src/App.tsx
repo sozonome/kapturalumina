@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   IonApp,
   IonSplitPane,
@@ -40,21 +40,19 @@ import "./theme/styles/global.scss";
 import UserProgressProvider from "./components/providers/ProgressProvider";
 import UserProfileProvider from "./components/providers/UserProfileProvider";
 
+import { Plugins } from "@capacitor/core";
+import { AppMinimize } from "@ionic-native/app-minimize";
+const { App } = Plugins;
 
-import {Plugins} from "@capacitor/core";
-import {AppMinimize} from '@ionic-native/app-minimize';
-const {App} = Plugins
-
-App.addListener('backButton', ()=>{
-  AppMinimize.minimize()
-})
+App.addListener("backButton", () => {
+  AppMinimize.minimize();
+});
 
 // const store = createStore(reducer);
 
 setupConfig({
   hardwareBackButton: false,
 });
-
 
 const KapturaLumina: React.FC = () => {
   useIonViewDidEnter(() => {

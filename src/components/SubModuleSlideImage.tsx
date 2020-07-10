@@ -1,25 +1,23 @@
-import React from 'react'
-import { IonImg, IonText } from '@ionic/react'
+import React from "react";
+import { IonText } from "@ionic/react";
 
-export interface SubModuleSlideImageProps{
+export interface SubModuleSlideImageProps {
   img: {
     url: string;
     position: string;
     caption?: string;
-  }
+  };
 }
 
-export default function SubModuleSlideImage(props:SubModuleSlideImageProps) {
+export default function SubModuleSlideImage(props: SubModuleSlideImageProps) {
   return (
     <>
       <img src={props.img.url} />
-      {
-        props.img.caption?
+      {props.img.caption ? (
         <IonText>
           <p>{props.img.caption}</p>
         </IonText>
-        : null
-      }
+      ) : null}
     </>
-  )
+  );
 }

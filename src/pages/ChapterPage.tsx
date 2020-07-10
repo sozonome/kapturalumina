@@ -14,7 +14,6 @@ import {
   IonCardTitle,
   IonCardSubtitle,
   IonCardContent,
-  IonImg,
   IonIcon,
   IonGrid,
   IonRow,

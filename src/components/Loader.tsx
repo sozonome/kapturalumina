@@ -6,10 +6,12 @@ export default function Loader() {
     <IonApp>
       <IonPage>
         <IonContent>
-          <div style={{
-            paddingTop: '45vh',
-            textAlign: 'center'
-          }}>
+          <div
+            style={{
+              paddingTop: "45vh",
+              textAlign: "center",
+            }}
+          >
             <IonSpinner
               style={{
                 display: "block",

@@ -11,8 +11,7 @@ import {
   IonRow,
   IonCol,
   IonText,
-  IonLoading,
-  IonImg,
+  IonLoading
 } from "@ionic/react";
 import { withRouter, Redirect } from "react-router";
 import { AuthContext } from "../components/providers/AuthProvider";
@@ -32,7 +31,7 @@ function LoginPage(props: any) {
       setEmail("");
       setPassword("");
       props.history.replace("/");
-    } 
+    }
     setWait(false);
   }
 

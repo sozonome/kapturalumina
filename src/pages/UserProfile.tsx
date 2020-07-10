@@ -11,16 +11,12 @@ import {
   IonRow,
   IonCol,
   IonAvatar,
-  IonImg,
   IonText,
   IonChip,
   IonIcon,
   IonLabel,
   IonButton,
-  IonCardContent,
-  IonBadge,
   IonCard,
-  IonModal,
   IonLoading,
 } from "@ionic/react";
 import { UserData } from "../models/users";
@@ -33,7 +29,6 @@ import { leaderboard } from "../firebase/leaderboard";
 import { logoInstagram, logoYoutube, globeOutline } from "ionicons/icons";
 import { Leaderboard } from "../models/leaderboards";
 import { getCurrentUser } from "../firebase/auth";
-import Profile from "./Profile";
 import { achievements } from "../firebase/achievements";
 import { Achievement } from "../models/achievements";
 import { presentToast } from "../components/Toast";
@@ -105,7 +100,9 @@ export default function UserProfile(props: any) {
                 });
             });
             entry.child("friends").forEach(() => {
-              setFriendsFollowedNumber(friendsFollowedNumber + 1);
+              setFriendsFollowedNumber(
+                (friendsFollowedNumber) => friendsFollowedNumber + 1
+              );
             });
             setBusy(false);
           }
@@ -175,9 +172,6 @@ export default function UserProfile(props: any) {
                 <h4>{user?.name}</h4>
                 <p>{user?.bio} </p>
               </IonText>
-              {/* <IonText>
-                    <p>Email : {user?.email}</p>
-                  </IonText> */}
             </IonCol>
           </IonRow>
           <IonRow class="socialMediaLinks">

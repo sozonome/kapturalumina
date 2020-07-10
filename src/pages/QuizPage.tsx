@@ -11,7 +11,6 @@ import {
   IonButton,
   IonSpinner,
   IonLoading,
-  IonImg,
   IonText,
 } from "@ionic/react";
 import { Chapter, Question, Scoring } from "../models/chapters";
@@ -163,7 +162,7 @@ export default function QuizPage(props: any) {
                             setStreak(streak + 1);
                           } else {
                             setStreak(0);
-                            presentToast(`Kurang tepat.`, 1500, `tertiary`)
+                            presentToast(`Kurang tepat.`, 1500, `tertiary`);
                           }
 
                           if (index === quiz.length - 1) {

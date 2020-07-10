@@ -6,12 +6,12 @@ import Loader from "../Loader";
 import { UserData } from "../../models/users";
 import { AuthContext } from "./AuthProvider";
 
-const initialUser:UserData = {
-  id: 'abcde',
-  name: 'hari yang baik',
-  email: 'abcd@efgh.com',
-  public_id: 'public_id'
-}
+const initialUser: UserData = {
+  id: "abcde",
+  name: "hari yang baik",
+  email: "abcd@efgh.com",
+  public_id: "public_id",
+};
 
 export const UserProfileContext = React.createContext({
   user: initialUser,
@@ -21,7 +21,7 @@ export default function UserProfileProvider({ children }: any, props: any) {
   const [userProfile, setUserProfile] = useState<UserData>(initialUser);
   const [busy, setBusy] = useState<boolean>(true);
 
-  const {currentUser} = useContext(AuthContext);
+  const { currentUser } = useContext(AuthContext);
 
   const user = getCurrentUser();
 
@@ -46,9 +46,13 @@ export default function UserProfileProvider({ children }: any, props: any) {
       {busy ? (
         <Loader />
       ) : (
-        <UserProfileContext.Provider value={{
-          user:userProfile
-        }}>{children}</UserProfileContext.Provider>
+        <UserProfileContext.Provider
+          value={{
+            user: userProfile,
+          }}
+        >
+          {children}
+        </UserProfileContext.Provider>
       )}
     </>
   );

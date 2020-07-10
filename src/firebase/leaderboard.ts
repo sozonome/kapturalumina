@@ -3,7 +3,9 @@
 import fbase from "./firebaseConfig";
 import getCurrentDate from "../functions/getCurrentDate";
 import { getCurrentUser } from "./auth";
-import UpdateUserAchievements, { UpdateUserLeaderBoardAchievements } from "./achievements";
+import UpdateUserAchievements, {
+  UpdateUserLeaderBoardAchievements,
+} from "./achievements";
 
 export const leaderboard = fbase.database().ref(`leaderboards`);
 
@@ -11,39 +13,41 @@ export function initUserLeaderBoard(
   user_uid: string,
   user_name: string,
   pub_id: string
-){
+) {
   leaderboard.child(user_uid).set({
     name: user_name,
     points: 0,
     chaptersDone: 0,
     modulesDone: 0,
     public_id: pub_id,
-    dailyPoints: [{
-      date : getCurrentDate(),
-      points: 0
-    }]
-  })
+    dailyPoints: [
+      {
+        date: getCurrentDate(),
+        points: 0,
+      },
+    ],
+  });
 }
 
 export function updateUserLeaderBoardPoints(points: number) {
   const user = getCurrentUser();
 
   // To make sure if mistakenly insert chapters scoring entry in form of string in database
-  if(typeof(points)==='string'){
-    points = parseInt(points)
+  if (typeof points === "string") {
+    points = parseInt(points);
   }
 
-  if (user !==null) {
-    const userLeaderboard = leaderboard.child(user.uid)
+  if (user !== null) {
+    const userLeaderboard = leaderboard.child(user.uid);
     userLeaderboard.child("dailyPoints").once("value", (snap) => {
-      if(snap.exists()){
+      if (snap.exists()) {
         const dailyPointKey = async () => {
           // Get last entry
           const todaysDailyPoint = snap.val().pop();
           // console.log(todaysDailyPoint);
           let todaysDailyPointKey;
           let i = 0;
-  
+
           // Get entry key
           const dailyPoint = await snap.forEach((entry) => {
             i++;
@@ -52,14 +56,15 @@ export function updateUserLeaderBoardPoints(points: number) {
               return true;
             }
           });
-  
+
           const currentDate = getCurrentDate();
-          
+
           if (dailyPoint === true && todaysDailyPointKey) {
             if (todaysDailyPoint.date === currentDate) {
               // Update if today's dailyPoint entry exists
-              
-              const currentDailyPoint:number = parseInt(todaysDailyPoint.points) + points;
+
+              const currentDailyPoint: number =
+                parseInt(todaysDailyPoint.points) + points;
               return userLeaderboard
                 .child(`dailyPoints/${todaysDailyPointKey}`)
                 .update({
@@ -78,13 +83,13 @@ export function updateUserLeaderBoardPoints(points: number) {
         };
         userLeaderboard.once("value", (snap) => {
           const currentPoints = parseInt(snap.val().points) + points;
-          
+
           userLeaderboard.update({
             points: currentPoints,
           });
         });
-  
-        return dailyPointKey().then(()=>UpdateUserLeaderBoardAchievements());
+
+        return dailyPointKey().then(() => UpdateUserLeaderBoardAchievements());
       }
     });
   }

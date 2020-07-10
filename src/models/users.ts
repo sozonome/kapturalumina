@@ -4,10 +4,12 @@ export interface UserData {
   email: string;
   public_id: string;
   bio?: string;
-  achievements?: [{
-    id: string,
-    qty?: number
-  }];
+  achievements?: [
+    {
+      id: string;
+      qty?: number;
+    }
+  ];
   friends?: string[];
   progress?: Progress[];
   streaks?: {
@@ -27,14 +29,14 @@ export interface Progress {
   subModuleId: string;
   date?: Date;
   score?: number;
-  passed:boolean;
+  passed: boolean;
 }
 
-export interface ProfilePicture{
-  id: string,
+export interface ProfilePicture {
+  id: string;
   img: {
-    name: string,
-    src: string
-  },
-  unlockLimit: number
+    name: string;
+    src: string;
+  };
+  unlockLimit: number;
 }

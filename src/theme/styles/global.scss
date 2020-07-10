@@ -1,12 +1,19 @@
-ion-app{
-  --ion-font-family: 'Karla';
+ion-app {
+  --ion-font-family: "Karla";
   max-width: 1000px;
   margin: 0 auto;
-  h1,h2,h3,h4,h5,h6, ion-title, ion-card-title{
-    font-family: 'Inter';
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  ion-title,
+  ion-card-title {
+    font-family: "Inter";
     font-weight: bold;
   }
-  font-family: 'Karla';
+  font-family: "Karla";
 }
 
 // ion-img > img{
@@ -14,82 +21,83 @@ ion-app{
 // }
 
 .quizAnswerButton {
-  height: 80px; 
+  height: 80px;
   font-size: 1.1rem;
 }
 
-ion-grid.quizContainer{
+ion-grid.quizContainer {
   margin-top: 6vh;
 }
 
-ion-row.leaderboardEntry{
+ion-row.leaderboardEntry {
   margin-bottom: 12px;
 }
 
-.mini{
+.mini {
   font-size: 0.8rem;
 }
 
-a:link{
+a:link {
   text-decoration: none;
 }
 
-hr{
+hr {
   background: black;
 }
 
-#publicHome{
-  ion-img{
+#publicHome {
+  ion-img {
     margin-left: auto;
     margin-right: auto;
-    min-width:250px;
+    min-width: 250px;
   }
-  ion-card{
+  ion-card {
     background: none;
     box-shadow: none;
   }
 }
 
 #homePage {
-    ion-img.headerImage{
-      max-width: 300px;
-      margin: 0 auto;
-    }
-    .headerImage{
-      max-width: 300px;
-      margin: 0 auto;
-    }
-  ion-progress-bar{
+  ion-img.headerImage {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .headerImage {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  ion-progress-bar {
     height: 1rem;
     border-radius: 0.5rem;
   }
 }
 
-.glowFilter{
-  -webkit-filter: drop-shadow(0px 0px 12px rgb(98,114,164));
-  filter: drop-shadow(0px 0px 12px rgb(98,114,164));
+.glowFilter {
+  -webkit-filter: drop-shadow(0px 0px 12px rgb(98, 114, 164));
+  filter: drop-shadow(0px 0px 12px rgb(98, 114, 164));
 }
 
-.loginBox, .registerBox{
-  ion-title{
+.loginBox,
+.registerBox {
+  ion-title {
     text-align: center;
     margin-bottom: 20px;
   }
 
-  ion-img{
+  ion-img {
     max-width: 280px;
     margin: 0 auto;
   }
 
   margin-top: 50px;
 
-  ion-list{
+  ion-list {
     max-width: 400px;
     margin: 0 auto;
   }
 
-  @media screen and (min-width:768px){
-    ion-img{
+  @media screen and (min-width: 768px) {
+    ion-img {
       max-width: 400px;
     }
     margin-top: 50px;
@@ -102,70 +110,69 @@ hr{
   }
 }
 
-.registerBox{
-  ion-icon{
+.registerBox {
+  ion-icon {
     margin-right: 20px;
   }
 
-  padding:20px;
+  padding: 20px;
 }
 
-.subModule{
-  ion-card{
+.subModule {
+  ion-card {
     max-width: 500px;
-    
-    ion-card-content{
-      p{
+
+    ion-card-content {
+      p {
         font-size: 1.2em;
       }
     }
   }
 }
 
-.leaderboardPage{
-  ion-img{
+.leaderboardPage {
+  ion-img {
     margin: 0 auto;
     max-width: 200px;
   }
   @media screen and (min-width: 768px) {
-    ion-img{
+    ion-img {
       max-width: 500px;
     }
   }
 }
 
-.sideMenu{
-  ion-img{
+.sideMenu {
+  ion-img {
     margin: 0 auto;
   }
 }
 
-.aboutPage{
-  ion-img{
+.aboutPage {
+  ion-img {
     margin: 0 auto;
     max-width: 300px;
   }
   @media screen and (min-width: 768px) {
-    ion-img{
+    ion-img {
       max-width: 400px;
     }
   }
 }
 
-.achievementModal .modal-wrapper{
+.achievementModal .modal-wrapper {
   color: white;
 }
 
-ion-img, img {
+ion-img,
+img {
   pointer-events: none;
 }
 
-
-@media(prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   :root {
-    
   }
-  hr{
+  hr {
     background: gray;
-  }  
+  }
 }

@@ -30,7 +30,7 @@ export default function AchievementsWrapper(props: AchievementWrapperProps) {
       ) : null}
       {props.userAchievement.map((achievement, index) => {
         let qty;
-        props.userAchievementList.map((list) => {
+        props.userAchievementList.forEach((list) => {
           if (list.id === achievement.id && list.qty) {
             qty = list.qty;
           }
