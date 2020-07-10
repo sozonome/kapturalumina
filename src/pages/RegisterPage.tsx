@@ -12,7 +12,7 @@ import {
   IonButton,
   IonText,
   IonLoading,
-  IonIcon
+  IonIcon,
 } from "@ionic/react";
 import { Link, withRouter, Redirect } from "react-router-dom";
 import { presentToast } from "../components/Toast";

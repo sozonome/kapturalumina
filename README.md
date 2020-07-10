@@ -25,28 +25,25 @@ App Theme color inspired by Dracula Theme color palette
   - CloudImage for image resizing, compression, (image transformer) and acceleration / optimization
 * Deployment : Vercel (Formerly Zeit) for PWA (Web App) Version
 
-* some dependencies
-  - `@ionic-native/app-minimize`
-    Why? So the problem started when I build the app into capacitor-android. The hardware back button behavior in Capacitor Android Ionic React app is a bit annoying and mostly it made the app crashed. So I try to find a way how to fully disable the android hardware back button in this app. Found Capacitor App API and I use it to make the app exit when push the android hardware button. But it ruins the user experience of the app. So I try to think another alternative. I thought why don't I just make the app minimize. Turned out there was a plugin to minimize the app, so that's how I end up using this plugin... Quite a story but I learned so much and have fun.
-
 <details>
   <summary><strong>Getting Started</strong></summary>
-  
-  ## Getting Started
-  * [Download](https://nodejs.org) and install node.js
-  * Install ionic CLI : 
-    `npm install -g ionic`
-  * Clone this repo
-    `git clone https://github.com/sozonome/kapturalumina.git`
-  * Run `npm i` or `yarn` from project root
-  * Important
-    - Setup a Firebase console
-    - Put the required keys in `.env` (see [.env_sample](https://github.com/sozonome/kapturalumina/blob/master/.env_sample))
-    - Set up the [Auth and Database](#SettingUptheFirebase)
-  * Run `ionic s`
-
+ 
   ## SettingUptheFirebase
-  In order for the application to run, you will need to connect it to Firebase Auth and Database. The specified database structure are included in the [models](https://github.com/sozonome/kapturalumina/blob/master/src/models/learnModules.tsx).
+  In order for the application to run, you will need to connect it to Firebase Auth and Database. 
+  
+  1. Create a firebase project
+  2. Go to project settings, add a web app to acquire the API key
+  3. Go to Authentication -> Sign In Method -> Enable Email/Password
+  4. Go to Database -> pick Realtime Database -> import [this sample database file](sample-database.json)
+
+  ## Getting Started
+  1. [Download](https://nodejs.org) and install node.js
+  2. Install ionic CLI : 
+    `npm install -g ionic`
+  3. Clone this repo
+    `git clone https://github.com/sozonome/kapturalumina.git`
+  4. Run `npm i` or `yarn` from project root
+  6. Run `ionic s`
 </details>
 
 <details>
@@ -69,7 +66,7 @@ App Theme color inspired by Dracula Theme color palette
 
   ## References
   ##### Some references and problems I encounter during development and I think will be helpful for my next projects
-  - [Ionic](https://ionicframerwork.com/)
+  - [Ionic](https://ionicframework.com/)
     - [Ionic Docs](https://ionicframework.com/docs/react) 
     - [Ionic + React + Firebase Tutorial](https://www.youtube.com/playlist?list=PLYxzS__5yYQlhvyLXSKhv4oAvl06MInSE)
     - [Change Font](https://commentedcoding.com/how-to-create-a-settings-page-with-customizable-font-family-in-ionic-5-steps/)

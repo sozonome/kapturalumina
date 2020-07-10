@@ -1,0 +1,3341 @@
+{
+  "achievements": [
+    {
+      "conditions": {
+        "streak": 3
+      },
+      "id": "a01",
+      "img": "https://res.cloudinary.com/irsnmt20/image/upload/v1590955168/shootnow/assets/achievements/Combo3_mcuwqx.svg",
+      "oneTime": false,
+      "subTitle": "Menjawab soal 3 kali berturut-turut dengan benar!",
+      "title": "Combo 3"
+    },
+    {
+      "conditions": {
+        "streak": 5
+      },
+      "id": "a02",
+      "img": "https://res.cloudinary.com/irsnmt20/image/upload/v1590955168/shootnow/assets/achievements/Combo5_o0rmmp.svg",
+      "oneTime": false,
+      "subTitle": "Menjawab soal 5 kali berturut-turut dengan benar!",
+      "title": "Combo 5"
+    },
+    {
+      "conditions": {
+        "streak": 7
+      },
+      "id": "a03",
+      "img": "https://res.cloudinary.com/irsnmt20/image/upload/v1590955325/shootnow/assets/achievements/Combo7_bb86h3.svg",
+      "oneTime": false,
+      "subTitle": "Menjawab soal 7 kali berturut-turut dengan benar!",
+      "title": "Combo 7"
+    },
+    {
+      "conditions": {
+        "quizLength": 5,
+        "streak": 5
+      },
+      "id": "a04",
+      "img": "https://res.cloudinary.com/irsnmt20/image/upload/v1590957817/shootnow/assets/achievements/Creativity-pana_x5rkbq.svg",
+      "oneTime": false,
+      "subTitle": "Mengerjakan kuis 5 soal tanpa salah",
+      "title": "Good Start"
+    },
+    {
+      "conditions": {
+        "quizLength": 10,
+        "streak": 10
+      },
+      "id": "a05",
+      "img": "https://res.cloudinary.com/irsnmt20/image/upload/v1590957893/shootnow/assets/achievements/Creation_process-amico_gfcb2g.svg",
+      "oneTime": false,
+      "subTitle": "Menjawab kuis 10 soal berturut-turut dengan benar!",
+      "title": "Keep it Up!"
+    },
+    {
+      "conditions": {
+        "chaptersDone": 5
+      },
+      "id": "a06",
+      "img": "https://res.cloudinary.com/irsnmt20/image/upload/v1590957220/shootnow/assets/achievements/Celebration-rafiki_pgcwtk.svg",
+      "oneTime": true,
+      "subTitle": "Menyelesaikan Semua Modul",
+      "title": "Completer"
+    },
+    {
+      "conditions": {
+        "modulesDone": 5
+      },
+      "id": "a07",
+      "img": "https://res.cloudinary.com/irsnmt20/image/upload/v1590945451/shootnow/assets/achievements/Curious_by0qqp.svg",
+      "oneTime": true,
+      "subTitle": "Menyelesaikan 5 modul.",
+      "title": "Curious"
+    },
+    {
+      "conditions": {
+        "modulesDone": 10
+      },
+      "id": "a08",
+      "img": "https://res.cloudinary.com/irsnmt20/image/upload/v1590957994/shootnow/assets/achievements/Influencer-pana_c1npgd.svg",
+      "oneTime": true,
+      "subTitle": "Menyelesaikan 10 modul.",
+      "title": "Role Model"
+    },
+    {
+      "conditions": {
+        "chaptersDone": 1
+      },
+      "id": "a09",
+      "img": "https://res.cloudinary.com/irsnmt20/image/upload/v1590953194/shootnow/assets/achievements/Book_lover-pana-1_embsx3.svg",
+      "oneTime": true,
+      "subTitle": "Menyelesaikan Bab 1",
+      "title": "Chapter 1"
+    },
+    {
+      "conditions": {
+        "chaptersDone": 2
+      },
+      "id": "a10",
+      "img": "https://res.cloudinary.com/irsnmt20/image/upload/v1590953194/shootnow/assets/achievements/Bibliophile-pana-2_hzwzux.svg",
+      "oneTime": true,
+      "subTitle": "Menyelesaikan Bab 2",
+      "title": "Chapter 2"
+    },
+    {
+      "conditions": {
+        "chaptersDone": 3
+      },
+      "id": "a11",
+      "img": "https://res.cloudinary.com/irsnmt20/image/upload/v1590953193/shootnow/assets/achievements/Bibliophile-rafiki-3_snalji.svg",
+      "oneTime": true,
+      "subTitle": "Menyelesaikan Bab 3",
+      "title": "Chapter 3"
+    },
+    {
+      "conditions": {
+        "chaptersDone": 4
+      },
+      "id": "a12",
+      "img": "https://res.cloudinary.com/irsnmt20/image/upload/v1590953193/shootnow/assets/achievements/Book_lover-amico-4_xhleyn.svg",
+      "oneTime": true,
+      "subTitle": "Menyelesaikan Bab 4",
+      "title": "Chapter 4"
+    },
+    {
+      "conditions": {
+        "chaptersDone": 5
+      },
+      "id": "a13",
+      "img": "https://res.cloudinary.com/irsnmt20/image/upload/v1590953193/shootnow/assets/achievements/Bibliophile-bro-5_q0f98y.svg",
+      "oneTime": true,
+      "subTitle": "Menyelesaikan Bab 5",
+      "title": "Chapter 5"
+    },
+    {
+      "conditions": {
+        "modulesDone": 15
+      },
+      "id": "a14",
+      "img": "https://res.cloudinary.com/irsnmt20/image/upload/v1590945651/shootnow/assets/achievements/Photos-bro_bz6rjs.svg",
+      "oneTime": true,
+      "subTitle": "Menyelesaikan 15 modul.",
+      "title": "Top in the Class"
+    },
+    {
+      "conditions": {
+        "dailyUse": 3
+      },
+      "id": "a15",
+      "img": "https://res.cloudinary.com/irsnmt20/image/upload/v1590958220/shootnow/assets/achievements/Walk_in_the_city-bro_l1ofel.svg",
+      "oneTime": true,
+      "subTitle": "Masuk dan menggunakan aplikasi KapturaLumina selama 3 hari",
+      "title": "Consistent"
+    },
+    {
+      "conditions": {
+        "dailyPoints": 1500
+      },
+      "id": "a16",
+      "img": "https://res.cloudinary.com/irsnmt20/image/upload/v1590955898/shootnow/assets/achievements/Product_hunt-pana-dailyhunter_u5utgn.svg",
+      "oneTime": true,
+      "subTitle": "Mengumpulkan poin harian hingga 1500 poin",
+      "title": "Daily Point Hunter"
+    },
+    {
+      "conditions": {
+        "dailyUse": 7
+      },
+      "id": "a17",
+      "img": "https://res.cloudinary.com/irsnmt20/image/upload/v1590947916/shootnow/assets/achievements/Celebration-amico_wiz3i8.svg",
+      "oneTime": true,
+      "subTitle": "Masuk dan menggunakan aplikasi KapturaLumina selama 7 hari",
+      "title": "Loyal"
+    },
+    {
+      "conditions": {
+        "dailyPoints": 3000
+      },
+      "id": "a18",
+      "img": "https://res.cloudinary.com/irsnmt20/image/upload/v1590957414/shootnow/assets/achievements/Powerful-bro_kcehtv.svg",
+      "oneTime": true,
+      "subTitle": "Mengumpulkan poin harian hingga 3000 poin",
+      "title": "Limitless"
+    },
+    {
+      "conditions": {
+        "streak": 9
+      },
+      "id": "a19",
+      "img": "https://res.cloudinary.com/irsnmt20/image/upload/v1590955168/shootnow/assets/achievements/Combo9_c8ifjm.svg",
+      "oneTime": false,
+      "subTitle": "Menjawab soal 9 kali berturut-turut dengan benar!",
+      "title": "Combo 9"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "c01",
+      "subModules": [
+        {
+          "id": "c01sub01",
+          "passingPoints": 100,
+          "slides": [
+            {
+              "id": "slide01",
+              "img": {
+                "position": "middle",
+                "url": "https://res.cloudinary.com/irsnmt20/image/upload/v1590843201/shootnow/assets/app_illustrations/Focus-rafiki-grey_o4fv8s.svg"
+              },
+              "title": "Pendahuluan",
+              "titleType": "big"
+            },
+            {
+              "id": "slide02",
+              "text": "Fotografi adalah seni menangkap cahaya dengan kamera, biasanya melalui sensor digital atau film, untuk menciptakan sebuah gambar."
+            },
+            {
+              "id": "slide03",
+              "text": "Sekarang ini, banyak yang memiliki pandangan bahwa kamera yang terdapat pada smartphone atau ponsel yang kita genggam sudah cukup baik untuk berbagai macam keperluan fotografi."
+            },
+            {
+              "id": "slide03",
+              "text": "Tidak ada yang salah dengan pandangan tersebut. Selama ada kamera jenis apapun yang dapat mengambil gambar, kita sudah memiliki alat yang cukup untuk mengambil gambar yang baik."
+            },
+            {
+              "id": "slide04",
+              "text": "Ada pula saat nya kita memakai kamera khusus untuk mengambil gambar dengan keperluan tertentu seperti pengambilan gambar di ajang olahraga atau pengambilan gambar dengan kondisi cahaya yang minim."
+            },
+            {
+              "id": "slide05",
+              "text": "Pengambilan gambar pada kondisi atau situasi tersebut bukan tidak mungkin dilakukan dengan kamera ponsel, namun akan lebih sulit dilakukan dibandingkan dengan menggunakan kamera seperti DSLR atau mirrorless."
+            },
+            {
+              "id": "slide06",
+              "text": "Panduan yang ada dalam aplikasi ini tidak terbatas pada teman-teman yang memiliki kamera khusus untuk pengambilan gambar seperti DSLR atau mirrorless, tetapi juga dapat digunakan untuk teman-teman yang menggunakan kamera ponsel untuk mengambil gambar."
+            },
+            {
+              "id": "slide07",
+              "img": {
+                "position": "middle",
+                "url": "https://res.cloudinary.com/irsnmt20/image/upload/v1590840499/shootnow/assets/app_illustrations/Focus-pana_zfvc2u.svg"
+              },
+              "text": "Tekan Selesai"
+            }
+          ],
+          "thumbnail": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1541516160071-4bb0c5af65ba?w=1000",
+          "title": "Pendahuluan"
+        },
+        {
+          "id": "c01sub02",
+          "quiz": {
+            "contents": [
+              {
+                "answers": [
+                  {
+                    "content": "Filter, Tripod",
+                    "correct": false
+                  },
+                  {
+                    "content": "Kamera, Lensa",
+                    "correct": true
+                  },
+                  {
+                    "content": "Tas",
+                    "correct": false
+                  }
+                ],
+                "id": 1,
+                "question": "Perlengkapan dasar apa saja yang dibutuhkan dalam mengambil gambar?"
+              },
+              {
+                "answers": [
+                  {
+                    "content": "Adobe Lightroom",
+                    "correct": false
+                  },
+                  {
+                    "content": "VSCO",
+                    "correct": false
+                  },
+                  {
+                    "content": "Snapseed",
+                    "correct": false
+                  },
+                  {
+                    "content": "Chrome",
+                    "correct": true
+                  }
+                ],
+                "id": 2,
+                "question": "Manakah dibawah ini yang bukan termasuk dalam Software Editing?"
+              },
+              {
+                "answers": [
+                  {
+                    "content": "pada jarak jauh",
+                    "correct": false
+                  },
+                  {
+                    "content": "pada jarak yang dekat dari lensa",
+                    "correct": true
+                  }
+                ],
+                "id": 3,
+                "question": "Lensa Makro biasanya digunakan untuk mengambil gambar..."
+              },
+              {
+                "answers": [
+                  {
+                    "content": "Telefoto",
+                    "correct": false
+                  },
+                  {
+                    "content": "Zoom Standar",
+                    "correct": true
+                  },
+                  {
+                    "content": "Makro",
+                    "correct": false
+                  }
+                ],
+                "id": 4,
+                "question": "Dalam pemakaian sehari-hari atau keperluan umum, biasanya digunakan lensa ..."
+              },
+              {
+                "answers": [
+                  {
+                    "content": "Telefoto",
+                    "correct": false
+                  },
+                  {
+                    "content": "Zoom Standar",
+                    "correct": true
+                  },
+                  {
+                    "content": "Makro",
+                    "correct": false
+                  }
+                ],
+                "id": 5,
+                "question": "Lensa 18-55mm termasuk dalam kategori lensa..."
+              },
+              {
+                "answers": [
+                  {
+                    "content": "dengan jarak yang dekat dengan lensa",
+                    "correct": false
+                  },
+                  {
+                    "content": "satwa Liar, ajang olahraga",
+                    "correct": true
+                  }
+                ],
+                "id": 6,
+                "question": "Lensa telefoto biasa digunakan pada pengambilan gambar..."
+              },
+              {
+                "answers": [
+                  {
+                    "content": "culling",
+                    "correct": false
+                  },
+                  {
+                    "content": "editing",
+                    "correct": true
+                  },
+                  {
+                    "content": "share / upload",
+                    "correct": false
+                  },
+                  {
+                    "content": "saving / storing / penyimpanan",
+                    "correct": false
+                  }
+                ],
+                "id": 7,
+                "question": "Setelah pengambilan gambar, biasanya kita juga dapat melakukan ... untuk meningkatkan hasil foto."
+              }
+            ],
+            "id": "quizc01sub02",
+            "passingScore": [
+              {
+                "passed": true,
+                "points": 200,
+                "value": 1
+              },
+              {
+                "passed": true,
+                "points": 160,
+                "value": 0.75
+              },
+              {
+                "passed": true,
+                "points": 100,
+                "value": 0.5
+              },
+              {
+                "passed": false,
+                "points": 50,
+                "value": 0.25
+              }
+            ],
+            "pick": 4
+          },
+          "slides": [
+            {
+              "id": "slide01",
+              "text": "Apa saja yang perlengkapan yang diperlukan? Berikut adalah perlengkapan dasar yang dibutuhkan."
+            },
+            {
+              "id": "slide02",
+              "text": "Sebagai perangkat utama yang akan digunakan. Usahakan untuk memilih kamera yang dapat dipertukarkan lensanya (interchangeable lenses) supaya dapat mencoba berbagai jenis pengambilan gambar.",
+              "title": "Kamera",
+              "titleType": "big"
+            },
+            {
+              "id": "slide03",
+              "text": "Tidak harus yang mahal, kamera pemula sekarang ini sudah memiliki fitur yang cukup. Kamera ponsel pun dapat digunakan jika tidak memiliki kamera khusus pengambilan gambar.",
+              "title": "Kamera",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide04",
+              "text": "Setiap lensa memiliki karakter dan kemampuan pengambilan gambar yang berbeda-beda, sehingga menentukan gambar yang dapat dihasilkan.",
+              "title": "Lensa",
+              "titleType": "big"
+            },
+            {
+              "id": "slide05",
+              "text": "Untuk penggunaan umum atau pengambilan gambar sehari-hari, dapat menggunakan lensa zoom standar seperti 18-55mm atau 24-70mm.",
+              "title": "Lensa",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide06",
+              "text": "Lensa tele seperti 70-200mm biasanya digunakan untuk pengambilan gambar di ajang olahraga atau satwa liar atau keperluan lainnya yang membutuhkan pengambilan gambar jarak jauh.",
+              "title": "Lensa",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide07",
+              "text": "Terdapat juga lensa makro yang dapat digunakan untuk pengambilan gambar dengan jarak yang dekat dari lensa.",
+              "title": "Lensa",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide08",
+              "text": "Lensa yang telah disebutkan sebelumnya merupakan lensa yang umum dipakai, namun masih banyak jenis lensa lainnya dan setiap perusahaan manufaktur lensa kamera mempunyai jajaran produk lensa yang berbeda-beda.",
+              "title": "Lensa",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide09",
+              "text": "Kamera pada ponsel yang rilis beberapa tahun belakangan ini sebagian besar dilengkapi dengan lebih dari satu lensa dan sensor.",
+              "title": "Lensa - Kamera Ponsel",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide10",
+              "text": "Biasanya lensa yang disediakan adalah lensa standar (wide), lensa sudut pandang super lebar (ultra-wide), dan lensa tele (telephoto lens). Ada pula yang menyediakan lensa makro pada ponsel tertentu.",
+              "title": "Lensa - Kamera Ponsel",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide11",
+              "text": "Setelah pengambilan gambar, ada kalanya kita perlu mengedit foto agar hasilnya menjadi lebih baik lagi atau sesuai dengan yang kita inginkan.",
+              "title": "Software untuk Editing / Post-Processing Software",
+              "titleType": "big"
+            },
+            {
+              "id": "slide12",
+              "text": "Banyak sekali pilihan software untuk melakukan edit foto dalam komputer ataupun smartphone, seperti Adobe Lightroom, Adobe Photoshop, VSCO, Snapseed, dan masih banyak lainnya.",
+              "title": "Software untuk Editing",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide13",
+              "text": "Masih banyak perlengkapan / peralatan yang dapat digunakan, seperti : tripod, tas, kartu memori tambahan, baterai tambahan, filter, lampu flash, monitor, peralatan pembersih, dan masih banyak lainnya.",
+              "title": "Perlengkapan / Peralatan tambahan lainnya",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide14",
+              "text": "Peralatan tambahan tersebut tidak harus dimiliki semuanya sekaligus saat memulai, namun akan membantu jika dimiliki. Tentu jika menggunakan kamera ponsel, teman-teman sudah memiliki alat pengambilan gambar dan perangkat edit gambar sekaligus.",
+              "title": "Perlengkapan / Peralatan tambahan lainnya",
+              "titleType": "regular"
+            }
+          ],
+          "thumbnail": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1486257293255-8810a92c541f?w=1000",
+          "title": "Perlengkapan"
+        },
+        {
+          "id": "c01sub03",
+          "quiz": {
+            "contents": [
+              {
+                "answers": [
+                  {
+                    "content": "Dynamic Single Lens Reflex",
+                    "correct": false
+                  },
+                  {
+                    "content": "Digital Single Lens Reflex",
+                    "correct": true
+                  },
+                  {
+                    "content": "Digital Single Light Reflex",
+                    "correct": false
+                  },
+                  {
+                    "content": "Dynamic Simple Lens Reflex",
+                    "correct": false
+                  }
+                ],
+                "id": 1,
+                "question": "DSLR merupakan singkatan dari"
+              },
+              {
+                "answers": [
+                  {
+                    "content": "Cermin melipat, membiarkan cahaya menuju sensor gambar",
+                    "correct": true
+                  },
+                  {
+                    "content": "Gambar yang terlihat di viewfinder akan tertutup sementara",
+                    "correct": true
+                  },
+                  {
+                    "content": "Cermin menjadi transparan, membiarkan cahaya menuju sensor gambar",
+                    "correct": false
+                  },
+                  {
+                    "content": "Jendela rana terbuka selama waktu yang ditentukan",
+                    "correct": true
+                  }
+                ],
+                "id": 2,
+                "question": "Saat menekan tombol shutter pada kamera DSLR, yang terjadi adalah..."
+              },
+              {
+                "answers": [
+                  {
+                    "content": "Gambar di kartu memori",
+                    "correct": false
+                  },
+                  {
+                    "content": "Gambar yang direkam oleh sensor",
+                    "correct": false
+                  },
+                  {
+                    "content": "Pantulan cahaya dari lensa kamera melalui cermin",
+                    "correct": true
+                  }
+                ],
+                "id": 3,
+                "question": "Saat melihat melalui viewfinder kamera DSLR, apa yang kita lihat adalah..."
+              },
+              {
+                "answers": [
+                  {
+                    "content": "Dial",
+                    "correct": false
+                  },
+                  {
+                    "content": "Viewfinder",
+                    "correct": true
+                  },
+                  {
+                    "content": "Tombol Shutter",
+                    "correct": false
+                  },
+                  {
+                    "content": "Cermin",
+                    "correct": false
+                  }
+                ],
+                "id": 4,
+                "img": {
+                  "url": "https://adsfencodo.cloudimg.io/v7/res.cloudinary.com/irsnmt20/image/upload/v1590985515/shootnow/chapters/c01/c01sub03/DSLR-Viewfinder_p27eh1.jpg?w=500"
+                },
+                "question": "Bagian berikut ini disebut dengan..."
+              }
+            ],
+            "id": "quizc01sub03",
+            "passingScore": [
+              {
+                "passed": true,
+                "points": 200,
+                "value": 1
+              },
+              {
+                "passed": true,
+                "points": 160,
+                "value": 0.75
+              },
+              {
+                "passed": true,
+                "points": 100,
+                "value": 0.5
+              },
+              {
+                "passed": false,
+                "points": 50,
+                "value": 0.25
+              }
+            ],
+            "pick": 4
+          },
+          "slides": [
+            {
+              "id": "slide01",
+              "text": "DSLR merupakan singkatan dari \"Digital Single Lens Reflex\"."
+            },
+            {
+              "id": "slide02",
+              "text": "Sederhananya, DSLR adalah kamera digital yang menggunakan mekanisme cermin."
+            },
+            {
+              "id": "slide03",
+              "text": "Cermin tersebut memantulkan cahaya dari lensa kamera menuju suatu jendela bidik optik / optical viewfinder (yaitu tempat mata kita melihat bidikan kamera di bagian belakang kamera / eyepiece) ..."
+            },
+            {
+              "id": "slide04",
+              "text": "...atau membiarkan cahaya menuju sensor gambar dengan menggerakkan cermin."
+            },
+            {
+              "id": "slide05",
+              "text": "Berikut ilustrasi bagaimana cara kerja SLR."
+            },
+            {
+              "id": "slide06",
+              "img": {
+                "position": "middle",
+                "url": "https://adsfencodo.cloudimg.io/v7/res.cloudinary.com/irsnmt20/image/upload/v1591004170/shootnow/chapters/c01/c01sub03/SLR_cross_section-whitebg_prj7uo.png?w=500"
+              },
+              "text": "sumber: Wikipedia. | (1). Lensa Kamera | (2). Cermin | (3). Shutter | (4). Sensor Gambar | (5). Matte Focusing Screen | (6). Lensa Kondensor | (7). PentaPrism / PentaMirror | (8). Jendela Bidik / Viewfinder Eyepiece"
+            },
+            {
+              "id": "slide07",
+              "text": "Saat sedang membidik melalui viewfinder kamera, apa yang kita lihat merupakan pantulan gambar langsung dari lensa kamera (1).",
+              "title": "Cara Kerja Kamera DSLR",
+              "titleType": "big"
+            },
+            {
+              "id": "slide08",
+              "text": "Gambar yang dilihat merupakan hasil pantulan cahaya dari cermin (2) yang memiliki posisi 45 derajat didalam kamera, diteruskan secara vertikal menuju pentaprism (7) dan dipantulkan secara horizontal menuju viewfinder (8) (yang dilihat oleh mata kita).",
+              "title": "Cara Kerja Kamera DSLR",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide09",
+              "text": "Ketika kita mengambil gambar (menekan tombol shutter), cermin (2) tersebut berpindah posisi melipat ke atas, membiarkan cahaya menuju sensor gambar kamera.",
+              "title": "Cara Kerja Kamera DSLR",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide10",
+              "text": "Jendela rana / shutter (3) terbuka selama waktu yang ditentukan, sensor merekam gambar (4), kemudian shutter (3) tertutup kembali dan cermin (2) kembali ke posisi awal (45 derajat), memantulkan cahaya dari lensa menuju viewfinder kembali.",
+              "title": "Cara Kerja Kamera DSLR",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide11",
+              "text": "Proses pengambilan gambar dalam kamera DSLR tentu tidak berhenti sampai di situ saja. Terdapat banyak proses lagi yang terjadi dalam processor kamera sampai akhirnya gambar tersimpan dalam memori.",
+              "title": "Cara Kerja Kamera DSLR",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide12",
+              "text": "Semua proses tersebut dapat terjadi dalam waktu yang sangat singkat. Pada beberapa kamera profesional, proses tersebut bahkan dapat terjadi puluhan kali dalam satu detik (burst shot).",
+              "title": "Cara Kerja Kamera DSLR",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide13",
+              "img": {
+                "caption": "sumber : SLR Lounge",
+                "position": "middle",
+                "url": "https://adsfencodo.cloudimg.io/v7/res.cloudinary.com/irsnmt20/image/upload/v1590985515/shootnow/chapters/c01/c01sub03/DSLR-Viewfinder_p27eh1.jpg?w=500"
+              },
+              "text": "Viewfinder atau pada DSLR biasanya juga disebut dengan Optical Viewfinder",
+              "title": "Bagian pada Kamera DSLR",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide14",
+              "img": {
+                "caption": "sumber : Digital Photography School",
+                "position": "middle",
+                "url": "https://adsfencodo.cloudimg.io/v7/res.cloudinary.com/irsnmt20/image/upload/v1590997155/shootnow/chapters/c01/c01sub03/Mode-dial_hdinbm.jpg?w=500"
+              },
+              "text": "Mode Dial. Pada kamera DSLR biasanya ditemukan mode Auto, Program, Manual, Shutter Priority, Aperture Priority dan mode lain.",
+              "title": "Bagian pada Kamera DSLR",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide15",
+              "text": "Mode pada kamera akan dijelaskan lebih lanjut pada bab \"Pengoperasian Kamera\"",
+              "title": "Bagian pada Kamera DSLR",
+              "titleType": "regular"
+            }
+          ],
+          "thumbnail": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1520991459559-9b3b6ec6a52b?w=1000",
+          "title": "DSLR"
+        },
+        {
+          "id": "c01sub04",
+          "quiz": {
+            "contents": [
+              {
+                "answers": [
+                  {
+                    "content": "Keberadaan komponen cermin",
+                    "correct": true
+                  },
+                  {
+                    "content": "harga",
+                    "correct": false
+                  },
+                  {
+                    "content": "ukuran sensor",
+                    "correct": false
+                  },
+                  {
+                    "content": "kemampuan pengambilan gambar",
+                    "correct": false
+                  }
+                ],
+                "id": 1,
+                "question": "Perbedaan mendasar antara kamera mirrorless dan DSLR terletak pada"
+              },
+              {
+                "answers": [
+                  {
+                    "content": "ukuran sensor lebih besar",
+                    "correct": false
+                  },
+                  {
+                    "content": "umumnya memiliki ukuran tubuh kamera yang lebih kecil dan ringan",
+                    "correct": true
+                  },
+                  {
+                    "content": "hasil gambar yang lebih baik",
+                    "correct": false
+                  },
+                  {
+                    "content": "kemampuan autofokus yang jauh lebih baik",
+                    "correct": false
+                  }
+                ],
+                "id": 2,
+                "question": "Apa yang menjadi kelebihan kamera mirrorless?"
+              },
+              {
+                "answers": [
+                  {
+                    "content": "masih dalam tahap percobaan",
+                    "correct": false
+                  },
+                  {
+                    "content": "pemrosesan gambar yang lebih lambat",
+                    "correct": false
+                  },
+                  {
+                    "content": "umumnya memiliki baterai yang lebih kecil",
+                    "correct": true
+                  }
+                ],
+                "id": 3,
+                "question": "Apa yang menjadi kekurangan kamera mirrorless?"
+              },
+              {
+                "answers": [
+                  {
+                    "content": "pantulan cahaya dari lensa melalui cermin",
+                    "correct": false
+                  },
+                  {
+                    "content": "sensor gambar",
+                    "correct": true
+                  },
+                  {
+                    "content": "kartu memori",
+                    "correct": false
+                  }
+                ],
+                "id": 4,
+                "question": "Saat mengambil gambar dengan kamera mirrorless, viewfinder eletronik menampilkan gambar dari..."
+              }
+            ],
+            "id": "quizc01sub04",
+            "passingScore": [
+              {
+                "passed": true,
+                "points": 250,
+                "value": 1
+              },
+              {
+                "passed": true,
+                "points": 200,
+                "value": 0.8
+              },
+              {
+                "passed": true,
+                "points": 150,
+                "value": 0.6
+              },
+              {
+                "passed": false,
+                "points": 80,
+                "value": 0.4
+              }
+            ],
+            "pick": 4
+          },
+          "slides": [
+            {
+              "id": "slide01",
+              "text": "Sesuai namanya, mirrorless tidak menggunakan mekanisme cermin seperti yang ada pada DSLR."
+            },
+            {
+              "id": "slide02",
+              "text": "Sehingga, cahaya yang masuk melalui lensa langsung diteruskan menuju sensor gambar. Kamera mirrorless pada umumnya menggunakan viewfinder elektronik (EVF) dan LCD untuk melihat bidikan gambar."
+            },
+            {
+              "id": "slide03",
+              "text": "Hal ini yang membuat kamera mirrorless biasanya memiliki ukuran yang lebih kecil, lebih ringan, dan tidak terlalu besar seperti kamera DSLR."
+            },
+            {
+              "id": "slide04",
+              "text": "Berikut ilustrasi yang menunjukkan perbedaan antara kamera DSLR dan mirrorless."
+            },
+            {
+              "id": "slide05",
+              "img": {
+                "caption": "sumber : FantasiumMedia",
+                "position": "middle",
+                "url": "https://adsfencodo.cloudimg.io/v7/res.cloudinary.com/irsnmt20/image/upload/v1590573915/shootnow/chapters/c01/c01sub04/Mirrorless_vs_DSLR_eipal4.jpg?w=1000"
+              }
+            },
+            {
+              "id": "slide06",
+              "text": "Mirip dengan cara kerja kamera DSLR. Yang menjadi perbedaan adalah cahaya dari lensa diarahkan langsung menuju sensor gambar dan viewfinder elektronik menampilkan gambar yang dilihat oleh sensor.",
+              "title": "Cara Kerja Kamera Mirrorless",
+              "titleType": "big"
+            },
+            {
+              "id": "slide07",
+              "text": "Ketika menekan tombol shutter, proses yang terjadi sama seperti pada kamera DSLR. Yang membedakan hanya tidak ada cermin yang bergerak.",
+              "title": "Cara Kerja Kamera Mirrorless",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide08",
+              "text": "Karena tidak memiliki komponen cermin, jarak antara mount lensa dengan sensor gambar menjadi lebih dekat. Hal inilah yang membuat ukuran kamera mirrorless lebih ramping dibandingkan dengan kamera DSLR.",
+              "title": "Cara Kerja Kamera Mirrorless",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide09",
+              "text": "Viewfinder Elektronik pada kamera mirrorless menampilkan gambar yang sama dengan gambar yang ditangkap oleh sensor (warna, pengaturan white balance, pengaturan pencahayaan, kontras, dan lainnya).",
+              "title": "Kelebihan Kamera Mirrorless",
+              "titleType": "big"
+            },
+            {
+              "id": "slide10",
+              "text": "Artinya, gambar yang dilihat dengan gambar yang ditangkap oleh kamera akan terlihat sama. Selain itu, kamera mirrorless memiliki tubuh yang secara umum lebih kecil dan ringan dibandingkan dengan DSLR.",
+              "title": "Kelebihan Kamera Mirrorless",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide11",
+              "text": "Kemampuan autofokus pada kamera mirrorless khususnya untuk keperluan foto objek yang bergerak dengan sangat cepat masih perlu perkembangan.",
+              "title": "Kekurangan Kamera Mirrorless",
+              "titleType": "big"
+            },
+            {
+              "id": "slide12",
+              "text": "Karena hampir seluruh komponen sebagian besar bersifat elektronik dan memiliki tubuh yang ramping (baterai yang digunakan juga memiliki ukuran kecil), sebagian besar kamera mirrorless memiliki daya tahan baterai yang singkat.",
+              "title": "Kekurangan Kamera Mirrorless",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide13",
+              "text": "Namun kekurangan tersebut sudah mulai diperbaiki pada model kamera mirrorless profesional maupun pada kamera mirrorless yang keluar beberapa tahun belakangan. Baterai yang digunakan memiliki daya tahan yang semakin baik.",
+              "title": "Kekurangan Kamera Mirrorless"
+            },
+            {
+              "id": "slide14",
+              "img": {
+                "position": "middle",
+                "url": ""
+              },
+              "title": "Bagian pada Kamera Mirrorless"
+            }
+          ],
+          "thumbnail": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1570937942893-3331c0bbcf45?w=1000",
+          "title": "Mirrorless"
+        },
+        {
+          "id": "c01sub05",
+          "slides": [
+            {
+              "id": "slide01",
+              "text": "Setelah membahas DSLR dan Mirrorless, yang biasa menjadi pertanyaan adalah manakah yang lebih baik atau manakah yang harus dipilih."
+            },
+            {
+              "id": "slide02",
+              "text": "Melihat perkembangan mirrorless sekarang, sulit untuk melihat kekurangan secara performa mirrorless dibandingkan dengan DSLR."
+            },
+            {
+              "id": "slide03",
+              "text": "Selain itu, memilih kamera tidak hanya terbatas pada mirrorless ataupun DSLR, namun juga memilih merk, ukuran sensor, dan pertimbangan lainnya."
+            },
+            {
+              "id": "slide04",
+              "img": {
+                "position": "middle",
+                "url": "https://res.cloudinary.com/irsnmt20/image/upload/v1590840357/shootnow/assets/app_illustrations/Focus-amico_qrc5x8.svg"
+              },
+              "text": "Namun yang lebih penting adalah memahami kamera yang kita gunakan dan dapat memanfaatkan nya sebaik mungkin."
+            },
+            {
+              "id": "slide05",
+              "img": {
+                "position": "middle",
+                "url": "https://res.cloudinary.com/irsnmt20/image/upload/v1590997708/shootnow/assets/app_illustrations/Photos-bro_w3vxcu.svg"
+              },
+              "text": "Di tangan yang tepat, menggunakan kamera apapun dapat menghasilkan gambar yang baik."
+            }
+          ],
+          "thumbnail": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1546070541-e110cddf356f?w=1000",
+          "title": "Mirrorless vs DSLR"
+        },
+        {
+          "id": "c01sub06",
+          "quiz": {
+            "contents": [
+              {
+                "answers": [
+                  {
+                    "content": "mengatur jumlah cahaya yang masuk dengan membuka / menyempit",
+                    "correct": true
+                  },
+                  {
+                    "content": "menentukan lebar sudut pandang lensa",
+                    "correct": false
+                  },
+                  {
+                    "content": "menyimpan gambar ke dalam kartu memori",
+                    "correct": false
+                  }
+                ],
+                "id": 1,
+                "question": "Aperture berperan..."
+              },
+              {
+                "answers": [
+                  {
+                    "content": "f/4.0",
+                    "correct": false
+                  },
+                  {
+                    "content": "f/5.6",
+                    "correct": false
+                  },
+                  {
+                    "content": "f/2.8",
+                    "correct": false
+                  },
+                  {
+                    "content": "f/1.2",
+                    "correct": true
+                  }
+                ],
+                "id": 2,
+                "question": "Manakah yang paling lebar / besar dari angka aperture / bukaan berikut?"
+              },
+              {
+                "answers": [
+                  {
+                    "content": "f/3.5",
+                    "correct": false
+                  },
+                  {
+                    "content": "f/1.4",
+                    "correct": false
+                  },
+                  {
+                    "content": "f/8.0",
+                    "correct": true
+                  },
+                  {
+                    "content": "f/11",
+                    "correct": false
+                  }
+                ],
+                "id": 3,
+                "question": "Manakah yang paling sempit / kecil dari angka aperture / bukaan berikut?"
+              },
+              {
+                "answers": [
+                  {
+                    "content": "50mm",
+                    "correct": false
+                  },
+                  {
+                    "content": "16mm",
+                    "correct": true
+                  },
+                  {
+                    "content": "85mm",
+                    "correct": false
+                  },
+                  {
+                    "content": "200mm",
+                    "correct": false
+                  }
+                ],
+                "id": 4,
+                "question": "Manakah yang termasuk dalam focal length wide / lebar?"
+              },
+              {
+                "answers": [
+                  {
+                    "content": "50mm",
+                    "correct": false
+                  },
+                  {
+                    "content": "16mm",
+                    "correct": false
+                  },
+                  {
+                    "content": "56mm",
+                    "correct": false
+                  },
+                  {
+                    "content": "200mm",
+                    "correct": true
+                  }
+                ],
+                "id": 5,
+                "question": "Manakah yang termasuk dalam focal length telefoto?"
+              },
+              {
+                "answers": [
+                  {
+                    "content": "wide",
+                    "correct": true
+                  },
+                  {
+                    "content": "normal",
+                    "correct": false
+                  },
+                  {
+                    "content": "telefoto",
+                    "correct": false
+                  }
+                ],
+                "id": 6,
+                "question": "24mm termasuk dalam focal length..."
+              },
+              {
+                "answers": [
+                  {
+                    "content": "wide",
+                    "correct": false
+                  },
+                  {
+                    "content": "normal",
+                    "correct": false
+                  },
+                  {
+                    "content": "telefoto",
+                    "correct": true
+                  }
+                ],
+                "id": 6,
+                "question": "85mm termasuk dalam focal length..."
+              },
+              {
+                "answers": [
+                  {
+                    "content": "lebar sudut pandang lensa",
+                    "correct": true
+                  },
+                  {
+                    "content": "bukaan maksimum lensa",
+                    "correct": false
+                  },
+                  {
+                    "content": "ukuran megapiksel foto yang diambil",
+                    "correct": false
+                  }
+                ],
+                "id": 7,
+                "question": "Focal length menentukan..."
+              },
+              {
+                "answers": [
+                  {
+                    "content": "f/0.8",
+                    "correct": false
+                  },
+                  {
+                    "content": "f/16",
+                    "correct": true
+                  },
+                  {
+                    "content": "f/2.2",
+                    "correct": false
+                  },
+                  {
+                    "content": "f/2.8",
+                    "correct": false
+                  }
+                ],
+                "id": 8,
+                "question": "Manakah yang paling sempit dari angka aperture / bukaan berikut"
+              },
+              {
+                "answers": [
+                  {
+                    "content": "f/3.5",
+                    "correct": false
+                  },
+                  {
+                    "content": "f/14",
+                    "correct": false
+                  },
+                  {
+                    "content": "f/1.4",
+                    "correct": true
+                  },
+                  {
+                    "content": "f/2.8",
+                    "correct": false
+                  }
+                ],
+                "id": 9,
+                "question": "Manakah yang paling lebar / besar dari angka aperture / bukaan berikut?"
+              },
+              {
+                "answers": [
+                  {
+                    "content": "f/5.6",
+                    "correct": false
+                  },
+                  {
+                    "content": "f/14",
+                    "correct": false
+                  },
+                  {
+                    "content": "f/1.4",
+                    "correct": true
+                  },
+                  {
+                    "content": "f/2.8",
+                    "correct": false
+                  }
+                ],
+                "id": 10,
+                "question": "Manakah yang paling sempit dari angka aperture / bukaan berikut?"
+              },
+              {
+                "answers": [
+                  {
+                    "content": "50mm",
+                    "correct": false
+                  },
+                  {
+                    "content": "16mm",
+                    "correct": true
+                  },
+                  {
+                    "content": "85mm",
+                    "correct": false
+                  },
+                  {
+                    "content": "200mm",
+                    "correct": false
+                  }
+                ],
+                "id": 11,
+                "question": "Manakah yang memiliki sudut pandang paling lebar dari angka focal length berikut?"
+              },
+              {
+                "answers": [
+                  {
+                    "content": "50mm",
+                    "correct": false
+                  },
+                  {
+                    "content": "16mm",
+                    "correct": false
+                  },
+                  {
+                    "content": "85mm",
+                    "correct": false
+                  },
+                  {
+                    "content": "200mm",
+                    "correct": true
+                  }
+                ],
+                "id": 12,
+                "question": "Manakah yang memiliki sudut pandang paling sempit dari angka focal length berikut?"
+              },
+              {
+                "answers": [
+                  {
+                    "content": "35mm",
+                    "correct": false
+                  },
+                  {
+                    "content": "14mm",
+                    "correct": false
+                  },
+                  {
+                    "content": "85mm",
+                    "correct": true
+                  },
+                  {
+                    "content": "50mm",
+                    "correct": false
+                  }
+                ],
+                "id": 13,
+                "question": "Manakah yang memiliki sudut pandang paling sempit dari angka focal length berikut?"
+              },
+              {
+                "answers": [
+                  {
+                    "content": "24mm",
+                    "correct": false
+                  },
+                  {
+                    "content": "14mm",
+                    "correct": true
+                  },
+                  {
+                    "content": "72mm",
+                    "correct": false
+                  },
+                  {
+                    "content": "50mm",
+                    "correct": false
+                  }
+                ],
+                "id": 14,
+                "question": "Manakah yang memiliki sudut pandang paling lebar dari angka focal length berikut?"
+              },
+              {
+                "answers": [
+                  {
+                    "content": "meter",
+                    "correct": false
+                  },
+                  {
+                    "content": "milimeter",
+                    "correct": true
+                  },
+                  {
+                    "content": "inch",
+                    "correct": false
+                  },
+                  {
+                    "content": "centimeter",
+                    "correct": false
+                  }
+                ],
+                "id": 14,
+                "question": "Focal length biasanya ditulis dalam ukuran..."
+              },
+              {
+                "answers": [
+                  {
+                    "content": "retina pada mata",
+                    "correct": false
+                  },
+                  {
+                    "content": "pupil pada mata",
+                    "correct": true
+                  }
+                ],
+                "id": 15,
+                "question": "Aperture memiliki cara kerja yang mirip dengan"
+              },
+              {
+                "answers": [
+                  {
+                    "content": "prime lens",
+                    "correct": true
+                  },
+                  {
+                    "content": "zoom lens",
+                    "correct": false
+                  },
+                  {
+                    "content": "fixed lens",
+                    "correct": true
+                  }
+                ],
+                "id": 16,
+                "question": "Lensa dengan focal length tunggal biasanya disebut dengan..."
+              },
+              {
+                "answers": [
+                  {
+                    "content": "tunggal",
+                    "correct": false
+                  },
+                  {
+                    "content": "bervariasi pada jangkauan tertentu",
+                    "correct": true
+                  }
+                ],
+                "id": 17,
+                "question": "Zoom lens memiliki lebar sudut pandang..."
+              }
+            ],
+            "id": "quizc01sub06",
+            "passingScore": [
+              {
+                "passed": true,
+                "points": 350,
+                "value": 1
+              },
+              {
+                "passed": true,
+                "points": 280,
+                "value": 0.8
+              },
+              {
+                "passed": true,
+                "points": 210,
+                "value": 0.6
+              },
+              {
+                "passed": false,
+                "points": 80,
+                "value": 0.4
+              }
+            ],
+            "pick": 8
+          },
+          "slides": [
+            {
+              "id": "slide01",
+              "text": "Lensa merupakan komponen terpenting dalam kamera. Setiap lensa memiliki fungsi, karakter, konstruksi, dan kualitas masing-masing."
+            },
+            {
+              "id": "slide02",
+              "text": "Dalam memilih lensa, kita harus memahami penamaan tiap lensa. Setiap lensa pada umumnya memiliki standar penamaan, yaitu nama merek, tipe lensa, focal length (dalam mm), bukaan / aperture maksimum, serta keterangan tambahan jika ada."
+            },
+            {
+              "id": "slide03",
+              "text": "Contoh : Canon EF 24-70mm f/2.8 L II USM. Artinya lensa tersebut diproduksi oleh perusahaan Canon, memiliki focal length 24-70mm (lensa zoom standar), dan bukaan maksimum pada f/2.8."
+            },
+            {
+              "id": "slide04",
+              "text": "Keterangan \"EF\" dan \"L II USM\" merupakan istilah khusus pada lensa produksi Canon yang mengartikan lensa tersebut dapat dipakai pada kamera dengan ukuran sensor Full-Frame, termasuk dalam seri L iterasi ke dua, dan menggunakan teknologi motor fokus ultra sonik (Ultra Sonic Motor / USM)."
+            },
+            {
+              "id": "slide05",
+              "text": "Setiap perusahaan manufaktur lensa memiliki istilah khusus dan artinya masing-masing sehingga tidak akan dibahas semuanya maupun lebih lanjut pada panduan ini."
+            },
+            {
+              "id": "slide06",
+              "text": "Pada penjelasan sebelumnya disebutkan istilah \"focal length\" dan \"bukaan (aperture) maksimum\", apa arti dari istilah tersebut?"
+            },
+            {
+              "id": "slide07",
+              "text": "Focal length dapat dikatakan sebagai berapa lebar sudut pandang lensa tersebut dan biasanya ditulis dalam ukuran milimeter (mm).",
+              "title": "Focal Length",
+              "titleType": "big"
+            },
+            {
+              "id": "slide08",
+              "text": "Pada beberapa lensa dapat ditemukan focal length tunggal, yang biasanya disebut dengan prime lenses atau terkadang disebut juga dengan fixed lens.",
+              "title": "Focal Length",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide09",
+              "text": "Pada lensa lainnya yang biasanya ditemukan adalah lensa zoom (zoom lenses), yaitu lensa dengan focal length pada jangkauan maksimum dan minimum tertentu.",
+              "title": "Focal Length",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide10",
+              "text": "Contoh yang paling umum adalah lensa kit atau lensa bawaan dengan focal length 18-55mm atau 16-55mm atau 18-50mm. Lensa tersebut dapat mengambil gambar pada lebar sudut pandang 18mm (wide) hingga 55mm (moderate telephoto).",
+              "title": "Focal Length",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide11",
+              "text": "Berikut panduan pemilihan focal length pada lensa: 1.) <=35mm : wide angle | 2.) 35 - 70mm : normal | 3.) >70mm : telephoto.",
+              "title": "Focal Length",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide12",
+              "text": "Lebih lebar daripada 18mm (<18mm) biasanya disebut ultra wide dan lebih dari 300mm (>300mm) biasanya disebut super-telephoto.",
+              "title": "Focal Length",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide13",
+              "text": "Aperture dapat dikatakan seperti \"pupil\" pada lensa. Seperti pupil pada mata, pupil pada lensa dapat membuka / melebar dan menyempit untuk mengatur jumlah cahaya yang masuk.",
+              "title": "Bukaan / Aperture Maksimum",
+              "titleType": "big"
+            },
+            {
+              "id": "slide14",
+              "text": "Perlu dipahami saat membaca angka aperture adalah bahwa angka tersebut merupakan angka pecahan. Itulah mengapa f/2 lebih besar daripada f/4, seperti angka 1/2 lebih besar daripada 1/4.",
+              "title": "Bukaan / Aperture Maksimum",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide15",
+              "text": "Biasanya semakin besar aperture maksimum pada lensa akan semakin mahal harga lensa tersebut karena memiliki kemampuan untuk membiarkan lebih banyak cahaya masuk (seperti pupil pada mata). Itulah mengapa lensa 24-70mm f/2.8 akan memiliki harga yang lebih mahal dibandingkan lensa 24-70mm f/4.",
+              "title": "Bukaan / Aperture Maksimum",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide16",
+              "text": "Secara umum, lensa prime atau lensa fix memiliki aperture maksimum yang lebih besar dibandingkan lensa zoom.",
+              "title": "Bukaan / Aperture Maksimum",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide17",
+              "text": "Tentu angka aperture maksimum bukan berarti bukaan pada lensa tersebut hanya terbatas pada bukaan tersebut. Bukaan pada lensa dapat dikecilkan hingga f/16, f/22, dan seterusnya tergantung tiap lensa.",
+              "title": "Bukaan / Aperture Maksimum",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide18",
+              "text": "Penjelasan lebih lanjut mengenai aperture akan dibahas pada bab \"Pencahayaan\".",
+              "title": "Bukaan / Aperture",
+              "titleType": "regular"
+            }
+          ],
+          "thumbnail": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1533746228171-962520811097?w=1000",
+          "title": "Lensa"
+        }
+      ],
+      "subtitle": "Pengenalan Fotografi dan Kamera",
+      "thumbnail": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1492691527719-9d1e07e534b4",
+      "title": "Perkenalan"
+    },
+    {
+      "id": "c02",
+      "subModules": [
+        {
+          "id": "c02sub01",
+          "slides": [
+            {
+              "id": "slide01",
+              "text": "Saat mengambil gambar dengan kamera, terdapat tiga pengaturan yang dikenal dengan \"Exposure Triangle\"."
+            },
+            {
+              "id": "slide02",
+              "text": "Pengaturan tersebut diantaranya adalah Shutter Speed, Aperture, dan ISO."
+            },
+            {
+              "id": "slide03",
+              "text": "Ketika mengambil gambar dengan mode auto pada kamera ataupun mode standar pada kamera ponsel, ketiga pengaturan tersebut dilakukan secara otomatis."
+            },
+            {
+              "id": "slide04",
+              "text": "Setiap pengaturan tersebut mempengaruhi tingkat pencahayaan gambar yang dihasilkan."
+            },
+            {
+              "id": "slide05",
+              "text": "Pada situasi tertentu, mode auto atau mode standar tidak selalu menghasilkan hasil yang kita inginkan."
+            },
+            {
+              "id": "slide06",
+              "text": "Memahami masing-masing pengaturan shutter speed, aperture, dan ISO akan membantu kita untuk menghasilkan gambar sesuai keinginan dan semakin memahami bagaimana gambar dihasilkan."
+            }
+          ],
+          "thumbnail": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1554174532-48b37f80a254?w=1000",
+          "title": "Perkenalan"
+        },
+        {
+          "id": "c02sub02",
+          "quiz": {
+            "contents": [
+              {
+                "answers": [
+                  {
+                    "content": "berapa lama waktu shutter terbuka",
+                    "correct": true
+                  },
+                  {
+                    "content": "intensitas cahaya yang melewati lensa",
+                    "correct": false
+                  }
+                ],
+                "id": 1,
+                "question": "Shutter speed menentukan..."
+              },
+              {
+                "answers": [
+                  {
+                    "content": "1/250s",
+                    "correct": true
+                  },
+                  {
+                    "content": "10\"",
+                    "correct": false
+                  },
+                  {
+                    "content": "1/15s",
+                    "correct": false
+                  },
+                  {
+                    "content": "1/2s",
+                    "correct": false
+                  }
+                ],
+                "id": 2,
+                "question": "Manakah yang paling cepat dari angka shutter speed berikut?"
+              },
+              {
+                "answers": [
+                  {
+                    "content": "1/250s",
+                    "correct": false
+                  },
+                  {
+                    "content": "10\"",
+                    "correct": true
+                  },
+                  {
+                    "content": "1/15s",
+                    "correct": false
+                  },
+                  {
+                    "content": "1/2s",
+                    "correct": false
+                  }
+                ],
+                "id": 3,
+                "question": "Manakah yang paling lamban dari angka shutter speed berikut?"
+              },
+              {
+                "answers": [
+                  {
+                    "content": "30\"",
+                    "correct": false
+                  },
+                  {
+                    "content": "2\"",
+                    "correct": false
+                  },
+                  {
+                    "content": "1/15s",
+                    "correct": true
+                  },
+                  {
+                    "content": "1/5s",
+                    "correct": false
+                  }
+                ],
+                "id": 4,
+                "question": "Manakah yang paling cepat dari angka shutter speed berikut?"
+              },
+              {
+                "answers": [
+                  {
+                    "content": "intensitas motion blur",
+                    "correct": true
+                  },
+                  {
+                    "content": "tingkat sensitivitas sensor",
+                    "correct": false
+                  }
+                ],
+                "id": 5,
+                "question": "Shutter speed menentukan..."
+              },
+              {
+                "answers": [
+                  {
+                    "content": "lamban",
+                    "correct": true
+                  },
+                  {
+                    "content": "cepat",
+                    "correct": false
+                  }
+                ],
+                "id": 6,
+                "img": {
+                  "url": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1500569051175-dc066c45410d?w=1000"
+                },
+                "question": "Untuk menghasilkan gambar seperti berikut, dibutuhkan shutter speed yang..."
+              },
+              {
+                "answers": [
+                  {
+                    "content": "lamban",
+                    "correct": false
+                  },
+                  {
+                    "content": "cepat",
+                    "correct": true
+                  }
+                ],
+                "id": 7,
+                "img": {
+                  "url": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1565992441121-4367c2967103?w=1000"
+                },
+                "question": "Untuk menghasilkan gambar seperti berikut, dibutuhkan shutter speed yang..."
+              },
+              {
+                "answers": [
+                  {
+                    "content": "lamban",
+                    "correct": false
+                  },
+                  {
+                    "content": "cepat",
+                    "correct": true
+                  }
+                ],
+                "id": 8,
+                "img": {
+                  "caption": "Andrea Lightfoot - Unsplash",
+                  "url": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1581753418434-51c11169a3c1?w=1000"
+                },
+                "question": "Untuk menghasilkan gambar seperti berikut, dibutuhkan shutter speed yang..."
+              },
+              {
+                "answers": [
+                  {
+                    "content": "lamban",
+                    "correct": false
+                  },
+                  {
+                    "content": "cepat",
+                    "correct": true
+                  }
+                ],
+                "id": 9,
+                "img": {
+                  "caption": "Zdeněk Macháček - Unsplash",
+                  "url": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1552727451-6f5671e14d83?w=1000"
+                },
+                "question": "Untuk menghasilkan gambar seperti berikut, dibutuhkan shutter speed yang..."
+              },
+              {
+                "answers": [
+                  {
+                    "content": "lamban",
+                    "correct": true
+                  },
+                  {
+                    "content": "cepat",
+                    "correct": false
+                  }
+                ],
+                "id": 10,
+                "img": {
+                  "caption": "Christian DeKnock - Unsplash",
+                  "url": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1489590114500-c766c622daf2?w=1000"
+                },
+                "question": "Untuk menghasilkan gambar seperti berikut, dibutuhkan shutter speed yang..."
+              },
+              {
+                "answers": [
+                  {
+                    "content": "semakin terang gambar yang dihasilkan",
+                    "correct": true
+                  },
+                  {
+                    "content": "semakin gelap gambar yang dihasilkan",
+                    "correct": false
+                  }
+                ],
+                "id": 11,
+                "question": "Semakin lambat shutter speed, maka..."
+              },
+              {
+                "answers": [
+                  {
+                    "content": "semakin terang gambar yang dihasilkan",
+                    "correct": false
+                  },
+                  {
+                    "content": "semakin gelap gambar yang dihasilkan",
+                    "correct": true
+                  }
+                ],
+                "id": 12,
+                "question": "Semakin cepat shutter speed, maka..."
+              },
+              {
+                "answers": [
+                  {
+                    "content": "motion blur semakin berkurang",
+                    "correct": true
+                  },
+                  {
+                    "content": "motion blur semakin terlihat",
+                    "correct": false
+                  }
+                ],
+                "id": 13,
+                "question": "Semakin cepat shutter speed, maka..."
+              },
+              {
+                "answers": [
+                  {
+                    "content": "motion blur semakin berkurang",
+                    "correct": false
+                  },
+                  {
+                    "content": "motion blur semakin terlihat",
+                    "correct": true
+                  }
+                ],
+                "id": 14,
+                "question": "Semakin lamban shutter speed, maka..."
+              }
+            ],
+            "id": "quizc02sub02",
+            "passingScore": [
+              {
+                "passed": true,
+                "points": 350,
+                "value": 1
+              },
+              {
+                "passed": true,
+                "points": 280,
+                "value": 0.8
+              },
+              {
+                "passed": true,
+                "points": 210,
+                "value": 0.6
+              },
+              {
+                "passed": false,
+                "points": 80,
+                "value": 0.4
+              }
+            ],
+            "pick": 8
+          },
+          "slides": [
+            {
+              "id": "slide01",
+              "text": "Shutter Speed adalah berapa lama waktu shutter terbuka untuk membiarkan cahaya ditangkap oleh sensor gambar. Sederhananya adalah berapa lama waktu kamera mengambil gambar."
+            },
+            {
+              "id": "slide02",
+              "text": "Shutter speed biasanya ditulis dalam ukuran detik (second). Shutter speed dibawah 1 detik biasanya ditulis dalam pecahan. Contoh : 1/200, artinya lama waktu shutter terbuka adalah 1/200 detik atau 0.005 detik.",
+              "title": "Cara Membaca Ukuran Shutter Speed",
+              "titleType": "big"
+            },
+            {
+              "id": "slide03",
+              "text": "Semakin rendah angka shutter speed (1/200, 1/1000, 1/4000, dst) artinya shutter speed yang ditentukan semakin cepat. Sebaliknya semakin besar angka shutter speed (1/15, 1/5, 1\", 5\", 10\", dst) artinya shutter speed yang ditentukan semakin lama / lambat.",
+              "title": "Cara Membaca Ukuran Shutter Speed",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide04",
+              "text": "Ketika mengatur shutter speed, kita menentukan berapa lama cahaya masuk dan ditangkap oleh sensor gambar. Hal ini akan berpengaruh pada tingkat pencahayaan serta \"motion blur\" pada gambar yang dihasilkan.",
+              "title": "Pengaruh Shutter Speed",
+              "titleType": "big"
+            },
+            {
+              "id": "slide05",
+              "img": {
+                "position": "middle",
+                "url": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1513715383826-b16aed5d8d54?w=1000"
+              },
+              "text": "Motion blur adalah berapa tingkat gerakan yang kabur dalam gambar.",
+              "title": "Pengaruh Shutter Speed",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide06",
+              "text": "Ketika menggunakan shutter speed lambat atau semakin lambat shutter speed yang diatur, maka cahaya akan masuk dengan durasi yang lebih lama.",
+              "title": "Shutter Speed Lambat",
+              "titleType": "big"
+            },
+            {
+              "id": "slide07",
+              "text": "Artinya, gambar yang dihasilkan semakin terang dan motion blur pada gambar semakin terlihat.",
+              "title": "Shutter Speed Lambat",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide08",
+              "img": {
+                "position": "middle",
+                "url": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1500569051175-dc066c45410d?w=1000"
+              },
+              "text": "1/50 s, f/13.0, ISO 100.",
+              "title": "Shutter Speed Lambat",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide09",
+              "text": "Sebaliknya ketika menggunakan shutter speed cepat atau semakin cepat shutter speed yang diatur, maka semakin singkat waktu yang diberikan untuk cahaya masuk.",
+              "title": "Shutter Speed Cepat",
+              "titleType": "big"
+            },
+            {
+              "id": "slide10",
+              "text": "Artinya, gambar yang dihasilkan akan semakin gelap dan motion blur pada gambar akan semakin kurang terlihat (frozen motion).",
+              "title": "Shutter Speed Cepat",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide11",
+              "img": {
+                "position": "middle",
+                "url": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1565992441121-4367c2967103?w=1000"
+              },
+              "text": "1/2500 s, f/4.5, ISO 100, 10mm",
+              "title": "Shutter Speed Cepat",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide12",
+              "text": "Shutter speed dapat diatur pada mode manual dan shutter priority. Mode tersebut akan dijelaskan lebih lanjut pada bab \"Pengoperasian Kamera\".",
+              "title": "Cara Mengatur Shutter Speed",
+              "titleType": "big"
+            },
+            {
+              "id": "slide13",
+              "text": "Biasanya angka shutter speed akan muncul pada bagian top LCD atau viewfinder atau LCD kamera.",
+              "title": "Cara Mengatur Shutter Speed",
+              "titleType": "regular"
+            }
+          ],
+          "thumbnail": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1525115450806-c4b70fd049bd?w=1000",
+          "title": "Shutter Speed"
+        },
+        {
+          "id": "c02sub03",
+          "quiz": {
+            "contents": [
+              {
+                "answers": [
+                  {
+                    "content": "f/4.0",
+                    "correct": false
+                  },
+                  {
+                    "content": "f/5.6",
+                    "correct": false
+                  },
+                  {
+                    "content": "f/2.8",
+                    "correct": false
+                  },
+                  {
+                    "content": "f/1.2",
+                    "correct": true
+                  }
+                ],
+                "id": 1,
+                "question": "Manakah yang paling lebar / besar dari angka aperture / bukaan berikut?"
+              },
+              {
+                "answers": [
+                  {
+                    "content": "f/3.5",
+                    "correct": false
+                  },
+                  {
+                    "content": "f/1.4",
+                    "correct": false
+                  },
+                  {
+                    "content": "f/8.0",
+                    "correct": true
+                  },
+                  {
+                    "content": "f/11",
+                    "correct": false
+                  }
+                ],
+                "id": 2,
+                "question": "Manakah yang paling sempit / kecil dari angka aperture / bukaan berikut?"
+              },
+              {
+                "answers": [
+                  {
+                    "content": "f/0.8",
+                    "correct": false
+                  },
+                  {
+                    "content": "f/16",
+                    "correct": true
+                  },
+                  {
+                    "content": "f/2.2",
+                    "correct": false
+                  },
+                  {
+                    "content": "f/2.8",
+                    "correct": false
+                  }
+                ],
+                "id": 3,
+                "question": "Manakah yang paling sempit dari angka aperture / bukaan berikut"
+              },
+              {
+                "answers": [
+                  {
+                    "content": "f/3.5",
+                    "correct": false
+                  },
+                  {
+                    "content": "f/14",
+                    "correct": false
+                  },
+                  {
+                    "content": "f/1.4",
+                    "correct": true
+                  },
+                  {
+                    "content": "f/2.8",
+                    "correct": false
+                  }
+                ],
+                "id": 4,
+                "question": "Manakah yang paling lebar / besar dari angka aperture / bukaan berikut?"
+              },
+              {
+                "answers": [
+                  {
+                    "content": "f/5.6",
+                    "correct": false
+                  },
+                  {
+                    "content": "f/14",
+                    "correct": false
+                  },
+                  {
+                    "content": "f/1.4",
+                    "correct": true
+                  },
+                  {
+                    "content": "f/2.8",
+                    "correct": false
+                  }
+                ],
+                "id": 5,
+                "question": "Manakah yang paling sempit dari angka aperture / bukaan berikut?"
+              },
+              {
+                "answers": [
+                  {
+                    "content": "f/0.8",
+                    "correct": false
+                  },
+                  {
+                    "content": "f/16",
+                    "correct": true
+                  },
+                  {
+                    "content": "f/2.2",
+                    "correct": false
+                  },
+                  {
+                    "content": "f/2.8",
+                    "correct": false
+                  }
+                ],
+                "id": 6,
+                "question": "Manakah yang paling sempit dari angka aperture / bukaan berikut"
+              },
+              {
+                "answers": [
+                  {
+                    "content": "f/3.5",
+                    "correct": false
+                  },
+                  {
+                    "content": "f/14",
+                    "correct": false
+                  },
+                  {
+                    "content": "f/1.4",
+                    "correct": true
+                  },
+                  {
+                    "content": "f/2.8",
+                    "correct": false
+                  }
+                ],
+                "id": 7,
+                "question": "Manakah yang paling lebar / besar dari angka aperture / bukaan berikut?"
+              },
+              {
+                "answers": [
+                  {
+                    "content": "f/5.6",
+                    "correct": false
+                  },
+                  {
+                    "content": "f/14",
+                    "correct": false
+                  },
+                  {
+                    "content": "f/1.4",
+                    "correct": true
+                  },
+                  {
+                    "content": "f/2.8",
+                    "correct": false
+                  }
+                ],
+                "id": 8,
+                "question": "Manakah yang paling sempit dari angka aperture / bukaan berikut?"
+              },
+              {
+                "answers": [
+                  {
+                    "content": "retina pada mata",
+                    "correct": false
+                  },
+                  {
+                    "content": "pupil pada mata",
+                    "correct": true
+                  }
+                ],
+                "id": 9,
+                "question": "Aperture memiliki cara kerja yang mirip dengan"
+              },
+              {
+                "answers": [
+                  {
+                    "content": "depth of field",
+                    "correct": true
+                  },
+                  {
+                    "content": "motion blur",
+                    "correct": false
+                  },
+                  {
+                    "content": "lebar sudut pandang gambar",
+                    "correct": false
+                  }
+                ],
+                "id": 10,
+                "question": "Aperture mempengaruhi..."
+              },
+              {
+                "answers": [
+                  {
+                    "content": "semakin banyak cahaya yang masuk",
+                    "correct": true
+                  },
+                  {
+                    "content": "depth of field semakin lebar",
+                    "correct": false
+                  },
+                  {
+                    "content": "lebar sudut pandang gambar",
+                    "correct": false
+                  }
+                ],
+                "id": 11,
+                "question": "Semakin besar aperture maka..."
+              },
+              {
+                "answers": [
+                  {
+                    "content": "shutter speed",
+                    "correct": false
+                  },
+                  {
+                    "content": "focal length lensa",
+                    "correct": true
+                  },
+                  {
+                    "content": "kartu memori",
+                    "correct": false
+                  }
+                ],
+                "id": 12,
+                "question": "Depth of Field, selain ditentukan oleh aperture, juga ditentukan oleh..."
+              },
+              {
+                "answers": [
+                  {
+                    "content": "lebar, seperti f/2.0 hingga f/1.2",
+                    "correct": false
+                  },
+                  {
+                    "content": "sempit, seperti f/8 hingga f/11",
+                    "correct": true
+                  }
+                ],
+                "id": 13,
+                "img": {
+                  "caption": "Alberto Restifo",
+                  "url": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1419064642531-e575728395f2?w=1000"
+                },
+                "question": "Saat mengambil gambar seperti berikut, biasanya digunakan aperture..."
+              },
+              {
+                "answers": [
+                  {
+                    "content": "lebar, seperti f/5.6 hingga f/2",
+                    "correct": true
+                  },
+                  {
+                    "content": "sempit, seperti f/22 hingga f/11",
+                    "correct": false
+                  }
+                ],
+                "id": 14,
+                "img": {
+                  "caption": "Jim Bread",
+                  "url": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1505134222155-9a141dc0594d?w=1000"
+                },
+                "question": "Saat mengambil gambar seperti berikut, biasanya digunakan aperture..."
+              }
+            ],
+            "id": "quizc02sub03",
+            "passingScore": [
+              {
+                "passed": true,
+                "points": 350,
+                "value": 1
+              },
+              {
+                "passed": true,
+                "points": 280,
+                "value": 0.8
+              },
+              {
+                "passed": true,
+                "points": 210,
+                "value": 0.6
+              },
+              {
+                "passed": false,
+                "points": 80,
+                "value": 0.4
+              }
+            ],
+            "pick": 8
+          },
+          "slides": [
+            {
+              "id": "slide01",
+              "text": "Aperture / bukaan merupakan lebar bukaan pada lensa yang membiarkan cahaya masuk. Dapat dikatakan seperti pupil pada mata manusia."
+            },
+            {
+              "id": "slide02",
+              "text": "Ketika kita berpindah antara tempat yang gelap dan terang, pupil pada mata akan membesar ataupun mengecil."
+            },
+            {
+              "id": "slide03",
+              "text": "Aperture biasa ditulis dalam angka pecahan. f/2 lebih besar atau lebih lebar daripada f/4 sebagaimana angka 1/2 lebih besar daripada angka 1/4.",
+              "title": "Cara Membaca Angka Aperture",
+              "titleType": "big"
+            },
+            {
+              "id": "slide04",
+              "text": "Saat membesarkan ataupun mengecilkan aperture, kita menentukan berapa banyak cahaya yang masuk dan ditangkap oleh sensor gambar.",
+              "title": "Pengaruh Aperture",
+              "titleType": "big"
+            },
+            {
+              "id": "slide05",
+              "text": "Semakin sempit atau kecil aperture yang ditentukan maka jumlah cahaya yang masuk akan semakin sedikit dan begitu pula sebaliknya semakin lebar aperture maka cahaya yang masuk akan semakin banyak.",
+              "title": "Pengaruh Aperture",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide06",
+              "text": "Selain itu, aperture juga menentukan tingkat isolasi subjek atau yang biasa disebut dengan depth of field (DOF). Singkatnya, disinilah biasanya muncul istilah \"bokeh\" atau \"out of focus\". ",
+              "title": "Pengaruh Aperture",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide07",
+              "text": "Kembali ke topik mengenai lensa, depth of field tidak hanya dipengaruhi oleh aperture saja, namun juga dipengaruhi oleh focal length lensa. Semakin panjang focal length (lebar sudut pandang semakin sempit), maka semakin sempit depth of field yang dihasilkan. Begitu pula sebaliknya.",
+              "title": "Depth of Field",
+              "titleType": "big"
+            },
+            {
+              "id": "slide08",
+              "text": "Lensa tele cenderung memiliki depth of field yang lebih sempit dibandingkan lensa wide. Selain itu, jarak antara lensa dengan subjek / objek foto yang diambil juga mempengaruhi depth of field yang dihasilkan. Semakin dekat maka depth of field akan cenderung semakin sempit.",
+              "title": "Depth of Field",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide09",
+              "img": {
+                "caption": "Claudio Testa [f/8.0, 1/13s, ISO 100, 18mm]",
+                "position": "middle",
+                "url": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1506260408121-e353d10b87c7?w=1000"
+              },
+              "text": "Keseluruhan gambar terlihat fokus. Semakin sempit aperture yang digunakan, semakin lebar Depth of Field yang dihasilkan.",
+              "title": "DOF Lebar",
+              "titleType": "big"
+            },
+            {
+              "id": "slide10",
+              "img": {
+                "caption": "Eric Han [f/1.4, 1/125 s, ISO 800, 35mm]",
+                "position": "middle",
+                "url": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1511275539165-cc46b1ee89bf?w=1000"
+              },
+              "text": "Muka kucing terlihat fokus namun sisanya out of focus. Semakin lebar aperture yang digunakan, semakin sempit depth of field yang dihasilkan.",
+              "title": "DOF Sempit",
+              "titleType": "big"
+            },
+            {
+              "id": "slide11",
+              "text": "Jika memperhatikan contoh sebelumnya, dapat dilihat semakin besar aperture yang digunakan maka jumlah blur atau area yang out of focus akan semakin banyak.",
+              "title": "Aperture - Depth of Field",
+              "titleType": "big"
+            },
+            {
+              "id": "slide12",
+              "text": "Dan sebaliknya semakin kecil aperture yang digunakan maka semakin sedikit area yang out of focus.",
+              "title": "Aperture - Depth of Field",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide13",
+              "text": "Hal ini dapat dimanfaatkan saat mengambil berbagai macam gambar. Saat mengambil gambar portrait subjek, kita dapat menggunakan aperture yang lebar seperti f/1.4 untuk mengisolasi subjek dari foreground maupun background.",
+              "title": "Aperture - Depth of Field",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide14",
+              "text": "Saat mengambil gambar landscape pemandangan, kita dapat menggunakan aperture sempit seperti f/8 atau f/11 untuk memastikan keseluruhan gambar terlihat jelas.",
+              "title": "Aperture - Depth of Field",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide15",
+              "text": "Aperture dapat diatur secara manual pada mode manual dan aperture priority. Mode tersebut akan dijelaskan lebih lanjut pada bab \"Pengoperasian Kamera\".",
+              "title": "Cara Mengatur Aperture",
+              "titleType": "big"
+            }
+          ],
+          "thumbnail": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1512850787684-749118bb0433?w=1000",
+          "title": "Aperture"
+        },
+        {
+          "id": "c02sub04",
+          "quiz": {
+            "contents": [
+              {
+                "answers": [
+                  {
+                    "content": "semakin terang gambar yang dihasilkan",
+                    "correct": true
+                  },
+                  {
+                    "content": "semakin gelap gambar yang dihasilkan",
+                    "correct": false
+                  }
+                ],
+                "id": 1,
+                "question": "Semakin besar angka ISO yang diatur, maka..."
+              },
+              {
+                "answers": [
+                  {
+                    "content": "gambar semakin bersih dari noise",
+                    "correct": false
+                  },
+                  {
+                    "content": "noise semakin terlihat",
+                    "correct": true
+                  }
+                ],
+                "id": 2,
+                "question": "Semakin besar angka ISO yang diatur, maka..."
+              },
+              {
+                "answers": [
+                  {
+                    "content": "gelap",
+                    "correct": false
+                  },
+                  {
+                    "content": "terang",
+                    "correct": true
+                  }
+                ],
+                "id": 3,
+                "question": "Semakin kecil angka ISO yang diatur, maka semakin ... gambar yang dihasilkan"
+              },
+              {
+                "answers": [
+                  {
+                    "content": "rendah seperti 100 hingga 200",
+                    "correct": true
+                  },
+                  {
+                    "content": "tinggi seperti 800 hingga 3200",
+                    "correct": false
+                  }
+                ],
+                "id": 4,
+                "question": "Saat memotret objek dibawah sinar matahari siang, sebaiknya digunakan ISO..."
+              }
+            ],
+            "id": "quizc02sub04",
+            "passingScore": [
+              {
+                "passed": true,
+                "points": 200,
+                "value": 1
+              },
+              {
+                "passed": true,
+                "points": 150,
+                "value": 0.75
+              },
+              {
+                "passed": true,
+                "points": 80,
+                "value": 0.5
+              },
+              {
+                "passed": false,
+                "points": 40,
+                "value": 0.25
+              }
+            ],
+            "pick": 4
+          },
+          "slides": [
+            {
+              "id": "slide01",
+              "text": "ISO merupakan pengaturan pada kamera yang akan mencerahkan atau menggelapkan gambar yang ditangkap oleh kamera."
+            },
+            {
+              "id": "slide02",
+              "text": "Semakin besar angka ISO yang diatur, maka gambar yang dihasilkan akan semakin terang.",
+              "title": "Pengaruh ISO",
+              "titleType": "big"
+            },
+            {
+              "id": "slide03",
+              "text": "Hal ini dapat dimanfaatkan ketika kita ingin lebih fleksibel terhadap pengaturan shutter speed dan aperture.",
+              "title": "Pengaruh ISO",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide04",
+              "text": "Namun, meningkatkan angka ISO juga akan menambah jumlah grain atau yang biasa disebut dengan noise. Terlalu banyak noise akan membuat gambar menjadi tidak terlihat jelas.",
+              "title": "Pengaruh ISO",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide05",
+              "img": {
+                "position": "middle",
+                "url": "https://adsfencodo.cloudimg.io/v7/res.cloudinary.com/irsnmt20/image/upload/v1590555434/shootnow/chapters/c02-pencahayaan/c02sub04/GE_X5_ISO_comparison_hjo9pp.jpg?w=1000"
+              },
+              "text": "Perbandingan gambar pada ISO yang berbeda-beda."
+            },
+            {
+              "id": "slide06",
+              "text": "Oleh karena itu, seringkali dianjurkan untuk memperbesar ISO hanya saat kita tidak ingin mengganti pengaturan shutter speed atau aperture (misalkan jika tidak ingin memperlambat shutter speed supaya foto yang dihasilkan tidak terdapat motion blur)."
+            },
+            {
+              "id": "slide07",
+              "text": "Biasanya, kita akan mengusahakan untuk menggunakan ISO paling dasar pada kamera yang kita gunakan (contoh : ISO 100 atau ISO 200) untuk menghasilkan gambar dengan kualitas terbaik. Namun, pada kondisi tertentu seperti minim cahaya, sebaiknya kita memanfaatkan angka ISO yang lebih besar."
+            },
+            {
+              "id": "slide08",
+              "text": "ISO dapat diatur pada mode selain mode auto. Umumnya ISO dapat diatur melalui menu pengaturan kamera. Pada kamera tertentu, terdapat tombol khusus untuk mengatur ISO.",
+              "title": "Cara Mengatur ISO",
+              "titleType": "big"
+            },
+            {
+              "id": "slide09",
+              "text": "Gunakan ISO yang rendah saat terdapat cahaya yang cukup atau saat kita menggunakan tripod dengan shutter speed yang lama.",
+              "title": "Menentukan Angka ISO",
+              "titleType": "big"
+            },
+            {
+              "id": "slide10",
+              "text": "Gunakan ISO yang lebih tinggi saat kita tahu bahwa mengkompensasi shutter speed atau aperture akan mengurangi hasil foto yang ingin kita ambil. Contohnya pada saat menggunakan shutter speed yang cepat untuk menghindari motion blur.",
+              "title": "Menentukan Angka ISO",
+              "titleType": "regular"
+            }
+          ],
+          "thumbnail": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1567928377131-e8abbd200505?w=1000",
+          "title": "ISO"
+        },
+        {
+          "id": "c02sub05",
+          "slides": [
+            {
+              "id": "slide01",
+              "text": "Untuk meningkatkan hasil gambar, kita perlu memahami bagaimana mengatur kombinasi shutter speed, aperture, dan ISO yang tepat pada tiap foto."
+            },
+            {
+              "id": "slide02",
+              "text": "Panduan berikut tidak selalu harus dilakukan di setiap waktu, namun dianjurkan untuk dilakukan saat kita ingin mengatur hasil foto."
+            },
+            {
+              "id": "slide03",
+              "text": "Tentukan terlebih dahulu aperture sesuai depth of field yang kita inginkan.",
+              "title": "1",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide04",
+              "text": "Atur ISO pada angka paling rendah terlebih dahulu, kemudian atur shutter speed hingga gambar memiliki tingkat pencahayaan yang cukup.",
+              "title": "2",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide05",
+              "text": "Jika gambar yang didapat ditemukan banyak motion blur, naikkan angka ISO dan gunakan shutter speed yang lebih cepat hingga motion blur tidak terlihat.",
+              "title": "3",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide06",
+              "text": "Hindari untuk menggunakan ISO yang sangat tinggi seperti 6400, 12800, dst. Jika ISO yang digunakan sudah sangat tinggi dan gambar masih gelap, kita harus mengkompensasi aperture, yaitu memperbesar aperture walaupun hal ini akan mengubah tingkat depth of field yang diinginkan.",
+              "title": "4",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide07",
+              "text": "Tidak seperti shutter speed dan aperture yang mengatur secara langsung cahaya yang masuk, ISO pada dasarnya mengatur seberapa terang gambar yang sudah ditangkap.",
+              "title": "Fun Facts",
+              "titleType": "regular"
+            }
+          ],
+          "thumbnail": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1542216320-5159d112a382?w=1000",
+          "title": "Gabungan"
+        }
+      ],
+      "subtitle": "Exposure Triangle",
+      "thumbnail": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1519774097905-a937f6c552e6?w=1000",
+      "title": "Pengaturan Pencahayaan"
+    },
+    {
+      "id": "c03",
+      "subModules": [
+        {
+          "id": "c03sub01",
+          "quiz": {
+            "contents": [
+              {
+                "answers": [
+                  {
+                    "content": "aperture",
+                    "correct": true
+                  },
+                  {
+                    "content": "shutter speed",
+                    "correct": false
+                  },
+                  {
+                    "content": "ISO",
+                    "correct": false
+                  }
+                ],
+                "id": 1,
+                "question": "Pada Mode Av atau A, yang diatur secara manual adalah..."
+              },
+              {
+                "answers": [
+                  {
+                    "content": "aperture",
+                    "correct": false
+                  },
+                  {
+                    "content": "shutter speed",
+                    "correct": true
+                  },
+                  {
+                    "content": "ISO",
+                    "correct": false
+                  }
+                ],
+                "id": 2,
+                "question": "Pada Mode Tv atau S, yang diatur secara manual adalah..."
+              },
+              {
+                "answers": [
+                  {
+                    "content": "aperture",
+                    "correct": false
+                  },
+                  {
+                    "content": "shutter speed",
+                    "correct": false
+                  },
+                  {
+                    "content": "keduanya benar",
+                    "correct": true
+                  }
+                ],
+                "id": 3,
+                "question": "Pada mode M, yang diatur secara manual adalah..."
+              },
+              {
+                "answers": [
+                  {
+                    "content": "shutter speed",
+                    "correct": false
+                  },
+                  {
+                    "content": "aperture",
+                    "correct": false
+                  },
+                  {
+                    "content": "pengaturan selain shutter speed dan aperture",
+                    "correct": true
+                  }
+                ],
+                "id": 4,
+                "question": "Pada mode P, yang diatur secara manual adalah..."
+              },
+              {
+                "answers": [
+                  {
+                    "content": "aperture",
+                    "correct": false
+                  },
+                  {
+                    "content": "shutter speed",
+                    "correct": true
+                  },
+                  {
+                    "content": "ISO",
+                    "correct": false
+                  }
+                ],
+                "id": 5,
+                "question": "Pada Mode Av atau A, yang diatur secara otomatis adalah..."
+              },
+              {
+                "answers": [
+                  {
+                    "content": "aperture",
+                    "correct": true
+                  },
+                  {
+                    "content": "shutter speed",
+                    "correct": false
+                  },
+                  {
+                    "content": "ISO",
+                    "correct": false
+                  }
+                ],
+                "id": 6,
+                "question": "Pada Mode Tv atau S, yang diatur secara otomatis adalah..."
+              }
+            ],
+            "id": "quizc03sub01",
+            "passingScore": [
+              {
+                "passed": true,
+                "points": 250,
+                "value": 1
+              },
+              {
+                "passed": true,
+                "points": 180,
+                "value": 0.75
+              },
+              {
+                "passed": true,
+                "points": 100,
+                "value": 0.5
+              },
+              {
+                "passed": false,
+                "points": 40,
+                "value": 0.25
+              }
+            ],
+            "pick": 4
+          },
+          "slides": [
+            {
+              "id": "slide01",
+              "text": "Sebagian besar kamera digital mempunyai beberapa mode yang dapat digunakan untuk berbagai macam situasi."
+            },
+            {
+              "id": "slide02",
+              "text": "Berikut 4 mode kamera yang umumnya ditemukan pada kamera digital sekarang ini : 1.) Program (P) | 2.) Shutter Priority (Tv) atau (S) | 3.) Aperture Priority (Av) atau (A) | 4.) Manual (M)"
+            },
+            {
+              "id": "slide03",
+              "text": "Pada mode ini, kamera akan secara otomatis mengatur shutter speed dan aperture berdasarkan jumlah cahaya yang masuk. Biasanya mode ini digunakan untuk mengambil momen yang tak terulang dengan cepat.",
+              "title": "Mode Program (P)",
+              "titleType": "big"
+            },
+            {
+              "id": "slide04",
+              "text": "Lalu apa bedanya dengan mode Auto? Pada mode Program, kita masih dapat mengubah pengaturan seperti flash, exposure compensation, dan pengaturan lainnya secara manual. Sedangkan pada mode Full Auto, seluruh pengaturan diatur secara otomatis.",
+              "title": "Mode Program (P)",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide05",
+              "text": "Pada mode ini, kita mengatur secara manual shutter speed dan kamera akan mengatur bukaan / aperture yang tepat secara otomatis berdasarkan jumlah cahaya yang masuk.",
+              "title": "Mode Shutter Priority (Tv atau S)",
+              "titleType": "big"
+            },
+            {
+              "id": "slide06",
+              "text": "Mode ini biasanya digunakan ketika mengambil frozen motion ataupun blurred secara disengaja. Pada mode ini kita tidak dapat menentukan batas isolasi subjek, karena kamera mengatur sendiri depth of field (melalui aperture).",
+              "title": "Mode Shutter Priority (Tv atau S)",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide07",
+              "text": "Penjelasan mengenai Depth of Field akan dijelaskan pada bab \"Pencahayaan\"."
+            },
+            {
+              "id": "slide08",
+              "text": "Seperti mode Shutter Priority, yang membedakan pada mode ini adalah yang diatur secara manual adalah bukaan / aperture. Kamera akan mengatur secara otomatis shutter speed yang tepat berdasarkan jumlah cahaya yang masuk.",
+              "title": "Mode Aperture Priority (Av atau A)",
+              "titleType": "big"
+            },
+            {
+              "id": "slide09",
+              "text": "Mode ini termasuk sangat sering dipilih dan digunakan karena kita dapat mengatur depth of field dan membiarkan kamera mengatur shutter speed yang tepat untuk memastikan pencahayaan gambar pas. ",
+              "title": "Mode Aperture Priority (Av atau A)",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide10",
+              "text": "Sesuai namanya, pada mode ini kita mengatur sendiri secara manual bukaan / aperture dan shutter speed. Mode ini biasanya digunakan pada situasi dimana kamera sulit untuk mengatur secara otomatis pencahayaan gambar.",
+              "title": "Mode Manual (M)",
+              "titleType": "big"
+            },
+            {
+              "id": "slide11",
+              "text": "Mode ini juga biasanya digunakan untuk menjaga konsistensi antar foto yang diambil pada jangka waktu tertentu agar memiliki pencahayaan yang sama.",
+              "title": "Mode Manual (M)",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide12",
+              "text": "ISO memiliki pengaturan tersendiri saat digunakan pada mode yang telah disebutkan sebelumnya. ISO dapat diatur secara manual maupun secara otomatis dengan menentukan range ISO maksimum.",
+              "title": "Bagaimana dengan ISO?",
+              "titleType": "big"
+            },
+            {
+              "id": "slide13",
+              "text": "Pada kamera pemula maupun semi-profesional biasanya ditemukan mode lain atau mode custom seperti \"Landscape\", \"Sports\", \"Night\", \"Macro\", ataupun \"Portrait\", tergantung kamera yang digunakan. Namun mode lain ini sangat jarang ditemukan pada kamera level profesional.",
+              "title": "Mode Lainnya",
+              "titleType": "big"
+            },
+            {
+              "id": "slide14",
+              "text": "Mode lain tersebut sebenarnya memiliki prinsip yang mirip ataupun merupakan gabungan dari 4 mode umum yang kemudian disertakan dengan pengaturan khusus. Setiap merk kamera memiliki mode lain yang berbeda-beda.",
+              "title": "Mode Lainnya",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide15",
+              "text": "Jika kita membiasakan diri dengan mode lain ini kita akan kesulitan ketika berganti kamera dengan merk lain atau tipe lain yang tidak memiliki mode yang sama.",
+              "title": "Mode Lainnya",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide16",
+              "text": "Pada kamera ponsel sekarang ini, mode yang umumnya ditemukan adalah Photo (Auto), Portrait, dan Manual / Pro.",
+              "title": "Mode pada Kamera Ponsel",
+              "titleType": "big"
+            },
+            {
+              "id": "slide17",
+              "text": "Mode yang mirip dengan Shutter Priority, Aperture Priority, atau Manual pada kamera digital seperti DSLR atau mirrorless dapat ditemukan pada mode Manual / Pro di kamera ponsel.",
+              "title": "Mode pada Kamera Ponsel",
+              "titleType": "regular"
+            }
+          ],
+          "thumbnail": "https://adsfencodo.cloudimg.io/v7/res.cloudinary.com/irsnmt20/image/upload/v1590486139/shootnow/chapters/c02/c02sub02/ModeDial_ksxdoi.png?w=1000",
+          "title": "Mode dalam Kamera"
+        },
+        {
+          "id": "c03sub02",
+          "slides": [
+            {
+              "id": "slide01",
+              "text": "Metering adalah cara kamera menentukan shutter speed dan aperture yang tepat berdasarkan jumlah cahaya yang masuk dan ISO yang ditentukan."
+            },
+            {
+              "id": "slide02",
+              "text": "Cara kerjanya adalah dengan sensor yang khusus mengukur jumlah dan intensitas cahaya yang masuk, yaitu light \"meter\"."
+            },
+            {
+              "id": "slide03",
+              "text": "Kita dapat melihat secara langsung bagaimana light meter bekerja pada saat menggunakan mode manual."
+            },
+            {
+              "id": "slide04",
+              "img": {
+                "position": "middle",
+                "url": "https://adsfencodo.cloudimg.io/v7/res.cloudinary.com/irsnmt20/image/upload/v1591088421/shootnow/chapters/c03/c03sub02/Exposure-Meter-Graphic-0_evrrge.jpg?w=1000"
+              },
+              "text": "Indikator light meter yang biasa ditemukan pada bagian bawah dalam viewfinder."
+            },
+            {
+              "id": "slide04",
+              "text": "Jika kita mengarahkan kamera ke area yang terang, bar pada light meter akan bergerak ke arah angka positif. Artinya ada cahaya berlebih pada pengaturan pencahayaan."
+            },
+            {
+              "id": "slide05",
+              "text": "Sebaliknya jika mengarahkan kamera pada area yang gelap, bar pada light meter akan bergerak ke angka negatif. Artinya terdapat cahaya yang minim."
+            },
+            {
+              "id": "slide06",
+              "text": "Saat mengambil gambar kita dapat memperhatikan light meter untuk mengatur shutter speed ataupun aperture hingga bar pada light meter berpindah ke angka 0 untuk membantu mendapatkan pengaturan pencahayaan yang optimal."
+            },
+            {
+              "id": "slide07",
+              "text": "Pada saat menggunakan mode selain manual, kamera melakukan pengaturan pencahayaan secara otomatis berdasarkan bacaan pada light meter."
+            },
+            {
+              "id": "slide08",
+              "text": "Light meter pada kamera tidak selalu berfungsi optimal di segala situasi pada mode bawaan (default). Terdapat berbagai macam mode metering untuk menyesuaikan tiap situasi."
+            },
+            {
+              "id": "slide09",
+              "text": "Setiap perusahaan manufaktur kamera memiliki penamaan dan cara kerja mode metering yang berbeda-beda."
+            },
+            {
+              "id": "slide10",
+              "text": "Teman-teman dapat mencari informasi lebih lanjut mengenai mode metering berdasarkan kamera yang dimiliki masing-masing."
+            }
+          ],
+          "thumbnail": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1467179257860-0b3be79206f8?w=1000",
+          "title": "Metering"
+        }
+      ],
+      "subtitle": "Penggunaan Kamera secara Umum",
+      "thumbnail": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1488926756850-a13b25e2f415?w=1000",
+      "title": "Pengoperasian Kamera"
+    },
+    {
+      "id": "c04",
+      "subModules": [
+        {
+          "id": "c04sub01",
+          "slides": [
+            {
+              "id": "slide01",
+              "text": "Selain memahami pengoperasian kamera dan pengaturan pencahayaan, untuk menghasilkan foto yang lebih baik juga perlu memahami komposisi."
+            },
+            {
+              "id": "slide02",
+              "text": "Komposisi adalah struktur dari sebuah foto, bagaimana kita menata elemen yang ada untuk menghasilkan gambar yang kita inginkan."
+            },
+            {
+              "id": "slide03",
+              "text": "Salah satu tujuannya adalah untuk meningkatkan penyampaian makna atau cerita dibalik gambar yang akan kita hasilkan."
+            },
+            {
+              "id": "slide04",
+              "text": "Banyak hal bisa dilakukan untuk mengatur komposisi gambar. Entah kita bergerak mendekat atau menjauh dari objek, melakukan zoom in atau zoom out pada lensa, hingga mengubah angle."
+            },
+            {
+              "id": "slide05",
+              "text": "Dalam komposisi tidak ada satu struktur yang harus selalu diikuti, contoh nya rules of thirds yang seringkali disebut atau dibahas."
+            },
+            {
+              "id": "slide06",
+              "text": "Panduan ini akan membahas elemen dasar dan teknik-teknik umum dalam membangun komposisi."
+            }
+          ],
+          "thumbnail": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1462774603919-1d8087e62cad?w=1000",
+          "title": "Pendahuluan"
+        },
+        {
+          "id": "c04sub02",
+          "slides": [
+            {
+              "id": "slide01",
+              "text": "Pada dasarnya, elemen pada komposisi ialah titik, garis, dan bentuk. Setiap objek pada gambar memiliki tiga elemen tersebut."
+            },
+            {
+              "id": "slide02",
+              "text": "Titik pada suatu komposisi dapat dikatakan sebagai area kecil yang menjadi pusat perhatian atau pertemuan dari beberapa area pusat perhatian pada suatu gambar.",
+              "title": "Titik (Points)",
+              "titleType": "big"
+            },
+            {
+              "id": "slide03",
+              "img": {
+                "caption": "(Aditya Anjagi, \"Mount Fuji\", 1/320s, f/4.5, ISO 100, 105mm)",
+                "position": "middle",
+                "url": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1578637387939-43c525550085?w=1000"
+              },
+              "text": "Ya, titik puncak dari gunung tersebut. Mata kita mengikuti garis yang ada dan berakhir di suatu titik puncak.",
+              "title": "Perhatikan gambar berikut, manakah elemen yang menjadi pusat perhatian mata kita?",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide04",
+              "text": "Berbeda dengan titik, garis lebih berperan pada mengarahkan penonton atau menjadi pembatas, contohnya batasan antara langit dan daratan.",
+              "title": "Garis (Lines)",
+              "titleType": "big"
+            },
+            {
+              "id": "slide05",
+              "text": "Garis yang ada tidak harus lurus ataupun terlihat langsung. Garis komposisi dapat bersifat imajiner.",
+              "title": "Garis (Lines)",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide06",
+              "img": {
+                "caption": "(Isaiah Rustad, 1/1000 s, f/4.5, ISO 250, 24mm)",
+                "position": "middle",
+                "url": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1516676324900-a8c0c01caa33?w=1000"
+              },
+              "text": "Foto diatas terlihat ramai, namun mata kita tetap tertuju pada bola yang akan ditendang. Hal ini karena adanya garis yang mengarahkan perhatian mata kita menuju bola tersebut.",
+              "title": "Perhatikan gambar berikut, manakah elemen yang menjadi pusat perhatian?",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide07",
+              "text": "Bentuk dapat berwujud apapun, mulai dari bulan sabit hingga bentuk dari wajah yang tersenyum. Setiap bentuk memiliki pengaruh emosional terhadap gambar yang dihasilkan.",
+              "title": "Bentuk (Shapes)",
+              "titleType": "big"
+            },
+            {
+              "id": "slide08",
+              "text": "Seperti titik dan garis, bentuk juga mempengaruhi pusat perhatian kita pada suatu gambar. Terkadang, bentuk merupakan objek dari foto itu sendiri.",
+              "title": "Bentuk (Shapes)",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide09",
+              "img": {
+                "caption": "(Clem Onojeghuo, 1/500 s, f/2.8, ISO 160, 28mm)",
+                "position": "middle",
+                "url": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1485844254435-b7509760a25c?w=1000"
+              },
+              "text": "Perhatian kita tertuju pada langit putih berbentuk segi-lima yang merupakan pertemuan dari 5 papan / dinding.",
+              "title": "Perhatikan gambar berikut,",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide10",
+              "text": "Selain titik, garis, dan bentuk, masih banyak elemen dalam komposisi objek fotografi lainnya seperti tekstur, warna, dan tone."
+            },
+            {
+              "id": "slide11",
+              "text": "Selain komposisi objek, terdapat pula komposisi relasi antar objek dalam foto. Contohnya adalah Breathing Space serta Positive and Negative Space."
+            }
+          ],
+          "thumbnail": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1530679361860-63f81c6e9268?w=1000",
+          "title": "Elemen dalam Komposisi"
+        },
+        {
+          "id": "c04sub03",
+          "slides": [
+            {
+              "id": "slide01",
+              "text": "Berikut beberapa contoh teknik umum yang dapat digunakan dalam membangun komposisi. Setiap foto memiliki pesan emosional dan cara penyampaiannya masing-masing."
+            },
+            {
+              "id": "slide02",
+              "text": "Simplicity atau kesederhanaan berarti tidak ada hal dalam foto yang mengganggu penyampaian pesan emosional dari gambar. Mengurangi segala hal yang tidak terkait.",
+              "title": "Simplicity",
+              "titleType": "big"
+            },
+            {
+              "id": "slide03",
+              "img": {
+                "caption": "(Eniko Kis, 1/50 s, f/5.6, ISO 800, 35mm)",
+                "position": "middle",
+                "url": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1526170160160-1a5eb242ab58?w=1000"
+              },
+              "text": "Contoh yang paling sering ditemui adalah foto dengan tema minimal atau biasa yang sering disebut dengan \"minimal feeds\".",
+              "title": "Simplicity",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide04",
+              "text": "Balance atau keseimbangan adalah bagaimana kita mengatur tingkat perhatian tiap elemen dalam suatu gambar. Hal ini sering disebut dengan \"visual weight\".",
+              "title": "Balance",
+              "titleType": "big"
+            },
+            {
+              "id": "slide05",
+              "text": "Objek dengan visual weight yang tinggi biasanya lebih terang, lebih berwarna, kontras, apapun yang menarik perhatian.",
+              "title": "Balance",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide06",
+              "text": "Kemudian yang diperhatikan adalah bagaimana distribusi visual weight tersebut terhadap framing gambar.",
+              "title": "Balance",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide07",
+              "text": "Distribusi visual weight yang seimbang maupun tidak seimbang bukan berarti seimbang lebih baik ataupun yang tidak seimbang lebih baik.",
+              "title": "Balance",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide08",
+              "text": "Distribusi seimbang maupun tidak seimbang akan mempengaruhi emosi yang ingin disampaikan. Foto yang seimbang biasanya memberikan kesan tenang. Foto yang tidak seimbang memberikan kesan dramatis.",
+              "title": "Balance",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide09",
+              "img": {
+                "caption": "(Aziz Acharki, 1/800 s, f/4.5, ISO 100, 39mm)",
+                "position": "middle",
+                "url": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1517960413843-0aee8e2b3285?w=1000"
+              },
+              "text": "Contoh distribusi seimbang",
+              "title": "Balance",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide10",
+              "img": {
+                "caption": "(Peter Broomfield, 1/80 s, f/2.8, ISO 640, 27mm)",
+                "position": "middle",
+                "url": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1000"
+              },
+              "text": "Contoh distribusi tidak seimbang",
+              "title": "Balance",
+              "titleType": "regular"
+            },
+            {
+              "id": "slide11",
+              "text": "Mempelajari dan memahami komposisi dapat dilakukan seiring semakin sering mengambil foto dan bereksperimen."
+            },
+            {
+              "id": "slide12",
+              "text": "Bagaimana kita mengatur komposisi foto sangat bergantung pada bagaimana kita memiliki kepekaan dan perspektif saat menangkap momen atau melihat sebuah objek."
+            }
+          ],
+          "thumbnail": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1431576901776-e539bd916ba2?w=1000",
+          "title": "Teknik Komposisi"
+        }
+      ],
+      "thumbnail": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1512895356176-c49e710676ac?w=1000",
+      "title": "Komposisi"
+    },
+    {
+      "id": "c05",
+      "subModules": [
+        {
+          "id": "c05sub01",
+          "slides": [
+            {
+              "id": "slide01",
+              "img": {
+                "caption": "(John Jackson, 0.3 s, f/8, ISO 100, 31mm)",
+                "position": "middle",
+                "url": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1522504736366-8ea8bccc1e66?w=1000"
+              },
+              "text": "Teknik pengambilan gambar motion blur biasanya digunakan untuk mengambil gambar dengan objek yang bergerak."
+            },
+            {
+              "id": "slide02",
+              "text": "Dengan teknik ini kita dapat menghasilkan gambar yang menunjukkan perubahan pada suatu objek."
+            },
+            {
+              "id": "slide03",
+              "text": "Teknik ini memanfaatkan shutter speed lambat. Semakin lambat shutter speed yang digunakan, semakin terlihat motion blur yang dihasilkan."
+            },
+            {
+              "id": "slide04",
+              "img": {
+                "caption": "(Zach Reiner, 6 s, f/8, ISO 100, 28mm)",
+                "position": "middle",
+                "url": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1518143602735-e69e0819105c?w=1000"
+              }
+            },
+            {
+              "id": "slide05",
+              "img": {
+                "caption": "(Robin Schreiner, 3.2 s, f/8, ISO 200, 18mm)",
+                "position": "middle",
+                "url": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1558688965-89fe6a8cb089?w=1000"
+              }
+            },
+            {
+              "id": "slide06",
+              "img": {
+                "caption": "(Ahmad Odeh)",
+                "position": "middle",
+                "url": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1531318701087-32c11653dd77?w=1000"
+              }
+            }
+          ],
+          "thumbnail": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1527710200112-665192dc1c22?w=1000",
+          "title": "Motion Blur"
+        },
+        {
+          "id": "c05sub02",
+          "slides": [
+            {
+              "id": "slide01",
+              "img": {
+                "caption": "(Eduardo Enrietti, 1/40 s, f/7.1, ISO 100, 105mm)",
+                "position": "middle",
+                "url": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1528833703820-0a4eee975bfb?w=1000"
+              },
+              "text": "Panning merupakan teknik dimana kita mengikuti sebuah subjek bergerak dengan mempertahankan posisi subjek tersebut."
+            },
+            {
+              "id": "slide02",
+              "text": "Teknik ini sangat efektif digunakan ketika subjek bergerak lurus mengikuti sebuah garis horizontal."
+            },
+            {
+              "id": "slide03",
+              "img": {
+                "caption": "(Seth Kane, 1/13 s, f/22, ISO 400, 90mm)",
+                "position": "middle",
+                "url": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1507506928114-3c296edee1da?w=1000"
+              },
+              "text": "Ketika dikombinasikan dengan teknik motion blur, teknik ini akan menghasilkan gambar yang sensasional."
+            },
+            {
+              "id": "slide04",
+              "text": "Keberhasilan teknik ini bergantung pada bagaimana kita menyesuaikan kecepatan subjek yang bergerak dengan menggerakkan kamera yang digunakan."
+            },
+            {
+              "id": "slide05",
+              "text": "Selain itu, jarak antara subjek dengan kamera juga mempengaruhi hasil gambar. Semakin menjauh dari subjek, maka subjek akan terlihat bergerak lebih lambat, serta lebih mudah untuk diikuti."
+            },
+            {
+              "id": "slide06",
+              "img": {
+                "caption": "(Charlie Egan, 1/15 s, f/5, ISO 200, 23mm)",
+                "position": "middle",
+                "url": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1533246884137-bf3b774b5719?w=1000"
+              },
+              "text": "Usahakan untuk mengatur framing agar subjek menempati 25 hingga 35 persen frame."
+            },
+            {
+              "id": "slide07",
+              "img": {
+                "caption": "(Robert Zunikoff, 2.5 s, f/18, ISO 100, 90mm)",
+                "position": "middle",
+                "url": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1535910088135-abe86476a866?w=1000"
+              },
+              "text": "Masih banyak teknik pengambilan gambar yang dapat dicoba. Keluarkan kameramu sekarang dan ambil gambar sekarang!"
+            }
+          ],
+          "thumbnail": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1536006222476-a83275cfa5b8?w=1000",
+          "title": "Panning"
+        }
+      ],
+      "thumbnail": "https://adsfencodo.cloudimg.io/v7/images.unsplash.com/photo-1484100356142-db6ab6244067?w=1000",
+      "title": "Pengambilan Gambar Kreatif"
+    }
+  ],
+  "leaderboards": {
+    "4moRlOU2jFXCuYBXUTHHTN8aMLh2": {
+      "chaptersDone": 5,
+      "dailyPoints": [
+        {
+          "date": "May 27, 2020",
+          "points": 400
+        },
+        {
+          "date": "May 28, 2020",
+          "points": 160
+        },
+        {
+          "date": "May 30, 2020",
+          "points": 960
+        },
+        {
+          "date": "May 31, 2020",
+          "points": 600
+        },
+        {
+          "date": "Jun 01, 2020",
+          "points": 2720
+        },
+        {
+          "date": "Jun 02, 2020",
+          "points": 800
+        },
+        {
+          "date": "Jun 03, 2020",
+          "points": 100
+        },
+        {
+          "date": "Jun 08, 2020",
+          "points": 600
+        },
+        {
+          "date": "Jun 21, 2020",
+          "points": 50
+        },
+        {
+          "date": "Jul 10, 2020",
+          "points": 600
+        }
+      ],
+      "modulesDone": 18,
+      "name": "sznm",
+      "points": 6990,
+      "public_id": "mr0uds3zuvvv53arvbcu"
+    }
+  },
+  "users": {
+    "4moRlOU2jFXCuYBXUTHHTN8aMLh2": {
+      "achievements": {
+        "-M8fIfeI-NzbivZlHJ8V": {
+          "id": "a01",
+          "qty": "7"
+        },
+        "-M8fIfeI-f": {
+          "id": "a08"
+        },
+        "-Mm8mfIfeI-NzbivZlHJ8V": {
+          "id": "a15"
+        },
+        "a": {
+          "id": "a02",
+          "qty": "5"
+        },
+        "angvaonfapsvoabnwofeu": {
+          "id": "a16"
+        },
+        "b": {
+          "id": "a03",
+          "qty": "2"
+        },
+        "c": {
+          "id": "a04",
+          "qty": "5"
+        },
+        "cmm": {
+          "id": "a18"
+        },
+        "d": {
+          "id": "a05",
+          "qty": "6"
+        },
+        "dnn": {
+          "id": "a19"
+        },
+        "e": {
+          "id": "a06"
+        },
+        "eoo": {
+          "id": "a20"
+        },
+        "g": {
+          "id": "a09"
+        },
+        "h": {
+          "id": "a10"
+        },
+        "i": {
+          "id": "a11"
+        },
+        "j": {
+          "id": "a12"
+        },
+        "k": {
+          "id": "a13"
+        },
+        "ll": {
+          "id": "a17"
+        },
+        "llmalfmsaovnioavn": {
+          "id": "a14"
+        },
+        "malfmsaovnioavn": {
+          "id": "a07"
+        },
+        "malpdkfaonvfmsaovnioavn": {
+          "id": "a21"
+        }
+      },
+      "bio": "Admin aplikasi KapturaLuminaa",
+      "email": "admin2@gmail.com",
+      "friends": {
+        "-M8cy-TwBSGJj5qgJxeK": "oAkJsoutOEbMgHu9ItSJRHuMo5X2",
+        "-M8fvmC9MTZlY_SLG-_2": "BcGmZDf87APZ19mvViraulmzHJt2",
+        "-M8hgmekwetv3ZaUoHUN": "uBEePW3svEe9Ke8dleAbprEboH93",
+        "-M8hgq_ODW0mCjYbPPhg": "ZB4TrYEHomaQJclqshkHyF953572",
+        "-M8jess6QZMFe3RTtk0R": "CRTeZxtNJNUhEUxpRH0oCsoO9lN2",
+        "-M8sZbTtbcteLJoVWKxN": "CUUlr2Rvn9NYLDgQ9098YnH5aJh2",
+        "-M8sZcSfh3rWrLSvc9Jc": "qv9TamY6h2c001ixIiZUstv6hqp2",
+        "-M8sZdUWhTlbj3nMoUZM": "PsjJIxOKg9WGkpmLvLja6XBpff52",
+        "-M8sZeRRjSYNXxLSR2eW": "60JkhB9S4TNI9fRBXUZlQ4LFs9V2",
+        "-MAKt_Kn_yY1WB0YrihH": "7f3Fhj2BYfYXzmfgnZgYRGFclD03"
+      },
+      "id": "4moRlOU2jFXCuYBXUTHHTN8aMLh2",
+      "level": 0,
+      "name": "sznm",
+      "points": 200,
+      "progress": {
+        "-M8ZX-BflKZuktJPavkm": {
+          "chapterId": "c01",
+          "passed": true,
+          "score": 1,
+          "subModuleId": "c01sub01"
+        },
+        "-M8ZXwo9aabpViDESJk3": {
+          "chapterId": "c01",
+          "passed": true,
+          "score": 1,
+          "subModuleId": "c01sub02"
+        },
+        "-M8ZYrITHUgmOnK-HCBh": {
+          "chapterId": "c01",
+          "passed": true,
+          "score": 1,
+          "subModuleId": "c01sub03"
+        },
+        "-M8Zw500PwjvLeRK2Ym-": {
+          "chapterId": "c01",
+          "passed": true,
+          "score": 1,
+          "subModuleId": "c01sub04"
+        },
+        "-M8Zw7iArFywGWJEWPNT": {
+          "chapterId": "c01",
+          "passed": true,
+          "score": 1,
+          "subModuleId": "c01sub05"
+        },
+        "-M8_ydgiSFl9PfkPlRno": {
+          "chapterId": "c01",
+          "passed": true,
+          "score": 1,
+          "subModuleId": "c01sub06"
+        },
+        "-M8g5LEPGZEhk1oq1Od4": {
+          "chapterId": "c02",
+          "passed": true,
+          "score": 1,
+          "subModuleId": "c02sub01"
+        },
+        "-M8ivI0a7Zi9kvNt-dob": {
+          "chapterId": "c02",
+          "passed": true,
+          "score": 1,
+          "subModuleId": "c02sub02"
+        },
+        "-M8ivJwusfUuyzWDJd1Y": {
+          "chapterId": "c02",
+          "passed": true,
+          "score": 1,
+          "subModuleId": "c02sub03"
+        },
+        "-M8ivLpe_GyqYWZetNEf": {
+          "chapterId": "c02",
+          "passed": true,
+          "score": 1,
+          "subModuleId": "c02sub04"
+        },
+        "-M8ivN-TbfrEmt4alRdp": {
+          "chapterId": "c02",
+          "passed": true,
+          "score": 1,
+          "subModuleId": "c02sub05"
+        },
+        "-M8ivRp6lyfHWWvM8chC": {
+          "chapterId": "c03",
+          "passed": true,
+          "score": 1,
+          "subModuleId": "c03sub01"
+        },
+        "-M8ivaGUGB_iG5z2uqn6": {
+          "chapterId": "c03",
+          "passed": true,
+          "score": 1,
+          "subModuleId": "c03sub02"
+        },
+        "-M8ivcxejFqbPWiAn9Ph": {
+          "chapterId": "c04",
+          "passed": true,
+          "score": 1,
+          "subModuleId": "c04sub01"
+        },
+        "-M8ivfzpIYfgQRJeLS46": {
+          "chapterId": "c04",
+          "passed": true,
+          "score": 1,
+          "subModuleId": "c04sub02"
+        },
+        "-M8ivk1p5JswdwC_1QsP": {
+          "chapterId": "c04",
+          "passed": true,
+          "score": 1,
+          "subModuleId": "c04sub03"
+        },
+        "-M8jelqdqzc37xXbseeX": {
+          "chapterId": "c05",
+          "passed": true,
+          "score": 1,
+          "subModuleId": "c05sub01"
+        },
+        "-M8jemyrzD_H24uEa8jz": {
+          "chapterId": "c05",
+          "passed": true,
+          "score": 1,
+          "subModuleId": "c05sub02"
+        }
+      },
+      "public_id": "mr0uds3zuvvv53arvbcu",
+      "socialLinks": {
+        "instagram": "sozonome",
+        "website": "https://sznm.dev",
+        "youtube": "agustinusnathaniel"
+      },
+      "streaks": {
+        "bestStreak": 5,
+        "lastStreak": 3,
+        "prevBestStreak": 5
+      }
+    }
+  }
+}

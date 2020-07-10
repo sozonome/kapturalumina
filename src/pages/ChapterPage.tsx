@@ -90,7 +90,7 @@ function ChapterPage(props: any) {
                       sizeXs="12"
                       sizeSm="6"
                       key={index}
-                    >
+                      >
                       <IonCard
                         disabled={locked}
                         routerLink={`/learn/${chapter.id}/${subModule.id}`}

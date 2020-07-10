@@ -11,7 +11,7 @@ import {
   IonRow,
   IonCol,
   IonText,
-  IonLoading
+  IonLoading,
 } from "@ionic/react";
 import { withRouter, Redirect } from "react-router";
 import { AuthContext } from "../components/providers/AuthProvider";
