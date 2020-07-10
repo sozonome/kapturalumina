@@ -296,12 +296,10 @@ export function removeFollowedFriend(id: string) {
         if (snap.exists()) {
           snap.forEach((friend) => {
             if (friend.val() === id) {
-              // console.log(friend.key);
               fbase
                 .database()
                 .ref(`users/${user.uid}/friends/${friend.key}`)
                 .remove();
-              usersData.off();
             }
           });
         }

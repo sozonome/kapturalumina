@@ -26,7 +26,7 @@ export default function UserProfile(props: any) {
   const [loggedInUser, setLoggedInUser] = useState<boolean>(false);
   const [addedAsFriend, setAddedAsFriend] = useState<boolean>(false);
   const currentLoggedInUser = getCurrentUser();
-  const {userId} = useParams();
+  const { userId } = useParams();
 
   const [friendsFollowedNumber, setFriendsFollowedNumber] = useState<number>(0);
 
@@ -105,7 +105,7 @@ export default function UserProfile(props: any) {
         presentToast("Tidak terhubung dengan jaringan Internet");
       }
     }, 6000);
-  }, [userId, currentLoggedInUser, userLeaderboardData]);
+  }, [userId]);
 
   useEffect(() => {
     // Clean up effect

@@ -13,10 +13,7 @@ import {
 } from "@ionic/react";
 import { UserData } from "../models/users";
 import { logoInstagram, logoYoutube, globeOutline } from "ionicons/icons";
-import {
-  removeFollowedFriend,
-  followAsFriend,
-} from "../firebase/users";
+import { removeFollowedFriend, followAsFriend } from "../firebase/users";
 import { Achievement } from "../models/achievements";
 import { Leaderboard } from "../models/leaderboards";
 import AchievementsWrapper from "../components/AchievementsWrapper";
