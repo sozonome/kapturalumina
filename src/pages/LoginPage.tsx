@@ -13,7 +13,7 @@ import {
   IonText,
   IonLoading,
 } from "@ionic/react";
-import { withRouter, Redirect } from "react-router";
+import { withRouter, Redirect, useHistory } from "react-router";
 import { AuthContext } from "../components/providers/AuthProvider";
 import { loginUser } from "../firebase/auth";
 import { FocusRafiki } from "../assets/assetsref";
@@ -24,13 +24,15 @@ function LoginPage(props: any) {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
+  const history = useHistory();
+
   async function login() {
     setWait(true);
     const res = await loginUser(email, password);
     if (res) {
       setEmail("");
       setPassword("");
-      props.history.replace("/");
+      history.replace("/");
     }
     setWait(false);
   }
@@ -59,7 +61,7 @@ function LoginPage(props: any) {
             </IonRow>
             <IonRow>
               <IonCol style={{ margin: "0 auto", maxWidth: "300px" }}>
-                <img className="glowFilter" src={FocusRafiki} />
+                <img className="glowFilter" src={FocusRafiki} alt="" />
               </IonCol>
             </IonRow>
             <IonRow className="ion-justify-content-center">

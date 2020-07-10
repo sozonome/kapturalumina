@@ -19,6 +19,7 @@ import {
 import { UserProfileContext } from "../components/providers/UserProfileProvider";
 import { presentToast } from "../components/Toast";
 import { updateUserProfile } from "../firebase/users";
+import { useHistory } from "react-router";
 
 export default function EditProfile(props: any) {
   const { user } = useContext(UserProfileContext);
@@ -30,6 +31,8 @@ export default function EditProfile(props: any) {
   const [website, setWebsite] = useState(user.socialLinks?.website);
 
   const [busy, setBusy] = useState(true);
+
+  const history = useHistory();
 
   useEffect(() => {
     if (user) {
@@ -48,7 +51,7 @@ export default function EditProfile(props: any) {
       // console.log("updating...");
       const res = await updateUserProfile(name, bio, insta, youTube, website);
       if (res) {
-        props.history.replace("/main/profile");
+        history.replace("/main/profile");
       } else {
         presentToast("Gagal melakukan update.");
       }

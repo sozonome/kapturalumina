@@ -110,7 +110,6 @@ export default function UserProfile(props: any) {
   useEffect(() => {
     // Clean up effect
     return () => {
-      // console.log('cleaned up');
       setUser(undefined);
       setUserLeaderboardData(undefined);
       setLoggedInUser(false);

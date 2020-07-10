@@ -197,7 +197,7 @@ function Leaderboards() {
         <IonGrid style={{ padding: 0 }}>
           <IonRow>
             <IonCol style={{ margin: "0 auto", maxWidth: "250px" }}>
-              <img className="glowFilter" src={WinnersPana} />
+              <img className="glowFilter" src={WinnersPana} alt="" />
             </IonCol>
           </IonRow>
           {filterTime === "daily" ? (

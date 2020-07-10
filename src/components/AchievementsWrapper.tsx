@@ -44,7 +44,7 @@ export default function AchievementsWrapper(props: AchievementWrapperProps) {
               }}
             >
               <IonCardContent>
-                <img className="glowFilter" src={achievement.img} />
+                <img className="glowFilter" src={achievement.img} alt="" />
                 <IonText>
                   <p>{achievement.title}</p>
                   {qty ? <IonBadge color="darkcream">{qty}</IonBadge> : null}

@@ -63,7 +63,10 @@ export default function Profilewrapper({
                 transform: "translate(-50%, -50%)",
               }}
             >
-              <img src={"https://api.adorable.io/avatars/200/" + user?.name} />
+              <img
+                src={"https://api.adorable.io/avatars/200/" + user?.name}
+                alt="avatar"
+              />
             </IonAvatar>
           </IonCol>
           <IonCol size="9">

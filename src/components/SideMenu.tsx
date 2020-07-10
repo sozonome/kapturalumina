@@ -19,13 +19,14 @@ import {
   logInSharp,
   personAddSharp,
 } from "ionicons/icons";
-import { withRouter } from "react-router";
+import { withRouter, useHistory } from "react-router";
 import { AuthContext } from "./providers/AuthProvider";
 import { logoutUser } from "../firebase/auth";
 import { FocusRafiki } from "../assets/assetsref";
 
 function SideMenu(props: any) {
   const { currentUser } = useContext(AuthContext);
+  const history = useHistory();
 
   return (
     <IonMenu type="overlay" contentId="main">
@@ -74,7 +75,7 @@ function SideMenu(props: any) {
               <IonItem
                 onClick={() =>
                   logoutUser().then(() => {
-                    props.history.push("/login");
+                    history.push("/login");
                   })
                 }
               >

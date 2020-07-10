@@ -61,15 +61,15 @@ export default function updateUserAchievements(
           });
       })
       .then(() => {
-        achievementsCatalog.map((achievement) => {
+        achievementsCatalog.forEach((achievement) => {
           // Quiz Achievements Check
           if (
             achievement.conditions.quizLength &&
             achievement.conditions.streak &&
             streak
           ) {
-            chapters.map((chapter) => {
-              chapter.subModules.map((subModule) => {
+            chapters.forEach((chapter) => {
+              chapter.subModules.forEach((subModule) => {
                 if (subModule.id === moduleId && subModule.quiz) {
                   if (
                     achievement.conditions.quizLength ===
@@ -258,7 +258,7 @@ export function UpdateUserLeaderBoardAchievements() {
       .then(() => {
         // console.log(achievementsCatalog);
         achievementsCatalog.map((achievement) => {
-          leaderboard
+          return leaderboard
             .child(user.uid)
             .child("dailyPoints")
             .once("value", (snap) => {

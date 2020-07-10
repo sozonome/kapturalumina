@@ -6,9 +6,8 @@ import {
   IonTabButton,
   IonIcon,
   IonLabel,
-  IonPage,
 } from "@ionic/react";
-import { Route, Redirect, Switch } from "react-router";
+import { Route, Redirect } from "react-router";
 import Home from "./Home";
 import Leaderboards from "./Leaderboards";
 import { homeSharp, listSharp, personSharp } from "ionicons/icons";

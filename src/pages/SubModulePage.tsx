@@ -31,7 +31,7 @@ import { chevronBack, chevronForward, checkmarkCircle } from "ionicons/icons";
 import ErrorContent from "../components/ErrorContent";
 import SubModuleSlideImage from "../components/SubModuleSlideImage";
 import { updateUserLearnProgress } from "../firebase/users";
-import { withRouter } from "react-router";
+import { withRouter, useHistory, useParams } from "react-router";
 import { updateUserLeaderBoardPoints } from "../firebase/leaderboard";
 
 function SubModulePage(props: any) {
@@ -45,34 +45,19 @@ function SubModulePage(props: any) {
   const [alertQuiz, setAlertQuiz] = useState<boolean>(false);
   const [busyUpdate, setBusyUpdate] = useState<boolean>(false);
 
-  // const [subModule, dispatch] = useReducer(reducer, undefined);
+  const history = useHistory();
+  const { chapterId, subModuleId } = useParams();
 
   useEffect(() => {
-    // console.log("useEffect Fetch", subModule);
-    const chapter = chapters.find(
-      (chapter) => chapter.id === props.match.params.chapterId
-    );
-    if (
-      chapter &&
-      props.match.params.chapterId !== null &&
-      props.match.params.subModuleId !== null
-    ) {
-      // console.log("fetchh", subModule, props.match.params.subModuleId);
-      // dispatch({
-      //   type: "fetch",
-      //   payload: chapter.subModules.find(
-      //     (subModule) => subModule.id === props.match.params.subModuleId
-      //   ),
-      // });
+    const chapter = chapters.find((chapter) => chapter.id === chapterId);
+    if (chapter && chapterId !== null && subModuleId !== null) {
       setSubModule(undefined);
       setSubModule(
-        chapter.subModules.find(
-          (subModule) => subModule.id === props.match.params.subModuleId
-        )
+        chapter.subModules.find((subModule) => subModule.id === subModuleId)
       );
     }
     setBusy(false);
-  }, [props.match.params.chapterId, props.match.params.subModuleId, chapters]);
+  }, [chapterId, subModuleId, chapters]);
 
   useEffect(() => {
     // Cleanup Effect
@@ -91,12 +76,7 @@ function SubModulePage(props: any) {
     setBusyUpdate(true);
     if (subModule?.quiz == null) {
       // console.log("No Quiz");
-      updateUserLearnProgress(
-        props.match.params.subModuleId,
-        props.match.params.chapterId,
-        1,
-        true
-      );
+      updateUserLearnProgress(subModuleId!, chapterId!, 1, true);
       if (subModule?.passingPoints) {
         updateUserLeaderBoardPoints(subModule.passingPoints);
       } else {
@@ -105,18 +85,11 @@ function SubModulePage(props: any) {
     }
 
     setTimeout(() => {
-      // console.log("timeout");
-      // dispatch({
-      //   type: "reset",
-      // });
-
       setBusyUpdate(false);
       if (subModule?.quiz) {
-        props.history.replace(
-          `/quiz/${props.match.params.chapterId}/${props.match.params.subModuleId}`
-        );
+        history.replace(`/quiz/${chapterId}/${subModuleId}`);
       } else {
-        props.history.replace(`/learn/${props.match.params.chapterId}`);
+        history.replace(`/learn/${chapterId}`);
       }
       return <IonAlert isOpen={true} />;
     }, 1000);
@@ -167,21 +140,10 @@ function SubModulePage(props: any) {
 
   return (
     <IonPage>
-      {/* {console.log(
-        props.match.params.chapterId,
-        props.match.params.subModuleId,
-        subModule,
-        subModule?.slides.length,
-        chapters,
-        progressIndex,
-        slider,
-        finish
-      )} */}
       {busy ? (
         <IonSpinner />
       ) : subModule !== undefined ? (
         <>
-          {/* <Prompt message="Apakah anda yakin?" /> */}
           <IonHeader>
             <IonToolbar>
               <IonButtons slot="start">
@@ -228,7 +190,7 @@ function SubModulePage(props: any) {
                 <IonCol size="6">
                   <IonButton
                     expand="block"
-                    // routerLink={`/quiz/${props.match.params.chapterId}/${props.match.params.subModuleId}`}
+                    // routerLink={`/quiz/${chapterId}/${subModuleId}`}
                     onClick={() => {
                       if (progressIndex === subModule.slides.length - 1) {
                         if (subModule.quiz) {
@@ -294,7 +256,6 @@ function SubModulePage(props: any) {
         </>
       ) : (
         <ErrorContent />
-        // props.history.push('/')
       )}
     </IonPage>
   );

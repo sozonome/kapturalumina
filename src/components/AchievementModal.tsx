@@ -22,6 +22,7 @@ export default function AchievementModal(props: AchievementModalType) {
       <img
         style={{ margin: "0 auto", width: "50vw" }}
         src={props.viewAchievement?.img}
+        alt=""
       />
       <IonText>
         <p>{props.viewAchievement?.subTitle}</p>

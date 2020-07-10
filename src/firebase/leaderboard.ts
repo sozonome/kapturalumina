@@ -3,9 +3,7 @@
 import fbase from "./firebaseConfig";
 import getCurrentDate from "../functions/getCurrentDate";
 import { getCurrentUser } from "./auth";
-import UpdateUserAchievements, {
-  UpdateUserLeaderBoardAchievements,
-} from "./achievements";
+import { UpdateUserLeaderBoardAchievements } from "./achievements";
 
 export const leaderboard = fbase.database().ref(`leaderboards`);
 

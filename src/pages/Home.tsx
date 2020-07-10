@@ -66,7 +66,7 @@ const Home: React.FC = () => {
               </IonRow>
               <IonRow>
                 <IonCol className="headerImage">
-                  <img className="glowFilter" src={HelloRafiki} />
+                  <img className="glowFilter" src={HelloRafiki} alt="" />
                 </IonCol>
               </IonRow>
               <IonRow>
@@ -74,7 +74,7 @@ const Home: React.FC = () => {
                   let chapterProgress = 0;
                   let prevChapterProgress = 0;
                   let locked = index === 0 ? false : true;
-                  progress.map((prog) => {
+                  progress.forEach((prog) => {
                     if (prog.chapterId === chapter.id && prog.passed) {
                       chapterProgress++;
                     }
@@ -93,15 +93,13 @@ const Home: React.FC = () => {
                       }
                     }
                   });
-                  // console.log(chapterProgress, chapter.id)
-                  // console.log(chapter.id, chapterProgress, chapter.subModules.length)
                   return (
                     <IonCol sizeXs="12" sizeSm="6" key={index}>
                       <IonCard
                         disabled={locked}
                         routerLink={`/learn/${chapter.id}`}
                       >
-                        <img src={chapter.thumbnail} />
+                        <img src={chapter.thumbnail} alt={chapter.title} />
                         <IonCardHeader>
                           <IonCardTitle>{chapter.title}</IonCardTitle>
                           <IonCardSubtitle>{chapter.subtitle}</IonCardSubtitle>

@@ -3,7 +3,6 @@ import {
   IonSlides,
   IonSlide,
   IonText,
-  IonImg,
   IonCard,
   IonCardContent,
   IonCardTitle,
@@ -38,7 +37,7 @@ export default function PublicHomeSlide() {
             </IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
-            <img className="glowFilter" src={PhotoAmico} />
+            <img className="glowFilter" src={PhotoAmico} alt="" />
           </IonCardContent>
         </IonCard>
       </IonSlide>
@@ -52,7 +51,7 @@ export default function PublicHomeSlide() {
             </IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
-            <img className="glowFilter" src={FocusAmico} />
+            <img className="glowFilter" src={FocusAmico} alt="" />
           </IonCardContent>
         </IonCard>
         <IonText></IonText>
@@ -67,7 +66,7 @@ export default function PublicHomeSlide() {
             </IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
-            <img className="glowFilter" src={FocusPana} />
+            <img className="glowFilter" src={FocusPana} alt="" />
           </IonCardContent>
         </IonCard>
       </IonSlide>

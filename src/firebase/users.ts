@@ -4,7 +4,6 @@ import fbase from "./firebaseConfig";
 import { presentToast } from "../components/Toast";
 import { leaderboard } from "./leaderboard";
 import { getCurrentUser } from "./auth";
-import randomString from "../functions/randomString";
 import updateUserAchievements from "./achievements";
 
 // All Users
@@ -223,55 +222,60 @@ export async function updateUserProfile(
   website?: string
 ) {
   const user = getCurrentUser();
-  if (user) {
-    const userLeaderboard = leaderboard.child(user.uid);
-    const userData = usersData.child(user.uid);
-
-    userData.update({
-      name: name,
-    });
-    userLeaderboard.update({
-      name: name,
-    });
-    if (bio) {
-      userData.child("bio").set(bio);
-    }
-    if (bio?.length === 0) {
-      userData.child("bio").set(null);
-    }
-    const userProfileLinks = userData.child("socialLinks");
-    if (instagram) {
-      if (instagram[0] === "@") {
-        userProfileLinks.child("instagram").set(instagram.substring(1));
-      } else {
-        userProfileLinks.child("instagram").set(instagram);
-      }
-    }
-    if (instagram?.length === 0) {
-      userProfileLinks.child("instagram").set(null);
-    }
-    if (youTube) {
-      userProfileLinks.child("youtube").set(youTube);
-    }
-    if (youTube?.length === 0) {
-      userProfileLinks.child("youtube").set(null);
-    }
-    if (website) {
-      if (
-        website.substring(0, 8) === "https://" ||
-        website.substring(0, 7) === "http://"
-      ) {
-        userProfileLinks.child("website").set(website);
-      } else {
-        userProfileLinks.child("website").set("https://" + website);
-      }
-    }
-    if (website?.length === 0) {
-      userProfileLinks.child("website").set(null);
-    }
-  }
 
   try {
+    if (user) {
+      const userLeaderboard = leaderboard.child(user.uid);
+      const userData = usersData.child(user.uid);
+
+      userData
+        .update({
+          name: name,
+        })
+        .then(() => {
+          userLeaderboard.update({
+            name: name,
+          });
+        })
+        .then(() => {
+          if (bio) {
+            userData.child("bio").set(bio);
+          }
+          if (bio?.length === 0) {
+            userData.child("bio").set(null);
+          }
+          const userProfileLinks = userData.child("socialLinks");
+          if (instagram) {
+            if (instagram[0] === "@") {
+              userProfileLinks.child("instagram").set(instagram.substring(1));
+            } else {
+              userProfileLinks.child("instagram").set(instagram);
+            }
+          }
+          if (instagram?.length === 0) {
+            userProfileLinks.child("instagram").set(null);
+          }
+          if (youTube) {
+            userProfileLinks.child("youtube").set(youTube);
+          }
+          if (youTube?.length === 0) {
+            userProfileLinks.child("youtube").set(null);
+          }
+          if (website) {
+            if (
+              website.substring(0, 8) === "https://" ||
+              website.substring(0, 7) === "http://"
+            ) {
+              userProfileLinks.child("website").set(website);
+            } else {
+              userProfileLinks.child("website").set("https://" + website);
+            }
+          }
+          if (website?.length === 0) {
+            userProfileLinks.child("website").set(null);
+          }
+        });
+    }
     return true;
   } catch (error) {
     presentToast(error.message);

@@ -20,8 +20,9 @@ import ErrorContent from "../components/ErrorContent";
 import shuffleSet from "../functions/shuffle";
 import { updateUserLeaderBoardPoints } from "../firebase/leaderboard";
 import { presentToast } from "../components/Toast";
+import { useParams, useHistory } from "react-router";
 
-export default function QuizPage(props: any) {
+export default function QuizPage() {
   const { chapters }: { chapters: Chapter[] } = useContext(LearnContext);
   const [score, setScore] = useState<number>(0);
 
@@ -35,13 +36,14 @@ export default function QuizPage(props: any) {
   const [busyUpdate, setBusyUpdate] = useState<boolean>(false);
   const [finish, setFinish] = useState<boolean>(false);
 
+  const { chapter_id, subModule_id } = useParams();
+  const history = useHistory();
+
   useEffect(() => {
-    const chapter = chapters.find(
-      (chapter) => chapter.id === props.match.params.chapter_id
-    );
+    const chapter = chapters.find((chapter) => chapter.id === chapter_id);
     if (chapter) {
       const subModule = chapter.subModules.find(
-        (subModule) => subModule.id === props.match.params.subModule_id
+        (subModule) => subModule.id === subModule_id
       );
       if (subModule) {
         if (subModule.quiz) {
@@ -53,18 +55,14 @@ export default function QuizPage(props: any) {
       }
     }
     setBusy(false);
-  }, [
-    chapters,
-    props.match.params.chapter_id,
-    props.match.params.subModule_id,
-  ]);
+  }, [chapters, chapter_id, subModule_id]);
 
   useEffect(() => {
     if (finish === true) {
       updateLearnProgress();
-      setFinish(false); //Re-initialize finish state
+      setFinish(false);
     }
-  });
+  }, [finish]);
 
   function updateLearnProgress() {
     // Value Streak and Points
@@ -87,8 +85,8 @@ export default function QuizPage(props: any) {
 
     setTimeout(() => {
       updateUserLearnProgress(
-        props.match.params.subModule_id,
-        props.match.params.chapter_id,
+        subModule_id!,
+        chapter_id!,
         newScore,
         passed,
         newStreak
@@ -104,7 +102,7 @@ export default function QuizPage(props: any) {
       setScore(0);
       setIndex(0);
       setStreak(0);
-      props.history.replace(`/learn/${props.match.params.chapter_id}`);
+      history.replace(`/learn/${chapter_id}`);
       // setQuiz([]);
       // setQuizPassingScore([]);
     }, 2000);
@@ -137,7 +135,7 @@ export default function QuizPage(props: any) {
               {quiz[index].img ? (
                 <IonRow>
                   <IonCol>
-                    <img src={quiz[index].img?.url} />
+                    <img src={quiz[index].img?.url} alt="" />
                     {quiz[index].img?.caption ? (
                       <IonText>
                         <p>{quiz[index].img?.caption}</p>
@@ -181,21 +179,6 @@ export default function QuizPage(props: any) {
                 })}
               </IonRow>
             </IonGrid>
-            {/* <IonAlert
-              isOpen={alertSubmitQuiz}
-              onDidDismiss={() => setAlertSubmitQuiz(false)}
-              header="Quiz Selesai"
-              message="Hebat! Yuk lanjutkan materi berikutnya."
-              buttons={[
-                {
-                  text: "Lanjut",
-                  handler: () =>
-                    props.history.replace(
-                      `/learn/${props.match.params.chapterId}`
-                    ),
-                },
-              ]}
-            /> */}
           </IonContent>
         </>
       ) : (

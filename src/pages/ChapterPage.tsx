@@ -24,7 +24,7 @@ import { Chapter } from "../models/chapters";
 import { playCircle, checkmarkCircle, reloadCircle } from "ionicons/icons";
 import ErrorContent from "../components/ErrorContent";
 import { UserProgressContext } from "../components/providers/ProgressProvider";
-import { withRouter } from "react-router";
+import { withRouter, useParams } from "react-router";
 
 function ChapterPage(props: any) {
   const { chapters } = useContext(LearnContext);
@@ -33,28 +33,23 @@ function ChapterPage(props: any) {
   const [chapter, setChapter] = useState<Chapter>();
   const [busy, setBusy] = useState<boolean>(true);
 
+  const { chapter__id } = useParams();
+
   useEffect(() => {
-    setChapter(
-      chapters.find((chapter) => chapter.id === props.match.params.chapter__id)
-    );
+    setChapter(chapters.find((chapter) => chapter.id === chapter__id));
     setBusy(false);
-  }, [chapters, progress, props.match.params.chapter__id]);
+  }, [chapters, progress, chapter__id]);
 
   return (
     <IonPage>
-      {/* {console.log("back to chapter")} */}
       {busy ? (
         <IonSpinner />
       ) : chapter ? (
         <>
-          {/* {console.log(learnProgress)} */}
           <IonHeader>
             <IonToolbar>
               <IonButtons slot="start">
                 <IonBackButton />
-                {/* <IonButton routerLink="/">
-                  <IonIcon icon={arrowBackOutline} />
-                </IonButton> */}
               </IonButtons>
               <IonTitle>{chapter.title}</IonTitle>
             </IonToolbar>
@@ -66,7 +61,8 @@ function ChapterPage(props: any) {
                   let bestScore = null;
                   let locked = index === 0 ? false : true;
                   let passed = false;
-                  progress.map((progress, i) => {
+
+                  progress.forEach((progress) => {
                     if (
                       progress.chapterId === chapter.id &&
                       progress.subModuleId === chapter.subModules[index].id
@@ -84,6 +80,7 @@ function ChapterPage(props: any) {
                       }
                     }
                   });
+
                   return (
                     <IonCol
                       class="ion-align-items-center"
@@ -95,7 +92,7 @@ function ChapterPage(props: any) {
                         disabled={locked}
                         routerLink={`/learn/${chapter.id}/${subModule.id}`}
                       >
-                        <img src={subModule.thumbnail} />
+                        <img src={subModule.thumbnail} alt={subModule.title} />
                         <IonCardHeader>
                           <IonCardTitle>{subModule.title}</IonCardTitle>
                           <IonCardSubtitle>
