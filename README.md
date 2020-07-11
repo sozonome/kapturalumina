@@ -1,9 +1,8 @@
 # KapturaLumina
 ![KapturaLumina](previews/banner.jpg)
 
-Basic Photography Learning Mobile Applications with Gamification
-
-Bachelor Thesis (Final Project) of [Agustinus Nathaniel](https://agustinusnathaniel.com)
+Basic Photography Learning Mobile Applications with Gamification <br/>
+Part of my Bachelor Thesis research in gamification design and implementation.
 
 [<img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" width="200"/>](https://play.google.com/store/apps/details?id=dev.sznm.kapturalumina)
 
