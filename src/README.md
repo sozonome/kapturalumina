@@ -18,3 +18,4 @@
   5. _styling_
   6. internal images
 - **`yarn prettify`** or **`npm run prettify`** before commit
+- [Commit Conventions](https://www.conventionalcommits.org/en/v1.0.0/)
