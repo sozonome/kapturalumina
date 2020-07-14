@@ -16,10 +16,12 @@ import {
   IonTextarea,
   IonLoading,
 } from "@ionic/react";
-import { UserProfileContext } from "../components/providers/UserProfileProvider";
-import { presentToast } from "../components/Toast";
-import { updateUserProfile } from "../firebase/users";
 import { useHistory } from "react-router";
+
+import { UserProfileContext } from "../../../components/providers/UserProfileProvider";
+import { presentToast } from "../../../components/Toast";
+
+import { updateUserProfile } from "../../../firebase/users";
 
 export default function EditProfile(props: any) {
   const { user } = useContext(UserProfileContext);

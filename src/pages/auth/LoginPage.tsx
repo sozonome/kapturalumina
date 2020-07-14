@@ -14,11 +14,14 @@ import {
   IonLoading,
 } from "@ionic/react";
 import { withRouter, Redirect, useHistory } from "react-router";
-import { AuthContext } from "../components/providers/AuthProvider";
-import { loginUser } from "../firebase/auth";
-import { FocusRafiki } from "../assets/assetsref";
 
-function LoginPage(props: any) {
+import { AuthContext } from "../../components/providers/AuthProvider";
+
+import { loginUser } from "../../firebase/auth";
+
+import { FocusRafiki } from "../../assets";
+
+function LoginPage() {
   const [wait, setWait] = useState<boolean>(false);
 
   const [email, setEmail] = useState<string>("");

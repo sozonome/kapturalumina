@@ -15,6 +15,7 @@ import {
   IonCol,
 } from "@ionic/react";
 import { removeSharp, addSharp } from "ionicons/icons";
+
 import shuffleSet from "../functions/shuffle";
 import getCurrentDate from "../functions/getCurrentDate";
 import { updateUserLeaderBoardPoints } from "../firebase/leaderboard";

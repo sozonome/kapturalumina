@@ -1,3 +1,4 @@
+import React, { useContext, useState, useEffect } from "react";
 import {
   IonContent,
   IonHeader,
@@ -18,12 +19,13 @@ import {
   IonText,
   IonProgressBar,
 } from "@ionic/react";
-import React, { useContext, useState, useEffect } from "react";
 import { withRouter } from "react-router";
-import { LearnContext } from "../components/providers/LearnProvider";
-import { UserProgressContext } from "../components/providers/ProgressProvider";
-import { UserProfileContext } from "../components/providers/UserProfileProvider";
-import { HelloRafiki } from "../assets/assetsref";
+
+import { LearnContext } from "../../../components/providers/LearnProvider";
+import { UserProgressContext } from "../../../components/providers/ProgressProvider";
+import { UserProfileContext } from "../../../components/providers/UserProfileProvider";
+
+import { HelloRafiki } from "../../../assets";
 
 const Home: React.FC = () => {
   const { chapters } = useContext(LearnContext);

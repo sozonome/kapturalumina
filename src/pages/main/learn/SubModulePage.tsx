@@ -25,14 +25,17 @@ import {
   IonCardSubtitle,
   IonLoading,
 } from "@ionic/react";
-import { LearnContext } from "../components/providers/LearnProvider";
-import { Chapter, SubModule } from "../models/chapters";
 import { chevronBack, chevronForward, checkmarkCircle } from "ionicons/icons";
-import ErrorContent from "../components/ErrorContent";
-import SubModuleSlideImage from "../components/SubModuleSlideImage";
-import { updateUserLearnProgress } from "../firebase/users";
 import { withRouter, useHistory, useParams } from "react-router";
-import { updateUserLeaderBoardPoints } from "../firebase/leaderboard";
+
+import { LearnContext } from "../../../components/providers/LearnProvider";
+import ErrorContent from "../../../components/error/ErrorContent";
+import SubModuleSlideImage from "../../../components/SubModuleSlideImage";
+
+import { updateUserLearnProgress } from "../../../firebase/users";
+import { updateUserLeaderBoardPoints } from "../../../firebase/leaderboard";
+
+import { Chapter, SubModule } from "../../../models/chapters";
 
 function SubModulePage(props: any) {
   const { chapters }: { chapters: Chapter[] } = useContext(LearnContext);

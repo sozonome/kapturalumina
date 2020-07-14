@@ -13,14 +13,17 @@ import {
   IonLoading,
   IonText,
 } from "@ionic/react";
-import { Chapter, Question, Scoring } from "../models/chapters";
-import { LearnContext } from "../components/providers/LearnProvider";
-import { updateUserLearnProgress } from "../firebase/users";
-import ErrorContent from "../components/ErrorContent";
-import shuffleSet from "../functions/shuffle";
-import { updateUserLeaderBoardPoints } from "../firebase/leaderboard";
-import { presentToast } from "../components/Toast";
 import { useParams, useHistory } from "react-router";
+
+import { LearnContext } from "../../../components/providers/LearnProvider";
+import ErrorContent from "../../../components/error/ErrorContent";
+import { updateUserLeaderBoardPoints } from "../../../firebase/leaderboard";
+import { presentToast } from "../../../components/Toast";
+
+import shuffleSet from "../../../functions/shuffle";
+import { updateUserLearnProgress } from "../../../firebase/users";
+
+import { Chapter, Question, Scoring } from "../../../models/chapters";
 
 export default function QuizPage() {
   const { chapters }: { chapters: Chapter[] } = useContext(LearnContext);
@@ -55,14 +58,16 @@ export default function QuizPage() {
       }
     }
     setBusy(false);
-  }, [chapters, chapter_id, subModule_id]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (finish === true) {
       updateLearnProgress();
       setFinish(false);
     }
-  }, [finish]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   function updateLearnProgress() {
     // Value Streak and Points

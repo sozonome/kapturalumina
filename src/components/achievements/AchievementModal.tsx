@@ -1,6 +1,6 @@
 import React from "react";
 import { IonModal, IonText, IonButton } from "@ionic/react";
-import { Achievement } from "../models/achievements";
+import { Achievement } from "../../models/achievements";
 
 export type AchievementModalType = {
   viewAchievement?: Achievement;

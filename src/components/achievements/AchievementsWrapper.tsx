@@ -6,7 +6,7 @@ import {
   IonText,
   IonBadge,
 } from "@ionic/react";
-import { Achievement } from "../models/achievements";
+import { Achievement } from "../../models/achievements";
 
 export type AchievementWrapperProps = {
   userAchievement: Achievement[];

@@ -23,32 +23,31 @@ import "@ionic/react/css/text-transformation.css";
 import "@ionic/react/css/flex-utils.css";
 import "@ionic/react/css/display.css";
 
-/* Theme variables */
-import "./theme/variables.css";
+// Native Plugins
+import { Plugins } from "@capacitor/core";
+import { AppMinimize } from "@ionic-native/app-minimize";
 
 // Components / Wrappers
-import SideMenu from "./components/SideMenu";
-import Routing from "./components/Routing";
-
 import AuthProvider from "./components/providers/AuthProvider";
 import LearnProvider from "./components/providers/LearnProvider";
+import UserProfileProvider from "./components/providers/UserProfileProvider";
+import UserProgressProvider from "./components/providers/ProgressProvider";
+import SideMenu from "./components/sidemenu/SideMenu";
+import Routing from "./components/routings/Routing";
 
 // Global CSS
 import "typeface-inter";
 import "typeface-karla";
 import "./theme/styles/global.scss";
-import UserProgressProvider from "./components/providers/ProgressProvider";
-import UserProfileProvider from "./components/providers/UserProfileProvider";
 
-import { Plugins } from "@capacitor/core";
-import { AppMinimize } from "@ionic-native/app-minimize";
+/* Theme variables */
+import "./theme/variables.css";
+
 const { App } = Plugins;
 
 App.addListener("backButton", () => {
   AppMinimize.minimize();
 });
-
-// const store = createStore(reducer);
 
 setupConfig({
   hardwareBackButton: false,

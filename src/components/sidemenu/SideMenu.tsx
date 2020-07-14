@@ -20,9 +20,9 @@ import {
   personAddSharp,
 } from "ionicons/icons";
 import { withRouter, useHistory } from "react-router";
-import { AuthContext } from "./providers/AuthProvider";
-import { logoutUser } from "../firebase/auth";
-import { FocusRafiki } from "../assets/assetsref";
+import { AuthContext } from "../providers/AuthProvider";
+import { logoutUser } from "../../firebase/auth";
+import { FocusRafiki } from "../../assets";
 
 function SideMenu(props: any) {
   const { currentUser } = useContext(AuthContext);

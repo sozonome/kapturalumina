@@ -10,6 +10,7 @@ import {
   IonButton,
 } from "@ionic/react";
 import { withRouter, Redirect } from "react-router";
+
 import { AuthContext } from "../components/providers/AuthProvider";
 import PublicHomeSlide from "../components/PublicHomeSlide";
 

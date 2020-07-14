@@ -7,12 +7,13 @@ import {
   IonIcon,
   IonLabel,
 } from "@ionic/react";
-import { Route, Redirect } from "react-router";
-import Home from "./Home";
-import Leaderboards from "./Leaderboards";
 import { homeSharp, listSharp, personSharp } from "ionicons/icons";
-import Profile from "./Profile";
-import PrivateRoute from "../components/PrivateRoute";
+import { Route, Redirect } from "react-router";
+
+import Home from "./learn/Home";
+import Leaderboards from "./Leaderboards";
+import Profile from "./profile/Profile";
+import PrivateRoute from "../../components/routings/PrivateRoute";
 
 export default function MainTabs() {
   return (

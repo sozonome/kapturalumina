@@ -14,7 +14,8 @@ import {
   IonCol,
 } from "@ionic/react";
 import { logoIonic, logoReact, logoFirebase, person } from "ionicons/icons";
-import { StaticAssetsAmico } from "../assets/assetsref";
+
+import { StaticAssetsAmico } from "../assets";
 
 export default function AboutPage() {
   return (

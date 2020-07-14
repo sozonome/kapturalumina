@@ -1,19 +1,19 @@
 import React, { useContext } from "react";
 import { IonRouterOutlet } from "@ionic/react";
 import { Route, Redirect, withRouter, Switch } from "react-router";
-import ComponentTestPage from "../pages/ComponentTestPage";
-import MainTabs from "../pages/MainTabs";
-import SubModulePage from "../pages/SubModulePage";
-import AboutPage from "../pages/AboutPage";
-import LoginPage from "../pages/LoginPage";
-import RegisterPage from "../pages/RegisterPage";
-import PublicHome from "../pages/PublicPage";
-import ChapterPage from "../pages/ChapterPage";
-import { AuthContext } from "./providers/AuthProvider";
+import ComponentTestPage from "../../pages/ComponentTestPage";
+import MainTabs from "../../pages/main/MainTabs";
+import SubModulePage from "../../pages/main/learn/SubModulePage";
+import AboutPage from "../../pages/AboutPage";
+import LoginPage from "../../pages/auth/LoginPage";
+import RegisterPage from "../../pages/auth/RegisterPage";
+import PublicHome from "../../pages/PublicPage";
+import ChapterPage from "../../pages/main/learn/ChapterPage";
+import { AuthContext } from "../providers/AuthProvider";
 import PrivateRoute from "./PrivateRoute";
-import QuizPage from "../pages/QuizPage";
-import EditProfile from "../pages/EditProfile";
-import UserProfile from "../pages/UserProfile";
+import QuizPage from "../../pages/main/learn/QuizPage";
+import EditProfile from "../../pages/main/profile/EditProfile";
+import UserProfile from "../../pages/main/profile/UserProfile";
 
 function Routing() {
   const { currentUser } = useContext(AuthContext);
@@ -42,10 +42,6 @@ function Routing() {
             component={QuizPage}
           />
         </Switch>
-        {/* <PrivateRoute 
-          path="/learn"
-          component={LearnWrapper}
-        /> */}
 
         <PrivateRoute exact path="/editprofile" component={EditProfile} />
         <PrivateRoute exact path="/user/:userId" component={UserProfile} />

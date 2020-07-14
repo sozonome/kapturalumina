@@ -20,12 +20,14 @@ import {
   IonCol,
   IonLoading,
 } from "@ionic/react";
-import { Leaderboard } from "../models/leaderboards";
-import { leaderboard } from "../firebase/leaderboard";
-import getCurrentDate from "../functions/getCurrentDate";
-import { usersData } from "../firebase/users";
-import { getCurrentUser } from "../firebase/auth";
-import { WinnersPana } from "../assets/assetsref";
+
+import { Leaderboard } from "../../models/leaderboards";
+import { leaderboard } from "../../firebase/leaderboard";
+import getCurrentDate from "../../functions/getCurrentDate";
+import { usersData } from "../../firebase/users";
+import { getCurrentUser } from "../../firebase/auth";
+
+import { WinnersPana } from "../../assets";
 
 function Leaderboards() {
   const [filterUser, setFilterUser] = useState<"global" | "friends">("global");

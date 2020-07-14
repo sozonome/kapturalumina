@@ -19,12 +19,14 @@ import {
   IonRow,
   IonCol,
 } from "@ionic/react";
-import { LearnContext } from "../components/providers/LearnProvider";
-import { Chapter } from "../models/chapters";
 import { playCircle, checkmarkCircle, reloadCircle } from "ionicons/icons";
-import ErrorContent from "../components/ErrorContent";
-import { UserProgressContext } from "../components/providers/ProgressProvider";
 import { withRouter, useParams } from "react-router";
+
+import { LearnContext } from "../../../components/providers/LearnProvider";
+import ErrorContent from "../../../components/error/ErrorContent";
+import { UserProgressContext } from "../../../components/providers/ProgressProvider";
+
+import { Chapter } from "../../../models/chapters";
 
 function ChapterPage(props: any) {
   const { chapters } = useContext(LearnContext);

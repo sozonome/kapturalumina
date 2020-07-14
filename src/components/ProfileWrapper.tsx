@@ -16,8 +16,8 @@ import { logoInstagram, logoYoutube, globeOutline } from "ionicons/icons";
 import { removeFollowedFriend, followAsFriend } from "../firebase/users";
 import { Achievement } from "../models/achievements";
 import { Leaderboard } from "../models/leaderboards";
-import AchievementsWrapper from "../components/AchievementsWrapper";
-import AchievementModal from "../components/AchievementModal";
+import AchievementsWrapper from "./achievements/AchievementsWrapper";
+import AchievementModal from "./achievements/AchievementModal";
 
 type ProfileWrapperProps = {
   mainMenu?: boolean;
