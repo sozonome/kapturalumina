@@ -1,61 +1,55 @@
-export interface Chapter {
+export type BaseType = {
   id: string;
   title: string;
   subtitle?: string;
   thumbnail?: string;
-  subModules: SubModule[];
   quiz?: Quiz;
-}
+};
 
-export interface SubModule {
-  id: string;
-  title: string;
-  subtitle?: string;
-  thumbnail?: string;
+export type Chapter = BaseType & {
+  subModules: Array<SubModule>;
+};
+
+export type SubModule = BaseType & {
   passingPoints?: number;
-  quiz?: Quiz;
-  slides: Slide[];
-}
+  slides: Array<Slide>;
+};
 
-export interface Slide {
-  id: string;
-  title?: string;
-  subTitle?: string;
+export type Slide = Pick<BaseType, "id" | "title" | "subtitle"> & {
   titleType?: "big" | "regular";
   text?: string;
   img?: ContentImg;
-}
+};
 
-export interface ContentImg {
+export type ContentImg = {
   url: string;
   position: "top" | "middle" | "bottom";
   caption?: string;
-}
+};
 
-export interface Quiz {
-  id: string;
-  contents: Question[];
-  passingScore: Scoring[];
+export type Quiz = Pick<BaseType, "id"> & {
+  contents: Array<Question>;
+  passingScore: Array<Scoring>;
   pick: number;
-}
+};
 
-export interface Question {
+export type Question = {
   id: number;
   question: string;
   img?: {
     url: string;
     caption?: string;
   };
-  answers: Answer[];
-}
+  answers: Array<Answer>;
+};
 
-export interface Answer {
+export type Answer = {
   content: string;
   correct: boolean;
-}
+};
 
-export interface Scoring {
+export type Scoring = {
   value: number;
   points: number;
   passed: boolean;
-}
+};

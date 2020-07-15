@@ -1,17 +1,15 @@
-export interface UserData {
+export type UserData = {
   id: string;
   name: string;
   email: string;
   public_id: string;
   bio?: string;
-  achievements?: [
-    {
-      id: string;
-      qty?: number;
-    }
-  ];
-  friends?: string[];
-  progress?: Progress[];
+  achievements?: Array<{
+    id: string;
+    qty?: number;
+  }>;
+  friends?: Array<string>;
+  progress?: Array<Progress>;
   streaks?: {
     bestStreak?: number;
     prevBestStreak?: number;
@@ -22,21 +20,21 @@ export interface UserData {
     instagram?: string;
     website?: string;
   };
-}
+};
 
-export interface Progress {
+export type Progress = {
   chapterId: string;
   subModuleId: string;
   date?: Date;
   score?: number;
   passed: boolean;
-}
+};
 
-export interface ProfilePicture {
+export type ProfilePicture = {
   id: string;
   img: {
     name: string;
     src: string;
   };
   unlockLimit: number;
-}
+};

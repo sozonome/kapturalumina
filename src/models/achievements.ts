@@ -1,13 +1,13 @@
-export interface Achievement {
+export type Achievement = {
   id: string;
   title: string;
+  subTitle?: string;
   img: string;
   conditions: AchievementConditions;
-  subTitle?: string;
   oneTime: boolean;
-}
+};
 
-export interface AchievementConditions {
+export type AchievementConditions = {
   streak?: number;
   chaptersDone?: number;
   modulesDone?: number;
@@ -16,4 +16,4 @@ export interface AchievementConditions {
   dailyPoints?: number;
   chapterId?: string;
   moduleId?: string;
-}
+};

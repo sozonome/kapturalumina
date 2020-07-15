@@ -1,4 +1,4 @@
-export interface Leaderboard {
+export type Leaderboard = {
   name: string;
   public_id: string;
   points: number;
@@ -8,7 +8,7 @@ export interface Leaderboard {
   modulesDone?: number;
 }
 
-export interface DailyPoint {
+export type DailyPoint = {
   date: Date;
   value: number;
   modulesDone: number;
