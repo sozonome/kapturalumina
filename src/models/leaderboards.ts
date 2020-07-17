@@ -6,10 +6,10 @@ export type Leaderboard = {
   level?: number;
   chaptersDone?: number;
   modulesDone?: number;
-}
+};
 
 export type DailyPoint = {
   date: Date;
   value: number;
   modulesDone: number;
-}
+};
