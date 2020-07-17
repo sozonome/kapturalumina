@@ -1,6 +1,6 @@
 {
   "name": "kapturalumina",
-  "version": "0.0.1",
+  "version": "1.1.0",
   "private": true,
   "author": "sozonome",
   "dependencies": {
@@ -43,7 +43,8 @@
     "add-android": "npx cap add android",
     "build-release-android": "npm run build && npx cap copy",
     "debug-android": "npx cap open android",
-    "prettify": "prettier --write src/"
+    "prettify": "prettier --write src/",
+    "release": "standard-version"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -65,6 +66,7 @@
     "@capacitor/cli": "2.1.0",
     "@types/firebase": "^3.2.1",
     "@types/react-redux": "^7.1.7",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "standard-version": "^8.0.2"
   }
 }
