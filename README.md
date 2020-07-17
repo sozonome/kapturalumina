@@ -17,6 +17,7 @@ Learn | Quiz |
 App Theme color inspired by Dracula Theme color palette
 
 ## Tech Stacks, Dependencies
+![codefactor badge](https://www.codefactor.io/repository/github/sozonome/kapturalumina/badge?style=for-the-badge)
 * Framework : Ionic v5 - React
 * Database + Auth : Firebase
 * Tools, Libraries : 
