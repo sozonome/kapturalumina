@@ -16,10 +16,6 @@ ion-app {
   font-family: "Karla";
 }
 
-// ion-img > img{
-//   border-radius: 15px;
-// }
-
 .quizAnswerButton {
   height: 80px;
   font-size: 1.1rem;
@@ -100,12 +96,11 @@ hr {
     ion-img {
       max-width: 400px;
     }
-    margin: 50px auto 0 auto;
     position: absolute;
     left: 0;
     right: 0;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-60%);
   }
 }
 
