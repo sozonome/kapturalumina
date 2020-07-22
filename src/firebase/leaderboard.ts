@@ -32,7 +32,7 @@ export function updateUserLeaderBoardPoints(points: number) {
 
   // To make sure if mistakenly insert chapters scoring entry in form of string in database
   if (typeof points === "string") {
-    points = parseInt(points);
+    points = parseInt(points, 10);
   }
 
   if (user !== null) {
@@ -62,7 +62,7 @@ export function updateUserLeaderBoardPoints(points: number) {
               // Update if today's dailyPoint entry exists
 
               const currentDailyPoint: number =
-                parseInt(todaysDailyPoint.points) + points;
+                parseInt(todaysDailyPoint.points, 10) + points;
               return userLeaderboard
                 .child(`dailyPoints/${todaysDailyPointKey}`)
                 .update({
@@ -71,7 +71,7 @@ export function updateUserLeaderBoardPoints(points: number) {
             } else {
               // Push new entry
               return userLeaderboard
-                .child(`dailyPoints/${parseInt(todaysDailyPointKey) + 1}`)
+                .child(`dailyPoints/${parseInt(todaysDailyPointKey, 10) + 1}`)
                 .set({
                   date: currentDate,
                   points: points,
@@ -80,7 +80,7 @@ export function updateUserLeaderBoardPoints(points: number) {
           }
         };
         userLeaderboard.once("value", (snap) => {
-          const currentPoints = parseInt(snap.val().points) + points;
+          const currentPoints = parseInt(snap.val().points, 10) + points;
 
           userLeaderboard.update({
             points: currentPoints,

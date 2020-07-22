@@ -166,7 +166,7 @@ export default function updateUserAchievements(
               snap.forEach((userAchievement) => {
                 if (quizAchievements.length > 0) {
                   if (userAchievement.val().id === quizAchievements[0].id) {
-                    const newQty = parseInt(userAchievement.val().qty) + 1;
+                    const newQty = parseInt(userAchievement.val().qty, 10) + 1;
                     userAchievementData.child(`${userAchievement.key}`).update({
                       qty: newQty,
                     });
@@ -176,7 +176,7 @@ export default function updateUserAchievements(
                 }
                 if (streakAchievements.length > 0) {
                   if (userAchievement.val().id === streakAchievements[0].id) {
-                    const newQty = parseInt(userAchievement.val().qty) + 1;
+                    const newQty = parseInt(userAchievement.val().qty, 10) + 1;
                     userAchievementData.child(`${userAchievement.key}`).update({
                       qty: newQty,
                     });
