@@ -56,6 +56,14 @@ function RegisterPage() {
     }
   }
 
+  function enterKeyDown(e: React.KeyboardEvent) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      e.stopPropagation();
+      register();
+    }
+  }
+
   const { currentUser } = useContext(AuthContext);
   if (currentUser) {
     return <Redirect to="/" />;
@@ -93,16 +101,18 @@ function RegisterPage() {
             <IonItem>
               <IonIcon icon={person} />
               <IonInput
-                onIonChange={(e) => setName(e.detail.value!)}
                 type="text"
+                onIonChange={(e) => setName(e.detail.value!)}
+                onKeyDown={(e) => enterKeyDown(e)}
                 placeholder="Nama Anda"
               />
             </IonItem>
             <IonItem>
               <IonIcon icon={mail} />
               <IonInput
-                onIonChange={(e) => setEmail(e.detail.value!)}
                 type="email"
+                onIonChange={(e) => setEmail(e.detail.value!)}
+                onKeyDown={(e) => enterKeyDown(e)}
                 placeholder="E-Mail Anda"
               />
             </IonItem>
@@ -110,16 +120,18 @@ function RegisterPage() {
               <IonIcon icon={key} />
               <IonInput
                 type="password"
-                placeholder="Kata Sandi Anda"
                 onIonChange={(e) => setPassword(e.detail.value!)}
+                onKeyDown={(e) => enterKeyDown(e)}
+                placeholder="Kata Sandi Anda"
               />
             </IonItem>
             <IonItem>
               <IonIcon icon={keyOutline} />
               <IonInput
                 type="password"
-                placeholder="Konfirmasi Kata Sandi Anda"
                 onIonChange={(e) => setCPassword(e.detail.value!)}
+                onKeyDown={(e) => enterKeyDown(e)}
+                placeholder="Konfirmasi Kata Sandi Anda"
               />
             </IonItem>
             <IonText className="ion-padding-start" color="danger">

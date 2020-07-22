@@ -40,6 +40,14 @@ function LoginPage() {
     setWait(false);
   }
 
+  function enterKeyDown(e: React.KeyboardEvent) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      e.stopPropagation();
+      login();
+    }
+  }
+
   const { currentUser } = useContext(AuthContext);
   if (currentUser) {
     return <Redirect to="/" />;
@@ -72,18 +80,20 @@ function LoginPage() {
                 <IonList>
                   <IonItem>
                     <IonInput
+                      type="email"
                       value={email}
                       onIonChange={(e) => setEmail(e.detail.value!)}
-                      type="email"
+                      onKeyDown={(e) => enterKeyDown(e)}
                       placeholder="E-Mail Anda"
                     />
                   </IonItem>
                   <IonItem>
                     <IonInput
-                      value={password}
                       type="password"
-                      placeholder="Kata Sandi Anda"
+                      value={password}
                       onIonChange={(e) => setPassword(e.detail.value!)}
+                      onKeyDown={(e) => enterKeyDown(e)}
+                      placeholder="Kata Sandi Anda"
                     />
                   </IonItem>
                 </IonList>
