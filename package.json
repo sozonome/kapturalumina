@@ -68,5 +68,12 @@
     "@types/react-redux": "^7.1.7",
     "prettier": "^2.0.5",
     "standard-version": "^8.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sozonome/kapturalumina"
+  },
+  "bugs": {
+    "url": "https://github.com/sozonome/kapturalumina/issues"
   }
 }
