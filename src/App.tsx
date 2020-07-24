@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   IonApp,
   IonSplitPane,
@@ -41,7 +41,8 @@ import "typeface-karla";
 import "./theme/styles/global.scss";
 
 /* Theme variables */
-import "./theme/variables.css";
+import "./theme/variables.scss";
+import ThemeProvider from "./components/providers/ThemeProvider";
 
 const { App } = Plugins;
 
@@ -65,22 +66,24 @@ const KapturaLumina: React.FC = () => {
   });
 
   return (
-    <AuthProvider>
-      <LearnProvider>
-        <UserProfileProvider>
-          <UserProgressProvider>
-            <IonApp>
-              <IonReactRouter>
-                <IonSplitPane contentId="main">
-                  <SideMenu />
-                  <Routing />
-                </IonSplitPane>
-              </IonReactRouter>
-            </IonApp>
-          </UserProgressProvider>
-        </UserProfileProvider>
-      </LearnProvider>
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <LearnProvider>
+          <UserProfileProvider>
+            <UserProgressProvider>
+              <IonApp>
+                <IonReactRouter>
+                  <IonSplitPane contentId="main">
+                    <SideMenu />
+                    <Routing />
+                  </IonSplitPane>
+                </IonReactRouter>
+              </IonApp>
+            </UserProgressProvider>
+          </UserProfileProvider>
+        </LearnProvider>
+      </AuthProvider>
+    </ThemeProvider>
   );
 };
 

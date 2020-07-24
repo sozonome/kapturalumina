@@ -11,12 +11,12 @@ export type AchievementModalType = {
 export default function AchievementModal(props: AchievementModalType) {
   return (
     <IonModal
-      cssClass={"achievementModal ion-padding ion-text-center"}
+      cssClass={"ion-padding ion-text-center"}
       swipeToClose={true}
       onDidDismiss={() => props.dismiss(false)}
       isOpen={props.openAchievement}
     >
-      <IonText>
+      <IonText color="dark">
         <h2>{props.viewAchievement?.title}</h2>
       </IonText>
       <img
@@ -24,7 +24,7 @@ export default function AchievementModal(props: AchievementModalType) {
         src={props.viewAchievement?.img}
         alt=""
       />
-      <IonText>
+      <IonText color="dark">
         <p>{props.viewAchievement?.subTitle}</p>
       </IonText>
       <IonButton shape="round" onClick={() => props.dismiss(false)}>

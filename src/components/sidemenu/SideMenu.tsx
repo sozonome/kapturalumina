@@ -8,6 +8,7 @@ import {
   IonItem,
   IonLabel,
   IonIcon,
+  IonToggle,
 } from "@ionic/react";
 import "./SideMenu.css";
 import {
@@ -18,15 +19,20 @@ import {
   informationCircleSharp,
   logInSharp,
   personAddSharp,
+  moon,
 } from "ionicons/icons";
 import { withRouter, useHistory } from "react-router";
+
 import { AuthContext } from "../providers/AuthProvider";
+import { ThemeContext } from "../providers/ThemeProvider";
 import { logoutUser } from "../../firebase/auth";
+
 import { FocusRafiki } from "../../assets";
 
-function SideMenu(props: any) {
+function SideMenu() {
   const { currentUser } = useContext(AuthContext);
   const history = useHistory();
+  const { darkMode, changeMode } = useContext(ThemeContext);
 
   return (
     <IonMenu type="overlay" contentId="main">
@@ -108,6 +114,12 @@ function SideMenu(props: any) {
               <IonLabel>Tentang</IonLabel>
             </IonItem>
           </IonMenuToggle>
+
+          <IonItem>
+            <IonIcon slot="start" icon={moon} />
+            <IonLabel>Dark Mode</IonLabel>
+            <IonToggle checked={darkMode} slot="end" onIonChange={changeMode} />
+          </IonItem>
         </IonList>
         <IonList>
           <IonItem>
