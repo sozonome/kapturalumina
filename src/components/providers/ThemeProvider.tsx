@@ -5,7 +5,7 @@ export const ThemeContext = React.createContext({
   changeMode: function () {},
 });
 
-export default function ThemeProvider({ children }: any) {
+export function ThemeProvider({ children }: any) {
   const [darkMode, setDarkMode] = useState<boolean>(false);
 
   useEffect(() => {

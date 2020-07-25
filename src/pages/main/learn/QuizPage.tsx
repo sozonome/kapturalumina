@@ -15,15 +15,14 @@ import {
 } from "@ionic/react";
 import { useParams, useHistory } from "react-router";
 
-import { LearnContext } from "../../../components/providers/LearnProvider";
+import { LearnContext } from "../../../components/providers";
 import ErrorContent from "../../../components/error/ErrorContent";
-import { updateUserLeaderBoardPoints } from "../../../firebase/leaderboard";
 import { presentToast } from "../../../components/Toast";
 
-import shuffleSet from "../../../functions/shuffle";
-import { updateUserLearnProgress } from "../../../firebase/users";
+import { shuffleSet } from "../../../functions";
+import { updateUserLeaderBoardPoints, updateUserLearnProgress } from "../../../firebase";
 
-import { Chapter, Question, Scoring } from "../../../models/chapters";
+import { Chapter, Question, Scoring } from "../../../models";
 
 export default function QuizPage() {
   const { chapters }: { chapters: Chapter[] } = useContext(LearnContext);

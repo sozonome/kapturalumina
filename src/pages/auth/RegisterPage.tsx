@@ -18,9 +18,9 @@ import { person, mail, key, keyOutline } from "ionicons/icons";
 import { Link, withRouter, Redirect } from "react-router-dom";
 
 import { presentToast } from "../../components/Toast";
-import { AuthContext } from "../../components/providers/AuthProvider";
+import { AuthContext } from "../../components/providers";
 
-import { registerUser } from "../../firebase/auth";
+import { registerUser } from "../../firebase";
 
 import { FocusBro } from "../../assets";
 

@@ -1,4 +1,4 @@
-export default function getCurrentDate() {
+export function getCurrentDate() {
   const date = new Date();
   const dateFormat = new Intl.DateTimeFormat("en", {
     year: "numeric",

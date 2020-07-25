@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { IonModal, IonText, IonButton } from "@ionic/react";
-import { Achievement } from "../../models/achievements";
+
+import { Achievement } from "../../models";
+import { ThemeContext } from "../providers";
 
 export type AchievementModalType = {
   viewAchievement?: Achievement;
@@ -9,6 +11,8 @@ export type AchievementModalType = {
 };
 
 export default function AchievementModal(props: AchievementModalType) {
+  const { darkMode } = useContext(ThemeContext);
+
   return (
     <IonModal
       cssClass={"ion-padding ion-text-center"}
@@ -16,7 +20,7 @@ export default function AchievementModal(props: AchievementModalType) {
       onDidDismiss={() => props.dismiss(false)}
       isOpen={props.openAchievement}
     >
-      <IonText color="dark">
+      <IonText color={darkMode ? "light" : "dark"}>
         <h2>{props.viewAchievement?.title}</h2>
       </IonText>
       <img
@@ -24,7 +28,7 @@ export default function AchievementModal(props: AchievementModalType) {
         src={props.viewAchievement?.img}
         alt=""
       />
-      <IonText color="dark">
+      <IonText color={darkMode ? "light" : "dark"}>
         <p>{props.viewAchievement?.subTitle}</p>
       </IonText>
       <IonButton shape="round" onClick={() => props.dismiss(false)}>

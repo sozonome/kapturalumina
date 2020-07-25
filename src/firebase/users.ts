@@ -1,10 +1,7 @@
 // Every functions related to "users" root in Realtime Database
 
-import fbase from "./firebaseConfig";
+import { fbase, leaderboard, getCurrentUser, updateUserAchievements } from ".";
 import { presentToast } from "../components/Toast";
-import { leaderboard } from "./leaderboard";
-import { getCurrentUser } from "./auth";
-import updateUserAchievements from "./achievements";
 
 // All Users
 export const usersData = fbase.database().ref("users");

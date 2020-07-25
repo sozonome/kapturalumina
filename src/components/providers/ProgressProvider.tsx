@@ -1,15 +1,17 @@
-import { Progress } from "../../models/users";
 import React, { useState, useEffect, useContext } from "react";
-import fbase from "../../firebase/firebaseConfig";
-import { getCurrentUser } from "../../firebase/auth";
+
 import Loader from "../Loader";
+
 import { AuthContext } from "./AuthProvider";
+import { fbase, getCurrentUser } from "../../firebase";
+
+import { Progress } from "../../models";
 
 export const UserProgressContext = React.createContext({
   progress: [] as Progress[],
 });
 
-export default function UserProgressProvider({ children }: any, props: any) {
+export function UserProgressProvider({ children }: any, props: any) {
   const { currentUser } = useContext(AuthContext);
   const [progressState, setProgressState] = useState<Progress[]>([]);
   const [busy, setBusy] = useState(true);

@@ -8,6 +8,7 @@ import {
   IonCardTitle,
   IonCardHeader,
 } from "@ionic/react";
+
 import { PhotoAmico, FocusAmico, FocusPana } from "../assets";
 
 export default function PublicHomeSlide() {

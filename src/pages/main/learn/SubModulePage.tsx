@@ -28,16 +28,16 @@ import {
 import { chevronBack, chevronForward, checkmarkCircle } from "ionicons/icons";
 import { withRouter, useHistory, useParams } from "react-router";
 
-import { LearnContext } from "../../../components/providers/LearnProvider";
+import { LearnContext } from "../../../components/providers";
 import ErrorContent from "../../../components/error/ErrorContent";
 import SubModuleSlideImage from "../../../components/SubModuleSlideImage";
 
-import { updateUserLearnProgress } from "../../../firebase/users";
-import { updateUserLeaderBoardPoints } from "../../../firebase/leaderboard";
+import { updateUserLearnProgress, updateUserLeaderBoardPoints } from "../../../firebase";
+import {  } from "../../../firebase/leaderboard";
 
-import { Chapter, SubModule } from "../../../models/chapters";
+import { Chapter, SubModule } from "../../../models";
 
-function SubModulePage(props: any) {
+function SubModulePage() {
   const { chapters }: { chapters: Chapter[] } = useContext(LearnContext);
 
   const [subModule, setSubModule] = useState<SubModule>();

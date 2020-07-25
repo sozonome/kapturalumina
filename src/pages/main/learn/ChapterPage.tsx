@@ -22,13 +22,12 @@ import {
 import { playCircle, checkmarkCircle, reloadCircle } from "ionicons/icons";
 import { withRouter, useParams } from "react-router";
 
-import { LearnContext } from "../../../components/providers/LearnProvider";
 import ErrorContent from "../../../components/error/ErrorContent";
-import { UserProgressContext } from "../../../components/providers/ProgressProvider";
+import { LearnContext, UserProgressContext } from "../../../components/providers";
 
-import { Chapter } from "../../../models/chapters";
+import { Chapter } from "../../../models";
 
-function ChapterPage(props: any) {
+function ChapterPage() {
   const { chapters } = useContext(LearnContext);
   const { progress } = useContext(UserProgressContext);
 

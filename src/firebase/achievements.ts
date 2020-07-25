@@ -1,14 +1,10 @@
-import fbase from "./firebaseConfig";
-import { getCurrentUser } from "./auth";
-import { leaderboard } from "./leaderboard";
-import { Achievement } from "../models/achievements";
-import { usersData } from "./users";
+import { fbase, getCurrentUser, leaderboard, usersData } from ".";
+import { Achievement, Chapter } from "../models";
 import { presentToast } from "../components/Toast";
-import { Chapter } from "../models/chapters";
 
 export const achievements = fbase.database().ref("achievements");
 
-export default function updateUserAchievements(
+export function updateUserAchievements(
   chapterId: string,
   moduleId: string,
   addedChapterProgress: boolean,
@@ -98,7 +94,7 @@ export default function updateUserAchievements(
 
           // Chapter Achievements Check
           if (addedChapterProgress) {
-            leaderboard.child(user.uid).once("value", (snap) => {
+            leaderboard.child(user.uid).once("value", (snap: any) => {
               if (achievement.conditions.chaptersDone) {
                 if (
                   snap.val().chaptersDone >= achievement.conditions.chaptersDone
@@ -112,7 +108,7 @@ export default function updateUserAchievements(
 
           // Module Achievements Check
           if (addedModuleProgress) {
-            leaderboard.child(user.uid).once("value", (snap) => {
+            leaderboard.child(user.uid).once("value", (snap: any) => {
               if (achievement.conditions.modulesDone) {
                 if (
                   snap.val().modulesDone >= achievement.conditions.modulesDone
@@ -161,9 +157,9 @@ export default function updateUserAchievements(
           .child("achievements");
 
         userAchievementData
-          .once("value", (snap) => {
+          .once("value", (snap: any) => {
             if (snap.exists()) {
-              snap.forEach((userAchievement) => {
+              snap.forEach((userAchievement: any) => {
                 if (quizAchievements.length > 0) {
                   if (userAchievement.val().id === quizAchievements[0].id) {
                     const newQty = parseInt(userAchievement.val().qty, 10) + 1;
@@ -261,7 +257,7 @@ export function UpdateUserLeaderBoardAchievements() {
           return leaderboard
             .child(user.uid)
             .child("dailyPoints")
-            .once("value", (snap) => {
+            .once("value", (snap: any) => {
               if (achievement.conditions.dailyUse !== undefined) {
                 if (snap.val().length >= achievement.conditions.dailyUse) {
                   dailyUseAchievements.push(achievement);
@@ -298,9 +294,9 @@ export function UpdateUserLeaderBoardAchievements() {
           .child("achievements");
 
         userAchievementData
-          .once("value", (snap) => {
+          .once("value", (snap: any) => {
             if (snap.exists()) {
-              snap.forEach((userAchievement) => {
+              snap.forEach((userAchievement: any) => {
                 if (dailyPointsAchievements.length > 0) {
                   if (
                     userAchievement.val().id === dailyPointsAchievements[0].id

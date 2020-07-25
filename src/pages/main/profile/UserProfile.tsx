@@ -14,16 +14,11 @@ import { useParams } from "react-router";
 import { presentToast } from "../../../components/Toast";
 import Profilewrapper from "../../../components/ProfileWrapper";
 
-import { usersData } from "../../../firebase/users";
-import { leaderboard } from "../../../firebase/leaderboard";
-import { getCurrentUser } from "../../../firebase/auth";
-import { achievements } from "../../../firebase/achievements";
+import { usersData,leaderboard,getCurrentUser,achievements } from "../../../firebase";
 
-import { Leaderboard } from "../../../models/leaderboards";
-import { UserData } from "../../../models/users";
-import { Achievement } from "../../../models/achievements";
+import { Leaderboard,UserData,Achievement } from "../../../models";
 
-export default function UserProfile(props: any) {
+export default function UserProfile() {
   const [user, setUser] = useState<UserData>();
   const [userLeaderboardData, setUserLeaderboardData] = useState<Leaderboard>();
   const [loggedInUser, setLoggedInUser] = useState<boolean>(false);

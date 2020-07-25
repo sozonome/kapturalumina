@@ -21,9 +21,11 @@ import {
 } from "@ionic/react";
 import { withRouter } from "react-router";
 
-import { LearnContext } from "../../../components/providers/LearnProvider";
-import { UserProgressContext } from "../../../components/providers/ProgressProvider";
-import { UserProfileContext } from "../../../components/providers/UserProfileProvider";
+import {
+  LearnContext,
+  UserProgressContext,
+  UserProfileContext,
+} from "../../../components/providers";
 
 import { HelloRafiki } from "../../../assets";
 

@@ -4,7 +4,7 @@ import "firebase/auth";
 
 require("dotenv").config();
 
-const config = {
+export const config = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
   databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
@@ -15,6 +15,4 @@ const config = {
   measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 };
 
-const fbase = firebase.initializeApp(config);
-
-export default fbase;
+export const fbase = firebase.initializeApp(config);

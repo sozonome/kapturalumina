@@ -18,12 +18,12 @@ import {
 } from "@ionic/react";
 import { useHistory } from "react-router";
 
-import { UserProfileContext } from "../../../components/providers/UserProfileProvider";
+import { UserProfileContext } from "../../../components/providers";
 import { presentToast } from "../../../components/Toast";
 
-import { updateUserProfile } from "../../../firebase/users";
+import { updateUserProfile } from "../../../firebase";
 
-export default function EditProfile(props: any) {
+export default function EditProfile() {
   const { user } = useContext(UserProfileContext);
 
   const [name, setName] = useState(user.name);

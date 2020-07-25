@@ -10,7 +10,6 @@ import {
   IonIcon,
   IonToggle,
 } from "@ionic/react";
-import "./SideMenu.css";
 import {
   homeSharp,
   listSharp,
@@ -23,11 +22,11 @@ import {
 } from "ionicons/icons";
 import { withRouter, useHistory } from "react-router";
 
-import { AuthContext } from "../providers/AuthProvider";
-import { ThemeContext } from "../providers/ThemeProvider";
-import { logoutUser } from "../../firebase/auth";
+import { AuthContext,ThemeContext } from "../providers";
+import { logoutUser } from "../../firebase";
 
 import { FocusRafiki } from "../../assets";
+import "./SideMenu.css";
 
 function SideMenu() {
   const { currentUser } = useContext(AuthContext);

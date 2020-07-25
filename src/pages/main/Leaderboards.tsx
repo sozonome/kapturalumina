@@ -21,11 +21,10 @@ import {
   IonLoading,
 } from "@ionic/react";
 
-import { Leaderboard } from "../../models/leaderboards";
-import { leaderboard } from "../../firebase/leaderboard";
-import getCurrentDate from "../../functions/getCurrentDate";
-import { usersData } from "../../firebase/users";
-import { getCurrentUser } from "../../firebase/auth";
+import { leaderboard, usersData, getCurrentUser } from "../../firebase";
+import { getCurrentDate } from "../../functions";
+
+import { Leaderboard } from "../../models";
 
 import { WinnersPana } from "../../assets";
 

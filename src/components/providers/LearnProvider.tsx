@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
-import fbase from "../../firebase/firebaseConfig";
-import { Chapter } from "../../models/chapters";
+
 import Loader from "../Loader";
+
+import { fbase } from "../../firebase";
+
+import { Chapter } from "../../models";
 
 export const LearnContext = React.createContext({
   chapters: [] as Chapter[],
 });
 
-export default function LearnProvider({ children }: any) {
+export function LearnProvider({ children }: any) {
   const [chaptersState, setChaptersState] = useState<Chapter[]>([]);
   const [busy, setBusy] = useState(true);
 

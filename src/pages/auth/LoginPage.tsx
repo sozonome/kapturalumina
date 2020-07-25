@@ -15,9 +15,8 @@ import {
 } from "@ionic/react";
 import { withRouter, Redirect, useHistory } from "react-router";
 
-import { AuthContext } from "../../components/providers/AuthProvider";
-
-import { loginUser } from "../../firebase/auth";
+import { AuthContext } from "../../components/providers";
+import { loginUser } from "../../firebase";
 
 import { FocusRafiki } from "../../assets";
 

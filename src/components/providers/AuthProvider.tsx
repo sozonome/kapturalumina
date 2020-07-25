@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
-import fbase from "../../firebase/firebaseConfig";
+
 import Loader from "../Loader";
+
+import { fbase } from "../../firebase";
 
 export const AuthContext = React.createContext({
   currentUser: null,
 });
 
-export default function AuthProvider({ children }: any) {
+export function AuthProvider({ children }: any) {
   const [currentUserState, setCurrentUserState] = useState<any>(null);
   const [busy, setBusy] = useState(true);
-  // const [update, setUpdate] = useState(false);
 
   useEffect(() => {
     fbase.auth().onAuthStateChanged((user) => {

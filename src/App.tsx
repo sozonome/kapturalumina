@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import {
   IonApp,
   IonSplitPane,
@@ -28,10 +28,13 @@ import { Plugins } from "@capacitor/core";
 import { AppMinimize } from "@ionic-native/app-minimize";
 
 // Components / Wrappers
-import AuthProvider from "./components/providers/AuthProvider";
-import LearnProvider from "./components/providers/LearnProvider";
-import UserProfileProvider from "./components/providers/UserProfileProvider";
-import UserProgressProvider from "./components/providers/ProgressProvider";
+import {
+  AuthProvider,
+  LearnProvider,
+  UserProfileProvider,
+  UserProgressProvider,
+  ThemeProvider,
+} from "./components/providers";
 import SideMenu from "./components/sidemenu/SideMenu";
 import Routing from "./components/routings/Routing";
 
@@ -42,7 +45,6 @@ import "./theme/styles/global.scss";
 
 /* Theme variables */
 import "./theme/variables.scss";
-import ThemeProvider from "./components/providers/ThemeProvider";
 
 const { App } = Plugins;
 

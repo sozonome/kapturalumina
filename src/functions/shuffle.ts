@@ -1,4 +1,4 @@
-export default function shuffleSet(array: any[], pick?: number) {
+export function shuffleSet(array: any[], pick?: number) {
   // Modern Fisher-Yates Shuffle Algorithm
 
   let res = [...array];

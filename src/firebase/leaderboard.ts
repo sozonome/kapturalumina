@@ -1,9 +1,6 @@
 // Every functions related to "leaderboards" root in Realtime Database
-
-import fbase from "./firebaseConfig";
-import getCurrentDate from "../functions/getCurrentDate";
-import { getCurrentUser } from "./auth";
-import { UpdateUserLeaderBoardAchievements } from "./achievements";
+import { fbase, getCurrentUser, UpdateUserLeaderBoardAchievements } from ".";
+import {getCurrentDate} from "../functions";
 
 export const leaderboard = fbase.database().ref(`leaderboards`);
 

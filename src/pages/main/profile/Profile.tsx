@@ -12,14 +12,9 @@ import {
 
 import Profilewrapper from "../../../components/ProfileWrapper";
 
-import { getCurrentUser } from "../../../firebase/auth";
-import { usersData } from "../../../firebase/users";
-import { leaderboard } from "../../../firebase/leaderboard";
-import { achievements } from "../../../firebase/achievements";
+import { getCurrentUser, usersData, leaderboard, achievements  } from "../../../firebase";
 
-import { UserData } from "../../../models/users";
-import { Achievement } from "../../../models/achievements";
-import { Leaderboard } from "../../../models/leaderboards";
+import { UserData,Achievement,Leaderboard  } from "../../../models";
 
 export default function Profile() {
   const [user, setUser] = useState<UserData>();
