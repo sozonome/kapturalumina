@@ -1,3 +1,3 @@
-export * from './getCurrentDate';
-export * from './randomString';
-export * from './shuffle';
+export * from "./getCurrentDate";
+export * from "./randomString";
+export * from "./shuffle";

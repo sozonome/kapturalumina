@@ -16,11 +16,14 @@ import {
 import { useParams, useHistory } from "react-router";
 
 import { LearnContext } from "../../../components/providers";
-import ErrorContent from "../../../components/error/ErrorContent";
+import ErrorContent from "../../../components/ErrorContent";
 import { presentToast } from "../../../components/Toast";
 
 import { shuffleSet } from "../../../functions";
-import { updateUserLeaderBoardPoints, updateUserLearnProgress } from "../../../firebase";
+import {
+  updateUserLeaderBoardPoints,
+  updateUserLearnProgress,
+} from "../../../firebase";
 
 import { Chapter, Question, Scoring } from "../../../models";
 

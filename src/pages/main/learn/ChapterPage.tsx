@@ -22,8 +22,11 @@ import {
 import { playCircle, checkmarkCircle, reloadCircle } from "ionicons/icons";
 import { withRouter, useParams } from "react-router";
 
-import ErrorContent from "../../../components/error/ErrorContent";
-import { LearnContext, UserProgressContext } from "../../../components/providers";
+import ErrorContent from "../../../components/ErrorContent";
+import {
+  LearnContext,
+  UserProgressContext,
+} from "../../../components/providers";
 
 import { Chapter } from "../../../models";
 

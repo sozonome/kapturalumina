@@ -29,11 +29,14 @@ import { chevronBack, chevronForward, checkmarkCircle } from "ionicons/icons";
 import { withRouter, useHistory, useParams } from "react-router";
 
 import { LearnContext } from "../../../components/providers";
-import ErrorContent from "../../../components/error/ErrorContent";
+import ErrorContent from "../../../components/ErrorContent";
 import SubModuleSlideImage from "../../../components/SubModuleSlideImage";
 
-import { updateUserLearnProgress, updateUserLeaderBoardPoints } from "../../../firebase";
-import {  } from "../../../firebase/leaderboard";
+import {
+  updateUserLearnProgress,
+  updateUserLeaderBoardPoints,
+} from "../../../firebase";
+import {} from "../../../firebase/leaderboard";
 
 import { Chapter, SubModule } from "../../../models";
 

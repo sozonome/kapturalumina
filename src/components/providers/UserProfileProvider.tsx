@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 
 import Loader from "../Loader";
 
-import {fbase, getCurrentUser} from "../../firebase";
+import { fbase, getCurrentUser } from "../../firebase";
 import { AuthContext } from ".";
 
 import { UserData } from "../../models";

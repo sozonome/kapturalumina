@@ -2,7 +2,7 @@
 
 import { fbase, createNewUser, initUserLeaderBoard } from ".";
 import { presentToast } from "../components/Toast";
-import {randomString} from "../functions";
+import { randomString } from "../functions";
 
 export async function loginUser(userEmail: string, userPassword: string) {
   // Auth with firebase

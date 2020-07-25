@@ -1,6 +1,6 @@
 // Every functions related to "leaderboards" root in Realtime Database
 import { fbase, getCurrentUser, UpdateUserLeaderBoardAchievements } from ".";
-import {getCurrentDate} from "../functions";
+import { getCurrentDate } from "../functions";
 
 export const leaderboard = fbase.database().ref(`leaderboards`);
 

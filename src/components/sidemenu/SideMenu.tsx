@@ -22,7 +22,7 @@ import {
 } from "ionicons/icons";
 import { withRouter, useHistory } from "react-router";
 
-import { AuthContext,ThemeContext } from "../providers";
+import { AuthContext, ThemeContext } from "../providers";
 import { logoutUser } from "../../firebase";
 
 import { FocusRafiki } from "../../assets";
