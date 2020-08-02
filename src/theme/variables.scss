@@ -173,6 +173,11 @@ http://ionicframework.com/docs/theming/ */
   --ion-color-tint: var(--ion-color-purple-tint);
 }
 
+.dark ion-card {
+  --background: var(--ion-color-tertiary);
+  --color: var(--ion-text-color);
+}
+
 /*
  * Dark Colors
  * -------------------------------------------
@@ -230,9 +235,4 @@ body.dark {
 
   --color: #6272a4;
   --ion-toolbar-background: #44475a;
-}
-
-ion-card.dark {
-  --background: var(--ion-toolbar-background);
-  --color: var(--ion-text-color);
 }
