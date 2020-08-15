@@ -27,7 +27,7 @@ import {
 
 import { Chapter, Question, Scoring } from "../../../models";
 
-export default function QuizPage() {
+const QuizPage = () => {
   const { chapters }: { chapters: Chapter[] } = useContext(LearnContext);
   const [score, setScore] = useState<number>(0);
 
@@ -71,9 +71,8 @@ export default function QuizPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  function updateLearnProgress() {
+  const updateLearnProgress = () => {
     // Value Streak and Points
-    // console.log("Score:", score, "Index: ", index, "Streak: ", streak);
     const newScore = score / (index + 1);
     const newStreak = streak;
 
@@ -113,7 +112,7 @@ export default function QuizPage() {
       // setQuiz([]);
       // setQuizPassingScore([]);
     }, 2000);
-  }
+  };
 
   return (
     <IonPage>
@@ -193,4 +192,6 @@ export default function QuizPage() {
       )}
     </IonPage>
   );
-}
+};
+
+export default QuizPage;

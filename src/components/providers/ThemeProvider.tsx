@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 
 export const ThemeContext = React.createContext({
   darkMode: false,
-  changeMode: function () {},
+  changeMode: () => {},
 });
 
-export function ThemeProvider({ children }: any) {
+export const ThemeProvider = ({ children }: any) => {
   const [darkMode, setDarkMode] = useState<boolean>(false);
 
   useEffect(() => {
@@ -20,15 +20,15 @@ export function ThemeProvider({ children }: any) {
     }
   }, []);
 
-  function changeMode() {
+  const changeMode = () => {
     setDarkMode(!darkMode);
     localStorage.darkMode = !darkMode;
     document.body.classList.toggle("dark");
-  }
+  };
 
   return (
     <ThemeContext.Provider value={{ darkMode, changeMode }}>
       {children}
     </ThemeContext.Provider>
   );
-}
+};

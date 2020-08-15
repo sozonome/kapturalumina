@@ -9,12 +9,12 @@ import {
   IonPage,
   IonButton,
 } from "@ionic/react";
-import { withRouter, Redirect } from "react-router";
+import { Redirect } from "react-router";
 
 import { AuthContext } from "../components/providers/AuthProvider";
 import PublicHomeSlide from "../components/PublicHomeSlide";
 
-function PublicPage() {
+const PublicPage = () => {
   const { currentUser } = useContext(AuthContext);
   if (currentUser) {
     return <Redirect to="/" />;
@@ -53,6 +53,6 @@ function PublicPage() {
       </IonContent>
     </IonPage>
   );
-}
+};
 
-export default withRouter(PublicPage);
+export default PublicPage;

@@ -20,7 +20,7 @@ import {
   personAddSharp,
   moon,
 } from "ionicons/icons";
-import { withRouter, useHistory } from "react-router";
+import { useHistory } from "react-router";
 
 import { AuthContext, ThemeContext } from "../providers";
 import { logoutUser } from "../../firebase";
@@ -28,7 +28,7 @@ import { logoutUser } from "../../firebase";
 import { FocusRafiki } from "../../assets";
 import "./SideMenu.css";
 
-function SideMenu() {
+const SideMenu = () => {
   const { currentUser } = useContext(AuthContext);
   const history = useHistory();
   const { darkMode, changeMode } = useContext(ThemeContext);
@@ -133,6 +133,6 @@ function SideMenu() {
       </IonContent>
     </IonMenu>
   );
-}
+};
 
-export default withRouter(SideMenu);
+export default SideMenu;

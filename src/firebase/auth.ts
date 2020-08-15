@@ -4,7 +4,7 @@ import { fbase, createNewUser, initUserLeaderBoard } from ".";
 import { presentToast } from "../components/Toast";
 import { randomString } from "../functions";
 
-export async function loginUser(userEmail: string, userPassword: string) {
+export const loginUser = async (userEmail: string, userPassword: string) => {
   // Auth with firebase
   try {
     await fbase.auth().signInWithEmailAndPassword(userEmail, userPassword);
@@ -19,11 +19,11 @@ export async function loginUser(userEmail: string, userPassword: string) {
     return false;
   }
 
-  // If present, use can access app
+  // If present, user can access app
   // If not, error
-}
+};
 
-export async function logoutUser() {
+export const logoutUser = async () => {
   try {
     await fbase.auth().signOut();
     presentToast("Anda telah keluar", 2500, "warning");
@@ -31,13 +31,13 @@ export async function logoutUser() {
   } catch (error) {
     return false;
   }
-}
+};
 
-export async function registerUser(
+export const registerUser = async (
   name: string,
   userEmail: string,
   userPassword: string
-) {
+) => {
   try {
     await fbase.auth().createUserWithEmailAndPassword(userEmail, userPassword);
 
@@ -57,22 +57,22 @@ export async function registerUser(
     presentToast(error.message, 4000, "warning");
     return false;
   }
-}
+};
 
-export function getCurrentUser() {
+export const getCurrentUser = () => {
   const user = fbase.auth().currentUser;
   if (user) {
     return user;
   } else {
     return null;
   }
-}
+};
 
-export function getCurrentUserProfileName() {
+export const getCurrentUserProfileName = () => {
   const user = fbase.auth().currentUser;
   if (user) {
     return user.displayName;
   } else {
     return "Belum Login";
   }
-}
+};

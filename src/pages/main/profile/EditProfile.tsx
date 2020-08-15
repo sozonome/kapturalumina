@@ -23,7 +23,7 @@ import { presentToast } from "../../../components/Toast";
 
 import { updateUserProfile } from "../../../firebase";
 
-export default function EditProfile() {
+const EditProfile = () => {
   const { user } = useContext(UserProfileContext);
 
   const [name, setName] = useState(user.name);
@@ -47,7 +47,7 @@ export default function EditProfile() {
     setBusy(false);
   }, [user]);
 
-  async function saveEdit() {
+  const saveEdit = async () => {
     setBusy(true);
     if (name.length > 0) {
       // console.log("updating...");
@@ -62,7 +62,7 @@ export default function EditProfile() {
       setBusy(false);
       return presentToast("Nama tidak boleh kosong");
     }
-  }
+  };
 
   return (
     <IonPage>
@@ -160,4 +160,6 @@ export default function EditProfile() {
       </IonContent>
     </IonPage>
   );
-}
+};
+
+export default EditProfile;

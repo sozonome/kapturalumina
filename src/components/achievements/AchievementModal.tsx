@@ -10,7 +10,7 @@ export type AchievementModalType = {
   openAchievement: boolean;
 };
 
-export default function AchievementModal(props: AchievementModalType) {
+const AchievementModal = (props: AchievementModalType) => {
   const { darkMode } = useContext(ThemeContext);
 
   return (
@@ -36,4 +36,6 @@ export default function AchievementModal(props: AchievementModalType) {
       </IonButton>
     </IonModal>
   );
-}
+};
+
+export default AchievementModal;

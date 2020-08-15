@@ -9,7 +9,7 @@ export interface SubModuleSlideImageProps {
   };
 }
 
-export default function SubModuleSlideImage(props: SubModuleSlideImageProps) {
+const SubModuleSlideImage = (props: SubModuleSlideImageProps) => {
   return (
     <>
       <img src={props.img.url} alt="" />
@@ -20,4 +20,6 @@ export default function SubModuleSlideImage(props: SubModuleSlideImageProps) {
       ) : null}
     </>
   );
-}
+};
+
+export default SubModuleSlideImage;

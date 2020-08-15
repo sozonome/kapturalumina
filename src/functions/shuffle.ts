@@ -1,4 +1,4 @@
-export function shuffleSet(array: any[], pick?: number) {
+export const shuffleSet = (array: any[], pick?: number) => {
   // Modern Fisher-Yates Shuffle Algorithm
 
   let res = [...array];
@@ -16,4 +16,4 @@ export function shuffleSet(array: any[], pick?: number) {
   }
 
   return res.slice(0, pick);
-}
+};

@@ -4,14 +4,14 @@ import { presentToast } from "../components/Toast";
 
 export const achievements = fbase.database().ref("achievements");
 
-export function updateUserAchievements(
+export const updateUserAchievements = (
   chapterId: string,
   moduleId: string,
   addedChapterProgress: boolean,
   addedModuleProgress: boolean,
   streak?: number,
   passed?: boolean
-) {
+) => {
   const user = getCurrentUser();
   let chapters: Chapter[] = [];
   let achievementsCatalog: Achievement[] = [];
@@ -27,21 +27,6 @@ export function updateUserAchievements(
   let streakAch = false;
   let chapterAch = false;
   let moduleAch = false;
-
-  // console.log(
-  //   "Chapter: ",
-  //   chapterId,
-  //   "Module: ",
-  //   moduleId,
-  //   "ChaptersDoneAdd:",
-  //   addedChapterProgress,
-  //   "New Module: ",
-  //   addedModuleProgress,
-  //   "Streak: ",
-  //   streak,
-  //   "Passed: ",
-  //   passed
-  // );
 
   if (user) {
     achievements
@@ -73,7 +58,6 @@ export function updateUserAchievements(
                     streak === achievement.conditions.streak
                   ) {
                     quizAchievements.push(achievement);
-                    // console.log(achievement, "quiz");
                   }
                 }
               });
@@ -88,7 +72,6 @@ export function updateUserAchievements(
           ) {
             if (streak >= achievement.conditions.streak) {
               streakAchievements.push(achievement);
-              // console.log(achievement, "streak");
             }
           }
 
@@ -100,7 +83,6 @@ export function updateUserAchievements(
                   snap.val().chaptersDone >= achievement.conditions.chaptersDone
                 ) {
                   chapterAchievements.push(achievement);
-                  // console.log(achievement, "chapter");
                 }
               }
             });
@@ -114,7 +96,6 @@ export function updateUserAchievements(
                   snap.val().modulesDone >= achievement.conditions.modulesDone
                 ) {
                   moduleAchievements.push(achievement);
-                  // console.log(achievement, "module");
                 }
               }
             });
@@ -142,16 +123,8 @@ export function updateUserAchievements(
             (a, b) => b.conditions.modulesDone! - a.conditions.modulesDone!
           );
         }
-
-        // console.log(
-        //   quizAchievements,
-        //   streakAchievements,
-        //   chapterAchievements,
-        //   moduleAchievements
-        // );
       })
       .then(() => {
-        // console.log("db conn");
         const userAchievementData = usersData
           .child(user.uid)
           .child("achievements");
@@ -232,9 +205,9 @@ export function updateUserAchievements(
   }
 
   // Check current progress
-}
+};
 
-export function UpdateUserLeaderBoardAchievements() {
+export const UpdateUserLeaderBoardAchievements = () => {
   const user = getCurrentUser();
   let dailyUseAchievements: Achievement[] = [];
   let dailyPointsAchievements: Achievement[] = [];
@@ -252,7 +225,6 @@ export function UpdateUserLeaderBoardAchievements() {
         achievementsCatalog = snap.val();
       })
       .then(() => {
-        // console.log(achievementsCatalog);
         achievementsCatalog.map((achievement) => {
           return leaderboard
             .child(user.uid)
@@ -261,7 +233,6 @@ export function UpdateUserLeaderBoardAchievements() {
               if (achievement.conditions.dailyUse !== undefined) {
                 if (snap.val().length >= achievement.conditions.dailyUse) {
                   dailyUseAchievements.push(achievement);
-                  // console.log(achievement);
                 }
               }
 
@@ -270,7 +241,6 @@ export function UpdateUserLeaderBoardAchievements() {
               if (achievement.conditions.dailyPoints !== undefined) {
                 if (todayPoints.points >= achievement.conditions.dailyPoints) {
                   dailyPointsAchievements.push(achievement);
-                  // console.log(achievement);
                 }
               }
             });
@@ -313,24 +283,13 @@ export function UpdateUserLeaderBoardAchievements() {
             }
           })
           .then(() => {
-            // console.log("add");
             if (!dailyPointAch && dailyPointsAchievements.length > 0) {
-              // console.log(
-              //   "push",
-              //   dailyPointsAchievements[0],
-              //   dailyPointsAchievements
-              // );
               userAchievementData.push({
                 id: dailyPointsAchievements[0].id,
               });
               getAchievements++;
             }
             if (!dailyUseAch && dailyUseAchievements.length > 0) {
-              // console.log(
-              //   "push",
-              //   dailyPointsAchievements[0],
-              //   dailyPointsAchievements
-              // );
               userAchievementData.push({
                 id: dailyUseAchievements[0].id,
               });
@@ -346,4 +305,4 @@ export function UpdateUserLeaderBoardAchievements() {
         }
       });
   }
-}
+};

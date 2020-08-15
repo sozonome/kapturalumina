@@ -35,11 +35,7 @@ type ProfileWrapperProps = {
   };
 };
 
-export default function Profilewrapper({
-  mainMenu,
-  profile,
-  value,
-}: ProfileWrapperProps) {
+const Profilewrapper = ({ mainMenu, profile, value }: ProfileWrapperProps) => {
   const [openAchievement, setOpenAchievement] = useState<boolean>(false);
   const [viewAchievement, setViewAchievement] = useState<Achievement>();
 
@@ -207,4 +203,6 @@ export default function Profilewrapper({
       />
     </>
   );
-}
+};
+
+export default Profilewrapper;

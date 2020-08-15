@@ -15,7 +15,7 @@ import {
   IonIcon,
 } from "@ionic/react";
 import { person, mail, key, keyOutline } from "ionicons/icons";
-import { Link, withRouter, Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 import { presentToast } from "../../components/Toast";
 import { AuthContext } from "../../components/providers";
@@ -24,7 +24,7 @@ import { registerUser } from "../../firebase";
 
 import { FocusBro } from "../../assets";
 
-function RegisterPage() {
+const RegisterPage = () => {
   const [wait, setWait] = useState<boolean>(false);
 
   const [name, setName] = useState<string>("");
@@ -35,7 +35,7 @@ function RegisterPage() {
 
   const confirmationAlert = "Kata Sandi tidak sesuai.";
 
-  async function register() {
+  const register = async () => {
     // Validations
     setWait(true);
     if (password !== cpassword) {
@@ -54,15 +54,15 @@ function RegisterPage() {
         presentToast("Pendaftaran berhasil!");
       }
     }
-  }
+  };
 
-  function enterKeyDown(e: React.KeyboardEvent) {
+  const enterKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") {
       e.preventDefault();
       e.stopPropagation();
       register();
     }
-  }
+  };
 
   const { currentUser } = useContext(AuthContext);
   if (currentUser) {
@@ -165,6 +165,6 @@ function RegisterPage() {
       </IonContent>
     </IonPage>
   );
-}
+};
 
-export default withRouter(RegisterPage);
+export default RegisterPage;

@@ -11,7 +11,7 @@ export const UserProgressContext = React.createContext({
   progress: [] as Progress[],
 });
 
-export function UserProgressProvider({ children }: any, props: any) {
+export const UserProgressProvider = ({ children }: any) => {
   const { currentUser } = useContext(AuthContext);
   const [progressState, setProgressState] = useState<Progress[]>([]);
   const [busy, setBusy] = useState(true);
@@ -50,4 +50,4 @@ export function UserProgressProvider({ children }: any, props: any) {
       )}
     </>
   );
-}
+};

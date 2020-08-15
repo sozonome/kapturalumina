@@ -1,4 +1,8 @@
-export function presentToast(message: string, duration = 4000, color?: string) {
+export const presentToast = (
+  message: string,
+  duration = 4000,
+  color?: string
+) => {
   const toast = document.createElement("ion-toast");
   toast.message = message;
   toast.duration = duration;
@@ -6,13 +10,13 @@ export function presentToast(message: string, duration = 4000, color?: string) {
 
   document.body.appendChild(toast);
   return toast.present();
-}
+};
 
-export function presentTopToast(
+export const presentTopToast = (
   message: string,
   duration = 4000,
   color?: string
-) {
+) => {
   const toast = document.createElement("ion-toast");
   toast.message = message;
   toast.duration = duration;
@@ -21,4 +25,4 @@ export function presentTopToast(
 
   document.body.appendChild(toast);
   return toast.present();
-}
+};

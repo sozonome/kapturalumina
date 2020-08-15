@@ -1,7 +1,7 @@
 import React from "react";
 import { IonApp, IonPage, IonContent, IonSpinner, IonText } from "@ionic/react";
 
-export default function Loader() {
+const Loader = () => {
   return (
     <IonApp>
       <IonPage>
@@ -25,4 +25,6 @@ export default function Loader() {
       </IonPage>
     </IonApp>
   );
-}
+};
+
+export default Loader;

@@ -17,7 +17,7 @@ import { logoIonic, logoReact, logoFirebase, person } from "ionicons/icons";
 
 import { StaticAssetsAmico } from "../assets";
 
-export default function AboutPage() {
+const AboutPage = () => {
   return (
     <IonPage>
       <IonHeader>
@@ -90,4 +90,6 @@ export default function AboutPage() {
       </IonContent>
     </IonPage>
   );
-}
+};
+
+export default AboutPage;

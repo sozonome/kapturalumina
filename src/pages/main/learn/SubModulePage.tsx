@@ -26,7 +26,7 @@ import {
   IonLoading,
 } from "@ionic/react";
 import { chevronBack, chevronForward, checkmarkCircle } from "ionicons/icons";
-import { withRouter, useHistory, useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 
 import { LearnContext } from "../../../components/providers";
 import ErrorContent from "../../../components/ErrorContent";
@@ -40,7 +40,7 @@ import {} from "../../../firebase/leaderboard";
 
 import { Chapter, SubModule } from "../../../models";
 
-function SubModulePage() {
+const SubModulePage = () => {
   const { chapters }: { chapters: Chapter[] } = useContext(LearnContext);
 
   const [subModule, setSubModule] = useState<SubModule>();
@@ -77,7 +77,7 @@ function SubModulePage() {
 
   const slider = useRef<HTMLIonSlidesElement>(null);
 
-  function afterRead() {
+  const afterRead = () => {
     // console.log("after read");
     setBusyUpdate(true);
     if (subModule?.quiz == null) {
@@ -100,9 +100,9 @@ function SubModulePage() {
       return <IonAlert isOpen={true} />;
     }, 1000);
     slider.current!.slideTo(0);
-  }
+  };
 
-  function renderSlides(subModule: SubModule) {
+  const renderSlides = (subModule: SubModule) => {
     return subModule.slides.map((slide, index) => {
       return (
         <IonSlide key={index}>
@@ -142,7 +142,7 @@ function SubModulePage() {
         </IonSlide>
       );
     });
-  }
+  };
 
   return (
     <IonPage>
@@ -265,5 +265,5 @@ function SubModulePage() {
       )}
     </IonPage>
   );
-}
-export default withRouter(SubModulePage);
+};
+export default SubModulePage;

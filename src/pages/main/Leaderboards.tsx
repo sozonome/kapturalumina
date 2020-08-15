@@ -28,7 +28,7 @@ import { Leaderboard } from "../../models";
 
 import { WinnersPana } from "../../assets";
 
-function Leaderboards() {
+const Leaderboards = () => {
   const [filterUser, setFilterUser] = useState<"global" | "friends">("global");
   const [filterTime, setFilterTime] = useState<"daily" | "all-time">(
     "all-time"
@@ -278,6 +278,6 @@ function Leaderboards() {
       </IonContent>
     </IonPage>
   );
-}
+};
 
 export default Leaderboards;

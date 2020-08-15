@@ -13,14 +13,14 @@ import {
   IonText,
   IonLoading,
 } from "@ionic/react";
-import { withRouter, Redirect, useHistory } from "react-router";
+import { Redirect, useHistory } from "react-router";
 
 import { AuthContext } from "../../components/providers";
 import { loginUser } from "../../firebase";
 
 import { FocusRafiki } from "../../assets";
 
-function LoginPage() {
+const LoginPage = () => {
   const [wait, setWait] = useState<boolean>(false);
 
   const [email, setEmail] = useState<string>("");
@@ -28,7 +28,7 @@ function LoginPage() {
 
   const history = useHistory();
 
-  async function login() {
+  const login = async () => {
     setWait(true);
     const res = await loginUser(email, password);
     if (res) {
@@ -37,15 +37,15 @@ function LoginPage() {
       history.replace("/");
     }
     setWait(false);
-  }
+  };
 
-  function enterKeyDown(e: React.KeyboardEvent) {
+  const enterKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") {
       e.preventDefault();
       e.stopPropagation();
       login();
     }
-  }
+  };
 
   const { currentUser } = useContext(AuthContext);
   if (currentUser) {
@@ -112,11 +112,6 @@ function LoginPage() {
                 </IonButton>
               </IonCol>
             </IonRow>
-            {/* <IonRow className="ion-justify-content-center">
-              <IonCol sizeSm="6" className="ion-text-center">
-                <IonButton fill="clear">Lupa Kata Sandi</IonButton>
-              </IonCol>
-            </IonRow> */}
             <IonRow className="ion-justify-content-center">
               <IonCol sizeSm="6" className="ion-text-center">
                 <IonText>Belum punya akun?</IonText>
@@ -140,6 +135,6 @@ function LoginPage() {
       </IonContent>
     </IonPage>
   );
-}
+};
 
-export default withRouter(LoginPage);
+export default LoginPage;

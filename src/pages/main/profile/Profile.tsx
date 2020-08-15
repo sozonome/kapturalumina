@@ -21,7 +21,7 @@ import {
 
 import { UserData, Achievement, Leaderboard } from "../../../models";
 
-export default function Profile() {
+const Profile = () => {
   const [user, setUser] = useState<UserData>();
   const [busy, setBusy] = useState<boolean>(true);
 
@@ -118,4 +118,6 @@ export default function Profile() {
       ) : null}
     </IonPage>
   );
-}
+};
+
+export default Profile;

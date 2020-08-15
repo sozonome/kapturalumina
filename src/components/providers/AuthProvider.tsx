@@ -8,7 +8,7 @@ export const AuthContext = React.createContext({
   currentUser: null,
 });
 
-export function AuthProvider({ children }: any) {
+export const AuthProvider = ({ children }: any) => {
   const [currentUserState, setCurrentUserState] = useState<any>(null);
   const [busy, setBusy] = useState(true);
 
@@ -35,4 +35,4 @@ export function AuthProvider({ children }: any) {
       )}
     </>
   );
-}
+};

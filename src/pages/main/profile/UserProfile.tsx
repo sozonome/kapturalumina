@@ -23,7 +23,7 @@ import {
 
 import { Leaderboard, UserData, Achievement } from "../../../models";
 
-export default function UserProfile() {
+const UserProfile = () => {
   const [user, setUser] = useState<UserData>();
   const [userLeaderboardData, setUserLeaderboardData] = useState<Leaderboard>();
   const [loggedInUser, setLoggedInUser] = useState<boolean>(false);
@@ -154,4 +154,6 @@ export default function UserProfile() {
       </IonContent>
     </IonPage>
   );
-}
+};
+
+export default UserProfile;

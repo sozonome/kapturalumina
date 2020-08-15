@@ -9,7 +9,7 @@ export const usersData = fbase.database().ref("users");
 // All Chapters
 export const chapters = fbase.database().ref("chapters");
 
-export function getUserData() {
+export const getUserData = () => {
   const user = getCurrentUser();
   if (user) {
     let userData;
@@ -18,15 +18,15 @@ export function getUserData() {
     });
     return userData;
   }
-}
+};
 
-export function updateUserLearnProgress(
+export const updateUserLearnProgress = (
   subModuleId: string,
   chapterId: string,
   score: number,
   passed: boolean,
   streak?: number
-) {
+) => {
   const user = getCurrentUser();
   if (user !== null) {
     // console.log("user learn progress function");
@@ -193,14 +193,14 @@ export function updateUserLearnProgress(
       });
     }
   }
-}
+};
 
-export function createNewUser(
+export const createNewUser = (
   user_uid: string,
   user_email: string,
   user_name: string,
   pub_id: string
-) {
+) => {
   usersData.child(user_uid).set({
     id: user_uid,
     email: user_email,
@@ -209,15 +209,15 @@ export function createNewUser(
     public_id: pub_id,
     bio: "Learning is lifetime process",
   });
-}
+};
 
-export async function updateUserProfile(
+export const updateUserProfile = async (
   name: string,
   bio?: string,
   instagram?: string,
   youTube?: string,
   website?: string
-) {
+) => {
   const user = getCurrentUser();
 
   try {
@@ -278,16 +278,16 @@ export async function updateUserProfile(
     presentToast(error.message);
     return false;
   }
-}
+};
 
-export function followAsFriend(id: string) {
+export const followAsFriend = (id: string) => {
   const user = getCurrentUser();
   if (user) {
     usersData.child(user.uid).child("friends").push(id);
   }
-}
+};
 
-export function removeFollowedFriend(id: string) {
+export const removeFollowedFriend = (id: string) => {
   const user = getCurrentUser();
   if (user) {
     usersData
@@ -306,4 +306,4 @@ export function removeFollowedFriend(id: string) {
         }
       });
   }
-}
+};

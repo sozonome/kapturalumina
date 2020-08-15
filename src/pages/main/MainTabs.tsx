@@ -15,7 +15,7 @@ import Leaderboards from "./Leaderboards";
 import Profile from "./profile/Profile";
 import PrivateRoute from "../../components/routings/PrivateRoute";
 
-export default function MainTabs() {
+const MainTabs = () => {
   return (
     <IonTabs>
       <IonRouterOutlet>
@@ -45,4 +45,6 @@ export default function MainTabs() {
       </IonTabBar>
     </IonTabs>
   );
-}
+};
+
+export default MainTabs;

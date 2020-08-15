@@ -4,11 +4,11 @@ import { getCurrentDate } from "../functions";
 
 export const leaderboard = fbase.database().ref(`leaderboards`);
 
-export function initUserLeaderBoard(
+export const initUserLeaderBoard = (
   user_uid: string,
   user_name: string,
   pub_id: string
-) {
+) => {
   leaderboard.child(user_uid).set({
     name: user_name,
     points: 0,
@@ -22,9 +22,9 @@ export function initUserLeaderBoard(
       },
     ],
   });
-}
+};
 
-export function updateUserLeaderBoardPoints(points: number) {
+export const updateUserLeaderBoardPoints = (points: number) => {
   const user = getCurrentUser();
 
   // To make sure if mistakenly insert chapters scoring entry in form of string in database
@@ -88,4 +88,4 @@ export function updateUserLeaderBoardPoints(points: number) {
       }
     });
   }
-}
+};

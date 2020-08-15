@@ -10,33 +10,26 @@ export const LearnContext = React.createContext({
   chapters: [] as Chapter[],
 });
 
-export function LearnProvider({ children }: any) {
+export const LearnProvider = ({ children }: any) => {
   const [chaptersState, setChaptersState] = useState<Chapter[]>([]);
   const [busy, setBusy] = useState(true);
 
   useEffect(() => {
-    // let fetched = true;
     fbase.auth().onAuthStateChanged(() => {
       const rootRef = fbase.database().ref();
       const chaptersRef = rootRef.child("chapters");
       setChaptersState([]);
-      // if(fetched){
+
       chaptersRef.on("value", (snap) => {
         setChaptersState(snap.val());
-        // data.forEach((row) => {
-        //   const entry = row;
-        //   setChaptersState((chapters)=> [...chapters, entry.val()]);
-        // });
       });
-      // }
+
       setBusy(false);
-      // return fetched = false;
     });
   }, []);
 
   return (
     <>
-      {/* {console.log("LearnProvider", chaptersState)} */}
       {busy ? (
         <Loader />
       ) : (
@@ -50,4 +43,4 @@ export function LearnProvider({ children }: any) {
       )}
     </>
   );
-}
+};

@@ -11,7 +11,7 @@ import {
 
 import { PhotoAmico, FocusAmico, FocusPana } from "../assets";
 
-export default function PublicHomeSlide() {
+const PublicHomeSlide = () => {
   const slider = useRef(null as any);
 
   useEffect(() => {
@@ -73,4 +73,6 @@ export default function PublicHomeSlide() {
       </IonSlide>
     </IonSlides>
   );
-}
+};
+
+export default PublicHomeSlide;

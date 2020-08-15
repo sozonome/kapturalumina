@@ -16,7 +16,7 @@ export type AchievementWrapperProps = {
   requestViewAchievement: (achievement: Achievement) => void;
 };
 
-export default function AchievementsWrapper(props: AchievementWrapperProps) {
+const AchievementsWrapper = (props: AchievementWrapperProps) => {
   return (
     <>
       {props.userAchievement.length > 0 ? (
@@ -57,4 +57,6 @@ export default function AchievementsWrapper(props: AchievementWrapperProps) {
       })}
     </>
   );
-}
+};
+
+export default AchievementsWrapper;

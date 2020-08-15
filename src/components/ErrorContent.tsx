@@ -10,7 +10,7 @@ import {
   IonTitle,
 } from "@ionic/react";
 
-export default function ErrorContent() {
+const ErrorContent = () => {
   return (
     <>
       <IonHeader>
@@ -41,4 +41,6 @@ export default function ErrorContent() {
       </IonContent>
     </>
   );
-}
+};
+
+export default ErrorContent;

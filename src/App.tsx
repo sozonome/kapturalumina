@@ -56,7 +56,7 @@ setupConfig({
   hardwareBackButton: false,
 });
 
-const KapturaLumina: React.FC = () => {
+const KapturaLumina = () => {
   useIonViewDidEnter(() => {
     document.addEventListener(
       "backbutton",

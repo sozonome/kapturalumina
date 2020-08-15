@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { IonRouterOutlet } from "@ionic/react";
-import { Route, Redirect, withRouter, Switch } from "react-router";
+import { Route, Redirect, Switch } from "react-router";
 
 import MainTabs from "../../pages/main/MainTabs";
 import SubModulePage from "../../pages/main/learn/SubModulePage";
@@ -16,7 +16,7 @@ import UserProfile from "../../pages/main/profile/UserProfile";
 
 import { AuthContext } from "../providers";
 
-function Routing() {
+const Routing = () => {
   const { currentUser } = useContext(AuthContext);
 
   return (
@@ -56,6 +56,6 @@ function Routing() {
       </IonRouterOutlet>
     </>
   );
-}
+};
 
-export default withRouter(Routing);
+export default Routing;

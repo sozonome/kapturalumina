@@ -20,7 +20,7 @@ import {
   IonCol,
 } from "@ionic/react";
 import { playCircle, checkmarkCircle, reloadCircle } from "ionicons/icons";
-import { withRouter, useParams } from "react-router";
+import { useParams } from "react-router";
 
 import ErrorContent from "../../../components/ErrorContent";
 import {
@@ -30,7 +30,7 @@ import {
 
 import { Chapter } from "../../../models";
 
-function ChapterPage() {
+const ChapterPage = () => {
   const { chapters } = useContext(LearnContext);
   const { progress } = useContext(UserProgressContext);
 
@@ -154,6 +154,6 @@ function ChapterPage() {
       )}
     </IonPage>
   );
-}
+};
 
-export default withRouter(ChapterPage);
+export default ChapterPage;

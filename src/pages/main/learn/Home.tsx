@@ -19,7 +19,6 @@ import {
   IonText,
   IonProgressBar,
 } from "@ionic/react";
-import { withRouter } from "react-router";
 
 import {
   LearnContext,
@@ -29,7 +28,7 @@ import {
 
 import { HelloRafiki } from "../../../assets";
 
-const Home: React.FC = () => {
+const Home = () => {
   const { chapters } = useContext(LearnContext);
   const { progress } = useContext(UserProgressContext);
   const { user } = useContext(UserProfileContext);
@@ -132,4 +131,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default withRouter(Home);
+export default Home;

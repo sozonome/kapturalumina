@@ -18,7 +18,7 @@ export const UserProfileContext = React.createContext({
   user: initialUser,
 });
 
-export function UserProfileProvider({ children }: any, props: any) {
+export const UserProfileProvider = ({ children }: any, props: any) => {
   const [userProfile, setUserProfile] = useState<UserData>(initialUser);
   const [busy, setBusy] = useState<boolean>(true);
 
@@ -57,4 +57,4 @@ export function UserProfileProvider({ children }: any, props: any) {
       )}
     </>
   );
-}
+};
