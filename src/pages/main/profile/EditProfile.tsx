@@ -50,7 +50,6 @@ const EditProfile = () => {
   const saveEdit = async () => {
     setBusy(true);
     if (name.length > 0) {
-      // console.log("updating...");
       const res = await updateUserProfile(name, bio, insta, youTube, website);
       if (res) {
         history.replace("/main/profile");

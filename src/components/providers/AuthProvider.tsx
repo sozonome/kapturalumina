@@ -21,7 +21,6 @@ export const AuthProvider = ({ children }: any) => {
 
   return (
     <>
-      {/* {console.log("Auth Provider")} */}
       {busy === true ? (
         <Loader />
       ) : (

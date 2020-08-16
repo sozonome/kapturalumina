@@ -29,7 +29,6 @@ export const updateUserLearnProgress = (
 ) => {
   const user = getCurrentUser();
   if (user !== null) {
-    // console.log("user learn progress function");
     const userProgress = usersData.child(user.uid).child("progress");
     const userLeaderboard = leaderboard.child(user.uid);
 
@@ -52,7 +51,6 @@ export const updateUserLearnProgress = (
                 chapter.child("subModules").forEach((subModule) => {
                   if (subModule.val().id === progress.val().subModuleId) {
                     countModules++;
-                    // console.log(countModules, chapter.val().id);
                   }
                   if (subModuleId === progress.val().subModuleId) {
                     newModuleProgress = false;
@@ -75,26 +73,9 @@ export const updateUserLearnProgress = (
                     countChapters++;
                     countModulesTemp += countModules;
                     countModules = 0;
-                    // console.log(
-                    //   countModules,
-                    //   countChapters,
-                    //   chapter.val().subModules.length,
-                    //   chapter.val().id,
-                    //   newModuleProgress,
-                    //   passed,
-                    //   "Chapter Finish Added"
-                    // );
                   }
                 });
               }
-              // console.log(
-              //   countModules,
-              //   countChapters,
-              //   chapter.val().subModules.length,
-              //   chapter.val().id,
-              //   newModuleProgress,
-              //   passed
-              // );
             });
           });
         });

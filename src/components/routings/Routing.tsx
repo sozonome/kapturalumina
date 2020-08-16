@@ -26,11 +26,7 @@ const Routing = () => {
         <PrivateRoute path="/main" component={MainTabs} />
         <Route path="/login" component={LoginPage} />
         <Route path="/register" component={RegisterPage} />
-        <PrivateRoute
-          exact
-          path="/learn/:chapter__id"
-          component={ChapterPage}
-        />
+        <PrivateRoute exact path="/learn/:chapterId" component={ChapterPage} />
         <Switch>
           <PrivateRoute
             exact
@@ -39,7 +35,7 @@ const Routing = () => {
           />
           <PrivateRoute
             exact
-            path="/quiz/:chapter_id/:subModule_id"
+            path="/quiz/:chapterId/:subModuleId"
             component={QuizPage}
           />
         </Switch>

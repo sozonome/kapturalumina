@@ -41,14 +41,14 @@ const QuizPage = () => {
   const [busyUpdate, setBusyUpdate] = useState<boolean>(false);
   const [finish, setFinish] = useState<boolean>(false);
 
-  const { chapter_id, subModule_id } = useParams();
+  const { chapterId, subModuleId } = useParams();
   const history = useHistory();
 
   useEffect(() => {
-    const chapter = chapters.find((chapter) => chapter.id === chapter_id);
+    const chapter = chapters.find((chapter) => chapter.id === chapterId);
     if (chapter) {
       const subModule = chapter.subModules.find(
-        (subModule) => subModule.id === subModule_id
+        (subModule) => subModule.id === subModuleId
       );
       if (subModule) {
         if (subModule.quiz) {
@@ -69,7 +69,7 @@ const QuizPage = () => {
       setFinish(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [finish]);
 
   const updateLearnProgress = () => {
     // Value Streak and Points
@@ -91,13 +91,12 @@ const QuizPage = () => {
 
     setTimeout(() => {
       updateUserLearnProgress(
-        subModule_id!,
-        chapter_id!,
+        subModuleId,
+        chapterId,
         newScore,
         passed,
         newStreak
       );
-      // console.log(points);
       updateUserLeaderBoardPoints(points);
     }, 500);
 
@@ -108,7 +107,7 @@ const QuizPage = () => {
       setScore(0);
       setIndex(0);
       setStreak(0);
-      history.replace(`/learn/${chapter_id}`);
+      history.replace(`/learn/${chapterId}`);
       // setQuiz([]);
       // setQuizPassingScore([]);
     }, 2000);
@@ -170,11 +169,9 @@ const QuizPage = () => {
                           }
 
                           if (index === quiz.length - 1) {
-                            // console.log(quiz.contents.length, index)
                             setFinish(true);
                           } else {
                             setIndex(index + 1);
-                            // console.log(index, 'lah');
                           }
                         }}
                       >

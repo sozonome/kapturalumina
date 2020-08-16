@@ -36,7 +36,6 @@ export const UserProgressProvider = ({ children }: any) => {
 
   return (
     <>
-      {/* {console.log("UserProgressProvider", progressState, user?.uid)} */}
       {busy ? (
         <Loader />
       ) : (

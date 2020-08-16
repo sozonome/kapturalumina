@@ -68,7 +68,6 @@ const SubModulePage = () => {
   useEffect(() => {
     // Cleanup Effect
     return () => {
-      // console.log("cleaned up");
       setSubModule(undefined);
       setSubModule(undefined);
       setProgressIndex(0);
@@ -78,11 +77,9 @@ const SubModulePage = () => {
   const slider = useRef<HTMLIonSlidesElement>(null);
 
   const afterRead = () => {
-    // console.log("after read");
     setBusyUpdate(true);
     if (subModule?.quiz == null) {
-      // console.log("No Quiz");
-      updateUserLearnProgress(subModuleId!, chapterId!, 1, true);
+      updateUserLearnProgress(subModuleId, chapterId, 1, true);
       if (subModule?.passingPoints) {
         updateUserLeaderBoardPoints(subModule.passingPoints);
       } else {

@@ -19,7 +19,7 @@ const MainTabs = () => {
   return (
     <IonTabs>
       <IonRouterOutlet>
-        <Redirect exact path="/main" to="/main/home" />
+        <Route exact path="/main" render={() => <Redirect to="/main/home" />} />
 
         <Route path="/main/home" render={() => <Home />} exact={true} />
         <PrivateRoute

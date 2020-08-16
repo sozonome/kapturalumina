@@ -39,7 +39,6 @@ export const updateUserLeaderBoardPoints = (points: number) => {
         const dailyPointKey = async () => {
           // Get last entry
           const todaysDailyPoint = snap.val().pop();
-          // console.log(todaysDailyPoint);
           let todaysDailyPointKey;
           let i = 0;
 

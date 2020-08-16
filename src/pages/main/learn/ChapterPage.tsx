@@ -37,12 +37,12 @@ const ChapterPage = () => {
   const [chapter, setChapter] = useState<Chapter>();
   const [busy, setBusy] = useState<boolean>(true);
 
-  const { chapter__id } = useParams();
+  const { chapterId } = useParams();
 
   useEffect(() => {
-    setChapter(chapters.find((chapter) => chapter.id === chapter__id));
+    setChapter(chapters.find((chapter) => chapter.id === chapterId));
     setBusy(false);
-  }, [chapters, progress, chapter__id]);
+  }, [chapters, progress, chapterId]);
 
   return (
     <IonPage>
@@ -53,7 +53,7 @@ const ChapterPage = () => {
           <IonHeader>
             <IonToolbar>
               <IonButtons slot="start">
-                <IonBackButton />
+                <IonBackButton defaultHref="/main/home" />
               </IonButtons>
               <IonTitle>{chapter.title}</IonTitle>
             </IonToolbar>

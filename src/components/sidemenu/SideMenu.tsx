@@ -46,7 +46,7 @@ const SideMenu = () => {
           {currentUser ? (
             <>
               <IonMenuToggle auto-hide="false">
-                <IonItem routerLink="/main">
+                <IonItem routerLink="/main/home">
                   <IonIcon slot="start" icon={homeSharp} />
                   <IonLabel>Home</IonLabel>
                 </IonItem>
