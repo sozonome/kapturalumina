@@ -79,7 +79,7 @@ const SubModulePage = () => {
   const afterRead = () => {
     setBusyUpdate(true);
     if (subModule?.quiz == null) {
-      updateUserLearnProgress(subModuleId, chapterId, 1, true);
+      updateUserLearnProgress(subModuleId!, chapterId!, 1, true);
       if (subModule?.passingPoints) {
         updateUserLeaderBoardPoints(subModule.passingPoints);
       } else {
