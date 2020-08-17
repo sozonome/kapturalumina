@@ -45,6 +45,7 @@ App Theme color inspired by Dracula Theme color palette
   3. Clone this repo
     `git clone https://github.com/sozonome/kapturalumina.git`
   4. Run `npm i` or `yarn` from project root
+  5. Run `npx cap sync android` to synchronize capacitor deps / native bridges
   6. Run `ionic s`
 </details>
 
