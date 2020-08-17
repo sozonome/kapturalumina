@@ -20,37 +20,35 @@ const Routing = () => {
   const { currentUser } = useContext(AuthContext);
 
   return (
-    <>
-      <IonRouterOutlet id="main">
-        <Route component={PublicHome} />
-        <PrivateRoute path="/main" component={MainTabs} />
-        <Route path="/login" component={LoginPage} />
-        <Route path="/register" component={RegisterPage} />
-        <PrivateRoute exact path="/learn/:chapterId" component={ChapterPage} />
-        <Switch>
-          <PrivateRoute
-            exact
-            path="/learn/:chapterId/:subModuleId"
-            component={SubModulePage}
-          />
-          <PrivateRoute
-            exact
-            path="/quiz/:chapterId/:subModuleId"
-            component={QuizPage}
-          />
-        </Switch>
+    <IonRouterOutlet id="main">
+      <Route component={PublicHome} />
+      <PrivateRoute path="/main" component={MainTabs} />
+      <Route path="/login" component={LoginPage} />
+      <Route path="/register" component={RegisterPage} />
+      <PrivateRoute exact path="/learn/:chapterId" component={ChapterPage} />
+      <Switch>
+        <PrivateRoute
+          exact
+          path="/learn/:chapterId/:subModuleId"
+          component={SubModulePage}
+        />
+        <PrivateRoute
+          exact
+          path="/quiz/:chapterId/:subModuleId"
+          component={QuizPage}
+        />
+      </Switch>
 
-        <PrivateRoute exact path="/editprofile" component={EditProfile} />
-        <PrivateRoute exact path="/user/:userId" component={UserProfile} />
-        <Route path="/about" component={AboutPage} />
-        <Route path="/home" component={PublicHome} />
-        {currentUser ? (
-          <Route exact path="/" render={() => <Redirect to="/main" />} />
-        ) : (
-          <Route exact path="/" render={() => <Redirect to="/home" />} />
-        )}
-      </IonRouterOutlet>
-    </>
+      <PrivateRoute exact path="/editprofile" component={EditProfile} />
+      <PrivateRoute exact path="/user/:userId" component={UserProfile} />
+      <Route path="/about" component={AboutPage} />
+      <Route path="/home" component={PublicHome} />
+      {currentUser ? (
+        <Route exact path="/" render={() => <Redirect to="/main" />} />
+      ) : (
+        <Route exact path="/" render={() => <Redirect to="/home" />} />
+      )}
+    </IonRouterOutlet>
   );
 };
 
