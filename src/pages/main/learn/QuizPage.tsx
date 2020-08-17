@@ -108,8 +108,6 @@ const QuizPage = () => {
       setIndex(0);
       setStreak(0);
       history.replace(`/learn/${chapterId}`);
-      // setQuiz([]);
-      // setQuizPassingScore([]);
     }, 2000);
   };
 
