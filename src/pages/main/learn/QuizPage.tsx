@@ -91,8 +91,8 @@ const QuizPage = () => {
 
     setTimeout(() => {
       updateUserLearnProgress(
-        subModuleId,
-        chapterId,
+        subModuleId!,
+        chapterId!,
         newScore,
         passed,
         newStreak
