@@ -1,6 +1,9 @@
 # KapturaLumina
 ![KapturaLumina](previews/banner.jpg)
 
+[![CodeFactor](https://www.codefactor.io/repository/github/sozonome/kapturalumina/badge)](https://www.codefactor.io/repository/github/sozonome/kapturalumina)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=sozonome_kapturalumina&metric=alert_status)](https://sonarcloud.io/dashboard?id=sozonome_kapturalumina) [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=sozonome_kapturalumina&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=sozonome_kapturalumina) [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=sozonome_kapturalumina&metric=bugs)](https://sonarcloud.io/dashboard?id=sozonome_kapturalumina) [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=sozonome_kapturalumina&metric=code_smells)](https://sonarcloud.io/dashboard?id=sozonome_kapturalumina) [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=sozonome_kapturalumina&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=sozonome_kapturalumina)
+
 Basic Photography Learning Mobile Applications with Gamification <br/>
 Part of my Bachelor Thesis research in gamification design and implementation.
 
