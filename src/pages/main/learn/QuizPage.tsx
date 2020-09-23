@@ -41,14 +41,16 @@ const QuizPage = () => {
   const [busyUpdate, setBusyUpdate] = useState<boolean>(false);
   const [finish, setFinish] = useState<boolean>(false);
 
-  const { chapterId, subModuleId } = useParams();
+  const { chapterId, subModuleId }: any = useParams();
   const history = useHistory();
 
   useEffect(() => {
-    const chapter = chapters.find((chapter) => chapter.id === chapterId);
+    const chapter = chapters.find(
+      (chapterData) => chapterData.id === chapterId
+    );
     if (chapter) {
       const subModule = chapter.subModules.find(
-        (subModule) => subModule.id === subModuleId
+        (subModuleData) => subModuleData.id === subModuleId
       );
       if (subModule) {
         if (subModule.quiz) {
@@ -91,8 +93,8 @@ const QuizPage = () => {
 
     setTimeout(() => {
       updateUserLearnProgress(
-        subModuleId!,
-        chapterId!,
+        subModuleId,
+        chapterId,
         newScore,
         passed,
         newStreak
