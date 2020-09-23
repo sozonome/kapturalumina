@@ -35,32 +35,32 @@ const Profile = () => {
     const currentUser = getCurrentUser();
     if (currentUser) {
       usersData.child(currentUser.uid).on("value", (snap) => {
-        let userAchievements: Achievement[] = [];
-        let userAchievementList: any[] = [];
+        let tempUserAchievement: Achievement[] = [];
+        let tempUserAchievementList: any[] = [];
         setBusy(true);
         if (snap.exists()) {
           setUser(snap.val());
-          snap.child("achievements").forEach((userAchievement) => {
+          snap.child("achievements").forEach((userAchievementData) => {
             achievements
               .once("value", (snapAchievement) => {
                 snapAchievement.forEach((achievement) => {
-                  if (userAchievement.val().id === achievement.val().id) {
-                    userAchievements.push(achievement.val());
-                    userAchievementList.push({
-                      id: userAchievement.val().id,
-                      qty: userAchievement.val().qty,
+                  if (userAchievementData.val().id === achievement.val().id) {
+                    tempUserAchievement.push(achievement.val());
+                    tempUserAchievementList.push({
+                      id: userAchievementData.val().id,
+                      qty: userAchievementData.val().qty,
                     });
                   }
                 });
               })
               .then(() => {
-                setUserAchievement(userAchievements);
-                setUserAchievementList(userAchievementList);
+                setUserAchievement(tempUserAchievement);
+                setUserAchievementList(tempUserAchievementList);
               });
           });
           snap.child("friends").forEach(() => {
             setFriendsFollowedNumber(
-              (friendsFollowedNumber) => friendsFollowedNumber + 1
+              (prevFriendsFollowedNumber) => prevFriendsFollowedNumber + 1
             );
           });
           setBusy(false);

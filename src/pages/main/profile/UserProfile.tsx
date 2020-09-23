@@ -29,7 +29,7 @@ const UserProfile = () => {
   const [loggedInUser, setLoggedInUser] = useState<boolean>(false);
   const [addedAsFriend, setAddedAsFriend] = useState<boolean>(false);
   const currentLoggedInUser = getCurrentUser();
-  const { userId } = useParams();
+  const { userId }: any = useParams();
 
   const [friendsFollowedNumber, setFriendsFollowedNumber] = useState<number>(0);
 
@@ -66,15 +66,15 @@ const UserProfile = () => {
                 }
               });
 
-            entry.child("achievements").forEach((userAchievement) => {
+            entry.child("achievements").forEach((userAchievementData) => {
               achievements
                 .once("value", (snapAchievement) => {
                   snapAchievement.forEach((achievement) => {
-                    if (userAchievement.val().id === achievement.val().id) {
+                    if (userAchievementData.val().id === achievement.val().id) {
                       userAchievements.push(achievement.val());
                       userAchievementLists.push({
-                        id: userAchievement.val().id,
-                        qty: userAchievement.val().qty,
+                        id: userAchievementData.val().id,
+                        qty: userAchievementData.val().qty,
                       });
                     }
                   });
@@ -86,7 +86,7 @@ const UserProfile = () => {
             });
             entry.child("friends").forEach(() => {
               setFriendsFollowedNumber(
-                (friendsFollowedNumber) => friendsFollowedNumber + 1
+                (prevFriendsFollowedNumber) => prevFriendsFollowedNumber + 1
               );
             });
             setBusy(false);

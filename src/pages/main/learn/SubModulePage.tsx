@@ -52,14 +52,18 @@ const SubModulePage = () => {
   const [busyUpdate, setBusyUpdate] = useState<boolean>(false);
 
   const history = useHistory();
-  const { chapterId, subModuleId } = useParams();
+  const { chapterId, subModuleId }: any = useParams();
 
   useEffect(() => {
-    const chapter = chapters.find((chapter) => chapter.id === chapterId);
+    const chapter = chapters.find(
+      (chapterData) => chapterData.id === chapterId
+    );
     if (chapter && chapterId !== null && subModuleId !== null) {
       setSubModule(undefined);
       setSubModule(
-        chapter.subModules.find((subModule) => subModule.id === subModuleId)
+        chapter.subModules.find(
+          (subModuleData) => subModuleData.id === subModuleId
+        )
       );
     }
     setBusy(false);
@@ -79,7 +83,7 @@ const SubModulePage = () => {
   const afterRead = () => {
     setBusyUpdate(true);
     if (subModule?.quiz == null) {
-      updateUserLearnProgress(subModuleId!, chapterId!, 1, true);
+      updateUserLearnProgress(subModuleId, chapterId, 1, true);
       if (subModule?.passingPoints) {
         updateUserLeaderBoardPoints(subModule.passingPoints);
       } else {
@@ -99,8 +103,8 @@ const SubModulePage = () => {
     slider.current!.slideTo(0);
   };
 
-  const renderSlides = (subModule: SubModule) => {
-    return subModule.slides.map((slide, index) => {
+  const renderSlides = (subModuleContent: SubModule) => {
+    return subModuleContent.slides.map((slide, index) => {
       return (
         <IonSlide key={index}>
           <IonCard>
