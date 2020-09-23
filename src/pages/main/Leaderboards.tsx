@@ -50,7 +50,8 @@ const Leaderboards = () => {
           snap.forEach((entry) => {
             leaderBoardData.push(entry.val());
           });
-          setLeaderboardData(leaderBoardData.reverse());
+          leaderBoardData.reverse();
+          setLeaderboardData(leaderBoardData);
         });
         setNeedUpdate(false);
       } else {
@@ -101,7 +102,8 @@ const Leaderboards = () => {
                 });
             }
           });
-          setLeaderboardData(leaderBoardData.reverse());
+          leaderBoardData.reverse();
+          setLeaderboardData(leaderBoardData);
           setNeedUpdate(false);
         });
       } else {
@@ -140,9 +142,8 @@ const Leaderboards = () => {
               }
             }
           });
-          setLeaderboardData(
-            leaderBoardData.sort((a, b) => b.points - a.points)
-          );
+          leaderBoardData.sort((a, b) => b.points - a.points);
+          setLeaderboardData(leaderBoardData);
           setNeedUpdate(false);
         });
       }
