@@ -75,8 +75,8 @@ export const updateUserLeaderBoardPoints = (points: number) => {
             }
           }
         };
-        userLeaderboard.once("value", (snap) => {
-          const currentPoints = parseInt(snap.val().points, 10) + points;
+        userLeaderboard.once("value", (snapshot) => {
+          const currentPoints = parseInt(snapshot.val().points, 10) + points;
 
           userLeaderboard.update({
             points: currentPoints,
