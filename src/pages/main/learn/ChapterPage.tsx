@@ -37,10 +37,10 @@ const ChapterPage = () => {
   const [chapter, setChapter] = useState<Chapter>();
   const [busy, setBusy] = useState<boolean>(true);
 
-  const { chapterId } = useParams();
+  const { chapterId }: any = useParams();
 
   useEffect(() => {
-    setChapter(chapters.find((chapter) => chapter.id === chapterId));
+    setChapter(chapters.find((chapterData) => chapterData.id === chapterId));
     setBusy(false);
   }, [chapters, progress, chapterId]);
 
@@ -66,19 +66,19 @@ const ChapterPage = () => {
                   let locked = index === 0 ? false : true;
                   let passed = false;
 
-                  progress.forEach((progress) => {
+                  progress.forEach((progressData) => {
                     if (
-                      progress.chapterId === chapter.id &&
-                      progress.subModuleId === chapter.subModules[index].id
+                      progressData.chapterId === chapter.id &&
+                      progressData.subModuleId === chapter.subModules[index].id
                     ) {
-                      bestScore = progress.score;
-                      passed = progress.passed;
+                      bestScore = progressData.score;
+                      passed = progressData.passed;
                     }
                     if (index > 0) {
                       if (
-                        progress.subModuleId ===
+                        progressData.subModuleId ===
                           chapter.subModules[index - 1].id &&
-                        progress.passed === true
+                        progressData.passed === true
                       ) {
                         locked = false;
                       }
