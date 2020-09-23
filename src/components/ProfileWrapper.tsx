@@ -134,8 +134,8 @@ const Profilewrapper = ({ mainMenu, profile, value }: ProfileWrapperProps) => {
                 expand="block"
                 onClick={() => {
                   profile.addedAsFriend
-                    ? removeFollowedFriend(user?.id!)
-                    : followAsFriend(user?.id!);
+                    ? removeFollowedFriend(user?.id)
+                    : followAsFriend(user?.id);
                 }}
               >
                 {profile.addedAsFriend
