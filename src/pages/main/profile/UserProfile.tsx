@@ -56,9 +56,9 @@ const UserProfile = () => {
             usersData
               .child(currentLoggedInUser.uid)
               .child("friends")
-              .on("value", (snap) => {
-                if (snap.exists()) {
-                  snap.forEach((friend) => {
+              .on("value", (snapshot) => {
+                if (snapshot.exists()) {
+                  snapshot.forEach((friend) => {
                     if (friend.val() === entry.val().id) {
                       setAddedAsFriend(true);
                     }
