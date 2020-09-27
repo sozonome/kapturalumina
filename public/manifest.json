@@ -17,5 +17,13 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#44475a",
-  "background_color": "#44475a"
+  "background_color": "#44475a",
+  "related_applications": [
+    {
+      "platform": "play",
+      "id": "dev.sznm.kapturalumina",
+      "url": "https://play.google.com/store/apps/details?id=dev.sznm.kapturalumina"
+    }
+  ],
+  "prefer_related_applications": true
 }
