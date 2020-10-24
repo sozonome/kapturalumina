@@ -11,6 +11,8 @@ Part of my Bachelor Thesis research in gamification design and implementation.
 
 ## Previews
 
+![kapturalumina](https://socialify.git.ci/sozonome/kapturalumina/image?description=1&font=Inter&pattern=Overlapping%20Hexagons&stargazers=1&theme=Dark)
+
 Home Page | Leaderboard | Profile
 :-------------------------:|:-------------------------:|:-------------------------:
 ![01](previews/01.jpg) | ![02](previews/02.jpg) | ![03](previews/03.jpg)
