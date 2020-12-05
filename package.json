@@ -22,6 +22,8 @@
     "cordova-plugin-appminimize": "^1.0.1",
     "dotenv": "^8.2.0",
     "firebase": "^7.14.0",
+    "fontsource-inter": "^3.0.5",
+    "fontsource-karla": "^3.0.9",
     "ionicons": "^5.0.0",
     "node-sass": "^4.14.1",
     "react": "^16.13.0",
@@ -29,8 +31,6 @@
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.3",
-    "typeface-inter": "^3.12.0",
-    "typeface-karla": "0.0.72",
     "typescript": "3.8.3"
   },
   "scripts": {
