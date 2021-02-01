@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/sozonome/kapturalumina/compare/v1.2.1...v1.3.0) (2021-02-01)
+
+
+### Features
+
+* **auth:** add forgot password capabilities ([#1](https://github.com/sozonome/kapturalumina/issues/1)) ([878a446](https://github.com/sozonome/kapturalumina/commit/878a446c7fda93ad2c8543f7f8fbd8f1ef722be0))
+
 ### [1.2.1](https://github.com/sozonome/kapturalumina/compare/v1.2.0...v1.2.1) (2020-08-17)
 
 
