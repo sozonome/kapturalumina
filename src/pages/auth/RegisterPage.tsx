@@ -17,12 +17,12 @@ import {
 import { person, mail, key, keyOutline } from "ionicons/icons";
 import { Link, Redirect } from "react-router-dom";
 
-import { presentToast } from "../../components/Toast";
-import { AuthContext } from "../../components/providers";
+import { presentToast } from "components/Toast";
+import { AuthContext } from "components/providers";
 
-import { registerUser } from "../../firebase";
+import { registerUser } from "functions/firebase";
 
-import { FocusBro } from "../../assets";
+import { FocusBro } from "assets";
 
 const RegisterPage = () => {
   const [wait, setWait] = useState<boolean>(false);
@@ -71,13 +71,12 @@ const RegisterPage = () => {
 
   return (
     <IonPage>
-      {
-        <IonLoading
-          message="Pendaftaran sedang di proses..."
-          isOpen={wait}
-          duration={0}
-        />
-      }
+      <IonLoading
+        message="Pendaftaran sedang di proses..."
+        isOpen={wait}
+        duration={0}
+      />
+
       <IonContent className="ion-padding">
         <div className="registerBox">
           <IonGrid>

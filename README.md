@@ -30,7 +30,7 @@ App Theme color inspired by Dracula Theme color palette
   - TypeScript
   - Cloudinary for image storage
   - CloudImage for image resizing, compression, (image transformer) and acceleration / optimization
-* Deployment : Vercel (Formerly Zeit) for PWA (Web App) Version
+* Deployment : [Vercel](https://vercel.com) (Formerly Zeit) for [PWA (Web App) Version](https://kapturalumina.sznm.dev)
 
 <details>
   <summary><strong>Getting Started</strong></summary>
@@ -55,7 +55,9 @@ App Theme color inspired by Dracula Theme color palette
 </details>
 
 <details>
-  <summary><strong>Build Guide</strong></summary>
+  <summary><strong>Build Guide (android)</strong></summary>
+
+  **Make sure** you have installed Android Studio
 
   ## General Build Guide
   * `npm run build-release-android` or `npm run build-clean-release-android`
@@ -68,6 +70,16 @@ App Theme color inspired by Dracula Theme color palette
   5. Put in the password of the KeyStore
   6. Done
 </details>
+
+## Room for Improvements
+- [ ] Auth
+  - [x] Forgot Password / Request Password Reset
+  - [ ] Register / Sign In with Google Account / Twitter
+- [ ] Content (materials, discussions)
+  - [ ] community generated content section
+- [ ] Admin Dashboard
+  - [ ] a separate project to manage material contents
+- [ ] Internationalization / i18n
 
 <details>
   <summary><strong>References, Notes</strong></summary>
@@ -95,6 +107,7 @@ App Theme color inspired by Dracula Theme color palette
     - [React Auth with Firebase and Hooks](https://www.youtube.com/watch?v=unr4s3jd9qA)
     - [Manage Users](https://firebase.google.com/docs/auth/web/manage-users)
     - [Realtime Database Read and Write](https://firebase.google.com/docs/database/web/read-and-write)
+    - [Send Password Reset Email](https://firebase.google.com/docs/auth/web/manage-users#send_a_password_reset_email)
   - [Persistent Login](https://www.youtube.com/watch?v=2Oz-OLB8FQQ)
   - [Capacitor](https://capacitor.ionicframework.com/docs/)
   - [Android App Version Number](https://www.freakyjolly.com/change-version-number-of-app-in-android-studio/#.XtM01TPiuHs)

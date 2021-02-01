@@ -15,17 +15,17 @@ import {
 } from "@ionic/react";
 import { useParams, useHistory } from "react-router";
 
-import { LearnContext } from "../../../components/providers";
-import ErrorContent from "../../../components/ErrorContent";
-import { presentToast } from "../../../components/Toast";
+import { LearnContext } from "components/providers";
+import ErrorContent from "components/ErrorContent";
+import { presentToast } from "components/Toast";
 
-import { shuffleSet } from "../../../functions";
+import { shuffleSet } from "functions";
 import {
   updateUserLeaderBoardPoints,
   updateUserLearnProgress,
-} from "../../../firebase";
+} from "functions/firebase";
 
-import { Chapter, Question, Scoring } from "../../../models";
+import { Chapter, Question, Scoring } from "models";
 
 const QuizPage = () => {
   const { chapters }: { chapters: Chapter[] } = useContext(LearnContext);

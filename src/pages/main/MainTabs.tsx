@@ -13,7 +13,7 @@ import { Route, Redirect } from "react-router";
 import Home from "./learn/Home";
 import Leaderboards from "./Leaderboards";
 import Profile from "./profile/Profile";
-import PrivateRoute from "../../components/routings/PrivateRoute";
+import PrivateRoute from "components/routings/PrivateRoute";
 
 const MainTabs = () => {
   return (

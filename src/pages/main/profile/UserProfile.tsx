@@ -11,17 +11,17 @@ import {
 } from "@ionic/react";
 import { useParams } from "react-router";
 
-import { presentToast } from "../../../components/Toast";
-import Profilewrapper from "../../../components/ProfileWrapper";
+import { presentToast } from "components/Toast";
+import Profilewrapper from "components/ProfileWrapper";
 
 import {
   usersData,
   leaderboard,
   getCurrentUser,
   achievements,
-} from "../../../firebase";
+} from "functions/firebase";
 
-import { Leaderboard, UserData, Achievement } from "../../../models";
+import { Leaderboard, UserData, Achievement } from "models";
 
 const UserProfile = () => {
   const [user, setUser] = useState<UserData>();
@@ -40,14 +40,14 @@ const UserProfile = () => {
 
   useEffect(() => {
     if (currentLoggedInUser) {
-      usersData.on("value", (snap) => {
+      usersData.on("value", (snap: any) => {
         let userAchievements: Achievement[] = [];
         let userAchievementLists: any[] = [];
         setUser(undefined);
         setLoggedInUser(false);
         setAddedAsFriend(false);
         setBusy(true);
-        snap.forEach((entry) => {
+        snap.forEach((entry: any) => {
           if (entry.val().public_id === userId) {
             setUser(entry.val());
             if (entry.val().id === currentLoggedInUser.uid) {
@@ -56,9 +56,9 @@ const UserProfile = () => {
             usersData
               .child(currentLoggedInUser.uid)
               .child("friends")
-              .on("value", (snapshot) => {
+              .on("value", (snapshot: any) => {
                 if (snapshot.exists()) {
-                  snapshot.forEach((friend) => {
+                  snapshot.forEach((friend: any) => {
                     if (friend.val() === entry.val().id) {
                       setAddedAsFriend(true);
                     }
@@ -66,10 +66,10 @@ const UserProfile = () => {
                 }
               });
 
-            entry.child("achievements").forEach((userAchievementData) => {
+            entry.child("achievements").forEach((userAchievementData: any) => {
               achievements
-                .once("value", (snapAchievement) => {
-                  snapAchievement.forEach((achievement) => {
+                .once("value", (snapAchievement: any) => {
+                  snapAchievement.forEach((achievement: any) => {
                     if (userAchievementData.val().id === achievement.val().id) {
                       userAchievements.push(achievement.val());
                       userAchievementLists.push({
@@ -93,9 +93,9 @@ const UserProfile = () => {
           }
         });
       });
-      leaderboard.on("value", (snap) => {
+      leaderboard.on("value", (snap: any) => {
         setUserLeaderboardData(undefined);
-        snap.forEach((entry) => {
+        snap.forEach((entry: any) => {
           if (entry.val().public_id === userId) {
             setUserLeaderboardData(entry.val());
           }

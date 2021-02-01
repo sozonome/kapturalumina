@@ -3,9 +3,9 @@ import React, { useState, useEffect, useContext } from "react";
 import Loader from "../Loader";
 
 import { AuthContext } from "./AuthProvider";
-import { fbase, getCurrentUser } from "../../firebase";
+import { fbase, getCurrentUser } from "functions/firebase";
 
-import { Progress } from "../../models";
+import { Progress } from "models";
 
 export const UserProgressContext = React.createContext({
   progress: [] as Progress[],
@@ -22,9 +22,9 @@ export const UserProgressProvider = ({ children }: any) => {
       fbase
         .database()
         .ref("users/" + user.uid + "/progress")
-        .on("value", (snapshot) => {
+        .on("value", (snapshot: any) => {
           setProgressState([]);
-          snapshot.forEach((row) => {
+          snapshot.forEach((row: any) => {
             setProgressState((prog) => [...prog, row.val()]);
           });
         });

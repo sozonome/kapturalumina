@@ -22,13 +22,10 @@ import {
 import { playCircle, checkmarkCircle, reloadCircle } from "ionicons/icons";
 import { useParams } from "react-router";
 
-import ErrorContent from "../../../components/ErrorContent";
-import {
-  LearnContext,
-  UserProgressContext,
-} from "../../../components/providers";
+import ErrorContent from "components/ErrorContent";
+import { LearnContext, UserProgressContext } from "components/providers";
 
-import { Chapter } from "../../../models";
+import { Chapter } from "models";
 
 const ChapterPage = () => {
   const { chapters } = useContext(LearnContext);

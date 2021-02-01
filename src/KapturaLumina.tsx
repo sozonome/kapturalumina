@@ -34,17 +34,17 @@ import {
   UserProfileProvider,
   UserProgressProvider,
   ThemeProvider,
-} from "./components/providers";
-import SideMenu from "./components/sidemenu/SideMenu";
-import Routing from "./components/routings/Routing";
+} from "components/providers";
+import SideMenu from "components/sidemenu/SideMenu";
+import Routing from "components/routings/Routing";
 
 // Global CSS
 import "fontsource-inter/latin.css";
 import "fontsource-karla/latin.css";
-import "./theme/styles/global.scss";
+import "theme/styles/global.scss";
 
 /* Theme variables */
-import "./theme/variables.scss";
+import "theme/variables.scss";
 
 const { App } = Plugins;
 

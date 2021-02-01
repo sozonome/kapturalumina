@@ -15,7 +15,7 @@ import {
 } from "@ionic/react";
 import { logoIonic, logoReact, logoFirebase, person } from "ionicons/icons";
 
-import { StaticAssetsAmico } from "../assets";
+import { StaticAssetsAmico } from "assets";
 
 const AboutPage = () => {
   return (

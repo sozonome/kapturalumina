@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 
 import Loader from "../Loader";
 
-import { fbase } from "../../firebase";
+import { fbase } from "functions/firebase";
 
-import { Chapter } from "../../models";
+import { Chapter } from "models";
 
 export const LearnContext = React.createContext({
   chapters: [] as Chapter[],
@@ -20,7 +20,7 @@ export const LearnProvider = ({ children }: any) => {
       const chaptersRef = rootRef.child("chapters");
       setChaptersState([]);
 
-      chaptersRef.on("value", (snap) => {
+      chaptersRef.on("value", (snap: any) => {
         setChaptersState(snap.val());
       });
 

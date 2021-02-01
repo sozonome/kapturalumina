@@ -28,17 +28,16 @@ import {
 import { chevronBack, chevronForward, checkmarkCircle } from "ionicons/icons";
 import { useHistory, useParams } from "react-router";
 
-import { LearnContext } from "../../../components/providers";
-import ErrorContent from "../../../components/ErrorContent";
-import SubModuleSlideImage from "../../../components/SubModuleSlideImage";
+import { LearnContext } from "components/providers";
+import ErrorContent from "components/ErrorContent";
+import SubModuleSlideImage from "components/SubModuleSlideImage";
 
 import {
   updateUserLearnProgress,
   updateUserLeaderBoardPoints,
-} from "../../../firebase";
-import {} from "../../../firebase/leaderboard";
+} from "functions/firebase";
 
-import { Chapter, SubModule } from "../../../models";
+import { Chapter, SubModule } from "models";
 
 const SubModulePage = () => {
   const { chapters }: { chapters: Chapter[] } = useContext(LearnContext);

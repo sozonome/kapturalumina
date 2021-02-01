@@ -21,12 +21,12 @@ import {
   IonLoading,
 } from "@ionic/react";
 
-import { leaderboard, usersData, getCurrentUser } from "../../firebase";
-import { getCurrentDate } from "../../functions";
+import { leaderboard, usersData, getCurrentUser } from "functions/firebase";
+import { getCurrentDate } from "functions";
 
-import { Leaderboard } from "../../models";
+import { Leaderboard } from "models";
 
-import { WinnersPana } from "../../assets";
+import { WinnersPana } from "assets";
 
 const Leaderboards = () => {
   const [filterUser, setFilterUser] = useState<"global" | "friends">("global");
@@ -44,10 +44,10 @@ const Leaderboards = () => {
     if (filterUser === "global") {
       if (filterTime === "all-time") {
         const leaderBoardData: Leaderboard[] = [];
-        leaderboard.orderByChild("points").on("value", (snap) => {
+        leaderboard.orderByChild("points").on("value", (snap: any) => {
           setNeedUpdate(true);
           setLeaderboardData([]);
-          snap.forEach((entry) => {
+          snap.forEach((entry: any) => {
             leaderBoardData.push(entry.val());
           });
           leaderBoardData.reverse();
@@ -56,10 +56,10 @@ const Leaderboards = () => {
         setNeedUpdate(false);
       } else {
         const leaderBoardData: Leaderboard[] = [];
-        leaderboard.on("value", (snap) => {
+        leaderboard.on("value", (snap: any) => {
           setNeedUpdate(true);
           setLeaderboardData([]);
-          snap.forEach((entry) => {
+          snap.forEach((entry: any) => {
             const todayPoints = entry.val().dailyPoints.pop();
             if (todayPoints.date === getCurrentDate()) {
               leaderBoardData.push({
@@ -80,8 +80,8 @@ const Leaderboards = () => {
       if (filterTime === "all-time") {
         let leaderBoardData: Leaderboard[] = [];
         setLeaderboardData([]);
-        leaderboard.orderByChild("points").on("value", (snap) => {
-          snap.forEach((entry) => {
+        leaderboard.orderByChild("points").on("value", (snap: any) => {
+          snap.forEach((entry: any) => {
             if (user) {
               if (entry.key === user.uid) {
                 leaderBoardData.push(entry.val());
@@ -89,11 +89,11 @@ const Leaderboards = () => {
               usersData
                 .child(user.uid)
                 .child("friends")
-                .on("value", (userSnap) => {
+                .on("value", (userSnap: any) => {
                   setNeedUpdate(true);
                   // leaderBoardData = [];
                   if (userSnap.exists()) {
-                    userSnap.forEach((friend) => {
+                    userSnap.forEach((friend: any) => {
                       if (friend.val() === entry.key) {
                         leaderBoardData.push(entry.val());
                       }
@@ -107,10 +107,10 @@ const Leaderboards = () => {
           setNeedUpdate(false);
         });
       } else {
-        leaderboard.on("value", (snap) => {
+        leaderboard.on("value", (snap: any) => {
           let leaderBoardData: Leaderboard[] = [];
           setLeaderboardData([]);
-          snap.forEach((entry) => {
+          snap.forEach((entry: any) => {
             const todayPoints = entry.val().dailyPoints.pop();
             if (todayPoints.date === getCurrentDate()) {
               if (user) {
@@ -124,11 +124,11 @@ const Leaderboards = () => {
                 usersData
                   .child(user.uid)
                   .child("friends")
-                  .on("value", (userSnap) => {
+                  .on("value", (userSnap: any) => {
                     setNeedUpdate(true);
                     // leaderBoardData = [];
                     if (userSnap.exists()) {
-                      userSnap.forEach((friend) => {
+                      userSnap.forEach((friend: any) => {
                         if (friend.val() === entry.key) {
                           leaderBoardData.push({
                             name: entry.val().name,
