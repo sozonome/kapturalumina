@@ -2,17 +2,17 @@ import React, { useContext } from "react";
 import { IonRouterOutlet } from "@ionic/react";
 import { Route, Redirect, Switch } from "react-router";
 
-import MainTabs from "../../pages/main/MainTabs";
-import SubModulePage from "../../pages/main/learn/SubModulePage";
-import AboutPage from "../../pages/AboutPage";
-import LoginPage from "../../pages/auth/LoginPage";
-import RegisterPage from "../../pages/auth/RegisterPage";
-import PublicHome from "../../pages/PublicPage";
-import ChapterPage from "../../pages/main/learn/ChapterPage";
+import MainTabs from "pages/main/MainTabs";
+import SubModulePage from "pages/main/learn/SubModulePage";
+import AboutPage from "pages/AboutPage";
+import LoginPage from "pages/auth/LoginPage";
+import RegisterPage from "pages/auth/RegisterPage";
+import PublicHome from "pages/PublicPage";
+import ChapterPage from "pages/main/learn/ChapterPage";
 import PrivateRoute from "./PrivateRoute";
-import QuizPage from "../../pages/main/learn/QuizPage";
-import EditProfile from "../../pages/main/profile/EditProfile";
-import UserProfile from "../../pages/main/profile/UserProfile";
+import QuizPage from "pages/main/learn/QuizPage";
+import EditProfile from "pages/main/profile/EditProfile";
+import UserProfile from "pages/main/profile/UserProfile";
 
 import { AuthContext } from "../providers";
 

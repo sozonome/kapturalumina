@@ -2,10 +2,10 @@ import React, { useState, useEffect, useContext } from "react";
 
 import Loader from "../Loader";
 
-import { fbase, getCurrentUser } from "../../firebase";
+import { fbase, getCurrentUser } from "functions/firebase";
 import { AuthContext } from ".";
 
-import { UserData } from "../../models";
+import { UserData } from "models";
 
 const initialUser: UserData = {
   id: "abcde",
@@ -32,7 +32,7 @@ export const UserProfileProvider = ({ children }: any, props: any) => {
       fbase
         .database()
         .ref(`users/${user.uid}`)
-        .on("value", (snap) => {
+        .on("value", (snap: any) => {
           setUserProfile(initialUser);
           setUserProfile(snap.val());
         });

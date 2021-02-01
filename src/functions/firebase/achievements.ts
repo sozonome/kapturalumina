@@ -1,6 +1,6 @@
-import { fbase, getCurrentUser, leaderboard, usersData } from ".";
-import { Achievement, Chapter } from "../models";
-import { presentToast } from "../components/Toast";
+import { fbase, getCurrentUser, leaderboard, usersData } from "./index";
+import { Achievement, Chapter } from "models";
+import { presentToast } from "components/Toast";
 
 export const achievements = fbase.database().ref("achievements");
 

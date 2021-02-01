@@ -23,9 +23,9 @@ import {
 import { useHistory } from "react-router";
 
 import { AuthContext, ThemeContext } from "../providers";
-import { logoutUser } from "../../firebase";
+import { logoutUser } from "functions/firebase";
 
-import { FocusRafiki } from "../../assets";
+import { FocusRafiki } from "assets";
 import "./SideMenu.css";
 
 const SideMenu = () => {

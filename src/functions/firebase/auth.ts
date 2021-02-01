@@ -1,8 +1,8 @@
 // Functions related to Authentication with Firebase
 
-import { fbase, createNewUser, initUserLeaderBoard } from ".";
-import { presentToast } from "../components/Toast";
-import { randomString } from "../functions";
+import { fbase, createNewUser, initUserLeaderBoard } from "./index";
+import { presentToast } from "components/Toast";
+import { randomString } from "functions";
 
 export const loginUser = async (userEmail: string, userPassword: string) => {
   // Auth with firebase

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import Loader from "../Loader";
 
-import { fbase } from "../../firebase";
+import { fbase } from "functions/firebase";
 
 export const AuthContext = React.createContext({
   currentUser: null,
@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }: any) => {
   const [busy, setBusy] = useState(true);
 
   useEffect(() => {
-    fbase.auth().onAuthStateChanged((user) => {
+    fbase.auth().onAuthStateChanged((user: any) => {
       setCurrentUserState(user);
       setBusy(false);
     });

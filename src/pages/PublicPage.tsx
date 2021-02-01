@@ -11,8 +11,8 @@ import {
 } from "@ionic/react";
 import { Redirect } from "react-router";
 
-import { AuthContext } from "../components/providers/AuthProvider";
-import PublicHomeSlide from "../components/PublicHomeSlide";
+import { AuthContext } from "components/providers/AuthProvider";
+import PublicHomeSlide from "components/PublicHomeSlide";
 
 const PublicPage = () => {
   const { currentUser } = useContext(AuthContext);

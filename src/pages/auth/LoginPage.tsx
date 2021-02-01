@@ -15,16 +15,21 @@ import {
 } from "@ionic/react";
 import { Redirect, useHistory } from "react-router";
 
-import { AuthContext } from "../../components/providers";
-import { loginUser } from "../../firebase";
+import { AuthContext } from "components/providers";
+import { loginUser, requestPasswordReset } from "functions/firebase";
 
-import { FocusRafiki } from "../../assets";
+import { FocusRafiki } from "assets";
+import ForgotPasswordModal from "components/auth/ForgotPasswordModal";
 
 const LoginPage = () => {
   const [wait, setWait] = useState<boolean>(false);
 
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+
+  const [isModalResetPasswordOpen, setIsModalResetPasswordOpen] = useState<
+    boolean
+  >(false);
 
   const history = useHistory();
 
@@ -39,6 +44,19 @@ const LoginPage = () => {
     setWait(false);
   };
 
+  const forgotPassword = async () => {
+    setWait(true);
+    const res = await requestPasswordReset(email);
+    if (res) {
+      setIsModalResetPasswordOpen(false);
+    }
+    setWait(false);
+  };
+
+  const handleOpenResetPasswordModal = (isOpen: boolean) => () => {
+    setIsModalResetPasswordOpen(isOpen);
+  };
+
   const enterKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") {
       e.preventDefault();
@@ -48,13 +66,14 @@ const LoginPage = () => {
   };
 
   const { currentUser } = useContext(AuthContext);
+
   if (currentUser) {
     return <Redirect to="/" />;
   }
 
   return (
     <IonPage>
-      {<IonLoading message="Mohon Tunggu..." duration={0} isOpen={wait} />}
+      <IonLoading message="Mohon Tunggu..." duration={0} isOpen={wait} />
 
       <IonContent className="ion-padding">
         <div className="loginBox">
@@ -113,6 +132,17 @@ const LoginPage = () => {
               </IonCol>
             </IonRow>
             <IonRow className="ion-justify-content-center">
+              <IonCol
+                sizeSm="6"
+                className="ion-text-center"
+                style={{ cursor: "pointer", textDecoration: "underline" }}
+              >
+                <IonText onClick={handleOpenResetPasswordModal(true)}>
+                  Lupa Password
+                </IonText>
+              </IonCol>
+            </IonRow>
+            <IonRow className="ion-justify-content-center">
               <IonCol sizeSm="6" className="ion-text-center">
                 <IonText>Belum punya akun?</IonText>
               </IonCol>
@@ -132,6 +162,14 @@ const LoginPage = () => {
             </IonRow>
           </IonGrid>
         </div>
+
+        <ForgotPasswordModal
+          email={email}
+          isOpen={isModalResetPasswordOpen}
+          handleChangeEmail={(e) => setEmail(e.detail.value!)}
+          handleConfirmRequest={forgotPassword}
+          onDismiss={handleOpenResetPasswordModal(false)}
+        />
       </IonContent>
     </IonPage>
   );

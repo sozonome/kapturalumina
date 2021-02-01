@@ -1,7 +1,12 @@
 // Every functions related to "users" root in Realtime Database
 
-import { fbase, leaderboard, getCurrentUser, updateUserAchievements } from ".";
-import { presentToast } from "../components/Toast";
+import {
+  fbase,
+  leaderboard,
+  getCurrentUser,
+  updateUserAchievements,
+} from "./index";
+import { presentToast } from "components/Toast";
 
 // All Users
 export const usersData = fbase.database().ref("users");

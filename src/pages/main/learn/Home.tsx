@@ -24,9 +24,9 @@ import {
   LearnContext,
   UserProgressContext,
   UserProfileContext,
-} from "../../../components/providers";
+} from "components/providers";
 
-import { HelloRafiki } from "../../../assets";
+import { HelloRafiki } from "assets";
 
 const Home = () => {
   const { chapters } = useContext(LearnContext);

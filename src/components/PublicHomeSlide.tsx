@@ -9,7 +9,7 @@ import {
   IonCardHeader,
 } from "@ionic/react";
 
-import { PhotoAmico, FocusAmico, FocusPana } from "../assets";
+import { PhotoAmico, FocusAmico, FocusPana } from "assets";
 
 const PublicHomeSlide = () => {
   const slider = useRef(null as any);

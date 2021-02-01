@@ -10,16 +10,16 @@ import {
   IonLoading,
 } from "@ionic/react";
 
-import Profilewrapper from "../../../components/ProfileWrapper";
+import Profilewrapper from "components/ProfileWrapper";
 
 import {
   getCurrentUser,
   usersData,
   leaderboard,
   achievements,
-} from "../../../firebase";
+} from "functions/firebase";
 
-import { UserData, Achievement, Leaderboard } from "../../../models";
+import { UserData, Achievement, Leaderboard } from "models";
 
 const Profile = () => {
   const [user, setUser] = useState<UserData>();
@@ -34,16 +34,16 @@ const Profile = () => {
   useEffect(() => {
     const currentUser = getCurrentUser();
     if (currentUser) {
-      usersData.child(currentUser.uid).on("value", (snap) => {
+      usersData.child(currentUser.uid).on("value", (snap: any) => {
         let tempUserAchievement: Achievement[] = [];
         let tempUserAchievementList: any[] = [];
         setBusy(true);
         if (snap.exists()) {
           setUser(snap.val());
-          snap.child("achievements").forEach((userAchievementData) => {
+          snap.child("achievements").forEach((userAchievementData: any) => {
             achievements
-              .once("value", (snapAchievement) => {
-                snapAchievement.forEach((achievement) => {
+              .once("value", (snapAchievement: any) => {
+                snapAchievement.forEach((achievement: any) => {
                   if (userAchievementData.val().id === achievement.val().id) {
                     tempUserAchievement.push(achievement.val());
                     tempUserAchievementList.push({
@@ -66,9 +66,9 @@ const Profile = () => {
           setBusy(false);
         }
       });
-      leaderboard.on("value", (snap) => {
+      leaderboard.on("value", (snap: any) => {
         setUserLeaderboardData(undefined);
-        snap.forEach((entry) => {
+        snap.forEach((entry: any) => {
           if (entry.key === currentUser.uid) {
             setUserLeaderboardData(entry.val());
           }
