@@ -15,7 +15,7 @@ import {
   IonIcon,
 } from "@ionic/react";
 import { person, mail, key, keyOutline } from "ionicons/icons";
-import { Link, Redirect, useHistory } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 import { presentToast } from "components/Toast";
 import { AuthContext } from "components/providers";
@@ -34,8 +34,6 @@ const RegisterPage = () => {
   const [showPassConfAlert, setShowPassConfAlert] = useState<boolean>(false);
 
   const confirmationAlert = "Kata Sandi tidak sesuai.";
-
-  const history = useHistory();
 
   const register = async () => {
     // Validations

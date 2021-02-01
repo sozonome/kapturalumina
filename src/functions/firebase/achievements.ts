@@ -225,7 +225,7 @@ export const UpdateUserLeaderBoardAchievements = () => {
         achievementsCatalog = snap.val();
       })
       .then(() => {
-        achievementsCatalog.map((achievement) => {
+        achievementsCatalog.forEach((achievement) => {
           return leaderboard
             .child(user.uid)
             .child("dailyPoints")
