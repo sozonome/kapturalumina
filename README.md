@@ -9,6 +9,8 @@ Part of my Bachelor Thesis research in gamification design and implementation.
 
 [<img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" width="200"/>](https://play.google.com/store/apps/details?id=dev.sznm.kapturalumina) [<img src="https://user-images.githubusercontent.com/9122190/28998409-c5bf7362-7a00-11e7-9b63-db56694522e7.png" width="188" style="padding:10px"/>](https://kapturalumina.sznm.dev)
 
+[latest release](https://github.com/sozonome/kapturalumina/releases/latest)
+
 ## Previews
 
 ![kapturalumina](https://socialify.git.ci/sozonome/kapturalumina/image?description=1&font=Inter&pattern=Overlapping%20Hexagons&stargazers=1&theme=Dark)
