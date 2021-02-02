@@ -36,11 +36,12 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "GENERATE_SOURCEMAP=false react-scripts build",
-    "winBuild": "set \"GENERATE_SOURCEMAP=false\" react-scripts build",
+    "winBuild": "set \"GENERATE_SOURCEMAP=false\" && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "add-android": "npx cap add android",
     "build-release-android": "npm run build && npx cap copy",
+    "winBuild-release-android": "npm run winBuild && npx cap copy",
     "debug-android": "npx cap open android",
     "prettify": "prettier --write src/",
     "release": "standard-version"
