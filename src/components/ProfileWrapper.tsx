@@ -76,7 +76,7 @@ const Profilewrapper = ({ mainMenu, profile, value }: ProfileWrapperProps) => {
         <IonRow class="socialMediaLinks">
           {user.socialLinks?.instagram && (
             <a
-              href={"http://www.instagram.com/" + user.socialLinks.instagram}
+              href={"https://instagram.com/" + user.socialLinks.instagram}
               target="_blank"
               rel="noopener noreferrer"
             >
