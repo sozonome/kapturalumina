@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { IonRouterOutlet } from "@ionic/react";
-import { Route, Redirect, Switch } from "react-router";
+import { Route, Redirect } from "react-router";
 
 import MainTabs from "pages/main/MainTabs";
 import SubModulePage from "pages/main/learn/SubModulePage";
@@ -26,18 +26,16 @@ const Routing = () => {
       <Route path="/login" component={LoginPage} />
       <Route path="/register" component={RegisterPage} />
       <PrivateRoute exact path="/learn/:chapterId" component={ChapterPage} />
-      <Switch>
-        <PrivateRoute
-          exact
-          path="/learn/:chapterId/:subModuleId"
-          component={SubModulePage}
-        />
-        <PrivateRoute
-          exact
-          path="/quiz/:chapterId/:subModuleId"
-          component={QuizPage}
-        />
-      </Switch>
+      <PrivateRoute
+        exact
+        path="/learn/:chapterId/:subModuleId"
+        component={SubModulePage}
+      />
+      <PrivateRoute
+        exact
+        path="/quiz/:chapterId/:subModuleId"
+        component={QuizPage}
+      />
 
       <PrivateRoute exact path="/editprofile" component={EditProfile} />
       <PrivateRoute exact path="/user/:userId" component={UserProfile} />
