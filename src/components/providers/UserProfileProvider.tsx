@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, createContext } from "react";
 
 import Loader from "../Loader";
 
@@ -14,7 +14,7 @@ const initialUser: UserData = {
   public_id: "public_id",
 };
 
-export const UserProfileContext = React.createContext({
+export const UserProfileContext = createContext({
   user: initialUser,
 });
 

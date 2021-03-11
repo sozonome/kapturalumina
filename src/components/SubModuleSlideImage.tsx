@@ -1,4 +1,3 @@
-import React from "react";
 import { IonText } from "@ionic/react";
 
 export interface SubModuleSlideImageProps {
