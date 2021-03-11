@@ -39,8 +39,8 @@ import SideMenu from "components/sidemenu/SideMenu";
 import Routing from "components/routings/Routing";
 
 // Global CSS
-import "fontsource-inter/latin.css";
-import "fontsource-karla/latin.css";
+import "@fontsource/inter/latin.css";
+import "@fontsource/karla/latin.css";
 import "theme/styles/global.scss";
 
 /* Theme variables */
