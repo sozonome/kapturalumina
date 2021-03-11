@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { IonModal, IonText, IonButton } from "@ionic/react";
 
 import { Achievement } from "models";

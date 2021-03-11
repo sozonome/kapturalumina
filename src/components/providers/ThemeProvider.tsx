@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, createContext } from "react";
 
-export const ThemeContext = React.createContext({
+export const ThemeContext = createContext({
   darkMode: false,
   changeMode: () => {},
 });

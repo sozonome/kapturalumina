@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, createContext } from "react";
 
 import Loader from "../Loader";
 
@@ -7,7 +7,7 @@ import { fbase, getCurrentUser } from "functions/firebase";
 
 import { Progress } from "models";
 
-export const UserProgressContext = React.createContext({
+export const UserProgressContext = createContext({
   progress: [] as Progress[],
 });
 

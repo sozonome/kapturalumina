@@ -1,4 +1,4 @@
-import * as firebase from "firebase/app";
+import firebase from "firebase/app";
 import "firebase/database";
 import "firebase/auth";
 
@@ -15,4 +15,6 @@ export const config = {
   measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 };
 
-export const fbase = firebase.initializeApp(config);
+export const fbase = firebase.apps.length
+  ? firebase.app()
+  : firebase.initializeApp(config);

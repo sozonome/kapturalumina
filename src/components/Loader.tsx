@@ -1,4 +1,3 @@
-import React from "react";
 import { IonApp, IonPage, IonContent, IonSpinner, IonText } from "@ionic/react";
 
 const Loader = () => {

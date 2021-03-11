@@ -7,7 +7,7 @@ import {
   IonRow,
   IonText,
 } from "@ionic/react";
-import React, { useContext } from "react";
+import { useContext } from "react";
 
 import { ThemeContext } from "components/providers";
 

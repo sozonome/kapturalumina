@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, createContext } from "react";
 
 import Loader from "../Loader";
 
@@ -6,7 +6,7 @@ import { fbase } from "functions/firebase";
 
 import { Chapter } from "models";
 
-export const LearnContext = React.createContext({
+export const LearnContext = createContext({
   chapters: [] as Chapter[],
 });
 

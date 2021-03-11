@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, createContext } from "react";
 
 import Loader from "../Loader";
 
 import { fbase } from "functions/firebase";
 
-export const AuthContext = React.createContext({
+export const AuthContext = createContext({
   currentUser: null,
 });
 
