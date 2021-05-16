@@ -2,8 +2,6 @@ import firebase from "firebase/app";
 import "firebase/database";
 import "firebase/auth";
 
-require("dotenv").config();
-
 export const config = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,

@@ -13,7 +13,6 @@
     "@ionic/react": "^5.5.0",
     "@ionic/react-router": "^5.5.0",
     "cordova-plugin-appminimize": "^1.0.1",
-    "dotenv": "^8.2.0",
     "firebase": "^8.3.0",
     "ionicons": "^5.4.0",
     "node-sass": "^5.0.0",
