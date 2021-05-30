@@ -23,7 +23,7 @@ import "@ionic/react/css/flex-utils.css";
 import "@ionic/react/css/display.css";
 
 // Native Plugins
-import { Plugins } from "@capacitor/core";
+import { App } from "@capacitor/app";
 import { AppMinimize } from "@ionic-native/app-minimize";
 
 // Components / Wrappers
@@ -44,8 +44,6 @@ import "theme/styles/global.scss";
 
 /* Theme variables */
 import "theme/variables.scss";
-
-const { App } = Plugins;
 
 App.addListener("backButton", () => {
   AppMinimize.minimize();

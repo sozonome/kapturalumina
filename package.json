@@ -4,12 +4,16 @@
   "private": true,
   "author": "sozonome",
   "dependencies": {
-    "@capacitor/android": "^2.1.0",
-    "@capacitor/core": "2.4.6",
+    "@capacitor/android": "^3.0.0",
+    "@capacitor/app": "^1.0.0",
+    "@capacitor/core": "^3.0.0",
+    "@capacitor/haptics": "^1.0.0",
+    "@capacitor/keyboard": "^1.0.0",
+    "@capacitor/status-bar": "^1.0.0",
     "@fontsource/inter": "^4.4.1",
     "@fontsource/karla": "^4.4.1",
-    "@ionic-native/app-minimize": "^5.26.0",
-    "@ionic-native/core": "^5.26.0",
+    "@ionic-native/app-minimize": "^5.33.1",
+    "@ionic-native/core": "^5.33.1",
     "@ionic/react": "^5.6.8",
     "@ionic/react-router": "^5.6.8",
     "boring-avatars": "^1.5.3",
@@ -20,7 +24,8 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "rxjs": "^7.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -29,6 +34,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "add-android": "npx cap add android",
+    "sync-android": "npx cap sync android",
     "build-release-android": "npm run build && npx cap copy",
     "winBuild-release-android": "npm run winBuild && npx cap copy",
     "debug-android": "npx cap open android",
@@ -50,12 +56,12 @@
       "last 1 safari version"
     ]
   },
-  "description": "An Ionic project",
+  "description": "Basic Photography Learning App",
   "devDependencies": {
-    "@capacitor/cli": "2.4.6",
+    "@capacitor/cli": "^3.0.0",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.6.3",
+    "@testing-library/user-event": "^13.1.9",
     "@types/firebase": "^3.2.1",
     "@types/jest": "^26.0.23",
     "@types/node": "^15.6.1",
