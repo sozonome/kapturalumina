@@ -12,6 +12,7 @@
     "@ionic-native/core": "^5.26.0",
     "@ionic/react": "^5.5.0",
     "@ionic/react-router": "^5.5.0",
+    "boring-avatars": "^1.5.3",
     "cordova-plugin-appminimize": "^1.0.1",
     "firebase": "^8.3.0",
     "ionicons": "^5.4.0",

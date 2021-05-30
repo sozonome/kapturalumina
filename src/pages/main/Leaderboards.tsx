@@ -1,3 +1,4 @@
+import Avatar from "boring-avatars";
 import { useEffect, useState } from "react";
 import {
   IonPage,
@@ -251,10 +252,17 @@ const Leaderboards = () => {
                           transform: "translate(-50%, -50%)",
                         }}
                       >
-                        <IonImg
-                          src={
-                            "https://api.adorable.io/avatars/200/" + user.name
-                          }
+                        <Avatar
+                          size={"100%"}
+                          name={user.name}
+                          variant="beam"
+                          colors={[
+                            "#3880FF",
+                            "#3DC2FF",
+                            "#5260FF",
+                            "#222428",
+                            "#BD93F9",
+                          ]}
                         />
                       </IonAvatar>
                     </IonCol>

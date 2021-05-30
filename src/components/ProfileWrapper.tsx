@@ -1,3 +1,4 @@
+import Avatar from "boring-avatars";
 import { useState } from "react";
 import {
   IonGrid,
@@ -60,9 +61,11 @@ const Profilewrapper = ({ mainMenu, profile, value }: ProfileWrapperProps) => {
                 transform: "translate(-50%, -50%)",
               }}
             >
-              <img
-                src={"https://api.adorable.io/avatars/200/" + user.name}
-                alt="avatar"
+              <Avatar
+                size={"100%"}
+                name={user.name}
+                variant="beam"
+                colors={["#3880FF", "#3DC2FF", "#5260FF", "#222428", "#BD93F9"]}
               />
             </IonAvatar>
           </IonCol>
