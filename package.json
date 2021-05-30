@@ -39,7 +39,8 @@
     "winBuild-release-android": "npm run winBuild && npx cap copy",
     "debug-android": "npx cap open android",
     "prettify": "prettier --write src/",
-    "release": "standard-version"
+    "release": "standard-version",
+    "push-release": "git push --follow-tags origin main"
   },
   "eslintConfig": {
     "extends": "react-app"
